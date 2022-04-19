@@ -5,7 +5,7 @@ export default function Footer() {
     <div css={[tw`w-full bg-black text-white p-6 text-center`]}>
       made by me. source on{" "}
       <a
-        href="https://github.com/shepherdjerred/shepherdjerred"
+        href="https://github.com/shepherdjerred/shepherdjerred.com"
         css={[tw`underline`]}
       >
         github
