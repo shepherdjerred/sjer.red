@@ -2,7 +2,7 @@ import tw from "twin.macro";
 
 export default function Footer() {
   return (
-    <div css={[tw`w-full bg-black text-white p-6 text-center`]}>
+    <div css={[tw`w-full bg-black text-pink-200 p-6 text-center`]}>
       made by me. source on{" "}
       <a
         href="https://github.com/shepherdjerred/shepherdjerred.com"

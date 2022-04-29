@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import tw from "twin.macro";
-import pattern from "./pattern.svg";
+import pattern from "../pattern.svg";
 import Polygon from "./Polygon";
 
 export default function Hero() {
