@@ -14,7 +14,8 @@
     "eslint:fix": "eslint --fix --ext .tsx,.ts,.js src",
     "lint:check": "npm run prettier:check && npm run eslint:check",
     "lint:fix": "npm run prettier:fix && npm run eslint:fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "npm run lint:check && npm run build && npm run test"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",

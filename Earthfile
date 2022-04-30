@@ -12,6 +12,12 @@ build:
     RUN npm run build
     SAVE ARTIFACT dist/ /dist AS LOCAL .
 
+release:
+    FROM +dependencies
+    COPY . .
+    RUN npm run release
+    SAVE ARTIFACT dist/ /dist AS LOCAL .
+
 test:
     FROM +dependencies
     COPY . .

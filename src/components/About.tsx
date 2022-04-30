@@ -9,11 +9,14 @@ export default function About() {
           I&apos;m a software engineer. I have a particular passion for
           programming languages, infrastructure, and developer tools. Some of my
           favorite languages are Rust, Haskell, TypeScript, and Java (strictly
-          for sentimental reasons)
+          for sentimental reasons).
         </p>
         <p css={tw`mb-4`}>
-          I&apos;ll soon (fall 2022) be studying at Georgia Tech to pursue a
-          Masters in Computer Science.
+          I&apos;ll soon (fall 2022) be studying at{" "}
+          <a css={tw`underline`} href="https://omscs.gatech.edu/">
+            Georgia Tech
+          </a>{" "}
+          to pursue a Masters in Computer Science.
         </p>
         <p css={tw`mb-4`}>
           I&apos;m a fan of free software and a huge supporter of open source.
