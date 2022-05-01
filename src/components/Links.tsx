@@ -1,6 +1,6 @@
 import tw from "twin.macro";
 
-export default function Social() {
+export default function Links() {
   return (
     <div
       css={[
@@ -31,6 +31,14 @@ export default function Social() {
                 href="https://github.com/shepherdjerred"
               >
                 GITHUB
+              </a>
+            </li>
+            <li>
+              <a
+                css={[tw`hover:underline`]}
+                href="https://shepherdjerred.substack.com/"
+              >
+                BLOG
               </a>
             </li>
             <li>

@@ -1,7 +1,7 @@
 import React from "react";
 import tw from "twin.macro";
 import Hero from "../components/Hero";
-import Social from "../components/Social";
+import Links from "../components/Links";
 import About from "../components/About";
 import Footer from "../components/Footer";
 import Faq from "../components/Faq";
@@ -12,7 +12,7 @@ export default function Home() {
     <React.Fragment>
       <div css={tw`h-screen`}>
         <Hero />
-        <Social />
+        <Links />
         <About />
         <Faq />
         <Contact />
