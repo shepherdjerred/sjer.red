@@ -24,7 +24,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
-    "three": "^0.140.0"
+    "three": "^0.140.2"
   },
   "devDependencies": {
     "@emotion/babel-plugin-jsx-pragmatic": "^0.1.5",
