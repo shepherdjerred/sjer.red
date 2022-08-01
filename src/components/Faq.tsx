@@ -15,27 +15,6 @@ export default function Faq() {
             want it to
           </p>
         </div>
-        <div css={[tw`pb-6`]}>
-          <p>
-            <span css={tw`font-bold mr-2`}>q:</span> why did you use react +
-            react router + three.js + tailwind + vite for a site with a single
-            page and not much content?
-          </p>
-          <p>
-            <span css={tw`font-bold mr-2`}>a:</span> web development is a
-            hellscape. this project helped me get familiar with tools i want to
-            use for larger projects.
-          </p>
-        </div>
-        <div css={[tw`pb-6`]}>
-          <p>
-            <span css={tw`font-bold mr-2`}>q:</span> did you really need react
-            router for this?
-          </p>
-          <p>
-            <span css={tw`font-bold mr-2`}>a:</span> no
-          </p>
-        </div>
       </div>
     </div>
   );

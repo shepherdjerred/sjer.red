@@ -1,6 +1,11 @@
+import { differenceInCalendarDays } from "date-fns";
 import tw from "twin.macro";
 
 export default function About() {
+  const firstDayOfClass = new Date(2022, 7, 22);
+  const now = new Date();
+  const daysLeft = differenceInCalendarDays(firstDayOfClass, now);
+
   return (
     <div css={[tw`grid grid-cols-1`]}>
       <div css={tw`place-self-center md:w-3/5 p-6`}>
@@ -12,14 +17,14 @@ export default function About() {
           for sentimental reasons).
         </p>
         <p css={tw`mb-4`}>
-          I&apos;ll soon (fall 2022) be studying at{" "}
+          I&apos;ll soon (in {daysLeft} days!) be studying at{" "}
           <a css={tw`underline`} href="https://omscs.gatech.edu/">
             Georgia Tech
           </a>{" "}
           to pursue a Masters in Computer Science.
         </p>
         <p css={tw`mb-4`}>
-          I&apos;m a fan of free software and a huge supporter of open source.
+          I&apos;m a fan of free software and a supporter of open source.
         </p>
         <p css={tw`mb-4`}>
           I&apos;m very active on Github so you can check that out if

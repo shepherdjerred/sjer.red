@@ -36,14 +36,6 @@ export default function Links() {
             <li>
               <a
                 css={[tw`hover:underline`]}
-                href="https://shepherdjerred.substack.com/"
-              >
-                BLOG
-              </a>
-            </li>
-            <li>
-              <a
-                css={[tw`hover:underline`]}
                 href="https://www.linkedin.com/in/jerred-shepherd-1999a5153/"
               >
                 LINKEDIN :(

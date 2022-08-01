@@ -28,9 +28,12 @@ export default function Hero() {
           I work as a <span>software engineer</span> at{" "}
           <a
             href="https://rstudio.com"
-            css={[tw`text-rstudio hover:underline`]}
+            css={[tw`text-rstudio hover:underline line-through`]}
           >
-            RStudio
+            RStudio, PBC
+          </a>{" "}
+          <a href="https://posit.co/" css={[tw`text-posit hover:underline`]}>
+            Posit, PBC
           </a>
           .
         </h2>
