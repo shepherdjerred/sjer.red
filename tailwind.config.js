@@ -15,7 +15,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      display: "'Avenir Next'",
+      display: "'Nunito'",
       mono: "'Fira Code'",
     },
   },

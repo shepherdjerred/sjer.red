@@ -1,4 +1,5 @@
 import tw from "twin.macro";
+import ChaosLetter from "./ChaosLetter";
 
 export default function Links() {
   return (
@@ -8,12 +9,15 @@ export default function Links() {
       ]}
     >
       <div css={[tw`grid grid-cols-1 md:grid-cols-2`]}>
-        <h1 css={[tw`text-pink-500 font-bold text-3xl flex`]}>
-          <span css={[tw`ml-5 mt-1`]}>L</span>
-          <span css={[tw`ml-1 mt-5`]}>I</span>
-          <span css={[tw`ml-6 mt-2`]}>N</span>
-          <span css={[tw`ml-0 mt-6`]}>K</span>
-          <span css={[tw`ml-2 mt-4`]}>S</span>
+        <h1
+          css={[tw`text-pink-500 font-bold text-3xl flex`]}
+          aria-label="Stylized text that reads links"
+        >
+          <ChaosLetter>L</ChaosLetter>
+          <ChaosLetter>I</ChaosLetter>
+          <ChaosLetter>N</ChaosLetter>
+          <ChaosLetter>K</ChaosLetter>
+          <ChaosLetter>S</ChaosLetter>
         </h1>
         <div css={[tw`text-pink-500 text-2xl`]}>
           <ul css={[tw`list-disc`]}>
