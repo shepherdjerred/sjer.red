@@ -5,6 +5,11 @@ export default function About() {
   const firstDayOfClass = new Date(2022, 7, 22);
   const now = new Date();
   const daysLeft = differenceInCalendarDays(firstDayOfClass, now);
+  const daysMessage =
+    daysLeft == 0 ? "starting today!" : `in ${daysLeft} days!`;
+  const anticipatoryMessage = `I'll soon (${daysMessage}) be`;
+  const startedMessage = `I'm`;
+  const message = daysLeft < 0 ? startedMessage : anticipatoryMessage;
 
   return (
     <div css={[tw`grid grid-cols-1`]}>
@@ -17,7 +22,7 @@ export default function About() {
           for sentimental reasons).
         </p>
         <p css={tw`mb-4`}>
-          I&apos;ll soon (in {daysLeft} days!) be studying at{" "}
+          {message} studying at{" "}
           <a css={tw`underline`} href="https://omscs.gatech.edu/">
             Georgia Tech
           </a>{" "}
