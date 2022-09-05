@@ -30,7 +30,7 @@
   "devDependencies": {
     "@emotion/babel-plugin-jsx-pragmatic": "^0.2.0",
     "@tsconfig/node16-strictest-esm": "^1.0.3",
-    "@types/react": "^18.0.17",
+    "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.35.1",
     "@typescript-eslint/parser": "^5.35.1",
