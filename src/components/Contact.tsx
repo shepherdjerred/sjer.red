@@ -6,8 +6,8 @@ export default function Contact() {
       <h1>Contact</h1>
       <div>
         Email me at{" "}
-        <a css={tw`underline`} href="mailto:contact@jerred.shepherdjerred.com">
-          contact@jerred.shepherdjerred.com
+        <a css={tw`underline`} href="mailto:contact@sjer.red">
+          contact@sjer.red
         </a>
         .
       </div>

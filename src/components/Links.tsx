@@ -23,10 +23,7 @@ export default function Links() {
         <div css={[tw`text-pink-500 text-2xl`]}>
           <ul css={[tw`list-disc`]}>
             <li>
-              <a
-                css={[tw`hover:underline`]}
-                href="https://resume.shepherdjerred.com"
-              >
+              <a css={[tw`hover:underline`]} href="https://resume.sjer.red">
                 RESUME
               </a>
             </li>
