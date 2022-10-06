@@ -101,7 +101,6 @@ const components = {
     </h6>
   ),
   code: (props: any) => {
-    console.log(props);
     if (props.children.includes("\n")) {
       return (
         <SyntaxHighlighter
