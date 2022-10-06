@@ -30,6 +30,11 @@ export default function Links() {
               </a>
             </li>
             <li>
+              <a css={[tw`hover:underline`]} href="/blog">
+                BLOG
+              </a>
+            </li>
+            <li>
               <a
                 css={[tw`hover:underline`]}
                 href="https://github.com/shepherdjerred"

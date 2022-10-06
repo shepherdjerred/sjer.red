@@ -12,6 +12,7 @@ module.exports = {
         rstudio: "#75aadb",
         posit: "#e47d3a",
         pink: colors.pink,
+        orange: colors.orange,
       },
     },
     fontFamily: {
