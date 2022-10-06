@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import tw from "twin.macro";
 import pattern from "./pattern.svg";
 
@@ -11,9 +12,9 @@ export default function BlogList() {
     >
       <div css={[tw`md:place-self-center p-56 pb-0 pt-0`]}>
         <div>
-          <a href="#/blog/libvirt-and-c" css={tw`underline`}>
+          <Link to="/blog/libvirt-and-c" css={tw`underline`}>
             1. My struggles with C and libvirt
-          </a>
+          </Link>
         </div>
       </div>
     </div>

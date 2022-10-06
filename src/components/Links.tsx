@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import tw from "twin.macro";
 import ChaosLetter from "./ChaosLetter";
 
@@ -30,9 +31,9 @@ export default function Links() {
               </a>
             </li>
             <li>
-              <a css={[tw`hover:underline`]} href="#/blog">
+              <Link to={"/blog"} css={[tw`hover:underline`]}>
                 BLOG
-              </a>
+              </Link>
             </li>
             <li>
               <a
