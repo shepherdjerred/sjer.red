@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
+import Blog from "./components/Blog";
 import GlobalStyles from "./styles/GlobalStyles";
 
 const root = document.getElementById("root");
@@ -11,7 +12,10 @@ if (root) {
     <React.StrictMode>
       <GlobalStyles />
       <BrowserRouter>
-        <App />
+        <Routes>
+          <Route path="*" element={<App />}></Route>
+          <Route path="/blog" element={<Blog />}></Route>
+        </Routes>
       </BrowserRouter>
     </React.StrictMode>
   );

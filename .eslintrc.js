@@ -25,5 +25,10 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "@typescript-eslint"],
-  rules: {},
+  rules: {
+    "react/no-unknown-property": [
+      "error",
+      { ignore: ["css", "args", "position"] },
+    ],
+  },
 };

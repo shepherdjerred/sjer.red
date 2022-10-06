@@ -6,6 +6,7 @@
     "allowJs": false,
     "checkJs": false,
     "jsxImportSource": "@emotion/react",
+    "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
