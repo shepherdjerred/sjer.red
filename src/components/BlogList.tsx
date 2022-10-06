@@ -11,7 +11,7 @@ export default function BlogList() {
     >
       <div css={[tw`md:place-self-center p-56 pb-0 pt-0`]}>
         <div>
-          <a href="/blog/libvirt-and-c" css={tw`underline`}>
+          <a href="#/blog/libvirt-and-c" css={tw`underline`}>
             1. My struggles with C and libvirt
           </a>
         </div>
