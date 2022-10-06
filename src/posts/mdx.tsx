@@ -107,6 +107,7 @@ const components = {
           language={props.className.slice(9)}
           {...props}
           style={vscDarkPlus}
+          customStyle={tw`rounded-xl`}
         />
       );
     } else {

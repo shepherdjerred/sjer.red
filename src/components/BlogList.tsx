@@ -27,7 +27,9 @@ export default function BlogList() {
           { backgroundImage: `url(${pattern})` },
         ]}
       >
-        <div css={[tw`md:place-self-center p-56 pb-0 pt-0`]}>{postLinks}</div>
+        <div css={[tw`md:place-self-center p-2 md:p-56 pb-0 pt-0`]}>
+          {postLinks}
+        </div>
       </div>
       <Footer />
     </div>
