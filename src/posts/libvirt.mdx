@@ -24,7 +24,7 @@ GCCFLAGS += -Wall -Wextra -Wpedantic \
 		  -Wconversion
 
 compile:
-	gcc -g vcpu_scheduler.c -o vcpu_scheduler -lvirt -lm $(GCCFLAGS)
+gcc -g vcpu_scheduler.c -o vcpu_scheduler -lvirt -lm $(GCCFLAGS)
 ```
 
 ### Refresh on C
@@ -52,11 +52,11 @@ This method returns 0 on success, and -1 on failure.
 It's always good to check return codes. Nothing nothing nothing is more frustrating than being confused about why straightforward code is failing -- this is one way to prevent that from happening.
 
 ```c
-  virNodeInfo node_info;
-  if (virNodeGetInfo(conn, &node_info) == -1) {
-    exit(1);
-  }
-  unsigned int num_cpus = node_info.cpus;
+virNodeInfo node_info;
+if (virNodeGetInfo(conn, &node_info) == -1) {
+  exit(1);
+}
+unsigned int num_cpus = node_info.cpus;
 ```
 
 ## Listing domains
@@ -66,13 +66,13 @@ This method takes a pointer. It will allocate a list of domains at the pointer, 
 Also, this method requires a bit of cleanup. You didn't dynamically allocate any memory, but the method you called did. Clean up so that you don't leak memory.
 
 ```c
-  virDomainPtr *domain_list;
-  int num_domains = virConnectListAllDomains(conn, &domain_list, 0);
-  // don't forget to cleanup!
-  for (int i_domain = 0; i_domain < num_domains; i_domain++) {
-    virDomainFree(domain_list[i_domain]);
-  }
-  free(domain_list);
+virDomainPtr *domain_list;
+int num_domains = virConnectListAllDomains(conn, &domain_list, 0);
+// don't forget to cleanup!
+for (int i_domain = 0; i_domain < num_domains; i_domain++) {
+  virDomainFree(domain_list[i_domain]);
+}
+free(domain_list);
 ```
 
 ## Pin a vCPU to a pCPU
@@ -82,19 +82,19 @@ This one is rough.
 I think you can form the CPU map manually, but I just call libvirt and let it form it for me, then I pin CPUs as I like.
 
 ```c
-    unsigned char *map;
-    if (virNodeGetCPUMap(conn, &map, NULL, 0) == -1) {
-      exit(1);
-    }
+unsigned char *map;
+if (virNodeGetCPUMap(conn, &map, NULL, 0) == -1) {
+  exit(1);
+}
 
-    // Use CPU 0
-    VIR_USE_CPU(map, 0);
-    // Don't use CPU 1
-    VIR_UNUSE_CPU(map, 1);
+// Use CPU 0
+VIR_USE_CPU(map, 0);
+// Don't use CPU 1
+VIR_UNUSE_CPU(map, 1);
 
-    int maplen = VIR_CPU_MAPLEN(number_of_physical_cpus);
+int maplen = VIR_CPU_MAPLEN(number_of_physical_cpus);
 
-    // apply these settings to vcpu #0 in the given domain
-    virDomainPinVcpu(domain, 0, map, maplen);
-    free(map);
+// apply these settings to vcpu #0 in the given domain
+virDomainPinVcpu(domain, 0, map, maplen);
+free(map);
 ```
