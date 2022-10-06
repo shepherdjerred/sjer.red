@@ -35,6 +35,7 @@
     "@tsconfig/node16-strictest-esm": "^1.0.3",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "@types/react-syntax-highlighter": "^15.5.5",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
     "@vitejs/plugin-react": "^2.1.0",
