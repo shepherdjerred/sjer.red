@@ -10,7 +10,7 @@ export default function Footer() {
       >
         github
       </a>
-      . like (almost) everything i write, this is licensed under the{" "}
+      . like most everything i write, this is licensed under the{" "}
       <a
         href="https://www.gnu.org/licenses/gpl-3.0.en.html"
         css={[tw`underline`]}
