@@ -16,7 +16,7 @@ export default function Layout(props: LayoutProps) {
   return (
     <Background extraCss={props.backgroundCss}>
       <FooterWrapper>
-        <div css={tw`fixed`}>
+        <div css={tw`fixed bottom-0 right-0`}>
           <Header />
         </div>
         <Container width={props.width}>{props.children}</Container>

@@ -6,12 +6,14 @@ import Polygon from "./Polygon";
 
 export default function Hero() {
   return (
-    <Background
-      extraCss={tw`bg-purple-900 min-h-[0vh] md:min-h-[40vh] md:pt-20 md:pb-20`}
-    >
+    <Background extraCss={tw`bg-purple-900 min-h-[0vh] md:min-h-[40vh]`}>
       <Container width={Width.WIDE}>
         <div css={[tw`grid grid-cols-1 md:grid-cols-2 md:grid-flow-row`]}>
-          <div css={[tw`md:place-self-center m-5 md:m-0 md:ml-10`]}>
+          <div
+            css={[
+              tw`md:place-self-center m-5 md:m-0 md:ml-10 md:pt-20 md:pb-20`,
+            ]}
+          >
             <h1
               css={[
                 tw`text-white bg-black p-2 font-bold text-4xl font-display inline-block mb-2 md:mb-0`,
@@ -43,7 +45,7 @@ export default function Hero() {
           <div css={[tw`inline md:block`]}>
             <Canvas>
               <ambientLight />
-              <pointLight position={[10, 10, 10]} />
+              <pointLight position={[100, 10, 10]} />
               <Polygon />
             </Canvas>
           </div>

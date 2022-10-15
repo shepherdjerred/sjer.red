@@ -115,7 +115,7 @@ const components: MDXComponents = {
     } else {
       return (
         <span
-          css={tw`bg-black font-mono text-orange-100 p-1 rounded-md`}
+          css={tw`bg-black font-mono text-orange-100 p-1.5 pb-0 pt-0 rounded-md`}
           {...props}
         />
       );
