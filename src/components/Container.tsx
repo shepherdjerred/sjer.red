@@ -24,7 +24,7 @@ function widthToClass(width: Width): TwStyle {
 
 export default function Container(props: ContainerProps) {
   return (
-    <div css={tw`grid`}>
+    <div css={tw`grid grid-cols-1`}>
       <div
         css={[tw`p-2 md:p-0 md:place-self-center`, widthToClass(props.width)]}
       >

@@ -28,7 +28,7 @@ const components: MDXComponents = {
   ),
   h2: (props) => (
     <h2
-      css={tw`text-xl mt-5  font-bold`}
+      css={tw`text-xl mt-5 font-bold`}
       {...props}
       id={encodeURI(props.children?.toString() || "")}
     >
@@ -43,7 +43,7 @@ const components: MDXComponents = {
   ),
   h3: (props) => (
     <h3
-      css={tw`text-lg mt-4  font-bold`}
+      css={tw`text-lg mt-4 font-bold`}
       {...props}
       id={encodeURI(props.children?.toString() || "")}
     >
@@ -58,7 +58,7 @@ const components: MDXComponents = {
   ),
   h4: (props) => (
     <h4
-      css={tw`text-lg mt-3  font-bold`}
+      css={tw`text-lg mt-3 font-bold`}
       {...props}
       id={encodeURI(props.children?.toString() || "")}
     >
@@ -102,7 +102,7 @@ const components: MDXComponents = {
     </h6>
   ),
   code: (props) => {
-    if (props.children?.toString() || "".includes("\n")) {
+    if ((props.children?.toString() || "").includes("\n")) {
       return (
         <SyntaxHighlighter
           language={props.className?.slice(9)}
