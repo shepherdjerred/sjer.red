@@ -6,18 +6,36 @@ export default function Polygon() {
   const [isHovered, setHovered] = useState(false);
   const [isClicked, setClicked] = useState(false);
   const [multiplier, setMultiplier] = useState(0.035);
+  const [direction, setDirection] = useState(0);
+  const [marker, setMarker] = useState(true);
   useFrame(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const current = ref.current as any;
     if (!isClicked) {
-      current.rotation.x += Math.random() * multiplier;
-      current.rotation.y += Math.random() * multiplier;
+      if (Math.random() > 0.5) {
+        if (marker == true) {
+          setDirection(direction + 0.1);
+        }
+      } else {
+        if (marker == false) {
+          setDirection(direction - 0.1);
+        }
+      }
+
+      if (direction < -17) {
+        setMarker(true);
+      } else if (direction > 17) {
+        setMarker(false);
+      }
+
+      current.rotation.x += (direction / 11) * multiplier;
+      current.rotation.y += (direction / 11) * multiplier;
     }
     if (isHovered) {
-      setMultiplier(multiplier * 1.01);
+      setMultiplier(multiplier * 1.05);
     } else {
       if (multiplier > 0.035) {
-        setMultiplier(multiplier * 0.99);
+        setMultiplier(multiplier * 0.95);
       }
     }
   });
