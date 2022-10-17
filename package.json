@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin-jsx-pragmatic": "^0.2.0",
-    "@mdx-js/rollup": "^2.1.4",
+    "@mdx-js/rollup": "^2.1.5",
     "@tsconfig/node16-strictest-esm": "^1.0.3",
     "@types/mdx": "^2.0.2",
     "@types/react": "^18.0.21",
