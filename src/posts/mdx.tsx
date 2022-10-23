@@ -4,6 +4,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import type { MDXComponents } from "mdx/types";
 
 const components: MDXComponents = {
+  ol: (props) => <ol css={tw`list-decimal list-inside`}>{props.children}</ol>,
   ul: (props) => <ul css={tw`list-disc list-inside`}>{props.children}</ul>,
   li: (props) => <li>{props.children}</li>,
   a: (props) => (

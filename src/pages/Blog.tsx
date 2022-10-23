@@ -8,7 +8,7 @@ export interface BlogProps {
 
 export default function Blog(props: BlogProps) {
   return (
-    <Layout width={Width.NORMAL} backgroundCss={tw`bg-gray-200`}>
+    <Layout width={Width.NARROW} backgroundCss={tw`bg-gray-200`}>
       <div css={tw`mt-4 mb-4`}>{props.page}</div>
     </Layout>
   );
