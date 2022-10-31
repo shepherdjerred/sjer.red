@@ -22,7 +22,7 @@
     "@emotion/styled": "^11.10.4",
     "@heroicons/react": "^2.0.12",
     "@mdx-js/react": "^2.1.5",
-    "@react-three/fiber": "^8.8.10",
+    "@react-three/fiber": "^8.9.0",
     "heroicons": "^2.0.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
