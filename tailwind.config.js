@@ -9,7 +9,6 @@ module.exports = {
         purple: colors.purple,
         white: colors.white,
         yellow: colors.yellow,
-        rstudio: "#75aadb",
         posit: "#e47d3a",
         pink: colors.pink,
         orange: colors.orange,
