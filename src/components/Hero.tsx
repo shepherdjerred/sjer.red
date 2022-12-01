@@ -16,7 +16,7 @@ export default function Hero() {
           >
             <h1
               css={[
-                tw`text-white bg-black p-2 font-bold text-4xl font-display inline-block mb-2 md:mb-0`,
+                tw`text-white bg-black p-2 font-bold text-4xl inline-block mb-2 md:mb-0`,
               ]}
             >
               Hi. I&apos;m Jerred Shepherd 😄
@@ -24,7 +24,7 @@ export default function Hero() {
             <br />
             <h2
               css={[
-                tw`text-white bg-black p-2 font-bold text-4xl font-display inline-block`,
+                tw`text-white bg-black p-2 font-bold text-4xl inline-block`,
               ]}
             >
               I work as a <span>software engineer</span> at{" "}

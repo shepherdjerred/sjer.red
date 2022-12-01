@@ -15,7 +15,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      display: "'Nunito'",
+      sans: "'Nunito",
       mono: "'Fira Code'",
     },
   },

@@ -21,6 +21,14 @@ export default function Links() {
           <div css={[tw`text-pink-500 text-2xl`]}>
             <ul css={[tw`list-disc`]}>
               <li>
+                <a
+                  css={[tw`hover:underline`]}
+                  href="https://github.com/shepherdjerred/advent-of-code-2022"
+                >
+                  Advent of Code 2022
+                </a>
+              </li>
+              <li>
                 <Link to={"/blog"} css={[tw`hover:underline`]}>
                   BLOG
                 </Link>
