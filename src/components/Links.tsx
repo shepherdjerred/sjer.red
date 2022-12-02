@@ -23,9 +23,9 @@ export default function Links() {
               <li>
                 <a
                   css={[tw`hover:underline`]}
-                  href="https://github.com/shepherdjerred/advent-of-code-2022"
+                  href="https://github.com/shepherdjerred/advent-of-code"
                 >
-                  Advent of Code 2022
+                  Advent of Code 🎄
                 </a>
               </li>
               <li>
