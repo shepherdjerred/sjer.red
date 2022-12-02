@@ -8,12 +8,12 @@ export default function Faq() {
         <h1 css={[tw`text-6xl font-bold pt-0 text-right mr-0 mb-10`]}>FAQ</h1>
         <div css={[tw`pb-6`]}>
           <p>
-            <span css={tw`font-bold mr-2`}>q:</span> why does this site look so
+            <span css={tw`font-bold mr-2`}>Q:</span> Why does this site look so
             terrible?
           </p>
           <p>
-            <span css={tw`font-bold mr-2`}>a:</span> it looks exactly the way i
-            want it to
+            <span css={tw`font-bold mr-2`}>A:</span> It looks exactly the way I
+            want it to.
           </p>
         </div>
       </div>
