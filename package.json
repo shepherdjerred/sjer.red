@@ -20,7 +20,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@heroicons/react": "^2.0.14",
+    "@heroicons/react": "^2.0.15",
     "@mdx-js/react": "^2.3.0",
     "@react-three/fiber": "^8.10.4",
     "heroicons": "^2.0.15",
