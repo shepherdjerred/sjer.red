@@ -18,7 +18,7 @@
     "release": "npm run lint:check && npm run build && npm run test"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
+    "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.5",
     "@heroicons/react": "^2.0.15",
     "@mdx-js/react": "^2.3.0",
