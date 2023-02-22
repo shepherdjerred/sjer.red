@@ -13,21 +13,35 @@ export default function About() {
       </p>
       <p css={tw`mb-4`}>
         I&apos;m studying at{" "}
-        <a css={tw`underline`} href="https://omscs.gatech.edu/">
+        <a css={tw`underline text-blue-400`} href="https://omscs.gatech.edu/">
           Georgia Tech
         </a>{" "}
-        to pursue a Masters in Computer Science.
+        to pursue a Masters in Computer Science. Current I&apos;m taking{" "}
+        <a
+          css={tw`underline text-blue-400`}
+          href="https://omscs.gatech.edu/cs-7210-distributed-computing"
+        >
+          Distributed Computing
+        </a>
+        . I&apos;m hoping to get into research after my Masters.
       </p>
       <p css={tw`mb-4`}>
         I&apos;m a fan of free software and a supporter of open source.
       </p>
       <p css={tw`mb-4`}>
-        I&apos;m very active on Github so you can check that out if you&apos;re
-        curious about what I&apos;ve worked on. My resume has a bit more of a
-        complete view of my background.
+        I&apos;m very active on{" "}
+        <a
+          href="https://github.com/shepherdjerred"
+          css={tw`underline text-blue-400`}
+        >
+          Github
+        </a>
+        , so you can check that out if you&apos;re curious about what I&apos;ve
+        been working on. My resume has a bit more of a complete view of my
+        background.
       </p>
       <p>
-        My non-software-related interests include rock climbing, cooking, cats,
+        My non-computer-related interests include rock climbing, cooking, cats,
         and reading.
       </p>
     </Container>

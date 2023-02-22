@@ -5,7 +5,7 @@ import mac from "../img/macmade-wht.gif";
 
 export default function MyFavoriteComponent() {
   return (
-    <div css={tw`flex justify-center`}>
+    <div css={tw`flex justify-center mt-3`}>
       <img src={res} css={tw`m-2`} />
       <img src={lynx} css={tw`m-2`} />
       <img src={mac} css={tw`m-2`} />

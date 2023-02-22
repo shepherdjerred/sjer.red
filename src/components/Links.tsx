@@ -27,7 +27,7 @@ export default function Links() {
               </li>
               <li>
                 <a css={[tw`hover:underline`]} href="https://resume.sjer.red">
-                  Resume
+                  Résumé
                 </a>
               </li>
               <li>

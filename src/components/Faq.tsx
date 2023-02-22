@@ -16,6 +16,21 @@ export default function Faq() {
             want it to.
           </p>
         </div>
+        <div css={[tw`pb-6`]}>
+          <p>
+            <span css={tw`font-bold mr-2`}>Q:</span> What&apos;s your favorite
+            xkcd?
+          </p>
+          <p>
+            <span css={tw`font-bold mr-2`}>A:</span>{" "}
+            <a
+              href="https://xkcd.com/1293/"
+              css={tw`underline text-yellow-400`}
+            >
+              #1293: Job Interview
+            </a>
+          </p>
+        </div>
       </div>
     </Container>
   );
