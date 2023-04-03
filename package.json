@@ -51,7 +51,7 @@
     "lint-staged": "^13.2.0",
     "postcss": "^8.4.21",
     "prettier": "2.8.7",
-    "twin.macro": "^3.1.0",
+    "twin.macro": "^3.3.0",
     "typescript": "^5.0.2",
     "vite": "^4.2.1",
     "vitest": "^0.29.7"
