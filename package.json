@@ -50,7 +50,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "postcss": "^8.4.22",
-    "prettier": "2.8.7",
+    "prettier": "2.8.8",
     "twin.macro": "^3.3.1",
     "typescript": "^5.0.4",
     "vite": "^4.2.1",
