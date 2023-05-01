@@ -32,7 +32,7 @@
     "three": "^0.151.3"
   },
   "devDependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.21.0",
+    "@babel/plugin-transform-react-jsx": "^7.21.5",
     "@emotion/babel-plugin-jsx-pragmatic": "^0.2.0",
     "@mdx-js/rollup": "^2.3.0",
     "@tsconfig/node16-strictest-esm": "^1.0.3",
