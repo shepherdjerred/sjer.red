@@ -34,7 +34,7 @@ export default function About() {
           href="https://github.com/shepherdjerred"
           css={tw`underline text-blue-400`}
         >
-          Github
+          GitHub
         </a>
         , so you can check that out if you&apos;re curious about what I&apos;ve
         been working on. My resume has a bit more of a complete view of my
