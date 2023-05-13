@@ -1,4 +1,4 @@
-import tw, { TwStyle } from "twin.macro";
+import tw, { type TwStyle } from "twin.macro";
 import pattern from "./pattern.svg";
 
 export interface BackgroundProps {

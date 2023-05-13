@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import tw from "twin.macro";
-import posts, { Post } from "../posts/posts";
+import posts, { type Post } from "../posts/posts";
 import { Width } from "../components/Container";
 import Layout from "../components/Layout";
 

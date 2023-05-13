@@ -16,12 +16,12 @@ export default function About() {
         <a css={tw`underline text-blue-400`} href="https://omscs.gatech.edu/">
           Georgia Tech
         </a>{" "}
-        to pursue a Masters in Computer Science. Current I&apos;m taking{" "}
+        to pursue a Masters in Computer Science. Currently I&apos;m taking{" "}
         <a
           css={tw`underline text-blue-400`}
-          href="https://omscs.gatech.edu/cs-7210-distributed-computing"
+          href="https://omscs.gatech.edu/cs-8803-o13-quantum-computing"
         >
-          Distributed Computing
+          Quantum Computing
         </a>
         . I&apos;m hoping to get into research after my Masters.
       </p>
