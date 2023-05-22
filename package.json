@@ -55,7 +55,7 @@
     "prettier": "2.8.8",
     "twin.macro": "^3.3.1",
     "typescript": "^5.0.4",
-    "vite": "^4.3.5",
+    "vite": "^4.3.8",
     "vitest": "^0.31.0"
   },
   "lint-staged": {
