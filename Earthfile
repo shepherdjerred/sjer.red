@@ -1,5 +1,5 @@
-VERSION 0.6
-FROM node:16
+VERSION 0.7
+FROM node:lts
 WORKDIR /source
 
 dependencies:
