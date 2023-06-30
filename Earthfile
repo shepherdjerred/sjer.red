@@ -7,12 +7,12 @@ pipeline.preview:
   PIPELINE
   TRIGGER pr main
   BUILD +build
-  BUILD +lint
+  BUILD +lint.check
 
 pipeline.push:
   PIPELINE --push
   TRIGGER push main
-  BUILD +lint
+  BUILD +lint.check
   BUILD +deploy --prod=true
   BUILD +devcontainer
 
@@ -38,7 +38,6 @@ lint.fix:
 
 deploy:
   ARG prod=false
-  FROM +node
   ENV NETLIFY_SITE_ID=0c2c0de1-9c7d-4b06-9448-e77401a379de
   RUN npm i -g netlify-cli
   COPY +build/dist dist
