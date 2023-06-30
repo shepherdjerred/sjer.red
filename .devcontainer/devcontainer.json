@@ -6,5 +6,10 @@
     "ghcr.io/devcontainers/features/sshd:1": {},
     "ghcr.io/devcontainers/features/docker-in-docker:1": {},
     "ghcr.io/shepherdjerred/devcontainers-features/earthly:latest": {}
+  },
+  "customizations": {
+    "devpod": {
+      "prebuildRepository": "ghcr.io/shepherdjerred/shepherdjerred.com"
+    }
   }
 }
