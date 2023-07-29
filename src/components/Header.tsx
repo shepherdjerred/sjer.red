@@ -8,18 +8,15 @@ export default function Header() {
   const [toggle, setToggle] = useState(false);
 
   const links = (
-    <div css={tw`flex-col flex `}>
-      <NavLink to={"/"} css={tw`m-5 p-1 hover:text-yellow-600 hover:bg-black`}>
+    <div css={tw`flex-col flex bg-white`}>
+      <NavLink to={"/"} css={tw`m-5 p-1 hover:text-white hover:bg-black`}>
         Home
       </NavLink>
-      <NavLink
-        to={"/blog"}
-        css={tw`m-5 p-1 hover:text-yellow-600 hover:bg-black`}
-      >
+      <NavLink to={"/blog"} css={tw`m-5 p-1 hover:text-white hover:bg-black`}>
         Blog
       </NavLink>
       <button
-        css={tw`text-2xl font-bold m-5 p-1 md:hidden`}
+        css={tw`text-2xl hover:text-white font-bold m-5 p-1 md:hidden`}
         onClick={() => setToggle(!toggle)}
       >
         Close

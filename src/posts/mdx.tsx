@@ -4,23 +4,29 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import type { MDXComponents } from "mdx/types";
 
 const components: MDXComponents = {
-  ol: (props) => <ol css={tw`list-decimal list-inside`}>{props.children}</ol>,
-  ul: (props) => <ul css={tw`list-disc list-inside`}>{props.children}</ul>,
+  p: (props) => <p css={tw`mt-6 mb-6`}>{props.children}</p>,
+  blockquote: (props) => <blockquote>{props.children}</blockquote>,
+  ol: (props) => (
+    <ol css={tw`list-decimal list-inside mt-6 mb-6`}>{props.children}</ol>
+  ),
+  ul: (props) => (
+    <ul css={tw`list-disc list-inside mt-6 mb-6`}>{props.children}</ul>
+  ),
   li: (props) => <li>{props.children}</li>,
   a: (props) => (
-    <a css={tw`text-purple-600 underline`} href={props.href}>
+    <a css={tw`hover:no-underline underline`} href={props.href}>
       {props.children}
     </a>
   ),
   h1: (props) => (
     <h1
-      css={tw`text-2xl bg-purple-400 pt-6 mb-6 p-2 font-bold`}
+      css={tw`text-2xl bg-black text-white mb-6 p-2 font-bold`}
       {...props}
       id={encodeURI(props.children?.toString() || "")}
     >
       <a
         href={"#" + encodeURI(props.children?.toString() || "")}
-        css={tw`text-purple-600 underline`}
+        css={tw`text-white hover:no-underline underline`}
       >
         #
       </a>{" "}
@@ -35,7 +41,7 @@ const components: MDXComponents = {
     >
       <a
         href={"#" + encodeURI(props.children?.toString() || "")}
-        css={tw`text-purple-600 underline`}
+        css={tw`text-black underline hover:no-underline`}
       >
         ##
       </a>{" "}
@@ -50,7 +56,7 @@ const components: MDXComponents = {
     >
       <a
         href={"#" + encodeURI(props.children?.toString() || "")}
-        css={tw`text-purple-600 underline`}
+        css={tw`text-black underline hover:no-underline`}
       >
         ###
       </a>{" "}
@@ -65,7 +71,7 @@ const components: MDXComponents = {
     >
       <a
         href={"#" + encodeURI(props.children?.toString() || "")}
-        css={tw`text-purple-600 underline`}
+        css={tw`text-black underline hover:no-underline`}
       >
         ####
       </a>{" "}
@@ -80,7 +86,7 @@ const components: MDXComponents = {
     >
       <a
         href={"#" + encodeURI(props.children?.toString() || "")}
-        css={tw`text-purple-600 underline`}
+        css={tw`text-black underline hover:no-underline`}
       >
         #####
       </a>{" "}
@@ -95,7 +101,7 @@ const components: MDXComponents = {
     >
       <a
         href={"#" + encodeURI(props.children?.toString() || "")}
-        css={tw`text-purple-600 underline`}
+        css={tw`text-black underline hover:no-underline`}
       >
         ######
       </a>{" "}
@@ -108,7 +114,7 @@ const components: MDXComponents = {
         <SyntaxHighlighter
           language={props.className?.slice(9)}
           style={vscDarkPlus}
-          customStyle={tw`rounded-xl`}
+          customStyle={tw``}
         >
           {props.children as string | string[]}
         </SyntaxHighlighter>
@@ -116,7 +122,7 @@ const components: MDXComponents = {
     } else {
       return (
         <span
-          css={tw`bg-black font-mono text-orange-100 p-1.5 pb-0 pt-0 rounded-md`}
+          css={tw`bg-black font-mono text-gray-400 p-1.5 pb-0 pt-0 whitespace-nowrap`}
           {...props}
         />
       );

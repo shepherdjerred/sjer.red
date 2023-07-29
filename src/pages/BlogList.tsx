@@ -5,14 +5,21 @@ import { Width } from "../components/Container";
 import Layout from "../components/Layout";
 
 function BlogListEntry({ post }: { post: Post }) {
+  const draftText = post.draft ? " (public draft)" : <></>;
   return (
-    <div key={post.title} css={tw`bg-yellow-200 p-4 rounded-md mt-6 text-xl`}>
-      <Link
-        to={post.slug}
-        css={tw`underline hover:no-underline font-semibold hover:bg-black hover:text-white p-1`}
-      >
-        {post.title}
-      </Link>
+    <div
+      key={post.title}
+      css={tw`bg-white text-black p-4 rounded-md mt-6 text-xl`}
+    >
+      <div>
+        <Link
+          to={post.slug}
+          css={tw`underline hover:no-underline font-semibold hover:bg-black hover:text-white p-1 inline`}
+        >
+          {post.title}
+        </Link>
+        {draftText}
+      </div>
       <p css={tw`text-lg p-1`}>{post.created.toDateString()}</p>
     </div>
   );
@@ -26,10 +33,7 @@ export default function BlogList() {
     .map((post) => <BlogListEntry key={post.slug} post={post} />);
 
   return (
-    <Layout backgroundCss={tw`bg-purple-400`} width={Width.NARROW}>
-      <div css={tw`bg-yellow-400 mt-6 p-2 rounded-md`}>
-        Note: these are pretty low-effort
-      </div>
+    <Layout backgroundCss={tw`bg-black`} width={Width.NARROW}>
       {renderedPosts}
     </Layout>
   );

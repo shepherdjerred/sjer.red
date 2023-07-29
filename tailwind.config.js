@@ -10,7 +10,6 @@ module.exports = {
         purple: colors.purple,
         white: colors.white,
         yellow: colors.yellow,
-        posit: "#e47d3a",
         pink: colors.pink,
         orange: colors.orange,
       },

@@ -1,27 +1,33 @@
 import tw from "twin.macro";
-import MyFavoriteComponent from "./MyFavoriteComponent";
 
 export default function Footer() {
   return (
-    <div css={[tw`w-full bg-black text-pink-200 p-6 text-center`]}>
-      <div>
-        made by me. source on{" "}
+    <div css={[tw`w-full bg-black text-white p-10 text-center`]}>
+      <div css={[tw`mb-1`]}>
+        Email me at{" "}
         <a
-          href="https://github.com/shepherdjerred/shepherdjerred.com"
-          css={[tw`underline`]}
+          css={tw`underline hover:no-underline`}
+          href="mailto:contact@sjer.red"
         >
-          github
+          contact@sjer.red
         </a>
-        . like most everything i write, this is licensed under the{" "}
-        <a
-          href="https://www.gnu.org/licenses/gpl-3.0.en.html"
-          css={[tw`underline`]}
-        >
-          gnu gpl v3
-        </a>
+        .
       </div>
       <div>
-        <MyFavoriteComponent />
+        Source on{" "}
+        <a
+          href="https://github.com/shepherdjerred/shepherdjerred.com"
+          css={[tw`underline hover:no-underline`]}
+        >
+          GitHub
+        </a>
+        . Licensed under the{" "}
+        <a
+          href="https://www.gnu.org/licenses/gpl-3.0.en.html"
+          css={[tw`underline hover:no-underline`]}
+        >
+          GNU GPL v3.0
+        </a>
       </div>
     </div>
   );

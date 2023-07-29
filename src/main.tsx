@@ -22,6 +22,6 @@ if (root) {
           </Routes>
         </BrowserRouter>
       </ErrorBoundary>
-    </React.StrictMode>
+    </React.StrictMode>,
   );
 }

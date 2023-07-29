@@ -4,7 +4,6 @@ import Container, { Width } from "./Container";
 export default function About() {
   return (
     <Container width={Width.NARROW}>
-      <h1 css={tw`text-2xl`}>about</h1>
       <p css={tw`mb-4`}>
         I&apos;m a software engineer. I have a particular passion for
         programming languages, infrastructure, and developer tools. Some of my
@@ -13,7 +12,10 @@ export default function About() {
       </p>
       <p css={tw`mb-4`}>
         I&apos;m studying at{" "}
-        <a css={tw`underline text-blue-400`} href="https://omscs.gatech.edu/">
+        <a
+          css={tw`underline hover:no-underline`}
+          href="https://omscs.gatech.edu/"
+        >
           Georgia Tech
         </a>{" "}
         to pursue a Masters in Computer Science.
@@ -25,7 +27,7 @@ export default function About() {
         I&apos;m very active on{" "}
         <a
           href="https://github.com/shepherdjerred"
-          css={tw`underline text-blue-400`}
+          css={tw`underline hover:no-underline`}
         >
           GitHub
         </a>

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import tw from "twin.macro";
-import ChaosText from "./ChaosText";
 import Container, { Width } from "./Container";
 
 export default function Links() {
@@ -8,37 +7,39 @@ export default function Links() {
     <Container width={Width.WIDE}>
       <div
         css={[
-          tw` bg-gradient-to-bl bg-yellow-300 rounded-2xl m-2 md:m-4 p-8 font-mono md:mb-10`,
+          tw` bg-gradient-to-bl bg-black m-2 md:m-4 p-4 md:p-8 font-mono md:mb-10`,
         ]}
       >
-        <div css={[tw`grid grid-cols-1 md:grid-cols-2`]}>
-          <h1
-            css={[tw`text-pink-500 font-bold text-3xl flex`]}
-            aria-label="Stylized text that reads links"
-          >
-            <ChaosText text="LINKS" />
-          </h1>
-          <div css={[tw`text-pink-500 text-2xl`]}>
-            <ul css={[tw`list-disc`]}>
-              <li>
-                <Link to={"/blog"} css={[tw`hover:underline`]}>
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <a css={[tw`hover:underline`]} href="https://resume.sjer.red">
-                  Résumé
-                </a>
-              </li>
-              <li>
-                <a
-                  css={[tw`hover:underline`]}
-                  href="https://github.com/shepherdjerred"
-                >
-                  GitHub
-                </a>
-              </li>
-            </ul>
+        <div css={[tw`text-white text-2xl flex flex-row`]}>
+          <div css={[tw`grow text-center`]}>
+            <Link
+              to={"/blog"}
+              css={[
+                tw`underline hover:no-underline hover:bg-white hover:text-black p-4`,
+              ]}
+            >
+              Blog
+            </Link>
+          </div>
+          <div css={[tw`grow text-center`]}>
+            <a
+              css={[
+                tw`underline hover:no-underline hover:bg-white hover:text-black p-4`,
+              ]}
+              href="https://resume.sjer.red"
+            >
+              Résumé
+            </a>
+          </div>
+          <div css={[tw`grow text-center`]}>
+            <a
+              css={[
+                tw`underline hover:no-underline hover:bg-white hover:text-black p-4`,
+              ]}
+              href="https://github.com/shepherdjerred"
+            >
+              GitHub
+            </a>
           </div>
         </div>
       </div>
