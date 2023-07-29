@@ -5,9 +5,12 @@ import { Width } from "../components/Container";
 import Layout from "../components/Layout";
 import React from "react";
 
-
 function BlogListEntry({ post }: { post: Post }) {
-  const draftText = post.draft ? " (public draft)" : <React.Fragment></React.Fragment>;
+  const draftText = post.draft ? (
+    " (public draft)"
+  ) : (
+    <React.Fragment></React.Fragment>
+  );
   return (
     <div
       key={post.title}
