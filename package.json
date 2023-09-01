@@ -34,7 +34,7 @@
     "@emotion/babel-plugin-jsx-pragmatic": "^0.2.1",
     "@mdx-js/rollup": "^2.3.0",
     "@tsconfig/esm": "^1.0.4",
-    "@tsconfig/node18": "^18.2.0",
+    "@tsconfig/node18": "^18.2.1",
     "@tsconfig/strictest": "^2.0.1",
     "@types/mdx": "^2.0.5",
     "@types/react": "^18.2.18",
