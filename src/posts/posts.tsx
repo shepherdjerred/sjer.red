@@ -1,3 +1,8 @@
+import Testing from "./software-testing.mdx";
+import Introduction from "./introduction.mdx";
+import Rust from "./rust-is-exciting.mdx";
+import Perfection from "./on-perfection.mdx";
+import Language from "./language-doesnt-matter.mdx";
 import Libvirt from "./libvirt.mdx";
 import Cpointer from "./c-pointer-math.mdx";
 import Cdebug from "./c-debugging.mdx";
@@ -15,6 +20,13 @@ export interface Post {
 }
 
 const posts: Post[] = [
+  {
+    title: "Software Testing",
+    slug: "software-testing",
+    component: <Testing components={mdx} />,
+    created: new Date("2023-08-18"),
+    draft: false,
+  },
   {
     title: "Discord Plays Pokemon",
     slug: "discord-plays-pokemon",
@@ -41,6 +53,34 @@ const posts: Post[] = [
     slug: "struggle-c-libvirt",
     component: <Libvirt components={mdx} />,
     created: new Date("2022-10-06"),
+    draft: false,
+  },
+  {
+    title: "Language Doesn't Matter",
+    slug: "language-doesnt-matter",
+    component: <Language components={mdx} />,
+    created: new Date("2022-05-01"),
+    draft: false,
+  },
+  {
+    title: "Rust is Exciting",
+    slug: "rust-is-exciting",
+    component: <Rust components={mdx} />,
+    created: new Date("2021-06-19"),
+    draft: false,
+  },
+  {
+    title: "On Perfection",
+    slug: "on-perfection",
+    component: <Perfection components={mdx} />,
+    created: new Date("2021-02-27"),
+    draft: false,
+  },
+  {
+    title: "Introduction",
+    slug: "introduction",
+    component: <Introduction components={mdx} />,
+    created: new Date("2021-01-12"),
     draft: false,
   },
 ];

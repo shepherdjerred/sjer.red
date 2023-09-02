@@ -8,11 +8,12 @@ export interface BlogProps {
 }
 
 export default function Blog(props: BlogProps) {
+  document.title = `${props.post.title} | Jerred Shepherd`;
   const draftText = props.post.draft
     ? "This post is a draft and is not complete"
     : "";
   return (
-    <Layout width={Width.NORMAL} backgroundCss={tw`bg-black`}>
+    <Layout width={Width.NARROW} backgroundCss={tw`bg-black`}>
       <hgroup css={tw`bg-white mt-4 p-4`}>
         <h1 css={tw`text-4xl mb-2`}>{props.post.title}</h1>
         {draftText}

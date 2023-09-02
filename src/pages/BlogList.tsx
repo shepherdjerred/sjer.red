@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import React from "react";
 
 function BlogListEntry({ post }: { post: Post }) {
+  document.title = "Blog | Jerred Shepherd";
   const draftText = post.draft ? (
     " (public draft)"
   ) : (
@@ -14,7 +15,7 @@ function BlogListEntry({ post }: { post: Post }) {
   return (
     <div
       key={post.title}
-      css={tw`bg-white text-black p-4 rounded-md mt-6 text-xl`}
+      css={tw`bg-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}
     >
       <div>
         <Link
