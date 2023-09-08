@@ -1,0 +1,23 @@
+---
+import Container from "./Container.astro";
+---
+
+<Container width={"narrow"}>
+  <div class:list={`p-3 mt-8 mb-8 bg-black text-white`}>
+    <h1 class:list={[`text-6xl font-bold pt-0 text-right mr-0 mb-10`]}>FAQ</h1>
+    <div class:list={[`pb-6`]}>
+      <p>
+        <span class:list={`font-bold mr-2`}>Q:</span> What's your favorite xkcd?
+      </p>
+      <p>
+        <span class:list={`font-bold mr-2`}>A:</span>{" "}
+        <a
+          href="https://xkcd.com/1293/"
+          class:list={`underline hover:no-underline text-purple-500`}
+        >
+          #1293: Job Interview
+        </a>
+      </p>
+    </div>
+  </div>
+</Container>

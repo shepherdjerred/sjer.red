@@ -1,0 +1,40 @@
+---
+import Container from "./Container.astro";
+---
+
+<Container width="wide" }>
+  <div
+    class:list={[
+      ` bg-gradient-to-bl bg-black m-2 md:m-4 p-4 md:p-8 font-mono md:mb-10`,
+    ]}
+  >
+    <div class:list={[`text-white text-2xl flex flex-row`]}>
+      <div class:list={[`grow text-center`]}>
+        <a
+          class="underline hover:no-underline hover:bg-white hover:text-black p-4"
+          href="/blog">Blog</a
+        >
+      </div>
+      <div class:list={[`grow text-center`]}>
+        <a
+          class:list={[
+            `underline hover:no-underline hover:bg-white hover:text-black p-4`,
+          ]}
+          href="https://resume.sjer.red"
+        >
+          Résumé
+        </a>
+      </div>
+      <div class:list={[`grow text-center`]}>
+        <a
+          class:list={[
+            `underline hover:no-underline hover:bg-white hover:text-black p-4`,
+          ]}
+          href="https://github.com/shepherdjerred"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</Container>

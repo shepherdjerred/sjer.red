@@ -1,0 +1,25 @@
+---
+interface Props {
+  width: "narrow" | "normal" | "wide";
+  backgroundCss?: string | undefined;
+}
+
+function widthToClass(width: "narrow" | "normal" | "wide"): string {
+  switch (width) {
+    case "narrow":
+      return `md:w-2/5`;
+    case "normal":
+      return `md:w-3/5`;
+    case "wide":
+      return `md:w-4/5`;
+  }
+}
+
+const { width, backgroundCss } = Astro.props;
+---
+
+<div class:list={[`grid grid-cols-1`, backgroundCss]}>
+  <div class:list={[`p-2 md:p-0 md:place-self-center`, widthToClass(width)]}>
+    <slot />
+  </div>
+</div>

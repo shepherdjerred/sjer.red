@@ -1,0 +1,66 @@
+---
+title: Discord Plays Pokemon
+description: Play Pokemon with your friends on Discrd
+slug: discord-plays-pokemon
+date: 2023-07-30
+isDraft: true
+---
+
+import cameraCommit from "@assets/discord-plays-pokemon/camera-commit.png";
+import twitchPlaysPokemon from "@assets/discord-plays-pokemon/tpp.png";
+
+One of my favorite recent projects is what I call [Discord Plays Pokemon](https://github.com/shepherdjerred/discord-plays-pokemon). It's a clone of [Twitch Plays Pokemon](https://en.wikipedia.org/wiki/Twitch_Plays_Pok%C3%A9mon), but for Discord.
+
+If you're not familiar with the concept, Twitch Plays Pokemon is a Twitch channel where stream viewers play a single game of Pokemon together. Commands are accepted through Twitch's text chat box and sent to an emulator. Anyone can send game commands, and this becomes very interesting when you have a large number of viewers with conflicting goals.
+
+<img src={twitchPlaysPokemon} />
+
+In the image above, you can see users sending commands on the right. The video in the center of the screen shows the effect of those actions.
+
+A friend mentioned that it would be fun to apply the concept to Discord. We looked into an [existing project](https://github.com/DrSkunk/discord-plays-pokemon) that give something good enough, but not quite great.
+
+- Really cool project, but just uses screenshots
+- One unique thing this project is extract game information, e.g. your current pokemon team, presumably by analyzing the game's memory
+
+I did the natural thing and spent a weekend building Twitch Plays Pokemon for Discord. Since then I have spent a bit more time polishing it, adding new input methods, and improving its documentation.
+
+The concept is ported to Discord in the most straightforward way. Discord has text channels that can accept game commands, and a Discord user can stream video through the built-in streaming feature, or through a webcam. We can build Twitch Plays Pokemon with these two types of I/O.
+
+My goal was to build this in a way that was highly portable. I didn't want to spend much time making this project work on multiple operating systems, so doing as much as possible in the browser made sense. Additionally, I wanted to run the entire thing in Docker so that it was even more portable. One nice property of these constraints is that the bot works on both macOS and Linux desktop environments using real browser windows, or on Linux through Docker without any physical displays.
+
+There were a lot of tricky parts, though. Twitch does _not_ expose video streaming to bots, so I would need an actual user. To stream audio and video, you'll need audio and video output. This isn't hard in itself aside from wanting for it all to be in Docker.
+
+## Using virtual webcam with xvfb
+
+- xvfb
+- ffmpeg
+- v4l2loopback
+- capture video with webrtc
+
+Overall this one didn't pan out. it was _really_ cool to be working with such low-level Linux stuff that I haven't really touched since playing with Arch in college.
+
+## Tangent: Earthly made this all _really_ easy!
+
+## Switching Approaches: Using selkies and a real Linux desktop environment
+
+## Improving Performance
+
+### Attaching a Physical GPU
+
+- GPU acceleration doesn't work on Linux Chrome
+- Game is playable, but very slow. Massive frame drops
+
+### Finding the right web browser and automation framework
+
+- Puppeteer + Chrome -> Puppeteer + Firefox -> Selenium + Chrome -> Selenium + Firefox
+
+## Finding the right emulator
+
+- Emulator: switching from linux-server.io to emulator js
+
+<img src={cameraCommit} />
+
+## Resources
+
+- [https://aixxe.net/2021/04/discord-video-bot](https://aixxe.net/2021/04/discord-video-bot)
+- [https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c#install-gstreamer-on-ubuntu-or-debian](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c#install-gstreamer-on-ubuntu-or-debian)

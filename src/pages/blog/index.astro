@@ -1,0 +1,34 @@
+---
+import Container from "@components/Container.astro";
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const blogEntries = await getCollection("blog");
+---
+
+<Layout title="Blog | Jerred Shepherd">
+  <Container backgroundCss="bg-black" width="narrow">
+    <ul>
+      {
+        blogEntries
+          .sort((left, right) => right.data.date.getTime() - left.data.date.getTime())
+          .map((blogPostEntry) => (
+            <>
+              <div class={`bg-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>
+                <div>
+                  <a
+                    href={`/blog/${blogPostEntry.slug}`}
+                    class={`underline hover:no-underline font-semibold hover:bg-black hover:text-white p-1 inline`}
+                  >
+                    {blogPostEntry.data.title}
+                  </a>
+                  {blogPostEntry.data.isDraft ? "(Draft)" : ""}
+                  {blogPostEntry}
+                </div>
+                <time datetime={blogPostEntry.data.date.toISOString()}>{blogPostEntry.data.date.toDateString()}</time>
+              </div>
+            </>
+          ))
+      }
+    </ul>
+  </Container>
+</Layout>
