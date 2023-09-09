@@ -1,10 +1,19 @@
 ---
-
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
 <nav class="bg-black text-white">
   <ul class="flex gap-4 justify-center p-2">
-    <a href="/"><li class="p-2 hover:bg-white hover:text-black">Home</li></a>
-    <a href="/blog"> <li class="p-2 hover:bg-white hover:text-black">Blog</li></a>
+    <a href="/"
+      ><li class:list={["p-2 hover:bg-white hover:text-black", currentPath === "" ? "bg-white text-black" : ""]}>
+        Home
+      </li></a
+    >
+    <a href="/blog"
+      ><li class:list={["p-2 hover:bg-white hover:text-black", currentPath === "blog" ? "bg-white text-black" : ""]}>
+        Blog
+      </li></a
+    >
   </ul>
 </nav>
