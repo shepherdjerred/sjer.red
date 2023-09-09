@@ -7,11 +7,11 @@ interface Props {
 function widthToClass(width: "narrow" | "normal" | "wide"): string {
   switch (width) {
     case "narrow":
-      return `md:w-2/5`;
+      return `w-2/5 min-w-fit`;
     case "normal":
-      return `md:w-3/5`;
+      return `w-3/5`;
     case "wide":
-      return `md:w-4/5`;
+      return `w-4/5 `;
   }
 }
 
@@ -19,7 +19,7 @@ const { width, backgroundCss } = Astro.props;
 ---
 
 <div class:list={[`grid grid-cols-1`, backgroundCss]}>
-  <div class:list={[`p-2 md:p-0 md:place-self-center`, widthToClass(width)]}>
+  <div class:list={[`p-2 md:p-0 place-self-center`, widthToClass(width)]}>
     <slot />
   </div>
 </div>

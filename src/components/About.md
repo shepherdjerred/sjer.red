@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center">
+<div class="flex flex-col items-center m-14 md:m-0">
 <section class="prose">
 I'm a software engineer. I have a particular passion for programming languages, infrastructure, and developer tools. Some of my favorite languages are Rust, Haskell, TypeScript, and Java (strictly for sentimental reasons).
 
