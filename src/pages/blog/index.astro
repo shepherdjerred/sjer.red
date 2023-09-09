@@ -1,12 +1,14 @@
 ---
 import Background from "@components/Background.astro";
 import Container from "@components/Container.astro";
+import Navbar from "@components/Navbar.astro";
 import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 const blogEntries = await getCollection("blog");
 ---
 
-<Layout title="Blog | Jerred Shepherd">
+<Layout title="Blog" description="Jerred Shepherd's blog">
+  <Navbar />
   <Background extraCss="bg-black">
     <Container width="narrow">
       <ul>
