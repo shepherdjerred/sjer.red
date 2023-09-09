@@ -193,13 +193,6 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"posts/discord-plays-pokemon.mdx": {
-	id: "posts/discord-plays-pokemon.mdx";
-  slug: "discord-plays-pokemon";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
 "posts/introduction.mdx": {
 	id: "posts/introduction.mdx";
   slug: "introduction";
