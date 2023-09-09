@@ -1,5 +1,6 @@
 ---
 import Container from "@components/Container.astro";
+import FooterWrapper from "@components/FooterWrapper.astro";
 import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
@@ -16,8 +17,11 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={`${entry.data.title} | Jerred Shepherd`}>
-  <Container width="normal">
-    <h1>{entry.data.title}</h1>
-    <Content />
-  </Container>
+  <FooterWrapper>
+    <div class="flex place-content-center">
+      <article class="prose mt-10 mb-10">
+        <Content />
+      </article>
+    </div>
+  </FooterWrapper>
 </Layout>

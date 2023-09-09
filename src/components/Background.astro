@@ -1,18 +1,13 @@
 ---
 interface Props {
-  extraCss: string;
-  pattern: string;
+  extraCss?: string | undefined;
 }
 
-const { extraCss, pattern } = Astro.props;
+const { extraCss } = Astro.props;
+
+import pattern from "@assets/pattern.svg";
 ---
 
-<div
-  class:list={[
-    `min-h-[100vh]`,
-    { backgroundImage: `url(${pattern})` },
-    extraCss,
-  ]}
->
+<div class:list={[`min-h-[100vh]`, extraCss]} style=`background-image: url(${pattern.src})`>
   <slot />
 </div>

@@ -5,6 +5,8 @@ slug: software-testing
 date: 2023-08-18
 ---
 
+# Software Testing
+
 You should verify every desired behavior of your project.
 
 Tests exist to verify some behavior of the object being tested. Some tests can be manual, such as manually executing a program and verifying that the program works as you'd expect. When performing manual testing, the project requirements live in your head and aren't particularly durable. If you return to a project months later, you might not know the desired behavior. Additionally, manual testing requires valuable time and effort to perform. Manual testing does not scale. As you add more functionality, you will need more time, discipline, and the ability to test your project's behavior manually.
@@ -17,7 +19,7 @@ There are many forms of automated testing, to name a few: unit, integration, and
 
 What kind of tests you should write largely depends on what type of software you're testing. The classic testing pyramid would suggest that you write many unit tests. I think that this is entirely wrong.
 
-> Aside: Unit tests can be great if the project is well-architected and if the project is in a language that lends itself well to unit testing. I've had a great experience with unit testing in Java and absolutely terrible experiences with JavaScript.
+> Unit tests can be great if the project is well-architected and if the project is in a language that lends itself well to unit testing. I've had a great experience with unit testing in Java and absolutely terrible experiences with JavaScript.
 
 Testing is essential, but that doesn't mean you should dump unlimited time into it. You'll catch the most bugs by running tests in an environment that is as close to production as possible. These are usually called integration tests or end-to-end tests.
 

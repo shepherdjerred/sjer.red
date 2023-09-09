@@ -10,11 +10,20 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Jerred" />
+    <meta name="description" content="Jerred Shepherd's personal website" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="me" href="https://mastodon.social/@shepherdjerred" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#000" />
+
+    <meta property="og:title" content="Jerred Shepherd" />
+    <meta property="og:description" content="Jerred Shepherd's personal website" />
+    <meta property="og:site_name" content="Jerred Shepherd" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sjer.red" />
+    <meta property="og:image" content="/og.svg" />
+
     <title>{title}</title>
   </head>
   <body>
