@@ -7,7 +7,7 @@ interface Props {
 const { url } = Astro;
 
 const title = Astro.props.title ? `${Astro.props.title} | Jerred Shepherd` : "Jerred Shepherd";
-const description = Astro.props.description || "Jerred Shepherd's personal website";
+const description = Astro.props.description;
 
 import "@fontsource/fira-code";
 import "@fontsource/nunito";

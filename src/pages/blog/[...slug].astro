@@ -1,5 +1,6 @@
 ---
 import FooterWrapper from "@components/FooterWrapper.astro";
+import Navbar from "@components/Navbar.astro";
 import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
@@ -15,8 +16,9 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={`${entry.data.title}`} description={entry.description}>
+<Layout title={entry.data.title} description={entry.data.description}>
   <FooterWrapper>
+    <Navbar />
     <div class="flex place-content-center">
       <article class="prose mt-10 mb-10">
         <Content />
