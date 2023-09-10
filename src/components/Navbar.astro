@@ -1,18 +1,21 @@
 ---
+import Container from "./Container.astro";
 const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <nav class="bg-black text-white">
-  <ul class="flex gap-4 justify-center p-2">
-    <a href="/"
-      ><li class:list={["p-2 hover:bg-white hover:text-black", pathname === "/" ? "bg-white text-black" : ""]}>
-        Home
-      </li></a
-    >
-    <a href="/blog"
-      ><li class:list={["p-2 hover:bg-white hover:text-black", pathname === "/blog/" ? "bg-white text-black" : ""]}>
-        Blog
-      </li></a
-    >
-  </ul>
+  <Container width="normal">
+    <ul class="flex gap-4 p-2">
+      <a href="/"
+        ><li class:list={["p-2 hover:bg-white hover:text-black", pathname === "/" ? "bg-white text-black" : ""]}>
+          Home
+        </li></a
+      >
+      <a href="/blog"
+        ><li class:list={["p-2 hover:bg-white hover:text-black", pathname === "/blog/" ? "bg-white text-black" : ""]}>
+          Blog
+        </li></a
+      >
+    </ul>
+  </Container>
 </nav>

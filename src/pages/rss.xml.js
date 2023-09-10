@@ -9,7 +9,7 @@ export async function GET(context) {
 
   return rss({
     title: "Jerred's Blog",
-    description: "Blog by Jerred Shepherd",
+    description: "My personal blog",
     site: context.site,
     items: blog
       .sort((left, right) => right.data.date.getTime() - left.data.date.getTime())

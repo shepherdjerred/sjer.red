@@ -1,19 +1,24 @@
+---
+import { Icon } from "astro-icon";
+import Container from "./Container.astro";
+---
+
 <div class:list={[`w-full bg-black text-white p-10 text-center`]}>
-  <div class:list={[`mb-1`]}>
-    Email me at{" "}
-    <a class:list={`underline hover:no-underline`} href="mailto:contact@sjer.red"> contact@sjer.red</a>.
-  </div>
-  <div class:list={[`mb-1`]}>
-    Follow my <a href="/rss.xml" class:list={[`underline hover:no-underline`]}>RSS feed</a>
-  </div>
-  <div>
-    Source on{" "}
-    <a href="https://github.com/shepherdjerred/shepherdjerred.com" class:list={[`underline hover:no-underline`]}>
-      GitHub
-    </a>
-     . Licensed under the{" "}
-    <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class:list={[`underline hover:no-underline`]}>
-      GNU GPL v3.0
-    </a>
-  </div>
+  <Container width="normal">
+    <div class="flex gap-10 justify-end">
+      <a href="https://github.com/shepherdjerred" target="_blank"><Icon pack="mdi" name="github" /> github</a>
+      <a rel="me" href="https://mastodon.social/@shepherdjerred" target="_blank"
+        ><Icon pack="mdi" name="mastodon" /> mastodon</a
+      >
+      <a href="/rss.xml" target="_blank"><Icon pack="mdi" name="rss" /> rss</a>
+      <a href="mailto:contact@sjer.red" target="_blank"><Icon pack="mdi" name="email" /> email</a>
+    </div>
+  </Container>
 </div>
+
+<style lang="css">
+  [astro-icon] {
+    width: 24px;
+    display: inline;
+  }
+</style>
