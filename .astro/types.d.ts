@@ -179,57 +179,57 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
-"posts/c-debugging.mdx": {
-	id: "posts/c-debugging.mdx";
+"c-debugging-vscode.mdx": {
+	id: "c-debugging-vscode.mdx";
   slug: "c-debugging-vscode";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"posts/c-pointer-math.mdx": {
-	id: "posts/c-pointer-math.mdx";
+"c-pointer-math.mdx": {
+	id: "c-pointer-math.mdx";
   slug: "c-pointer-math";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"posts/introduction.mdx": {
-	id: "posts/introduction.mdx";
+"introduction.mdx": {
+	id: "introduction.mdx";
   slug: "introduction";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"posts/language-doesnt-matter.mdx": {
-	id: "posts/language-doesnt-matter.mdx";
+"language-doesnt-matter.mdx": {
+	id: "language-doesnt-matter.mdx";
   slug: "language-doesnt-matter";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"posts/libvirt.mdx": {
-	id: "posts/libvirt.mdx";
+"libvirt.mdx": {
+	id: "libvirt.mdx";
   slug: "libvirt";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"posts/on-perfection.mdx": {
-	id: "posts/on-perfection.mdx";
+"on-perfection.mdx": {
+	id: "on-perfection.mdx";
   slug: "on-perfection";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"posts/rust-is-exciting.mdx": {
-	id: "posts/rust-is-exciting.mdx";
+"rust-is-exciting.mdx": {
+	id: "rust-is-exciting.mdx";
   slug: "rust-is-exciting";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"posts/software-testing.mdx": {
-	id: "posts/software-testing.mdx";
+"software-testing.mdx": {
+	id: "software-testing.mdx";
   slug: "software-testing";
   body: string;
   collection: "blog";

@@ -17,7 +17,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Nunito", ...defaultTheme.fontFamily.sans],
-        mono: ["Fira Code", ...defaultTheme.fontFamily.mono],
+        mono: ["CommitMono", ...defaultTheme.fontFamily.mono],
       },
     },
   },
