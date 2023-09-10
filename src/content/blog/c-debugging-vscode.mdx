@@ -22,32 +22,32 @@ VS Code makes this very easy.
 1. Click the cog icon to open up the launch.json file which contains your debugging configuration
 1. Copy this into the launch.json file:
 
-```json
-{
-  "name": "debug",
-  "type": "cppdbg",
-  "request": "launch",
-  "program": "${workspaceFolder}/<path to your compiled binary>",
-  "args": ["<your program arguments>"],
-  "stopAtEntry": false,
-  "cwd": "${fileDirname}",
-  "environment": [],
-  "externalConsole": false,
-  "MIMode": "gdb",
-  "setupCommands": [
-    {
-      "description": "Enable pretty-printing for gdb",
-      "text": "-enable-pretty-printing",
-      "ignoreFailures": true
-    },
-    {
-      "description": "Set Disassembly Flavor to Intel",
-      "text": "-gdb-set disassembly-flavor intel",
-      "ignoreFailures": true
-    }
-  ]
-}
-```
+   ```json
+   {
+     "name": "debug",
+     "type": "cppdbg",
+     "request": "launch",
+     "program": "${workspaceFolder}/<path to your compiled binary>",
+     "args": ["<your program arguments>"],
+     "stopAtEntry": false,
+     "cwd": "${fileDirname}",
+     "environment": [],
+     "externalConsole": false,
+     "MIMode": "gdb",
+     "setupCommands": [
+       {
+         "description": "Enable pretty-printing for gdb",
+         "text": "-enable-pretty-printing",
+         "ignoreFailures": true
+       },
+       {
+         "description": "Set Disassembly Flavor to Intel",
+         "text": "-gdb-set disassembly-flavor intel",
+         "ignoreFailures": true
+       }
+     ]
+   }
+   ```
 
 1. Save the file and click on "Start Debugging"
 

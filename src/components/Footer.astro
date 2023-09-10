@@ -5,20 +5,31 @@ import Container from "./Container.astro";
 
 <div class:list={[`w-full bg-black text-white p-10 text-center`]}>
   <Container width="normal">
-    <div class="flex gap-10 justify-end">
-      <a href="https://github.com/shepherdjerred" target="_blank"><Icon pack="mdi" name="github" /> github</a>
-      <a rel="me" href="https://mastodon.social/@shepherdjerred" target="_blank"
-        ><Icon pack="mdi" name="mastodon" /> mastodon</a
+    <div class="flex gap-6 justify-end">
+      <a href="https://github.com/shepherdjerred" target="_blank" class="hover:bg-white hover:text-black p-2"
+        ><Icon pack="mdi" name="github" /> <span class="underline">github</span></a
       >
-      <a href="/rss.xml" target="_blank"><Icon pack="mdi" name="rss" /> rss</a>
-      <a href="mailto:contact@sjer.red" target="_blank"><Icon pack="mdi" name="email" /> email</a>
+      <a
+        rel="me"
+        href="https://mastodon.social/@shepherdjerred"
+        target="_blank"
+        class="hover:bg-white hover:text-black p-2"
+        ><Icon pack="mdi" name="mastodon" /> <span class="underline">mastodon</span></a
+      >
+      <a href="/rss.xml" target="_blank" class="hover:bg-white hover:text-black p-2"
+        ><Icon pack="mdi" name="rss" /> <span class="underline">rss</span></a
+      >
+      <a href="mailto:contact@sjer.red" target="_blank" class="hover:bg-white hover:text-black p-2">
+        <Icon pack="mdi" name="email" />
+        <span class="underline">email</span>
+      </a>
     </div>
   </Container>
-</div>
 
-<style lang="css">
-  [astro-icon] {
-    width: 24px;
-    display: inline;
-  }
-</style>
+  <style lang="css">
+    [astro-icon] {
+      width: 24px;
+      display: inline;
+    }
+  </style>
+</div>
