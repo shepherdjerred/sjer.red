@@ -7,12 +7,22 @@ const pathname = new URL(Astro.request.url).pathname;
   <Container width="normal">
     <ul class="flex flex-wrap content-center place-content-center sm:justify-start gap-2 p-2">
       <a href="/"
-        ><li class:list={["p-1 hover:bg-white hover:text-black", pathname === "/" ? "bg-white text-black" : ""]}>
+        ><li
+          class:list={[
+            "p-1 hover:bg-white hover:text-black underline hover:no-underline",
+            pathname === "/" ? "bg-white text-black no-underline" : "",
+          ]}
+        >
           Home
         </li></a
       >
       <a href="/blog"
-        ><li class:list={["p-1 hover:bg-white hover:text-black", pathname === "/blog/" ? "bg-white text-black" : ""]}>
+        ><li
+          class:list={[
+            "p-1 hover:bg-white hover:text-black underline hover:no-underline",
+            pathname === "/blog/" ? "bg-white text-black no-underline" : "",
+          ]}
+        >
           Blog
         </li></a
       >

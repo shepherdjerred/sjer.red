@@ -83,7 +83,7 @@ This file is in BETA. Please test and contribute to the discussion:
             <strong>This is a web feed,</strong> also known as an RSS feed. <strong>Subscribe</strong> by copying the URL from the address bar into your newsreader.
           </p>
           <p class="text-gray">
-            Visit <a href="https://aboutfeeds.com" target="_blank">About Feeds</a> to get started with newsreaders and subscribing. It’s free.
+            Visit <a href="https://aboutfeeds.com" >About Feeds</a> to get started with newsreaders and subscribing. It’s free.
           </p>
         </nav>
         <div class="container-md px-3 py-3 markdown-body">
@@ -111,7 +111,7 @@ This file is in BETA. Please test and contribute to the discussion:
             </h1>
             <h2><xsl:value-of select="/rss/channel/title"/></h2>
             <p><xsl:value-of select="/rss/channel/description"/></p>
-            <a class="head_link" target="_blank">
+            <a class="head_link" >
               <xsl:attribute name="href">
                 <xsl:value-of select="/rss/channel/link"/>
               </xsl:attribute>
@@ -122,7 +122,7 @@ This file is in BETA. Please test and contribute to the discussion:
           <xsl:for-each select="/rss/channel/item">
             <div class="pb-5">
               <h3 class="mb-0">
-                <a target="_blank">
+                <a >
                   <xsl:attribute name="href">
                     <xsl:value-of select="link"/>
                   </xsl:attribute>
