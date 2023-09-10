@@ -18,23 +18,22 @@ const blogEntries = await getCollection("blog");
             blogEntries
               .sort((left, right) => right.data.date.getTime() - left.data.date.getTime())
               .map((blogPostEntry) => (
-                <>
-                  <div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>
-                    <div>
-                      <a
-                        href={`/blog/${blogPostEntry.slug}`}
-                        class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}
-                      >
-                        {blogPostEntry.data.title}
-                      </a>
-                      {blogPostEntry.data.isDraft ? "(Draft)" : ""}
-                      {blogPostEntry}
-                    </div>
-                    <time datetime={blogPostEntry.data.date.toISOString()} class="ml-1 text-sm">
-                      {blogPostEntry.data.date.toDateString()}
-                    </time>
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-return -- no idea why this is being picked up
+                <div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>
+                  <div>
+                    <a
+                      href={`/blog/${blogPostEntry.slug}`}
+                      class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}
+                    >
+                      {blogPostEntry.data.title}
+                    </a>
+                    {blogPostEntry.data.isDraft ? "(Draft)" : ""}
+                    {blogPostEntry}
                   </div>
-                </>
+                  <time datetime={blogPostEntry.data.date.toISOString()} class="ml-1 text-sm">
+                    {blogPostEntry.data.date.toDateString()}
+                  </time>
+                </div>
               ))
           }
         </ul>

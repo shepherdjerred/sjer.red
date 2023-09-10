@@ -2,10 +2,15 @@ import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import sanitizeHtml from "sanitize-html";
 import MarkdownIt from "markdown-it";
+import type { APIContext } from "astro";
 const parser = new MarkdownIt();
 
-export async function GET(context) {
+export async function GET(context: APIContext) {
   const blog = await getCollection("blog");
+
+  if (context.site === undefined) {
+    throw new Error("site is undefined");
+  }
 
   return rss({
     title: "Jerred's Blog",

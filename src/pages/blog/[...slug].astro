@@ -3,6 +3,11 @@ import FooterWrapper from "@components/FooterWrapper.astro";
 import Navbar from "@components/Navbar.astro";
 import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { BlogSchema } from "src/schemas/blogSchema";
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -13,17 +18,18 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const { title, description, date } = BlogSchema.parse(entry.data);
 const { Content } = await entry.render();
 ---
 
-<Layout title={entry.data.title} description={entry.data.description} openGraphType="article">
+<Layout title={title} description={description} openGraphType="article">
   <FooterWrapper>
     <Navbar />
     <div class="flex place-content-center bg-white dark:bg-black">
       <article class="prose mt-10 mb-10 ml-8 mr-8 dark:prose-invert">
-        <h1 class="m-0">{entry.data.title}</h1>
-        <time datetime={entry.data.date.toISOString()} class="ml-1 text-sm">
-          {entry.data.date.toDateString()}
+        <h1 class="m-0">{title}</h1>
+        <time datetime={date.toISOString()} class="ml-1 text-sm">
+          {date.toDateString()}
         </time>
         <Content />
       </article>

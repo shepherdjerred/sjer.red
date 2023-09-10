@@ -179,6 +179,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"astro.mdx": {
+	id: "astro.mdx";
+  slug: "astro";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "c-debugging-vscode.mdx": {
 	id: "c-debugging-vscode.mdx";
   slug: "c-debugging-vscode";

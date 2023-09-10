@@ -59,9 +59,13 @@ const og = (): AstroIntegration => ({
           const original = `src/content/${pathname.slice(0, -1)}.mdx`;
           const file = fs.readFileSync(original);
 
-          const { title } = parseFrontmatter(file).data;
+          const data = parseFrontmatter(file).data as unknown;
 
-          const svg = await satori(render(title), {
+          if (typeof data !== "object" || data === null || !("title" in data) || typeof data.title !== "string") {
+            throw new Error("unable to parse data");
+          }
+
+          const svg = await satori(render(data.title), {
             width: 1200,
             height: 630,
             fonts: [
