@@ -30,7 +30,7 @@ const blogEntries = await getCollection("blog");
                       {blogPostEntry.data.isDraft ? "(Draft)" : ""}
                       {blogPostEntry}
                     </div>
-                    <time datetime={blogPostEntry.data.date.toISOString()}>
+                    <time datetime={blogPostEntry.data.date.toISOString()} class="ml-1 text-sm">
                       {blogPostEntry.data.date.toDateString()}
                     </time>
                   </div>

@@ -21,6 +21,10 @@ const { Content } = await entry.render();
     <Navbar />
     <div class="flex place-content-center">
       <article class="prose mt-10 mb-10 ml-8 mr-8">
+        <h1 class="m-0">{entry.data.title}</h1>
+        <time datetime={entry.data.date.toISOString()} class="ml-1 text-sm">
+          {entry.data.date.toDateString()}
+        </time>
         <Content />
       </article>
     </div>
