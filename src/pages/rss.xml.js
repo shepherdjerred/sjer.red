@@ -11,13 +11,15 @@ export async function GET(context) {
     title: "Jerred's Blog",
     description: "Blog by Jerred Shepherd",
     site: context.site,
-    items: blog.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.date,
-      description: post.data.description,
-      link: `/blog/${post.slug}/`,
-      content: sanitizeHtml(parser.render(post.body)),
-    })),
+    items: blog
+      .sort((left, right) => right.data.date.getTime() - left.data.date.getTime())
+      .map((post) => ({
+        title: post.data.title,
+        pubDate: post.data.date,
+        description: post.data.description,
+        link: `/blog/${post.slug}/`,
+        content: sanitizeHtml(parser.render(post.body)),
+      })),
     stylesheet: "/rss/styles.xsl",
   });
 }
