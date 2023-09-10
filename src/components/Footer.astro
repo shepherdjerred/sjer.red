@@ -3,23 +3,23 @@ import { Icon } from "astro-icon";
 import Container from "./Container.astro";
 ---
 
-<div class:list={[`w-full bg-black text-white p-10 text-center`]}>
+<div class:list={[`w-full bg-black text-white p-5 text-center`]}>
   <Container width="normal">
-    <div class="flex gap-6 justify-end">
-      <a href="https://github.com/shepherdjerred" target="_blank" class="hover:bg-white hover:text-black p-2"
+    <div class="flex flex-wrap gap-4 md:justify-end content-center place-content-center">
+      <a href="https://github.com/shepherdjerred" target="_blank" class="hover:bg-white hover:text-black p-1"
         ><Icon pack="mdi" name="github" /> <span class="underline">github</span></a
       >
       <a
         rel="me"
         href="https://mastodon.social/@shepherdjerred"
         target="_blank"
-        class="hover:bg-white hover:text-black p-2"
+        class="hover:bg-white hover:text-black p-1"
         ><Icon pack="mdi" name="mastodon" /> <span class="underline">mastodon</span></a
       >
-      <a href="/rss.xml" target="_blank" class="hover:bg-white hover:text-black p-2"
+      <a href="/rss.xml" target="_blank" class="hover:bg-white hover:text-black p-1"
         ><Icon pack="mdi" name="rss" /> <span class="underline">rss</span></a
       >
-      <a href="mailto:contact@sjer.red" target="_blank" class="hover:bg-white hover:text-black p-2">
+      <a href="mailto:contact@sjer.red" target="_blank" class="hover:bg-white hover:text-black p-1">
         <Icon pack="mdi" name="email" />
         <span class="underline">email</span>
       </a>
