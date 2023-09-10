@@ -19,11 +19,11 @@ const blogEntries = await getCollection("blog");
               .sort((left, right) => right.data.date.getTime() - left.data.date.getTime())
               .map((blogPostEntry) => (
                 <>
-                  <div class={`bg-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>
+                  <div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>
                     <div>
                       <a
                         href={`/blog/${blogPostEntry.slug}`}
-                        class={`underline hover:no-underline font-semibold hover:bg-black hover:text-white p-1 inline`}
+                        class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}
                       >
                         {blogPostEntry.data.title}
                       </a>
