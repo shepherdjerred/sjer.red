@@ -19,8 +19,8 @@ const { Content } = await entry.render();
 <Layout title={entry.data.title} description={entry.data.description} openGraphType="article">
   <FooterWrapper>
     <Navbar />
-    <div class="flex place-content-center">
-      <article class="prose mt-10 mb-10 ml-8 mr-8">
+    <div class="flex place-content-center dark:bg-black">
+      <article class="prose mt-10 mb-10 ml-8 mr-8 dark:prose-invert">
         <h1 class="m-0">{entry.data.title}</h1>
         <time datetime={entry.data.date.toISOString()} class="ml-1 text-sm">
           {entry.data.date.toDateString()}
