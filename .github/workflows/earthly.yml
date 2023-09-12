@@ -2,9 +2,6 @@ name: Earthly CI
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   ci:
@@ -20,8 +17,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: Docker login
         run: docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password "${{ secrets.DOCKERHUB_TOKEN }}"
-      - name: Run
-        run: earthly --ci +ci
-      - name: Run with push
+      - name: Run for dev
         if: github.ref == 'refs/heads/main' && github.action == 'push'
-        run: earthly --ci --push +ci
+        run: earthly --ci --push +ci --prod=false
+      - name: Run for prod
+        if: github.ref == 'refs/heads/main' && github.action == 'push'
+        run: earthly --ci --push +ci --prod=true
