@@ -26,7 +26,7 @@ build:
 lint:
   FROM +dependencies
   COPY . .
-  RUN npm run lint:check
+  RUN npm run lint
 
 lint.fix:
   FROM +dependencies
