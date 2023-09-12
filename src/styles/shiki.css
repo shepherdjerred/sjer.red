@@ -3,6 +3,7 @@
     display: none;
   }
 }
+
 @media (prefers-color-scheme: dark) {
   .shiki.light-plus {
     display: none;

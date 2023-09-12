@@ -10,7 +10,8 @@
     "astro": "astro",
     "test": "playwright test",
     "test:update": "playwright test --update-snapshots",
-    "lint": "eslint . --ext .js,.jsx,ts,tsx,astro",
+    "lint": "eslint . --ext .js,.jsx,ts,tsx,astro && prettier --check . && stylelint ./src/**/*.{css,sass,scss} && markdownlint-cli2 '**/*.md' '#node_modules'",
+    "lint:fix": "eslint . --ext .js,.jsx,ts,tsx,astro --fix && prettier -w . && stylelint --fix ./src/**/*.{css,sass,scss} && markdownlint-cli2-fix '**/*.md' '#node_modules'",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -42,13 +43,19 @@
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "markdownlint-cli2": "^0.9.2",
+    "postcss-html": "^1.5.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
+    "stylelint": "^15.10.3",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-scss": "^11.0.0",
     "typescript": "^5.2.2"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,astro}": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write",
-    "*.md": "markdownlint-cli2-fix"
+    "*": "prettier --ignore-unknown --write",
+    "*.md": "markdownlint-cli2-fix",
+    "*.{css,sass,scss}": "stylelint --fix"
   }
 }

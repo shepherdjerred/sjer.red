@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "CommitMono";
+  font-family: CommitMono;
   src: url("/fonts/CommitMono/CommitMono-450-Regular.otf") format("otf");
   font-weight: 450;
   font-style: normal;
@@ -7,7 +7,7 @@
 }
 
 @font-face {
-  font-family: "CommitMono";
+  font-family: CommitMono;
   src: url("/fonts/CommitMono/CommitMono-450-Italic.otf") format("otf");
   font-weight: 450;
   font-style: italic;
@@ -15,7 +15,7 @@
 }
 
 @font-face {
-  font-family: "CommitMono";
+  font-family: CommitMono;
   src: url("/fonts/CommitMono/CommitMono-700-Regular.otf") format("otf");
   font-weight: 700;
   font-style: normal;
@@ -23,7 +23,7 @@
 }
 
 @font-face {
-  font-family: "CommitMono";
+  font-family: CommitMono;
   src: url("/fonts/CommitMono/CommitMono-700-Italic.otf") format("otf");
   font-weight: 700;
   font-style: italic;
