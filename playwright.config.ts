@@ -3,10 +3,10 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./test",
   fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 1,
-  workers: process.env.CI ? 1 : 8,
-  reporter: "html",
+  forbidOnly: process.env.CI === "true",
+  retries: 1,
+  workers: "200%",
+  reporter: process.env.CI === "true" ? "github" : "html",
   use: {
     baseURL: "http://localhost:4321",
     trace: "on-first-retry",

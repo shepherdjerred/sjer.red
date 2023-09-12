@@ -1,0 +1,27 @@
+name: Earthly CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    name: Earthly CI
+    runs-on: ubuntu-latest
+    env:
+      EARTHLY_TOKEN: ${{ secrets.EARTHLY_TOKEN }}
+      SATELLITE_NAME: shepherdjerred.com
+    steps:
+      - uses: earthly/actions-setup@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+      - name: Docker login
+        run: docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password "${{ secrets.DOCKERHUB_TOKEN }}"
+      - name: Run
+        run: earthly --ci +ci
+      - name: Run with push
+        if: github.ref == 'refs/heads/main' && github.action == 'push'
+        run: earthly --ci --push +ci
