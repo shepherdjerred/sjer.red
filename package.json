@@ -49,6 +49,6 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx,astro}": "eslint --cache --fix",
     "*.{js,css,md}": "prettier --write",
-    "*.md": "markdownlint2-fix"
+    "*.md": "markdownlint-cli2-fix"
   }
 }
