@@ -2,6 +2,7 @@ name: Earthly CI
 
 on:
   push:
+  workflow_dispatch:
 
 jobs:
   ci:
@@ -17,9 +18,26 @@ jobs:
       - uses: actions/checkout@v3
       - name: Docker login
         run: docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password "${{ secrets.DOCKERHUB_TOKEN }}"
-      - name: Run for dev
-        if: github.ref == 'refs/heads/main' && github.action == 'push'
-        run: earthly --ci --push +ci --prod=false
-      - name: Run for prod
-        if: github.ref == 'refs/heads/main' && github.action == 'push'
-        run: earthly --ci --push +ci --prod=true
+      - name: Run
+        run: earthly --ci +ci --prod=true
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    env:
+      EARTHLY_TOKEN: ${{ secrets.EARTHLY_TOKEN }}
+      SATELLITE_NAME: shepherdjerred.com
+    needs:
+      - ci
+    environment:
+      name: production
+      url: https://sjer.red
+    steps:
+      - uses: earthly/actions-setup@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+      - name: Docker login
+        run: docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password "${{ secrets.DOCKERHUB_TOKEN }}"
+      - name: Deploy
+        run: earthly --ci --push +deploy --prod=true
