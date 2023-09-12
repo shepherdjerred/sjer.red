@@ -6,7 +6,7 @@ on:
 
 jobs:
   ci:
-    name: Earthly CI
+    name: CI
     runs-on: ubuntu-latest
     env:
       EARTHLY_TOKEN: ${{ secrets.EARTHLY_TOKEN }}
@@ -41,3 +41,21 @@ jobs:
         run: docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password "${{ secrets.DOCKERHUB_TOKEN }}"
       - name: Deploy
         run: earthly --ci --push +deploy --prod=true
+  devcontainer:
+    name: Prebuild Devcontainer
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    env:
+      EARTHLY_TOKEN: ${{ secrets.EARTHLY_TOKEN }}
+      SATELLITE_NAME: shepherdjerred.com
+    needs:
+      - ci
+    steps:
+      - uses: earthly/actions-setup@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+      - name: Docker login
+        run: docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password "${{ secrets.DOCKERHUB_TOKEN }}"
+      - name: Deploy
+        run: earthly --ci --push +devcontainer

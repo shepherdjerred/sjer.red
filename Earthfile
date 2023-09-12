@@ -8,9 +8,6 @@ ci:
   BUILD +lint
   BUILD +test
   BUILD +deploy
-  IF [ $prod = "true" ]
-    BUILD +devcontainer
-  END
 
 dependencies:
   COPY package*.json .
