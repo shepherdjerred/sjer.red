@@ -5,10 +5,9 @@ RUN npm install -g npm
 WORKDIR /source
 
 ci:
-  ARG --required prod
   BUILD +lint
   BUILD +test
-  BUILD +deploy --prod=$prod
+  BUILD +deploy
   IF [ $prod = "true" ]
     BUILD +devcontainer
   END

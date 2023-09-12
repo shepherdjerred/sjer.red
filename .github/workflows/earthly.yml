@@ -19,7 +19,7 @@ jobs:
       - name: Docker login
         run: docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password "${{ secrets.DOCKERHUB_TOKEN }}"
       - name: Run
-        run: earthly --ci +ci --prod=true
+        run: earthly -P --ci +ci
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
