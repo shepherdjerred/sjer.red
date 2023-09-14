@@ -3,7 +3,9 @@
 I'm a software engineer. I have a particular passion for programming languages, infrastructure, and developer tools.
 Some of my favorite languages are Rust, Haskell, TypeScript, and Java (strictly for sentimental reasons).
 
-I'm studying at [Georgia Tech](https://omscs.gatech.edu/) to pursue a Masters in Computer Science.
+I'm studying at [Georgia Tech](https://omscs.gatech.edu/) to pursue a Masters in Computer Science (OMSCS).
+This semester (Fall 2023) I'm taking [Computer Networks](https://omscs.gatech.edu/cs-6250-computer-networks) and
+[Video Game Design](https://omscs.gatech.edu/cs-6457-video-game-design).
 
 I'm a fan of free software and a supporter of open source.
 
