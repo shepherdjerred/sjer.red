@@ -6,4 +6,5 @@ export const BlogSchema = z.object({
   date: z.date(),
   image: z.string().optional(),
   isDraft: z.boolean().default(false),
+  hackerNews: z.string().optional(),
 });
