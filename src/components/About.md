@@ -12,3 +12,5 @@ so you can check that out if you're curious about what I've been working on.
 My [résumé](https://resume.sjer.red/) has a bit more of a complete view of my background.
 
 My non-computer-related interests include rock climbing, cooking, cats, and reading.
+
+Live in Seattle? [Let's grab coffee](mailto:coffee@sjer.red)!
