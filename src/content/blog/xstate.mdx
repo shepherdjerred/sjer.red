@@ -87,14 +87,15 @@ I even wrote some quick unit tests to ensure it works properly. This test was mu
 <figure>
 ```typescript
 test("able to reach the streaming state", (done) => {
-  const actor = interpret(streamMachine).onTransition((state) => {
-    if (state.matches("is_ready")) {
-      actor.send({ type: "start_stream" });
-    }
-    if (state.matches("is_streaming")) {
-      done();
-    }
-  });
+  const actor = interpret(streamMachine)
+    .onTransition((state) => {
+      if (state.matches("is_ready")) {
+        actor.send({ type: "start_stream" });
+      }
+      if (state.matches("is_streaming")) {
+        done();
+      }
+    });
   actor.start();
 });
 ```
