@@ -5,7 +5,8 @@
     "stylelint.vscode-stylelint",
     "davidanson.vscode-markdownlint",
     "esbenp.prettier-vscode",
-    "unifiedjs.vscode-mdx"
+    "unifiedjs.vscode-mdx",
+    "dagger.dagger"
   ],
   "unwantedRecommendations": []
 }
