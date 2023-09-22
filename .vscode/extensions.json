@@ -6,7 +6,8 @@
     "davidanson.vscode-markdownlint",
     "esbenp.prettier-vscode",
     "unifiedjs.vscode-mdx",
-    "dagger.dagger"
+    "dagger.dagger",
+    "github.vscode-github-actions"
   ],
   "unwantedRecommendations": []
 }

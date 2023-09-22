@@ -2,30 +2,30 @@ import { connect } from "@dagger.io/dagger";
 
 connect(
   async (client) => {
-    // use a node:16-slim container
-    // mount the source code directory on the host
-    // at /src in the container
+    const nodeCache = client.cacheVolume("node");
+
     const source = client
       .container()
       .from("node:lts")
-      .withDirectory("/src", client.host().directory("."), { exclude: ["node_modules/", "ci/"] });
+      .withWorkdir("/workspace")
+      .withDirectory(".", client.host().directory("."), {
+        include: [
+          "assets",
+          "public",
+          "src",
+          "package*.json",
+          "astro.config.ts",
+          "tailwind.config.cjs",
+          "tsconfig.json",
+        ],
+      })
+      .withMountedCache("node_modules", nodeCache);
 
-    // set the working directory in the container
-    // install application dependencies
-    const runner = source.withWorkdir("/src").withExec(["npm", "install"]);
+    const runner = source.withExec(["npm", "install"]);
 
-    // run application tests
-    const test = runner.withExec(["npm", "run", "test"]);
-
-    // build application
-    // write the build output to the host
     const buildDir = runner.withExec(["npm", "run", "build"]).directory("./dist");
 
     await buildDir.export("./dist");
-
-    const e = await buildDir.entries();
-
-    console.log("build dir contents:\n", e);
   },
   { LogOutput: process.stdout },
 );
