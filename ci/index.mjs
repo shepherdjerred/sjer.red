@@ -1,5 +1,9 @@
 import { connect } from "@dagger.io/dagger";
 
+// TODO: prebuild devcontainer
+// TODO: linting
+// TODO: testing
+
 connect(
   async (client) => {
     const nodeCache = client.cacheVolume("node");
