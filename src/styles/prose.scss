@@ -1,5 +1,11 @@
 .prose {
-  a:hover {
-    text-decoration: none;
+  font-family: "IBM Plex Serif", serif;
+
+  a {
+    color: #2563eb;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

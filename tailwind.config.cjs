@@ -17,6 +17,7 @@ module.exports = {
         slate: colors.slate,
       },
       fontFamily: {
+        serif: ["IBM Plex Serif", ...defaultTheme.fontFamily.serif],
         sans: ["Nunito", ...defaultTheme.fontFamily.sans],
         mono: ["CommitMono", ...defaultTheme.fontFamily.mono],
       },
