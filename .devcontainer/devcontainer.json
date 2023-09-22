@@ -4,8 +4,7 @@
   "features": {
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/sshd:1": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:1": {},
-    "ghcr.io/shepherdjerred/devcontainers-features/earthly:latest": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2.5.0": {}
   },
   "customizations": {
     "devpod": {
