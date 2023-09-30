@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions, fade } from "astro:transitions";
+
 interface Props {
   title?: string;
   description?: string;
@@ -21,7 +23,7 @@ import "@fontsource/ibm-plex-serif";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: 150 })}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -53,6 +55,7 @@ import "@fontsource/ibm-plex-serif";
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <slot />
