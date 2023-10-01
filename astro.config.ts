@@ -7,6 +7,7 @@ import fs from "node:fs";
 import { Resvg } from "@resvg/resvg-js";
 import parseFrontmatter from "gray-matter";
 import satori from "satori";
+import remarkToc from "remark-toc";
 
 // https://dietcode.io/p/astro-og/
 const render = (title: string) => ({
@@ -105,6 +106,7 @@ export default defineConfig({
       theme: "github-dark",
       wrap: true,
     },
+    remarkPlugins: [remarkToc],
   },
   site: "https://sjer.red",
   integrations: [mdx(), sitemap(), tailwind(), og()],

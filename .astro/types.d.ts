@@ -241,6 +241,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"screen-time.mdx": {
+	id: "screen-time.mdx";
+  slug: "screen-time";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "software-testing.mdx": {
 	id: "software-testing.mdx";
   slug: "software-testing";
