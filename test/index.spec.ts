@@ -14,3 +14,8 @@ test("blog post screenshot matches", async ({ page }) => {
   await page.goto("/blog/software-testing");
   await expect(page).toHaveScreenshot();
 });
+
+test("screen time blog post screenshot matches", async ({ page }) => {
+  await page.goto("/blog/screen-time");
+  await expect(page).toHaveScreenshot();
+});
