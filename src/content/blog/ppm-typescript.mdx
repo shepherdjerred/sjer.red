@@ -1,0 +1,56 @@
+---
+title: Migrating a Codebase to TypeScript
+description:
+date: 2023-10-04
+draft: true
+---
+
+Earlier this year my team at [Posit Package Manager](https://posit.co/products/enterprise/package-manager/) was able to move our frontend from JavaScript to TypeScript. It involved a _lot_ of work and a few deadline extensions, but in the end we were able to move our entire codebase over.
+
+I've always been a proponent of static typing. It does has an upfront cost to learn and understand type systems, but the benefit of allowing your compiler to act as a guardrail far outweighs any cost. I don't think that there is any reason to be writing JavaScript today, especially when projects like [Vite](https://vitejs.dev/) and [Deno](https://deno.com/) make building and using TypeScript so easy.
+
+We've slowly been modernizing our frontend at Package Manager. Last year, I took the initiative to update all of our dependencies, migrate from Vue 2 to Vue 3, switched from webpack to Vite, and laid the foundations for adopting TypeScript.
+
+A goal earlier this year was to redesign our product's new user experience. This would be the first redesign to our product since its introduction, and it seemed like the perfect time to improve the codebase along the way.
+
+As a part of the redesign, we migrated the codebase to TypeScript, switch from the Vue options API to the composition API, and fixed a whole lot of weird behavior that the old UI had. This is the biggest Vue project I've worked on, so I ended up learning a lot along the way. In the end, we maintained test coverage and gained type safety for the entire codebase.
+
+## Zod
+
+There were some roadbumps and open questions. I try to avoid casts whereever I can, since escaping from the type system is generally the wrong thing to do. How, then, should I validate data coming from the [boundaries of the type system](https://vinnie.dev/using-zod-at-the-edge-of-our-typescript-type-system/)?
+
+My answer was to use a TypeScript schema validation library. There are [many](https://github.com/dzharii/awesome-typescript#validation), but I chose [Zod](https://zod.dev/) since I've heard very good things about it from [Matt Pocock](https://www.mattpocock.com/). Zod allows you to define the shape of your data and easily check if some arbitrary data matches. For example, I might have some schema for user settings.
+
+```TypeScript
+const UserSettingsSchema = z.object({
+    theme: z.intersection(["light", "dark", "auto"]), // equivalent to "light" | "dark" | "auto"
+})
+```
+
+I can then load settings from local storage and check if the settings in storage match what the type system expects.
+
+```TypeScript
+const savedSettings = JSON.parse(localStorage.get("settings"));
+const result = UserSettingsSchema.safeParse(savedSettings);
+
+if (!result.success) {
+    throw Error("saved settings don't match the schema!")
+}
+```
+
+Even better, Zod doesn't require you to write your type definitions twice. You can get the TypeScript type easily.
+
+```TypeScript
+type UserSettings = z.infer<typeof UserSettingsSchema>;
+
+function forceDarkMode(settings: UserSettings): UserSettings {
+    return {
+        ...settings,
+        theme: "dark"
+    };
+}
+```
+
+Zod is very ergonomic; I haven't yet found a type that I can't represent with it. It ensures that data coming from local storage, our API, our router, or any other external source, matches what TypeScript expects. In practice, this is lifechanging. Instead of throwing casts everywhere, you're able to guarentee that your types are correct.
+
+We used [Zodios](https://www.zodios.org/), a wrapper around Zod and [Axios](https://github.com/axios/axios), to validate API responses.

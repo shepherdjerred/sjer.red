@@ -101,7 +101,7 @@ const og = (): AstroIntegration => ({
 // https://astro.build/config
 export default defineConfig({
   markdown: {
-    drafts: true,
+    drafts: false,
     shikiConfig: {
       theme: "github-dark",
       wrap: true,
