@@ -234,6 +234,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"ppm-typescript.mdx": {
+	id: "ppm-typescript.mdx";
+  slug: "ppm-typescript";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "rust-is-exciting.mdx": {
 	id: "rust-is-exciting.mdx";
   slug: "rust-is-exciting";
@@ -274,9 +281,7 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		"obsidian": {
-};
-
+		
 	};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
