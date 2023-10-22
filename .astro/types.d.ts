@@ -206,6 +206,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"drafts/ppm-typescript.mdx": {
+	id: "drafts/ppm-typescript.mdx";
+  slug: "drafts/ppm-typescript";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "introduction.mdx": {
 	id: "introduction.mdx";
   slug: "introduction";
@@ -230,13 +237,6 @@ declare module 'astro:content' {
 "on-perfection.mdx": {
 	id: "on-perfection.mdx";
   slug: "on-perfection";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"ppm-typescript.mdx": {
-	id: "ppm-typescript.mdx";
-  slug: "ppm-typescript";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -281,7 +281,9 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		
+		"obsidian": {
+};
+
 	};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
