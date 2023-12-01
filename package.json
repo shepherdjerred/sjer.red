@@ -42,7 +42,7 @@
     "@typescript-eslint/parser": "^6.9.1",
     "eslint": "^8.52.0",
     "eslint-plugin-astro": "^0.29.1",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",
     "markdownlint-cli2": "^0.10.0",
