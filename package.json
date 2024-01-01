@@ -26,7 +26,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "astro": "^3.6.4",
     "astro-icon": "^0.8.1",
-    "markdown-it": "^13.0.2",
+    "markdown-it": "^14.0.0",
     "remark-toc": "^9.0.0",
     "sanitize-html": "^2.11.0",
     "sass": "^1.69.5",
