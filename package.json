@@ -19,7 +19,7 @@
     "@astrojs/mdx": "^1.1.5",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.4",
-    "@astrojs/tailwind": "^5.0.2",
+    "@astrojs/tailwind": "^5.1.0",
     "@fontsource/ibm-plex-serif": "^5.0.8",
     "@fontsource/nunito": "^5.0.16",
     "@resvg/resvg-js": "^2.6.0",
