@@ -21,7 +21,7 @@
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/tailwind": "^5.0.2",
     "@fontsource/ibm-plex-serif": "^5.0.8",
-    "@fontsource/nunito": "^5.0.15",
+    "@fontsource/nunito": "^5.0.16",
     "@resvg/resvg-js": "^2.6.0",
     "@tailwindcss/typography": "^0.5.10",
     "astro": "^3.6.4",
