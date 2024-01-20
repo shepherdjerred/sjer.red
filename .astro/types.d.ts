@@ -165,11 +165,11 @@ declare module 'astro:content' {
 			? {
 					collection: C;
 					slug: ValidContentEntrySlug<C>;
-			  }
+				}
 			: {
 					collection: C;
 					id: keyof DataEntryMap[C];
-			  }
+				}
 	>;
 	// Allow generic `string` to avoid excessive type errors in the config
 	// if `dev` is not running to update as you edit.
@@ -202,13 +202,6 @@ declare module 'astro:content' {
 "c-pointer-math.mdx": {
 	id: "c-pointer-math.mdx";
   slug: "c-pointer-math";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"drafts/ppm-typescript.mdx": {
-	id: "drafts/ppm-typescript.mdx";
-  slug: "drafts/ppm-typescript";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -281,9 +274,7 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		"obsidian": {
-};
-
+		
 	};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;

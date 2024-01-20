@@ -10,6 +10,7 @@ import satori from "satori";
 import remarkToc from "remark-toc";
 
 // https://dietcode.io/p/astro-og/
+import icon from "astro-icon";
 const render = (title: string) => ({
   type: "div",
   props: {
@@ -28,7 +29,9 @@ const render = (title: string) => ({
       {
         type: "div",
         props: {
-          style: { marginTop: 96 },
+          style: {
+            marginTop: 96,
+          },
           children: title,
         },
       },
@@ -52,20 +55,16 @@ const og = (): AstroIntegration => ({
     "astro:build:done": async ({ dir, pages }) => {
       try {
         const jetBrainsMono = fs.readFileSync("public/fonts/CommitMono/CommitMono-450-Regular.otf");
-
         for (const { pathname } of pages) {
           if (!pathname.startsWith("blog/") || pathname === "blog/") {
             continue;
           }
           const original = `src/content/${pathname.slice(0, -1)}.mdx`;
           const file = fs.readFileSync(original);
-
           const data = parseFrontmatter(file).data as unknown;
-
           if (typeof data !== "object" || data === null || !("title" in data) || typeof data.title !== "string") {
             throw new Error("unable to parse data");
           }
-
           const svg = await satori(render(data.title), {
             width: 1200,
             height: 630,
@@ -78,17 +77,14 @@ const og = (): AstroIntegration => ({
               },
             ],
           });
-
           const resvg = new Resvg(svg, {
             fitTo: {
               mode: "width",
               value: 1200,
             },
           });
-
           fs.writeFileSync(`${dir.pathname}${pathname}openGraph.png`, resvg.render().asPng());
         }
-
         console.log(`\x1b[32mog:\x1b[0m Generated OpenGraph images\n`);
       } catch (e) {
         console.error(e);
@@ -101,7 +97,6 @@ const og = (): AstroIntegration => ({
 // https://astro.build/config
 export default defineConfig({
   markdown: {
-    drafts: false,
     shikiConfig: {
       theme: "github-dark",
       wrap: true,
@@ -109,5 +104,5 @@ export default defineConfig({
     remarkPlugins: [remarkToc],
   },
   site: "https://sjer.red",
-  integrations: [mdx(), sitemap(), tailwind(), og()],
+  integrations: [mdx(), sitemap(), tailwind(), og(), icon()],
 });

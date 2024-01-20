@@ -4,11 +4,11 @@
   "features": {
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/sshd:1": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2.5.0": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2.5.0": {},
   },
   "customizations": {
     "devpod": {
-      "prebuildRepository": "ghcr.io/shepherdjerred/shepherdjerred.com"
-    }
-  }
+      "prebuildRepository": "ghcr.io/shepherdjerred/shepherdjerred.com",
+    },
+  },
 }

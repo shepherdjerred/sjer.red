@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from 'astro-icon/components'
 import Container from "./Container.astro";
 ---
 
@@ -14,16 +14,16 @@ import Container from "./Container.astro";
       </div>
       <div class="flex flex-wrap gap-4 md:justify-end content-center place-content-center">
         <a href="https://github.com/shepherdjerred" class="hover:bg-white hover:text-black p-1"
-          ><Icon pack="mdi" name="github" /> <span class="underline">github</span></a
+          ><Icon name="mdi:github" /> <span class="underline">github</span></a
         >
         <a rel="me" href="https://mastodon.social/@shepherdjerred" class="hover:bg-white hover:text-black p-1"
-          ><Icon pack="mdi" name="mastodon" /> <span class="underline">mastodon</span></a
+          ><Icon name="mdi:mastodon" /> <span class="underline">mastodon</span></a
         >
         <a href="/rss.xml" class="hover:bg-white hover:text-black p-1"
-          ><Icon pack="mdi" name="rss" /> <span class="underline">rss</span></a
+          ><Icon name="mdi:rss" /> <span class="underline">rss</span></a
         >
         <a href="mailto:contact@sjer.red" class="hover:bg-white hover:text-black p-1">
-          <Icon pack="mdi" name="email" />
+          <Icon name="mdi:email" />
           <span class="underline">email</span>
         </a>
       </div>
@@ -31,7 +31,7 @@ import Container from "./Container.astro";
   </Container>
 
   <style lang="css">
-    [astro-icon] {
+    [data-icon] {
       width: 24px;
       display: inline;
     }
