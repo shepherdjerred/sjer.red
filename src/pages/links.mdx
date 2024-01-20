@@ -1,0 +1,28 @@
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Background from "../components/Background.astro";
+import Container from "../components/Container.astro";
+import FooterWrapper from "../components/FooterWrapper.astro";
+import { links } from "../links.ts";
+
+<Layout title="Links" description="Links I like">
+  <FooterWrapper>
+    <Navbar />
+    <Background extraCss="bg-black">
+      <Container width="narrow">
+
+{links.map((link) => (
+
+<div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>  <a href={link} target="_blank" rel="noopener noreferrer"                       class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}>
+    {link}
+
+  </a>
+</div>
+)) }
+
+            </Container>
+          </Background>
+
+        </FooterWrapper>
+
+    </Layout>

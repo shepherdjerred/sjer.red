@@ -16,7 +16,7 @@ const pathname = new URL(Astro.request.url).pathname;
           Home
         </li></a
       >
-      <a href="/blog"
+      <a href="/blog/"
         ><li
           class:list={[
             "p-1 hover:bg-white hover:text-black underline hover:no-underline",
@@ -24,6 +24,16 @@ const pathname = new URL(Astro.request.url).pathname;
           ]}
         >
           Blog
+        </li></a
+      >
+      <a href="/links/"
+        ><li
+          class:list={[
+            "p-1 hover:bg-white hover:text-black underline hover:no-underline",
+            pathname === "/links/" ? "bg-white text-black no-underline" : "",
+          ]}
+        >
+          Links
         </li></a
       >
     </ul>
