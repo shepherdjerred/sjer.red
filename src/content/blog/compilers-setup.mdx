@@ -134,18 +134,18 @@ One example is parameterized testing. For example, I have tests that check all o
 Here's what a test looks like:
 
 ```java
-  public static Stream<String> TestBadLexer() {
-    var files = Paths.get("src/test/resources/official/bad/lexer").toFile().listFiles();
-    assert files != null;
-    return Arrays.stream(files).map(File::getAbsolutePath);
-  }
+public static Stream<String> TestBadLexer() {
+  var files = Paths.get("src/test/resources/official/bad/lexer").toFile().listFiles();
+  assert files != null;
+  return Arrays.stream(files).map(File::getAbsolutePath);
+}
 
-  @ParameterizedTest
-  @MethodSource()
-  public void TestBadLexer(String file) {
-    var compiler = new TigerCompiler();
-    assertThrows(LexerException.class, () -> compiler.compile(file, false));
-  }
+@ParameterizedTest
+@MethodSource()
+public void TestBadLexer(String file) {
+  var compiler = new TigerCompiler();
+  assertThrows(LexerException.class, () -> compiler.compile(file, false));
+}
 ```
 
 JUnit will use the static method named `TestBadLexer` that supplies a list of filenames to the `TestBadLexer` as the first argument. My test then checks that the appropriate error is thrown.
@@ -159,23 +159,23 @@ I use this for investigating the `.tokens` file I produce. I chose to use the [j
 Here's an example test:
 
 ```java
-  @Test
-  @SneakyThrows
-  public void TestHelloWorldTokens() {
-    Path tokensFile = Paths.get("src/test/resources/hello.tokens");
-    Files.deleteIfExists(tokensFile);
+@Test
+@SneakyThrows
+public void TestHelloWorldTokens() {
+  Path tokensFile = Paths.get("src/test/resources/hello.tokens");
+  Files.deleteIfExists(tokensFile);
 
-    var compiler = new TigerCompiler();
-    var file = "src/test/resources/hello.tiger";
-    // the `true` argument tells the compiler to write the tokens to a file
-    compiler.compile(file, true);
+  var compiler = new TigerCompiler();
+  var file = "src/test/resources/hello.tiger";
+  // the `true` argument tells the compiler to write the tokens to a file
+  compiler.compile(file, true);
 
-    assert Files.exists(tokensFile);
+  assert Files.exists(tokensFile);
 
-    expect.toMatchSnapshot(Files.readString(tokensFile));
+  expect.toMatchSnapshot(Files.readString(tokensFile));
 
-    Files.delete(tokensFile);
-  }
+  Files.delete(tokensFile);
+}
 ```
 
 It saves a file named `__snapshots__/MainTest.snap`. The file looks like this:
