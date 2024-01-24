@@ -206,6 +206,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"compilers-setup.mdx": {
+	id: "compilers-setup.mdx";
+  slug: "compilers-setup";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "introduction.mdx": {
 	id: "introduction.mdx";
   slug: "introduction";
