@@ -24,7 +24,7 @@
     "@fontsource/nunito": "^5.0.16",
     "@resvg/resvg-js": "^2.6.0",
     "@tailwindcss/typography": "^0.5.10",
-    "astro": "^4.2.1",
+    "astro": "^4.2.8",
     "astro-icon": "^1.0.4",
     "markdown-it": "^14.0.0",
     "remark-toc": "^9.0.0",
