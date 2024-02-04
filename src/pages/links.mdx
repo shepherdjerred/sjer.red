@@ -10,19 +10,16 @@ import { links } from "../links.ts";
     <Navbar />
     <Background extraCss="bg-black">
       <Container width="narrow">
+        {links.map((link) => (
 
-{links.map((link) => (
+        <div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>  <a href={link} target="_blank" rel="noopener noreferrer"                       class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}>
+            {link}
 
-<div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>  <a href={link} target="_blank" rel="noopener noreferrer"                       class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}>
-    {link}
+          </a>
+        </div>
+        )) }
+      </Container>
+    </Background>
 
-  </a>
-</div>
-)) }
-
-            </Container>
-          </Background>
-
-        </FooterWrapper>
-
-    </Layout>
+  </FooterWrapper>
+</Layout>
