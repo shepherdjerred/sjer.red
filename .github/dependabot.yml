@@ -4,15 +4,20 @@ updates:
     open-pull-requests-limit: 20
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     assignees:
       - shepherdjerred
     reviewers:
       - shepherdjerred
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     assignees:
       - shepherdjerred
     reviewers:
