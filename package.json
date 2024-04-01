@@ -22,7 +22,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/ibm-plex-serif": "^5.0.12",
     "@fontsource/nunito": "^5.0.17",
-    "@resvg/resvg-js": "^2.6.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.12",
     "astro": "^4.5.12",
     "astro-icon": "^1.1.0",
