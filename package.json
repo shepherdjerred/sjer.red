@@ -20,7 +20,7 @@
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
-    "@fontsource/ibm-plex-serif": "^5.0.8",
+    "@fontsource/ibm-plex-serif": "^5.0.12",
     "@fontsource/nunito": "^5.0.16",
     "@resvg/resvg-js": "^2.6.0",
     "@tailwindcss/typography": "^0.5.10",
