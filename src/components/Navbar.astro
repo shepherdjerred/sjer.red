@@ -36,6 +36,16 @@ const pathname = new URL(Astro.request.url).pathname;
           Links
         </li></a
       >
+      <a href="/gatech/">
+        <li
+          class:list={[
+            "p-1 hover:bg-white hover:text-black underline hover:no-underline",
+            pathname === "/gatech/" ? "bg-white text-black no-underline" : "",
+          ]}
+        >
+          Georgia Tech
+        </li>
+      </a>
     </ul>
   </Container>
 </nav>

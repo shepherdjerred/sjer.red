@@ -6,7 +6,9 @@
     "davidanson.vscode-markdownlint",
     "esbenp.prettier-vscode",
     "unifiedjs.vscode-mdx",
-    "github.vscode-github-actions"
+    "github.vscode-github-actions",
+    "karunamurti.tera",
+    "earthly.earthfile-syntax-highlighting"
   ],
   "unwantedRecommendations": []
 }

@@ -1,0 +1,11 @@
+VERSION 0.8
+
+deps:
+  FROM rust
+  RUN cargo install --locked openring
+
+generate:
+  FROM +deps
+  COPY template.tera .
+  COPY urls.txt .
+  RUN openring --url-file urls.txt --template-file template.tera > out.html

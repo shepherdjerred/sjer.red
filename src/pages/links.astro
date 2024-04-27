@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Background from "../components/Background.astro";
+import Container from "../components/Container.astro";
+import FooterWrapper from "../components/FooterWrapper.astro";
+import { links } from "../links.ts";
+import * as jsdom from "jsdom";
+import { readFile, writeFile } from "fs/promises";
+import R from "remeda";
+
+// create cache.json if it doesn't exist
+try {
+  await readFile("cache.json", "utf-8");
+} catch (e) {
+  await writeFile("cache.json", "{}");
+}
+
+// check if "cache.json" has a title for the link
+const cache = JSON.parse(await readFile("cache.json", "utf-8"));
+
+const results = await Promise.all(
+  links.map(async (link) => {
+    if (cache[link]) {
+      return cache[link];
+    } else {
+      console.log(`Fetching ${link}`);
+      try {
+        const response = await fetch(link, { redirect: "follow" });
+        const text = await response.text();
+        jsdom.JSDOM.fragment(text);
+        const htmlDoc = new jsdom.JSDOM(text).window.document;
+        return htmlDoc.title;
+      } catch (e) {
+        console.error(`Failed to fetch ${link}`);
+        return "Failed to fetch";
+      }
+    }
+  })
+);
+
+const newCache = Object.assign(cache, Object.fromEntries(links.map((link, i) => [link, results[i]])));
+
+// write the new cache to "cache.json"
+await writeFile("cache.json", JSON.stringify(newCache, null, 2));
+---
+
+<Layout title="Links" description="Links I like">
+  <FooterWrapper>
+    <Navbar />
+    <Background extraCss="bg-black">
+      <Container width="narrow">
+        <h1 class="text-3xl text-white mt-4">Links I like</h1>
+
+        {
+          Promise.all(
+            R.shuffle(links).map(async (link) => {
+              const title = newCache[link];
+              return (
+                <div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>
+                  {" "}
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}
+                  >
+                    {title}
+                  </a>
+                </div>
+              );
+            })
+          )
+        }
+      </Container>
+    </Background>
+  </FooterWrapper>
+</Layout>
