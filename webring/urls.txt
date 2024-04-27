@@ -1,1 +1,9 @@
 https://drewdevault.com/blog/index.xml
+https://danluu.com/atom.xml
+https://jakelazaroff.com/rss.xml
+https://awesomekling.github.io/feed.xml
+https://xeiaso.net/blog.rss
+https://ciechanow.ski/atom.xml
+https://explained-from-first-principles.com/feed.xml
+https://paulgraham.com/rss.html
+https://samwho.dev/rss.xml

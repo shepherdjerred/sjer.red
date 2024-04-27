@@ -9,3 +9,4 @@ generate:
   COPY template.tera .
   COPY urls.txt .
   RUN openring --url-file urls.txt --template-file template.tera > out.html
+  SAVE ARTIFACT out.html AS LOCAL out.html

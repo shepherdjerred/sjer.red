@@ -5,6 +5,9 @@ import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { BlogSchema } from "src/schemas/blogSchema";
+import Webring from "../../../webring/out.html";
+import Container from "@components/Container.astro";
+
 interface Props {
   entry: CollectionEntry<"blog">;
 }
@@ -44,6 +47,16 @@ const { Content } = await entry.render();
         </hgroup>
         <Content />
       </article>
+    </div>
+    <div class="flex place-content-center bg-neutral-100 text-black dark:bg-black">
+      <section class="webring mb-20">
+        <Container width="wide">
+          <h3 class="text-2xl mb-10 text-center mt-10 dark:text-white">Posts from blogs I like</h3>
+          <section class="articles flex flex-col sm:flex-row gap-8">
+            <Webring />
+          </section>
+        </Container>
+      </section>
     </div>
   </FooterWrapper>
 </Layout>
