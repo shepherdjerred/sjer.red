@@ -8,6 +8,8 @@ import { links } from "../links.ts";
 import * as jsdom from "jsdom";
 import { readFile, writeFile } from "fs/promises";
 import R from "remeda";
+import { z } from "zod";
+import type { JSX } from "astro/jsx-runtime";
 
 // create cache.json if it doesn't exist
 try {
@@ -17,7 +19,7 @@ try {
 }
 
 // check if "cache.json" has a title for the link
-const cache = JSON.parse(await readFile("cache.json", "utf-8"));
+const cache = z.record(z.string().url(), z.string()).parse(JSON.parse(await readFile("cache.json", "utf-8")));
 
 const results = await Promise.all(
   links.map(async (link) => {
@@ -53,24 +55,22 @@ await writeFile("cache.json", JSON.stringify(newCache, null, 2));
         <h1 class="text-3xl text-white mt-4">Links I like</h1>
 
         {
-          Promise.all(
-            R.shuffle(links).map(async (link) => {
-              const title = newCache[link];
-              return (
-                <div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>
-                  {" "}
-                  <a
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}
-                  >
-                    {title}
-                  </a>
-                </div>
-              );
-            })
-          )
+          R.shuffle(links).map((link): JSX.Element => {
+            const title = newCache[link];
+            return (
+              <div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>
+                {" "}
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}
+                >
+                  {title}
+                </a>
+              </div>
+            );
+          })
         }
       </Container>
     </Background>
