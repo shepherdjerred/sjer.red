@@ -1,10 +1,10 @@
 ---
 interface Props {
-  width: "narrow" | "normal" | "wide";
+  width: "narrow" | "normal" | "wide" | "wide-mobile";
   backgroundCss?: string | undefined;
 }
 
-function widthToClass(width: "narrow" | "normal" | "wide"): string {
+function widthToClass(width: "narrow" | "normal" | "wide" | "wide-mobile"): string {
   switch (width) {
     case "narrow":
       return `w-2/5 min-w-fit`;
@@ -12,6 +12,8 @@ function widthToClass(width: "narrow" | "normal" | "wide"): string {
       return `w-3/5`;
     case "wide":
       return `w-4/5 `;
+    case "wide-mobile":
+      return `md:w-3/5 w-4/5`;
   }
 }
 

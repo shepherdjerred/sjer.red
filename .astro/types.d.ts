@@ -236,6 +236,13 @@ declare module 'astro:content' {
   collection: "event";
   data: InferEntrySchema<"event">
 } & { render(): Render[".mdx"] };
+"sample.mdx": {
+	id: "sample.mdx";
+  slug: "sample";
+  body: string;
+  collection: "event";
+  data: InferEntrySchema<"event">
+} & { render(): Render[".mdx"] };
 "steak-night.mdx": {
 	id: "steak-night.mdx";
   slug: "steak-night";
@@ -248,7 +255,9 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		
+		"schemas": {
+};
+
 	};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;

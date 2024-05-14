@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { EventSchema } from "src/schemas/eventSchema";
+import { EventSchema } from "src/content/schemas/event";
 
 interface Props {
   entry: CollectionEntry<"event">;
@@ -49,7 +49,9 @@ const { Content } = await entry.render();
           )
         }
       </h2>
+      Please RSVP at the bottom of this page!
       <Content />
+      
     </article>
   </div>
 </Layout>

@@ -13,13 +13,13 @@ import type { JSX } from "astro/jsx-runtime";
 
 // create cache.json if it doesn't exist
 try {
-  await readFile("cache.json", "utf-8");
+  await readFile("src/cache.json", "utf-8");
 } catch (e) {
-  await writeFile("cache.json", "{}");
+  await writeFile("src/cache.json", "{}");
 }
 
 // check if "cache.json" has a title for the link
-const cache = z.record(z.string().url(), z.string()).parse(JSON.parse(await readFile("cache.json", "utf-8")));
+const cache = z.record(z.string().url(), z.string()).parse(JSON.parse(await readFile("src/cache.json", "utf-8")));
 
 const results = await Promise.all(
   links.map(async (link) => {
@@ -44,7 +44,7 @@ const results = await Promise.all(
 const newCache = Object.assign(cache, Object.fromEntries(links.map((link, i) => [link, results[i]])));
 
 // write the new cache to "cache.json"
-await writeFile("cache.json", JSON.stringify(newCache, null, 2));
+await writeFile("src/cache.json", JSON.stringify(newCache, null, 2));
 ---
 
 <Layout title="Links" description="Links I like">
@@ -52,7 +52,7 @@ await writeFile("cache.json", JSON.stringify(newCache, null, 2));
     <Navbar />
     <Background extraCss="bg-black">
       <Container width="narrow">
-        <h1 class="text-3xl text-white mt-4">Links I like</h1>
+        <h1 class="text-3xl text-white mt-4 text-center md:text-left">Links I like</h1>
 
         {
           R.shuffle(links).map((link): JSX.Element => {

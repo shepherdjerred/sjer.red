@@ -1,0 +1,19 @@
+---
+import Container from "@components/Container.astro";
+import FooterWrapper from "@components/FooterWrapper.astro";
+import Navbar from "@components/Navbar.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Blog" description="Jerred Shepherd's blog">
+  <FooterWrapper>
+    <Navbar />
+    <Container width="narrow">
+      <main>
+        <div class="text-center">
+          <h1 class="mt-20 text-4xl font-bold tracking-tight text-white">Page not found</h1>
+        </div>
+      </main>
+    </Container>
+  </FooterWrapper>
+</Layout>
