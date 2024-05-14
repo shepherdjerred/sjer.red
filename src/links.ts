@@ -69,4 +69,6 @@ export const links = [
   "https://sive.rs",
   "https://jakelazaroff.com",
   "https://danluu.com/p95-skill/",
+  "https://theluddite.org/",
+  "https://aphyr.com/",
 ];

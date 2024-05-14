@@ -1,0 +1,55 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { EventSchema } from "src/schemas/eventSchema";
+
+interface Props {
+  entry: CollectionEntry<"event">;
+}
+
+export async function getStaticPaths() {
+  const eventEntries = await getCollection("event");
+  return eventEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { title, description, date, cost, location } = EventSchema.parse(entry.data);
+const { Content } = await entry.render();
+---
+
+<Layout title={title} description={description ?? title} openGraphType="article">
+  <div class="flex place-content-center bg-neutral-100 text-black dark:bg-black">
+    <article class="prose mt-10 mb-10 ml-8 mr-8 dark:prose-invert">
+      <hgroup>
+        <h1 class="m-0">{title}</h1>
+        <p>
+          {description}
+        </p>
+      </hgroup>
+      <h2>
+        When: <time datetime={date.toISOString()}>{date.toDateString()} </time>
+      </h2>
+      <hgroup>
+        <h3>Where: <a href={location.url}>{location.text}</a></h3>
+        <p>
+          {location.parking}
+        </p>
+      </hgroup>
+      <h2>
+        {cost && <span>Cost: {"$" + cost}</span>}
+        {
+          cost && (
+            <span class="text-sm">
+              (Venmo <a href="https://account.venmo.com/u/shepherdjerred">@shepherdjerred</a>)
+            </span>
+          )
+        }
+      </h2>
+      <Content />
+    </article>
+  </div>
+</Layout>
