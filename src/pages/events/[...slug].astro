@@ -1,4 +1,5 @@
 ---
+import RSVP from "@components/RSVP.astro";
 import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
@@ -22,36 +23,37 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={title} description={description ?? title} openGraphType="article">
-  <div class="flex place-content-center bg-neutral-100 text-black dark:bg-black">
+  <div class="flex place-content-center bg-neutral-100 text-black dark:bg-black dark:text-white">
     <article class="prose mt-10 mb-10 ml-8 mr-8 dark:prose-invert">
       <hgroup>
         <h1 class="m-0">{title}</h1>
+        <small>
+          <time datetime={date.toISOString()}>{date.toDateString()} </time>
+        </small>
         <p>
           {description}
         </p>
       </hgroup>
-      <h2>
-        When: <time datetime={date.toISOString()}>{date.toDateString()} </time>
-      </h2>
-      <hgroup>
-        <h3>Where: <a href={location.url}>{location.text}</a></h3>
-        <p>
-          {location.parking}
-        </p>
-      </hgroup>
-      <h2>
-        {cost && <span>Cost: {"$" + cost}</span>}
-        {
-          cost && (
+      <div class="bg-gray-50 sm:rounded-lg dark:bg-gray-900">
+        <div class="px-4 py-5 sm:p-6">
+          <h3 class="m-0 text-base">Where: <a href={location.url}>{location.text}</a></h3>
+          <p class="m-0 mt-4">
+            {location.parking}
+          </p>
+        </div>
+      </div>
+      {
+        cost && (
+          <h2>
+            <span>Cost: {"$" + cost}</span>
             <span class="text-sm">
               (Venmo <a href="https://account.venmo.com/u/shepherdjerred">@shepherdjerred</a>)
             </span>
-          )
-        }
-      </h2>
-      Please RSVP at the bottom of this page!
+          </h2>
+        )
+      }
       <Content />
-      
+      <RSVP />
     </article>
   </div>
 </Layout>
