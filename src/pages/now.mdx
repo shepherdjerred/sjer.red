@@ -1,3 +1,15 @@
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Background from "../components/Background.astro";
+import Container from "../components/Container.astro";
+import FooterWrapper from "../components/FooterWrapper.astro";
+
+<Layout title="Georgia Tech" description="Georgia Tech's OMSCS program">
+  <FooterWrapper>
+    <Navbar />
+    <Container width="narrow">
+    <article class="prose mt-10 mb-10 ml-8 mr-8 dark:prose-invert">
+
 # Now (05/23/2024)
 
 Inspired by https://sive.rs/now
@@ -9,3 +21,10 @@ Inspired by https://sive.rs/now
 - Therapy.
 
 ## Past
+
+        </article>
+        </Container>
+
+      </FooterWrapper>
+
+  </Layout>
