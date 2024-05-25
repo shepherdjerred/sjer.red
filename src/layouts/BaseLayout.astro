@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions, fade } from "astro:transitions";
+import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
   title?: string;
@@ -24,7 +24,7 @@ import "@fontsource/ibm-plex-serif";
 ---
 
 <!doctype html>
-<html lang="en" transition:animate={fade({ duration: 250 })}>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />

@@ -20,7 +20,7 @@ const pathname = new URL(Astro.request.url).pathname;
         ><li
           class:list={[
             "p-1 hover:bg-white hover:text-black underline hover:no-underline",
-            pathname === "/blog/" ? "bg-white text-black no-underline" : "",
+            pathname.includes("blog") ? "bg-white text-black no-underline" : "",
           ]}
         >
           Blog

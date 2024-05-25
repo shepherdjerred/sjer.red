@@ -1,16 +1,17 @@
 ---
 import FooterWrapper from "@components/FooterWrapper.astro";
 import Base from "./BaseLayout.astro";
-import { type Props } from "./BaseLayout.astro";
 import Navbar from "@components/Navbar.astro";
+import type { ComponentProps } from "astro/types";
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- this is safe enough
-const props = Astro.props;
+type Props = ComponentProps<typeof Base>;
 ---
 
-<Base {...props}>
+<Base {...Astro.props}>
   <FooterWrapper>
     <Navbar />
-    <slot />
+    <div transition:animate="fade">
+      <slot />
+    </div>
   </FooterWrapper>
 </Base>
