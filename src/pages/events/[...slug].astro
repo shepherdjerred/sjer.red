@@ -6,11 +6,11 @@ import type { CollectionEntry } from "astro:content";
 import { EventSchema } from "src/content/schemas/event";
 
 interface Props {
-  entry: CollectionEntry<"event">;
+  entry: CollectionEntry<"events">;
 }
 
 export async function getStaticPaths() {
-  const eventEntries = await getCollection("event");
+  const eventEntries = await getCollection("events");
   return eventEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },

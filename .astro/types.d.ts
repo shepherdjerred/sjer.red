@@ -236,26 +236,28 @@ declare module 'astro:content' {
 } & { render(): Render[".mdx"] };
 };
 "event": {
+};
+"events": {
 "brunch.mdx": {
 	id: "brunch.mdx";
   slug: "brunch";
   body: string;
-  collection: "event";
-  data: InferEntrySchema<"event">
+  collection: "events";
+  data: any
 } & { render(): Render[".mdx"] };
 "sample.mdx": {
 	id: "sample.mdx";
   slug: "sample";
   body: string;
-  collection: "event";
-  data: InferEntrySchema<"event">
+  collection: "events";
+  data: any
 } & { render(): Render[".mdx"] };
 "steak-night.mdx": {
 	id: "steak-night.mdx";
   slug: "steak-night";
   body: string;
-  collection: "event";
-  data: InferEntrySchema<"event">
+  collection: "events";
+  data: any
 } & { render(): Render[".mdx"] };
 };
 

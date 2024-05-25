@@ -11,7 +11,7 @@ import remarkToc from "remark-toc";
 
 // https://dietcode.io/p/astro-og/
 import icon from "astro-icon";
-const render = (title: string) => ({
+const render = (title: string, type: "blog" | "event") => ({
   type: "div",
   props: {
     style: {
@@ -41,7 +41,7 @@ const render = (title: string) => ({
           style: {
             fontSize: 40,
           },
-          children: "by Jerred Shepherd",
+          children: type === "blog" ? "by Jerred Shepherd" : "",
         },
       },
     ],
@@ -56,16 +56,17 @@ const og = (): AstroIntegration => ({
       try {
         const jetBrainsMono = fs.readFileSync("public/fonts/CommitMono/CommitMono-450-Regular.otf");
         for (const { pathname } of pages) {
-          if (!pathname.startsWith("blog/") || pathname === "blog/") {
+          if ((!pathname.startsWith("blog/") && !pathname.startsWith("events/")) || pathname === "blog/") {
             continue;
           }
+          const isBlog = pathname.startsWith("blog/");
           const original = `src/content/${pathname.slice(0, -1)}.mdx`;
           const file = fs.readFileSync(original);
           const data = parseFrontmatter(file).data as unknown;
           if (typeof data !== "object" || data === null || !("title" in data) || typeof data.title !== "string") {
             throw new Error("unable to parse data");
           }
-          const svg = await satori(render(data.title), {
+          const svg = await satori(render(data.title, isBlog ? "blog" : "event"), {
             width: 1200,
             height: 630,
             fonts: [
