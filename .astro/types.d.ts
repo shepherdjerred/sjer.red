@@ -136,79 +136,93 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
-"astro.mdx": {
-	id: "astro.mdx";
-  slug: "astro";
+"2021/introduction.mdx": {
+	id: "2021/introduction.mdx";
+  slug: "2021/introduction";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"c-debugging-vscode.mdx": {
-	id: "c-debugging-vscode.mdx";
-  slug: "c-debugging-vscode";
+"2021/on-perfection.mdx": {
+	id: "2021/on-perfection.mdx";
+  slug: "2021/on-perfection";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"c-pointer-math.mdx": {
-	id: "c-pointer-math.mdx";
-  slug: "c-pointer-math";
+"2021/rust-is-exciting.mdx": {
+	id: "2021/rust-is-exciting.mdx";
+  slug: "2021/rust-is-exciting";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"compilers-setup.mdx": {
-	id: "compilers-setup.mdx";
-  slug: "compilers-setup";
+"2022/c-debugging-vscode.mdx": {
+	id: "2022/c-debugging-vscode.mdx";
+  slug: "2022/c-debugging-vscode";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"introduction.mdx": {
-	id: "introduction.mdx";
-  slug: "introduction";
+"2022/c-pointer-math.mdx": {
+	id: "2022/c-pointer-math.mdx";
+  slug: "2022/c-pointer-math";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"language-doesnt-matter.mdx": {
-	id: "language-doesnt-matter.mdx";
-  slug: "language-doesnt-matter";
+"2022/language-doesnt-matter.mdx": {
+	id: "2022/language-doesnt-matter.mdx";
+  slug: "2022/language-doesnt-matter";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"libvirt.mdx": {
-	id: "libvirt.mdx";
-  slug: "libvirt";
+"2022/libvirt.mdx": {
+	id: "2022/libvirt.mdx";
+  slug: "2022/libvirt";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"on-perfection.mdx": {
-	id: "on-perfection.mdx";
-  slug: "on-perfection";
+"2023/astro.mdx": {
+	id: "2023/astro.mdx";
+  slug: "2023/astro";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"rust-is-exciting.mdx": {
-	id: "rust-is-exciting.mdx";
-  slug: "rust-is-exciting";
+"2023/screen-time.mdx": {
+	id: "2023/screen-time.mdx";
+  slug: "2023/screen-time";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"screen-time.mdx": {
-	id: "screen-time.mdx";
-  slug: "screen-time";
+"2023/software-testing.mdx": {
+	id: "2023/software-testing.mdx";
+  slug: "2023/software-testing";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"software-testing.mdx": {
-	id: "software-testing.mdx";
-  slug: "software-testing";
+"2023/writing.mdx": {
+	id: "2023/writing.mdx";
+  slug: "2023/writing";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
+"2023/xstate.mdx": {
+	id: "2023/xstate.mdx";
+  slug: "2023/xstate";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
+"2024/compilers-setup.mdx": {
+	id: "2024/compilers-setup.mdx";
+  slug: "2024/compilers-setup";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -216,20 +230,6 @@ declare module 'astro:content' {
 "til/2024-05-24.mdx": {
 	id: "til/2024-05-24.mdx";
   slug: "til/2024-05-24";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"writing.mdx": {
-	id: "writing.mdx";
-  slug: "writing";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"xstate.mdx": {
-	id: "xstate.mdx";
-  slug: "xstate";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">

@@ -99,10 +99,17 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: "github-dark",
+      themes: {
+        light: "github-light",
+        dark: "github-dark",
+      },
       wrap: true,
     },
     remarkPlugins: [remarkToc],
   },
   site: "https://sjer.red",
   integrations: [mdx(), sitemap(), tailwind(), og(), icon()],
+  security: {
+    checkOrigin: true,
+  },
 });

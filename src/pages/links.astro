@@ -1,78 +1,38 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
+import NavbarLayout from "@layouts/NavbarLayout.astro";
 import Background from "../components/Background.astro";
 import Container from "../components/Container.astro";
-import FooterWrapper from "../components/FooterWrapper.astro";
-import { links } from "../links.ts";
-import * as jsdom from "jsdom";
-import { readFile, writeFile } from "fs/promises";
+import { ItemSchema, links, newCache } from "../links/links.ts";
 import R from "remeda";
-import { z } from "zod";
 import type { JSX } from "astro/jsx-runtime";
-
-// create cache.json if it doesn't exist
-try {
-  await readFile("src/cache.json", "utf-8");
-} catch (e) {
-  await writeFile("src/cache.json", "{}");
-}
-
-// check if "cache.json" has a title for the link
-const cache = z.record(z.string().url(), z.string()).parse(JSON.parse(await readFile("src/cache.json", "utf-8")));
-
-const results = await Promise.all(
-  links.map(async (link) => {
-    if (cache[link]) {
-      return cache[link];
-    } else {
-      console.log(`Fetching ${link}`);
-      try {
-        const response = await fetch(link, { redirect: "follow" });
-        const text = await response.text();
-        jsdom.JSDOM.fragment(text);
-        const htmlDoc = new jsdom.JSDOM(text).window.document;
-        return htmlDoc.title;
-      } catch (e) {
-        console.error(`Failed to fetch ${link}`);
-        return "Failed to fetch";
-      }
-    }
-  })
-);
-
-const newCache = Object.assign(cache, Object.fromEntries(links.map((link, i) => [link, results[i]])));
-
-// write the new cache to "cache.json"
-await writeFile("src/cache.json", JSON.stringify(newCache, null, 2));
 ---
 
-<Layout title="Links" description="Links I like">
-  <FooterWrapper>
-    <Navbar />
-    <Background extraCss="bg-black">
-      <Container width="narrow">
-        <h1 class="text-3xl text-white mt-4 text-center md:text-left">Links I like</h1>
-
+<NavbarLayout title="Links" description="Links I like">
+  <Background extraCss="bg-black">
+    <Container width="narrow">
+      <h1 class="text-3xl text-white mt-4 text-center md:text-left">
+        Links I like <span class="text-xs">(in no particular order)</span>
+      </h1>
+      <div class="flex flex-col gap-6 mb-6 mt-6">
         {
           R.shuffle(links).map((link): JSX.Element => {
-            const title = newCache[link];
+            const item = ItemSchema.parse(newCache[link]);
             return (
-              <div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>
-                {" "}
+              <div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md text-xl`}>
                 <a
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}
+                  class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white`}
                 >
-                  {title}
+                  {item.title}
                 </a>
+                <p class="text-sm">{item.description}</p>
               </div>
             );
           })
         }
-      </Container>
-    </Background>
-  </FooterWrapper>
-</Layout>
+      </div>
+    </Container>
+  </Background>
+</NavbarLayout>

@@ -4,7 +4,6 @@ I'm a software engineer. I have a particular passion for programming languages, 
 Some of my favorite languages are Rust, Haskell, TypeScript, and Java (strictly for sentimental reasons).
 
 I'm studying at [Georgia Tech](https://omscs.gatech.edu/) to pursue a Masters in Computer Science (OMSCS).
-This semester (Summer 2024) I'm taking [High Performance Computer Architecture](https://omscs.gatech.edu/cs-6290-high-performance-computer-architecture).
 
 I'm a fan of free software and a supporter of open source.
 

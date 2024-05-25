@@ -1,19 +1,19 @@
 import { z } from "zod";
 
-export const PostSchema = z.strictObject({
+export const PostSchema = z.object({
   title: z.string(),
   description: z.string(),
-  date: z.date(),
+  date: z.coerce.date(),
   image: z.string().optional(),
   isDraft: z.boolean().default(false),
   hackerNews: z.string().optional(),
 });
 
 export const TilSchema = z
-  .strictObject({
+  .object({
     title: z.string().transform((val) => `TIL: ${val}`),
-    date: z.date(),
+    date: z.coerce.date(),
   })
   .transform((val) => ({ ...val, description: val.title, isDraft: false, hackerNews: undefined }));
 
-export const BlogSchema = z.union([TilSchema, PostSchema]);
+export const BlogSchema = z.union([PostSchema, TilSchema]);

@@ -1,21 +1,16 @@
 ---
 import About from "@components/About.md";
-import FooterWrapper from "@components/FooterWrapper.astro";
 import Hero from "@components/Hero.astro";
-import Navbar from "@components/Navbar.astro";
-import Layout from "@layouts/Layout.astro";
+import NavbarLayout from "@layouts/NavbarLayout.astro";
 ---
 
-<Layout>
-  <FooterWrapper>
-    <Navbar />
-    <Hero />
-    <div class="pt-1 md:pt-10 pb-6 dark:bg-black">
-      <div class="flex flex-col items-center m-10 md:m-0">
-        <section class="prose dark:prose-invert">
-          <About />
-        </section>
-      </div>
+<NavbarLayout>
+  <Hero />
+  <div class="pt-1 md:pt-10 pb-6 dark:bg-black">
+    <div class="flex flex-col items-center m-10 md:m-0">
+      <section class="prose dark:prose-invert">
+        <About />
+      </section>
     </div>
-  </FooterWrapper>
-</Layout>
+  </div>
+</NavbarLayout>

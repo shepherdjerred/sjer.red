@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/Markdown.astro
+layout: ../layouts/MarkdownLayout.astro
 ---
 
 # Georgia Tech OMSCS

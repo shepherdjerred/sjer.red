@@ -1,7 +1,7 @@
 ---
 import { ViewTransitions, fade } from "astro:transitions";
 
-interface Props {
+export interface Props {
   title?: string;
   description?: string;
   openGraphImage?: string;
@@ -15,8 +15,8 @@ const openGraphImage = Astro.props.openGraphImage ? Astro.props.openGraphImage :
 const title = Astro.props.title ? Astro.props.title : "Jerred Shepherd";
 const description = Astro.props.description;
 
-import "@styles/background.css";
-import "@styles/commit-mono.css";
+import "@styles/background.scss";
+import "@styles/commit-mono.scss";
 import "@styles/prose.scss";
 import "@styles/code.scss";
 import "@fontsource/nunito";
@@ -24,7 +24,7 @@ import "@fontsource/ibm-plex-serif";
 ---
 
 <!doctype html>
-<html lang="en" transition:animate={fade({ duration: 150 })}>
+<html lang="en" transition:animate={fade({ duration: 250 })}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />

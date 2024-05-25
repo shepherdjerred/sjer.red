@@ -1,3 +1,7 @@
+import * as jsdom from "jsdom";
+import { readFile, writeFile } from "fs/promises";
+import { z } from "zod";
+
 export const links = [
   "https://vitalik.eth.limo/general/2024/01/31/end.html",
   "https://qsantos.fr/2024/01/04/dynamic-programming-is-not-black-magic/",
@@ -26,7 +30,7 @@ export const links = [
   "https://www.susanrigetti.com/physics",
   "https://www.testingjavascript.com/",
   "https://xata.io/blog/postgres-full-text-search-engine",
-  "https://weaknuclearforce.wordpress.com/2013/02/",
+  "https://weaknuclearforce.wordpress.com/",
   "https://notes.eatonphil.com/2023-05-25-raft.html",
   "https://drewdevault.com/2023/05/01/2023-05-01-Burnout.html",
   "https://www.3blue1brown.com/",
@@ -72,3 +76,58 @@ export const links = [
   "https://theluddite.org/",
   "https://aphyr.com/",
 ];
+
+const file = "src/links/cache.json";
+
+// create cache.json if it doesn't exist
+try {
+  await readFile(file, "utf-8");
+} catch (e) {
+  await writeFile(file, "{}");
+}
+
+export const ItemSchema = z.object({
+  title: z.string(),
+  description: z.string().optional(),
+});
+
+export const CacheSchema = z.record(z.string().url(), ItemSchema);
+
+// check if "cache.json" has a title for the link
+const cache = CacheSchema.parse(JSON.parse(await readFile(file, "utf-8")));
+
+const results = await Promise.all(
+  links.map(async (link) => {
+    if (cache[link]) {
+      return cache[link];
+    } else {
+      console.log(`Fetching ${link}`);
+      try {
+        const response = await fetch(link, { redirect: "follow" });
+        const text = await response.text();
+        jsdom.JSDOM.fragment(text);
+        const htmlDoc = new jsdom.JSDOM(text).window.document;
+        const base: z.infer<typeof ItemSchema> = {
+          title: htmlDoc.title,
+        };
+        const description = htmlDoc.querySelector("meta[name=description]")?.getAttribute("content");
+        if (description) {
+          base.description = description;
+        }
+        return base;
+      } catch (e) {
+        console.error(`Failed to fetch ${link}`);
+        return {
+          title: "Failed to fetch",
+        };
+      }
+    }
+  }),
+);
+
+export const newCache = CacheSchema.parse(
+  Object.assign(cache, Object.fromEntries(links.map((link, i) => [link, results[i]]))),
+);
+
+// write the new cache to "cache.json"
+await writeFile(file, JSON.stringify(newCache, null, 2));

@@ -2,9 +2,12 @@
 import student from "../../assets/student.png";
 import teacher from "../../assets/teacher.png";
 import { match } from "ts-pattern";
+import Image from "astro/components/Image.astro";
+
+export type Perspective = "student" | "teacher";
 
 interface Props {
-  perspective: "student" | "teacher";
+  perspective: Perspective;
 }
 
 const { perspective } = Astro.props;
@@ -14,7 +17,7 @@ const direction = perspective === "student" ? "flex-row" : "flex-row-reverse";
 
 <aside class=`dark:bg-black dark:text-white flex items-center p-2 ${direction}`>
   <div class="grow-0 max-w-20 flex items-center flex-col gap-2">
-    <img src={image.src} alt="Astro" class="m-0 rounded-full border-2 dark:border-white" />
+    <Image src={image} alt="Astro" class="m-0 rounded-full border-2 dark:border-white" />
     <span class="text-sm italic">
       {
         match(perspective)

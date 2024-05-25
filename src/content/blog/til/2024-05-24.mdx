@@ -1,6 +1,7 @@
 ---
 title: "Closures in Groovy"
 date: 2024-05-24
+layout: ../../../layouts/BlogLayout.astro
 ---
 
 import Socratic from "../../../components/Socratic.astro";
@@ -28,7 +29,7 @@ def hello(clo, first = "John", last = "Doe") {
     clo()
 }
 
-# usage
+// usage
 foo(clo: { println "I didn't see you there!" }, first: "Jerred", last: "Shepherd")
 ```
 

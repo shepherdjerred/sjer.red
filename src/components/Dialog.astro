@@ -1,4 +1,18 @@
 <div class="rounded-xl border-2 dark:border-white p-4 ml-8 mr-8 flex flex-col items-center">
-  <span class="mb-4"><a href="https://en.wikipedia.org/wiki/Socratic_dialogue">Socratic Dialogue</a></span>
+  <span class="mb-4"
+    ><a href="https://en.wikipedia.org/wiki/Socratic_dialogue" class="force-normal">Socratic Dialogue</a></span
+  >
   <slot />
 </div>
+
+<style>
+  .force-white {
+    color: rgb(55, 65, 81);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .force-normal {
+      color: rgb(255, 255, 255);
+    }
+  }
+</style>

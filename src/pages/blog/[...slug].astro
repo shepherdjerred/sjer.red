@@ -1,16 +1,5 @@
 ---
-import FooterWrapper from "@components/FooterWrapper.astro";
-import Navbar from "@components/Navbar.astro";
-import Layout from "@layouts/Layout.astro";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import { BlogSchema } from "src/content/schemas/blog";
-import Webring from "../../../webring/out.html";
-import Container from "@components/Container.astro";
-
-interface Props {
-  entry: CollectionEntry<"blog">;
-}
+import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -20,44 +9,13 @@ export async function getStaticPaths() {
   }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
 
-const { title, description, date, hackerNews } = BlogSchema.parse(entry.data);
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
 ---
 
-<Layout title={title} description={description} openGraphType="article">
-  <FooterWrapper>
-    <Navbar />
-    <div class="flex place-content-center bg-neutral-100 text-black dark:bg-black">
-      <article class="prose mt-10 mb-10 ml-8 mr-8 dark:prose-invert">
-        <hgroup>
-          <h1 class="m-0">{title}</h1>
-          <time datetime={date.toISOString()} class="text-sm">
-            {date.toDateString()}
-            {
-              hackerNews && (
-                <>
-                  <span class="ml-3 mr-3">|</span>
-                  {/* prettier-ignore */}
-                  <a class="" href={hackerNews}>View comments on Hacker News</a>
-                </>
-              )
-            }
-          </time>
-        </hgroup>
-        <Content />
-      </article>
-    </div>
-    <div class="flex place-content-center bg-neutral-100 text-black dark:bg-black">
-      <section class="webring mb-20">
-        <Container width="wide">
-          <h3 class="text-2xl mb-10 text-center mt-10 dark:text-white">Posts from blogs I like</h3>
-          <section class="articles flex flex-col sm:flex-row gap-8">
-            <Webring />
-          </section>
-        </Container>
-      </section>
-    </div>
-  </FooterWrapper>
-</Layout>
+<Content />
