@@ -36,16 +36,6 @@ const pathname = new URL(Astro.request.url).pathname;
           Links
         </li></a
       >
-      <a href="/til/"
-        ><li
-          class:list={[
-            "p-1 hover:bg-white hover:text-black underline hover:no-underline",
-            pathname === "/til/" ? "bg-white text-black no-underline" : "",
-          ]}
-        >
-          TIL
-        </li></a
-      >
       <a href="/now/"
         ><li
           class:list={[

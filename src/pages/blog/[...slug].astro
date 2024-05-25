@@ -21,8 +21,9 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { title, description, date, hackerNews } = BlogSchema.parse(entry.data);
 const { Content } = await entry.render();
+
+const { title, description, date, hackerNews } = BlogSchema.parse(entry.data);
 ---
 
 <Layout title={title} description={description} openGraphType="article">
