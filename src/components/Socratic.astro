@@ -12,7 +12,7 @@ interface Props {
 
 const { perspective } = Astro.props;
 const image = perspective === "student" ? student : teacher;
-const direction = perspective === "student" ? "flex-row" : "flex-row-reverse";
+const direction = perspective === "teacher" ? "flex-row" : "flex-row-reverse";
 ---
 
 <aside class=`dark:bg-black dark:text-white flex items-center p-2 ${direction}`>
