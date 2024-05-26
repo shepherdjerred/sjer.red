@@ -1,14 +1,15 @@
 ---
 import Container from "./Container.astro";
 import RawWebring from "../../webring/out.html";
+import Divider from "./Divider.astro";
 ---
 
 <div class="flex flex-col">
-  <div class="border-2 w-3/5 md:w-1/5 place-self-center rounded-full"></div>
+  <Divider />
   <div class="flex place-content-center bg-neutral-100 text-black dark:bg-black">
     <section class="webring mb-20">
       <Container width="wide">
-        <h3 class="text-2xl mb-10 text-center mt-10 dark:text-white">Posts from blogs I like</h3>
+        <h3 class="text-2xl mb-10 text-center mt-10 dark:text-white">Recent posts from blogs that I like</h3>
         <section class="articles flex flex-col sm:flex-row gap-8">
           <RawWebring />
         </section>

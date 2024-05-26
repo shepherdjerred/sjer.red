@@ -7,7 +7,7 @@ interface Props {
 function widthToClass(width: "narrow" | "normal" | "wide" | "wide-mobile"): string {
   switch (width) {
     case "narrow":
-      return `w-2/5`;
+      return `md:w-2/5 w-4/5`;
     case "normal":
       return `w-3/5`;
     case "wide":
