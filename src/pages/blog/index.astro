@@ -9,26 +9,41 @@ const blogEntries = await getCollection("blog");
 <NavbarLayout title="Blog" description="Jerred Shepherd's blog">
   <Background extraCss="bg-black">
     <Container width="narrow">
+      <hgroup class="text-white mt-4">
+        <h1 class="text-3xl font-bold">Blog</h1>
+        <p class="text-md">Entries with a purple banner represent my better writings.</p>
+        <p class="text-xs">(Everything else is essentially stream-of-consciousness)</p>
+      </hgroup>
       <ul>
         {
           blogEntries
             .sort((left, right) => right.data.date.getTime() - left.data.date.getTime())
+            // filter out drafts
+            .filter((blogPostEntry) => !blogPostEntry.data.isDraft)
+            // TODO: group by year
             .map((blogPostEntry) => (
               // eslint-disable-next-line @typescript-eslint/no-unsafe-return -- no idea why this is being picked up
-              <div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md mt-6 mb-6 text-xl`}>
-                <div>
-                  <a
-                    href={`/blog/${blogPostEntry.slug}`}
-                    class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}
-                  >
-                    {blogPostEntry.data.title}
-                  </a>
-                  {blogPostEntry.data.isDraft ? "(Draft)" : ""}
-                  {blogPostEntry}
+              <div class="bg-white dark:bg-black dark:text-white text-black rounded-md mt-6 mb-6 flex overflow-clip">
+                {blogPostEntry.data.starred ? (
+                  <div class="bg-purple-600 w-2" />
+                ) : (
+                  <div class="bg-white dark:bg-black w-2" />
+                )}
+                <div class="pl-3 pt-4 pb-4 text-xl flex flex-col">
+                  <div>
+                    <a
+                      href={`/blog/${blogPostEntry.slug}`}
+                      class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}
+                    >
+                      {blogPostEntry.data.title}
+                    </a>
+                    {blogPostEntry.data.isDraft ? "(Draft)" : ""}
+                    {blogPostEntry}
+                  </div>
+                  <time datetime={blogPostEntry.data.date.toISOString()} class="ml-1 text-sm">
+                    {blogPostEntry.data.date.toDateString()}
+                  </time>
                 </div>
-                <time datetime={blogPostEntry.data.date.toISOString()} class="ml-1 text-sm">
-                  {blogPostEntry.data.date.toDateString()}
-                </time>
               </div>
             ))
         }

@@ -7,12 +7,14 @@ export const PostSchema = z.object({
   image: z.string().optional(),
   isDraft: z.boolean().default(false),
   hackerNews: z.string().optional(),
+  starred: z.boolean().default(false),
 });
 
 export const TilSchema = z
   .object({
     title: z.string().transform((val) => `TIL: ${val}`),
     date: z.coerce.date(),
+    starred: z.boolean().default(false),
   })
   .transform((val) => ({ ...val, description: val.title, isDraft: false, hackerNews: undefined }));
 

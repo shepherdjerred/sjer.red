@@ -227,6 +227,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"2024/homelab.mdx": {
+	id: "2024/homelab.mdx";
+  slug: "2024/homelab";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "til/2024-05-24.mdx": {
 	id: "til/2024-05-24.mdx";
   slug: "til/2024-05-24";

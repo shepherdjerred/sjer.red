@@ -10,7 +10,7 @@ type Props = ComponentProps<typeof Base>;
 <Base {...Astro.props}>
   <FooterWrapper>
     <Navbar />
-    <div transition:animate="fade">
+    <div transition:animate="fade" class="bg-gray-100">
       <slot />
     </div>
   </FooterWrapper>

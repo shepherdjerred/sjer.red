@@ -1,0 +1,241 @@
+---
+title: How I use Deno and cdk8s to deploy my homelab
+description: Kubernetes is awesome, but I'm too attached to static typing to use YAML. cdk8s allows you to define Kubernetes resources using TypeScript. Deno provides support for TypeScript out of the box versus Node.js.
+date: 2024-05-26
+layout: ../../../layouts/BlogLayout.astro
+starred: true
+isDraft: true
+---
+
+import Socratic from "../../../components/Socratic.astro";
+import Dialog from "../../../components/Dialog.astro";
+
+This post details the setup of my homelab. It goes into the technical details of how I setup a single-node k3s Kubernetes cluster using cdk8s and Deno to generate all of the required YAML manifests. This is a practical deployment with:
+
+- Automated backups
+- Monitoring and alerting
+- Automated deployments
+- Automatic image/chart upgrades
+- Support for GPU acceleration
+- Secure secrets with 1Password
+- Secure remote access through Tailscale
+- Direct access for game servers and certain protocols like mdns
+
+tl;dr: the repository is on [GitHub](https://github.com/shepherdjerred/servers). The `/cdk8s` contains the TypeScript code that generates the Kubernetes manifests in `/cdk8s/dist`.
+
+## Table of Contents
+
+## Background
+
+I've had a homelab for around a decade. The hardware itself has gone from repurposed parts in college (a Core Duo served me very well from 2017-2022) to a very beefy server today:
+
+- [Intel Core i9-14900K 3.2 GHz 24-Core](https://pcpartpicker.com/product/ZLjRsY/intel-core-i9-14900k-32-ghz-24-core-processor-bx8071514900k)
+- 2 x [Corsair Vengeance 32 GB (2 x 16 GB) DDR5-5600](https://pcpartpicker.com/product/J2zXsY/corsair-vengeance-32-gb-2-x-16-gb-ddr5-5600-cl40-memory-cmk32gx5m2b5600c40)
+- [Samsung 990 Pro 4 TB](https://pcpartpicker.com/product/VWxRsY/samsung-990-pro-heatsink-4-tb-m2-2280-pcie-40-x4-nvme-solid-state-drive-mz-v9p4t0cw)
+- 5 x [Seagate BarraCuda 4 TB 5400 RPM](https://pcpartpicker.com/product/jD3H99/seagate-barracuda-4tb-35-5400rpm-internal-hard-drive-st4000dm004)
+
+(The full build is on [PCPartPicker](https://pcpartpicker.com/user/RiotShielder/saved/#view=bnTM3C))
+
+TODO: insert pictures
+
+Over the years I've tried quite a few ways to manage it:
+
+- Manually installing everything without any automation
+- Artisinal, hand-written bash scripts
+- Ansible
+- Docker Compose
+
+Those methods were mostly informed by what I was wanting to learn. That trend hasn't changed with my move to Kubernetes. I had no experience with K8s back in December, and today I use it to manage my homelab quite successfully. Kubernetes is overkill for a homelab, but it does provide a great learning environment for me where the consequences are relatively low (as long as my backups keep working).
+
+I name each iteration of my server so that I can disambiguate between references of older installations. Previously I named my servers after Greek/Roman gods, but now I'm using the names of famous computer scientists. The name of the latest iteration is "lamport", named after [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport) who is known for his work in distributed systems.
+
+## `k3s`
+
+## `cdk` and `cdk8s`
+
+If you've used CloudFormation, then you know how much it sucks. You use a weird dialect of YAML to define your AWS resources. Back in 2017 AWS introduced the [cdk](https://github.com/aws/aws-cdk) library. It allows you to generate your CloudFormation YAML using a _real_ language like Go, Python, Java, or TypeScript.
+
+This idea turned out to be execellent, so they did the same thing for Kubernetes with [cdk8s](https://cdk8s.io/). cdk8s seems to be abandonded, but it still works quite well and the TypeScript defitions are generated from Kubernetes' resources (including third-party custom resource definitions!), so the library should continue to work for quite a while longer.
+
+Here's a "hello world" program from cdk8s' documentation:
+
+```typescript
+import { Construct } from "constructs";
+import { App, Chart } from "cdk8s";
+import { KubeDeployment } from "./imports/k8s";
+
+class MyChart extends Chart {
+  constructor(scope: Construct, ns: string, appLabel: string) {
+    super(scope, ns);
+
+    // Define a Kubernetes Deployment
+    new KubeDeployment(this, "my-deployment", {
+      spec: {
+        replicas: 3,
+        selector: { matchLabels: { app: appLabel } },
+        template: {
+          metadata: { labels: { app: appLabel } },
+          spec: {
+            containers: [
+              {
+                name: "app-container",
+                image: "nginx:1.19.10",
+                ports: [{ containerPort: 80 }],
+              },
+            ],
+          },
+        },
+      },
+    });
+  }
+}
+
+const app = new App();
+new MyChart(app, "getting-started", "my-app");
+
+app.synth();
+```
+
+The result of running this program is a Kubernetes YAML file that you can deploy using `kubectl apply`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: getting-started-my-deployment-c85252a6
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - image: nginx:1.19.10
+          name: app-container
+          ports:
+            - containerPort: 80
+```
+
+Why is this useful? Static typing! cdk8s can inform guide you as you write your Kubernetes resources. For example, it can let you know what properties are valid when you're creating a resource or let you know when you've specifiy an invalid property.
+
+<Dialog>
+  <Socratic perspective="student">
+    Surely Kubernetes has linters and IDE integrations for YAML to catch the same things!
+  </Socratic>
+  <Socratic perspective="teacher">
+    I'm sure that it does! In fact, I used one of these linters on my YAML output to catch additional misconfigurations.
+    I was already familiar with cdk and TypeScript. I also just really like both of those technologies, so I chose to
+    stick with them.
+  </Socratic>
+</Dialog>
+
+cdk8s has support for all of Kubernete's resources. These definitions are generated by the [`cdk8s import`](https://cdk8s.io/docs/latest/cli/import/) command, which generates types for every Kubernetes resource on your server including CRDs (custom resource definitions). Here's an example of a generated definition for 1Password, which I use to handle all of the secrets in my Kubernetes cluster:
+
+```typescript
+export class OnePasswordItem extends ApiObject {
+  public constructor(scope: Construct, id: string, props: OnePasswordItemProps = {}) {
+    super(scope, id, {
+      ...OnePasswordItem.GVK,
+      ...props,
+    });
+  }
+}
+
+export interface OnePasswordItemProps {
+  readonly metadata?: ApiObjectMetadata;
+  readonly spec?: OnePasswordItemSpec;
+  readonly type?: string;
+}
+
+export interface OnePasswordItemSpec {
+  readonly itemPath?: string;
+}
+```
+
+Here's how I use it to store my Tailscale key:
+
+```typescript
+new OnePasswordItem(chart, "tailscale-operator-oauth-onepassword", {
+  spec: {
+    itemPath: "vaults/v64ocnykdqju4ui6j6pua56xw4/items/mboftvs4fyptyqvg3anrfjy6vu",
+  },
+  metadata: {
+    name: "operator-oauth",
+    namespace: "tailscale",
+  },
+});
+```
+
+Takeaway: cdk8s supports all Kubernetes resources, including third-party resources from 1Password, Tailscale, Traefik, etc.
+
+## Deno
+
+TODO: write about Deno
+
+So, with cdk8s I have an execellent way to author my Kubernetes manifests. How do I deploy them?
+
+[ArgoCD](https://argo-cd.readthedocs.io/en/stable/)!
+
+The workflow is actually quite simple. I store my Kubernetes manifests in a [GitHub repo](https://github.com/shepherdjerred/servers/tree/main/cdk8s/dist) and I point ArgoCD to it.
+
+How do I configure ArgoCD? With cdk8s, of course:
+
+```typescript
+import { Chart } from "https://esm.sh/cdk8s@2.68.58";
+import { Application } from "../../imports/argoproj.io.ts";
+
+export function createLamportApp(chart: Chart) {
+  return new Application(chart, "lamport-app", {
+    metadata: {
+      name: "lamport",
+    },
+    spec: {
+      project: "default",
+      source: {
+        repoUrl: "https://github.com/shepherdjerred/servers",
+        path: "cdk8s/dist/",
+        targetRevision: "main",
+      },
+      destination: {
+        server: "https://kubernetes.default.svc",
+        namespace: "lamport",
+      },
+      syncPolicy: {
+        automated: {},
+        syncOptions: ["CreateNamespace=true"],
+      },
+    },
+  });
+}
+```
+
+## Ingress and HTTPS with Tailscale
+
+## Direct connections and local networks
+
+## Persistant volumes
+
+## Backups
+
+## Monitoring
+
+## GPUs
+
+## Helm, Kustomize, and operators
+
+## Bootstrapping
+
+This does require a small amount of bootstrapping, which I describe in my [repository README](https://github.com/shepherdjerred/servers/blob/main/README.md). Whenever I setup a new cluster/node, I need to:
+
+- Install K3s: `curl -sfL https://get.k3s.io | sh -`
+- Install ArgoCD: `kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`
+- Create a secrets to access my 1Password vaults
+- Deploy the manifests in this repo: `kubectl apply -f cdk8s/dist/apps.k8s.yaml`
+
+That's it!
+
+## Keeping things up-to-date

@@ -6,6 +6,7 @@ layout: ../layouts/MarkdownLayout.astro
 
 Inspired by <https://sive.rs/now>
 
+- Reading _A Desolation Called Peace_
 - Donating a kidney. It's looking like I can donate, but we're looking into an episode of hypoglycemia first.
   Which brings me to...
 - Wearing a continuous glucose monitor for the next two weeks!

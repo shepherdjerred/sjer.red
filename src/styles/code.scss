@@ -1,3 +1,8 @@
+// fixes an issues where code blocks overscroll on mobile
+.astro-code {
+  max-width: 90vw;
+}
+
 // https://shiki.style/guide/dual-themes#query-based-dark-mode
 @media (prefers-color-scheme: dark) {
   .astro-code,
