@@ -1,6 +1,7 @@
 ---
 import Background from "@components/Background.astro";
 import Container from "@components/Container.astro";
+import FormattedDate from "@components/FormattedDate.astro";
 import NavbarLayout from "@layouts/NavbarLayout.astro";
 import { getCollection } from "astro:content";
 const blogEntries = await getCollection("blog");
@@ -40,9 +41,9 @@ const blogEntries = await getCollection("blog");
                     {blogPostEntry.data.isDraft ? "(Draft)" : ""}
                     {blogPostEntry}
                   </div>
-                  <time datetime={blogPostEntry.data.date.toISOString()} class="ml-1 text-sm">
-                    {blogPostEntry.data.date.toDateString()}
-                  </time>
+                  <span class="ml-1 text-sm">
+                    <FormattedDate date={blogPostEntry.data.date} />
+                  </span>
                 </div>
               </div>
             ))

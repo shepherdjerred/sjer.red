@@ -7,3 +7,4 @@ https://ciechanow.ski/atom.xml
 https://explained-from-first-principles.com/feed.xml
 https://paulgraham.com/rss.html
 https://samwho.dev/rss.xml
+https://rachelbythebay.com/w/atom.xml

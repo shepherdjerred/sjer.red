@@ -18,6 +18,7 @@ export async function GET(context: APIContext) {
     site: context.site,
     items: blog
       .sort((left, right) => right.data.date.getTime() - left.data.date.getTime())
+      .filter((post) => !post.data.isDraft)
       .map((post) => ({
         title: post.data.title,
         pubDate: post.data.date,

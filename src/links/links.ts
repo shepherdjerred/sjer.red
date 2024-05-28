@@ -75,6 +75,7 @@ export const links = [
   "https://danluu.com/p95-skill/",
   "https://theluddite.org/",
   "https://aphyr.com/",
+  "https://gwern.net/",
 ];
 
 const file = "src/links/cache.json";
