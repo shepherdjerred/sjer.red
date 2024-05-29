@@ -3,6 +3,7 @@ import Background from "@components/Background.astro";
 import BlogYear from "@components/BlogYear.astro";
 import Container from "@components/Container.astro";
 import NavbarLayout from "@layouts/NavbarLayout.astro";
+import type { JSX } from "astro/jsx-runtime";
 import { getCollection } from "astro:content";
 import R from "remeda";
 
@@ -24,7 +25,7 @@ const groups = R.pipe(
   <Background extraCss="bg-black">
     <Container width="narrow">
       <div class="flex flex-col gap-12 mt-6 mb-6">
-        {R.map(groups, ([year, entries]) => <BlogYear year={year} entries={entries} />)}
+        {R.map(groups, ([year, entries]): JSX.Element => <BlogYear year={year} entries={entries} />)}
       </div>
     </Container>
   </Background>

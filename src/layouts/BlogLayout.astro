@@ -5,7 +5,7 @@ import BlogWebring from "@components/BlogWebring.astro";
 import BlogContent from "@components/BlogContent.astro";
 
 const props = BlogSchema.parse({
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- this is safe enough
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   ...Astro.props.frontmatter,
   ...Astro.props,
 });
