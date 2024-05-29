@@ -1,54 +1,31 @@
 ---
 import Background from "@components/Background.astro";
+import BlogYear from "@components/BlogYear.astro";
 import Container from "@components/Container.astro";
-import FormattedDate from "@components/FormattedDate.astro";
 import NavbarLayout from "@layouts/NavbarLayout.astro";
 import { getCollection } from "astro:content";
+import R from "remeda";
+
 const blogEntries = await getCollection("blog");
+
+const groups = R.pipe(
+  blogEntries,
+  R.sortBy((entry) => entry.data.date),
+  R.reverse(),
+  R.filter((entry) => !entry.data.isDraft),
+  R.groupBy((entry) => entry.data.date.getFullYear()),
+  R.entries(),
+  R.sortBy(([year]) => year),
+  R.reverse()
+);
 ---
 
 <NavbarLayout title="Blog" description="Jerred Shepherd's blog">
   <Background extraCss="bg-black">
     <Container width="narrow">
-      <hgroup class="text-white mt-4">
-        <h1 class="text-3xl font-bold">Blog</h1>
-        <p class="text-md">Entries with a purple banner represent my better writings.</p>
-        <p class="text-xs">(Everything else is essentially stream-of-consciousness)</p>
-      </hgroup>
-      <ul>
-        {
-          blogEntries
-            .sort((left, right) => right.data.date.getTime() - left.data.date.getTime())
-            // filter out drafts
-            .filter((blogPostEntry) => !blogPostEntry.data.isDraft)
-            // TODO: group by year
-            .map((blogPostEntry) => (
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-return -- no idea why this is being picked up
-              <div class="bg-white dark:bg-black dark:text-white text-black rounded-md mt-6 mb-6 flex overflow-clip">
-                {blogPostEntry.data.starred ? (
-                  <div class="bg-purple-600 w-2" />
-                ) : (
-                  <div class="bg-white dark:bg-black w-2" />
-                )}
-                <div class="pl-3 pt-4 pb-4 text-xl flex flex-col">
-                  <div>
-                    <a
-                      href={`/blog/${blogPostEntry.slug}`}
-                      class={`underline hover:no-underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white p-1 inline`}
-                    >
-                      {blogPostEntry.data.title}
-                    </a>
-                    {blogPostEntry.data.isDraft ? "(Draft)" : ""}
-                    {blogPostEntry}
-                  </div>
-                  <span class="ml-1 text-sm">
-                    <FormattedDate date={blogPostEntry.data.date} />
-                  </span>
-                </div>
-              </div>
-            ))
-        }
-      </ul>
+      <div class="flex flex-col gap-12 mt-6 mb-6">
+        {R.map(groups, ([year, entries]) => <BlogYear year={year} entries={entries} />)}
+      </div>
     </Container>
   </Background>
 </NavbarLayout>
