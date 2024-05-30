@@ -113,4 +113,5 @@ export default defineConfig({
   security: {
     checkOrigin: true,
   },
+  prefetch: true,
 });
