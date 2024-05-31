@@ -2,6 +2,7 @@ import { z } from "zod";
 import R from "remeda";
 import Parser from "rss-parser";
 import fs from "fs/promises";
+import truncate from "truncate-html";
 
 export type Source = z.infer<typeof SourceSchema>;
 const SourceSchema = z.object({
@@ -13,14 +14,15 @@ export type Configuration = z.infer<typeof ConfigurationSchema>;
 const ConfigurationSchema = z.object({
   sources: SourceSchema.array(),
   number: z.number(),
-  cache_duration_seconds: z.number(),
+  cache_duration_minutes: z.number(),
+  truncate: z.number(),
 });
 
 export type ResultEntry = z.infer<typeof ResultEntrySchema>;
 const ResultEntrySchema = z.object({
   title: z.string(),
   url: z.string(),
-  date: z.date(),
+  date: z.coerce.date(),
   source: SourceSchema,
   preview: z.string().optional(),
 });
@@ -30,7 +32,7 @@ const ResultSchema = z.array(ResultEntrySchema);
 
 export type CacheEntry = z.infer<typeof CacheEntrySchema>;
 export const CacheEntrySchema = z.object({
-  timestamp: z.date(),
+  timestamp: z.coerce.date(),
   data: ResultEntrySchema,
 });
 
@@ -45,6 +47,8 @@ const FeedEntrySchema = z
     pubDate: z.coerce.date().optional(),
     content: z.string().optional(),
     contentSnippet: z.string().optional(),
+    "content:encoded": z.string().optional(),
+    description: z.string().optional(),
   })
   .transform((entry) => {
     const date = entry.isoDate ?? entry.pubDate;
@@ -57,74 +61,80 @@ const FeedEntrySchema = z
       date,
       content: entry.content,
       contentSnippet: entry.contentSnippet,
+      description: entry.description,
+      "content:encoded": entry["content:encoded"],
     };
   });
 
-const result = await run({
+export const config = {
   sources: [
     {
       url: "https://drewdevault.com/blog/index.xml",
-      title: "",
+      title: "Drew DeVault",
     },
     {
       url: "https://danluu.com/atom.xml",
-      title: "",
+      title: "Dan Luu",
     },
     {
       url: "https://jakelazaroff.com/rss.xml",
-      title: "",
+      title: "Jake Lazaroff",
     },
     {
       url: "https://awesomekling.github.io/feed.xml",
-      title: "",
+      title: "Andreas Kling",
     },
     {
       url: "https://xeiaso.net/blog.rss",
-      title: "",
+      title: "Xe Iaso",
     },
     {
       url: "https://ciechanow.ski/atom.xml",
-      title: "",
+      title: "Bartosz Ciechanowski",
     },
     {
       url: "https://explained-from-first-principles.com/feed.xml",
-      title: "",
+      title: "Explained From First Principles",
     },
-    {
-      url: "https://paulgraham.com/rss.html",
-      title: "",
-    },
+    // {
+    //   url: "http://www.aaronsw.com/2002/feeds/pgessays.rss",
+    //   title: "Paul Graham",
+    // },
     {
       url: "https://samwho.dev/rss.xml",
-      title: "",
+      title: "Sam Rose",
     },
-    {
-      url: "https://rachelbythebay.com/w/atom.xml",
-      title: "",
-    },
+    // {
+    //   url: "https://rachelbythebay.com/w/atom.xml",
+    //   title: "Rachel Kroll",
+    // },
   ],
-  number: 5,
-  cache_duration_seconds: 60,
-});
+  number: 3,
+  cache_duration_minutes: 60,
+  truncate: 300,
+};
 
-console.log(result);
+export const result = await run(config);
 
 export async function run(config: Configuration): Promise<Result> {
   const cacheFilename = "cache.json";
+  const currentDir = process.cwd();
+  const fullFilename = `${currentDir}/${cacheFilename}`;
 
   let cacheObject: Cache = {};
 
   try {
-    const cacheFile = await fs.readFile(cacheFilename);
+    const cacheFile = await fs.readFile(fullFilename);
     cacheObject = CacheSchema.parse(JSON.parse(cacheFile.toString()));
   } catch (e) {
-    // ignore errors
+    console.error("Error reading cache file:", e);
+    throw e;
   }
 
   const [result, updatedCache] = await runWithCache(config, cacheObject);
 
   // write the updated cache to cache.json
-  await fs.writeFile(cacheFilename, JSON.stringify(updatedCache));
+  await fs.writeFile(fullFilename, JSON.stringify(updatedCache));
 
   return result;
 }
@@ -163,24 +173,28 @@ export async function fetchWithCache(
   const cacheEntry = cache[source.url];
   if (cacheEntry) {
     const now = new Date();
-    if (now.getTime() - cacheEntry.timestamp.getTime() < config.cache_duration_seconds * 1000) {
+    if (now.getTime() - cacheEntry.timestamp.getTime() < config.cache_duration_minutes * 60 * 1000) {
+      console.log(`Cache entry found for ${source.url}`);
       return Promise.resolve(cacheEntry.data);
+    } else {
+      console.log(`Cache entry for ${source.url} is too old`);
     }
   }
-  return fetch(source);
+
+  console.log(`No cache entry for ${source.url}`);
+  return fetch(source, config.truncate);
 }
 
-export async function fetch(source: Source): Promise<ResultEntry | undefined> {
+export async function fetch(source: Source, length: number): Promise<ResultEntry | undefined> {
   const parser = new Parser();
   try {
     const feed = await parser.parseURL(source.url);
-
-    console.log(feed);
 
     const firstItem = R.pipe(
       feed.items,
       R.map((item) => FeedEntrySchema.parse(item)),
       R.sortBy((item) => new Date(item.date).getTime()),
+      R.reverse(),
       R.first(),
     );
 
@@ -193,7 +207,10 @@ export async function fetch(source: Source): Promise<ResultEntry | undefined> {
       url: firstItem.link,
       date: new Date(firstItem.date),
       source,
-      preview: firstItem.contentSnippet ?? firstItem.content ?? undefined,
+      preview: truncate(
+        firstItem.contentSnippet ?? firstItem.content ?? firstItem.description ?? firstItem["content:encoded"],
+        length,
+      ),
     };
   } catch (e) {
     console.error(`Error fetching ${source.url}: ${e as string}`);

@@ -1,7 +1,10 @@
 ---
 import Container from "./Container.astro";
-import RawWebring from "../../webring/out.html";
+import { result } from "ts-webring";
 import Divider from "./Divider.astro";
+import R from "remeda";
+import WebringEntry from "./WebringEntry.astro";
+import type { JSX } from "astro/jsx-runtime";
 ---
 
 <div class="flex flex-col">
@@ -11,7 +14,12 @@ import Divider from "./Divider.astro";
       <Container width="wide">
         <h3 class="text-2xl mb-10 text-center mt-10 dark:text-white">Recent posts from blogs that I like</h3>
         <section class="articles flex flex-col sm:flex-row gap-8">
-          <RawWebring />
+          {
+            R.pipe(
+              result,
+              R.map((entry): JSX.Element => <WebringEntry entry={entry} />)
+            )
+          }
         </section>
       </Container>
     </section>
