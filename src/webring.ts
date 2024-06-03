@@ -51,6 +51,7 @@ export const config: Configuration = {
   number: 3,
   cache_duration_minutes: 60,
   truncate: 300,
+  cache_file: "webring.json",
 };
 
 export const result = await run(config);
