@@ -5,7 +5,7 @@ import Container from "@components/Container.astro";
 import NavbarLayout from "@layouts/NavbarLayout.astro";
 import type { JSX } from "astro/jsx-runtime";
 import { getCollection } from "astro:content";
-import R from "remeda";
+import * as R from "remeda";
 
 const blogEntries = await getCollection("blog");
 
