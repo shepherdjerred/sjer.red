@@ -1,6 +1,7 @@
 import { run } from "webring";
+import { type Configuration } from "webring";
 
-export const config = {
+export const config: Configuration = {
   sources: [
     {
       url: "https://drewdevault.com/blog/index.xml",
@@ -42,6 +43,10 @@ export const config = {
     //   url: "https://rachelbythebay.com/w/atom.xml",
     //   title: "Rachel Kroll",
     // },
+    {
+      url: "https://brr.fyi/feed.xml",
+      title: "brr.fyi",
+    },
   ],
   number: 3,
   cache_duration_minutes: 60,
