@@ -1,7 +1,6 @@
 ---
 import NavbarLayout from "@layouts/NavbarLayout.astro";
 import { BlogSchema } from "src/content/schemas/blog";
-import BlogWebring from "@components/BlogWebring.astro";
 import BlogContent from "@components/BlogContent.astro";
 
 const props = BlogSchema.parse({
@@ -15,5 +14,5 @@ const props = BlogSchema.parse({
   <BlogContent {...props}>
     <slot />
   </BlogContent>
-  <BlogWebring />
+  <!-- <BlogWebring /> -->
 </NavbarLayout>
