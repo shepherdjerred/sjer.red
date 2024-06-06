@@ -15,6 +15,7 @@ export const EventSchema = z.object({
     text: "Jerred's house (345 N 137th St)",
     url: "https://maps.app.goo.gl/VobB9tKBndh3frCB6",
     parking:
-      "Don't park behind a Subaru (those are Matt & Naomi's, who live downstairs). If there aren't enough spots in the driveway, then you can park along the street.",
+      "Don't block in a Subaru (those are Matt & Naomi's, who live downstairs). If there aren't enough spots in the driveway, then you can park along the street.",
   }),
+  rsvp: z.boolean().default(false),
 });

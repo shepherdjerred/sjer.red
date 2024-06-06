@@ -1,4 +1,5 @@
 ---
+import FormattedDate from "@components/FormattedDate.astro";
 import RSVP from "@components/RSVP.astro";
 import Base from "@layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
@@ -18,7 +19,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { title, description, date, cost, location } = EventSchema.parse(entry.data);
+const { title, description, date, cost, location, rsvp } = EventSchema.parse(entry.data);
 const { Content } = await entry.render();
 ---
 
@@ -27,16 +28,14 @@ const { Content } = await entry.render();
     <article class="prose mt-10 mb-10 ml-8 mr-8 dark:prose-invert">
       <hgroup>
         <h1 class="m-0">{title}</h1>
-        <small>
-          <time datetime={date.toISOString()}>{date.toDateString()} </time>
-        </small>
+        <FormattedDate date={date} showTime />
         <p>
           {description}
         </p>
       </hgroup>
-      <div class="bg-gray-50 sm:rounded-lg dark:bg-gray-900">
+      <div class="bg-white sm:rounded-lg dark:bg-gray-900 mt-10 mb-10 p-2">
         <div class="px-4 py-5 sm:p-6">
-          <h3 class="m-0 text-base">Where: <a href={location.url}>{location.text}</a></h3>
+          <h3 class="m-0 text-base">Where: <a href={location.url} target="_blank">{location.text}</a></h3>
           <p class="m-0 mt-4">
             {location.parking}
           </p>
@@ -53,7 +52,19 @@ const { Content } = await entry.render();
         )
       }
       <Content />
-      <RSVP />
+      {rsvp && <RSVP />}
     </article>
   </div>
 </Base>
+
+<style>
+  body {
+    background-color: rgb(243 244 246);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: black;
+    }
+  }
+</style>
