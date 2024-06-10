@@ -76,6 +76,7 @@ export const links = [
   "https://theluddite.org/",
   "https://aphyr.com/",
   "https://gwern.net/",
+  "https://www.writingruxandrabio.com/p/the-weird-nerd-comes-with-trade-offs",
 ];
 
 const file = "src/links/cache.json";

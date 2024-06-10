@@ -27,3 +27,4 @@ dist-ssr
 /playwright/.cache/
 .eslintcache
 webring.json
+.astro

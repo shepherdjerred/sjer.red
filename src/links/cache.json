@@ -245,5 +245,9 @@
   },
   "https://gwern.net/": {
     "title": "Gwern Branwen"
+  },
+  "https://www.writingruxandrabio.com/p/the-weird-nerd-comes-with-trade-offs": {
+    "title": "The Weird Nerd comes with trade-offs",
+    "description": "A metascience post of sorts that argues we should take human capital more seriously"
   }
 }
