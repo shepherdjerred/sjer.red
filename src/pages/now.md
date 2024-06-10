@@ -4,6 +4,8 @@ layout: ../layouts/MarkdownLayout.astro
 
 # Now
 
+Inspired by <https://sive.rs/now>
+
 ## 2024 09 06
 
 - Reading _[The Murderbot Diaries](https://en.wikipedia.org/wiki/The_Murderbot_Diaries)_.
@@ -18,11 +20,7 @@ layout: ../layouts/MarkdownLayout.astro
 
 ## Past
 
-Inspired by <https://sive.rs/now>
-
 ### 2024 24 05
-
-Inspired by <https://sive.rs/now>
 
 - Reading _A Desolation Called Peace_.
 - Donating a kidney. It's looking like I can donate, but we're looking into an episode of hypoglycemia first.
