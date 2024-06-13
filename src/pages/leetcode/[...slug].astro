@@ -1,0 +1,21 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const leetcodeEntries = await getCollection("leetcode");
+  return leetcodeEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"leetcode">;
+}
+
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
+---
+
+<Content />

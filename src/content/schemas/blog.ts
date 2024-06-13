@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { LeetcodeSchema } from "./leetcode";
 
 export const PostSchema = z.object({
   title: z.string(),
@@ -18,4 +19,4 @@ export const TilSchema = z
   })
   .transform((val) => ({ ...val, description: val.title, isDraft: false, hackerNews: undefined }));
 
-export const BlogSchema = z.union([PostSchema, TilSchema]);
+export const BlogSchema = z.union([PostSchema, LeetcodeSchema, TilSchema]);

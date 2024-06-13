@@ -1,0 +1,33 @@
+---
+import Background from "@components/Background.astro";
+import Container from "@components/Container.astro";
+import NavbarLayout from "@layouts/NavbarLayout.astro";
+import type { JSX } from "astro/jsx-runtime";
+import { getCollection } from "astro:content";
+import * as R from "remeda";
+
+const entries = await getCollection("leetcode");
+---
+
+<NavbarLayout title="Blog" description="Jerred Shepherd's blog">
+  <Background extraCss="bg-black">
+    <Container width="narrow">
+      <div class="flex flex-col gap-12 mt-6 mb-6">
+        {
+          R.pipe(
+            entries,
+            R.map(
+              (entry): JSX.Element => (
+                <div class="flex flex-col gap-2">
+                  <a href={`leetcode/${entry.slug}`} class="text-2xl font-bold text-white hover:text-gray-300">
+                    {entry.data.title}
+                  </a>
+                </div>
+              )
+            )
+          )
+        }
+      </div>
+    </Container>
+  </Background>
+</NavbarLayout>
