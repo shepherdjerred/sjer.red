@@ -12,6 +12,10 @@ const entries = await getCollection("leetcode");
 <NavbarLayout title="Blog" description="Jerred Shepherd's blog">
   <Background extraCss="bg-black">
     <Container width="narrow">
+      <div>
+        These are my own solutions to LeetCode problems. Note that these solutions aren't all necessarily my own, and
+        that I often refer to reference solutions that influence what I come up with.
+      </div>
       <div class="flex flex-col gap-12 mt-6 mb-6">
         {
           R.pipe(
@@ -19,7 +23,7 @@ const entries = await getCollection("leetcode");
             R.map(
               (entry): JSX.Element => (
                 <div class="flex flex-col gap-2">
-                  <a href={`leetcode/${entry.slug}`} class="text-2xl font-bold text-white hover:text-gray-300">
+                  <a href={`${entry.slug}`} class="text-2xl font-bold text-white hover:text-gray-300">
                     {entry.data.title}
                   </a>
                 </div>

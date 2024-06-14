@@ -47,12 +47,21 @@ Constraints:
 
 ## Solution
 
-The key insight here is that we must perform a _buy_ or a _sell_ action every day. There is no option to _hold_/_wait_.
-
-So, all we need to do is answer the question: if I bought yesterday and sold today, would I make a profit, or, is `price[i - 1] < price[i]`.
-
-Loop from the end of the array and perform that comparison. O(n) time, O(1) space.
-
 ```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        var profit = 0;
 
+        for (int i = 0; i < prices.length - 1; i++) {
+            var sellPrice = prices[i + 1];
+            var buyPrice = prices[i];
+            var diff = sellPrice - buyPrice;
+            if (diff > 0) {
+                profit += diff;
+            }
+        }
+
+        return profit;
+    }
+}
 ```
