@@ -1,6 +1,6 @@
 ---
 title: "Valid Soduku"
-date: 2024-06-13
+date: 2024-06-14
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
@@ -59,8 +59,92 @@ Constraints:
 
 ## Solution
 
-You can do this in a pretty clever way with a HashSet.
+The algorithm is simple. The difficulty with this problem is managing complexity.
+
+There are more terse solutions, but they are harder to understand. I think my solution is easy to understand, though it could be simplified e.g. by using Java streams or the standard library's `unique` function.
+
+Because the size of the input is fixed to a 9x9 board, the time and space complexity is O(1).
 
 ```java
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        // check rows
+        for (var i = 0; i < board.length; i++) {
+            if (unique(board[i])) {
+                continue;
+            } else {
+                return false;
+            }
+        }
 
+        // check cols
+        for (var i = 0; i < board.length; i++) {
+            var col = col(board, i);
+            if (unique(col)) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+
+        // check blocks
+        for (var x = 0; x < 3; x++) {
+            for (var y = 0; y < 3; y++) {
+              var block = block(board, x, y);
+              if (unique(block)) {
+                continue;
+              } else {
+                  return false;
+              }
+            }
+        }
+
+        return true;
+    }
+
+    // convert a block into an array
+    public char[] block(char[][] board, int x, int y) {
+        var offsetX = x * 3;
+        var offsetY = y * 3;
+
+        var boundX = offsetX + 3;
+        var boundY = offsetY + 3;
+
+        var block = new char[9];
+        var i = 0;
+
+        for (var cx = offsetX; cx < boundX; cx++) {
+            for (var cy = offsetY; cy < boundY; cy++) {
+                block[i] = board[cx][cy];
+                i += 1;
+            }
+        }
+
+        return block;
+    }
+
+    // convert a col into an array
+    public char[] col(char[][] board, int n) {
+        var col = new char[board.length];
+        // iterate over every row, grab the nth char
+        for (var i = 0; i < board.length; i++) {
+            col[i] = board[i][n];
+        }
+        return col;
+    }
+
+    public boolean unique(char[] c) {
+        var set = new HashSet<Character>();
+        for (var i = 0; i < c.length; i++) {
+            if (c[i] == '.') {
+                continue;
+            }
+            if (set.contains(c[i])) {
+                return false;
+            }
+            set.add(c[i]);
+        }
+        return true;
+    }
+}
 ```

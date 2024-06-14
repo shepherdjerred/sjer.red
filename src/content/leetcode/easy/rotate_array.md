@@ -43,6 +43,8 @@ Follow up:
 
 ## Solution
 
+This can be done with O(1) space using some rotation tricks. I suspect there is also a way to do this mathematically, but the algorithm was getting a little complicated.
+
 ```java
 class Solution {
     // this solution uses o(n) storage.
