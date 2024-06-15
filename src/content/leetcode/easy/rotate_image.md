@@ -1,6 +1,6 @@
 ---
 title: "Rotate Image"
-date: 2024-06-14
+date: 2024-06-15
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
