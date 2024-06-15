@@ -77,6 +77,7 @@ export const links = [
   "https://aphyr.com/",
   "https://gwern.net/",
   "https://www.writingruxandrabio.com/p/the-weird-nerd-comes-with-trade-offs",
+  "https://www.autodidacts.io/holistic-perfectionism/",
 ];
 
 const file = "src/links/cache.json";
