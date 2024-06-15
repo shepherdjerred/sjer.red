@@ -1,8 +1,8 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
+title: Now
+description: What I'm up to
 ---
-
-# Now
 
 Inspired by <https://sive.rs/now>
 

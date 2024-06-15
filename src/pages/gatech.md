@@ -1,8 +1,8 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
+title: Georgia Tech OMSCS
+description: The classes I've taken
 ---
-
-# Georgia Tech OMSCS
 
 ## Useful Links
 
