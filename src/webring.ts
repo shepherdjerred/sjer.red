@@ -47,6 +47,10 @@ export const config: Configuration = {
       url: "https://brr.fyi/feed.xml",
       title: "brr.fyi",
     },
+    {
+      url: "https://devblogs.microsoft.com/oldnewthing/feed",
+      title: "The Old New Thing",
+    },
   ],
   number: 3,
   cache_duration_minutes: 60,
