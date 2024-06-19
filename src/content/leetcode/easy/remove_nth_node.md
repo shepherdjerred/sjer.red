@@ -41,12 +41,49 @@ Follow up: Could you do this in one pass?
 
 ## Solution
 
-The straightforward solution to this problem is, well, straightforward. Just iterate through the list until the end to determine the length of the list, then iterate again len - n times and remove the node.
-
-I'll just solve the follow-up because it sounds more challenging/interesting.
-
-We can keep a reference to the last n nodes. The easiest way do to this is a FIFO data structure (queue)
+This problem was a bit difficult for me.
 
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        var fast = head;
+        ListNode slow = null;
+        var i = 0;
 
+        while (fast != null) {
+            i += 1;
+            fast = fast.next;
+            if (i > n) {
+                if (slow == null) {
+                    slow = head;
+                } else {
+                    slow = slow.next;
+                }
+            }
+        }
+
+        if (slow == null) {
+            return head.next;
+        }
+
+        if (slow.next.next == null) {
+            slow.next = null;
+        } else {
+            slow.next.val = slow.next.next.val;
+            slow.next.next = slow.next.next.next;
+        }
+
+        return head;
+    }
+}
 ```
