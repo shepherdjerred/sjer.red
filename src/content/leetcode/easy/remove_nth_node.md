@@ -41,6 +41,12 @@ Follow up: Could you do this in one pass?
 
 ## Solution
 
+The straightforward solution to this problem is, well, straightforward. Just iterate through the list until the end to determine the length of the list, then iterate again len - n times and remove the node.
+
+I'll just solve the follow-up because it sounds more challenging/interesting.
+
+We can keep a reference to the last n nodes. The easiest way do to this is a FIFO data structure (queue)
+
 ```java
 
 ```
