@@ -1,6 +1,6 @@
 <!-- markdownlint-disable first-line-heading -->
 
-I'm a regular 'ol person who loves learning. I often lose hours to reading Wikipedia articles, particularly those about history.
+I'm a person who loves learning. I often lose hours to reading Wikipedia articles, particularly those about history.
 
 I spend a lot of my time programming and learning more about computer science and software. I care a lot about efficiency and finding better ways to work.
 
