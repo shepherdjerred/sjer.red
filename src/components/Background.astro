@@ -8,6 +8,6 @@ const { extraCss } = Astro.props;
 import pattern from "@images/pattern.svg";
 ---
 
-<div class:list={[extraCss]} style=`background-image: url(${pattern.src})`>
+<div class:list={[extraCss]} style=`background-image: url(${pattern.src}); background-attachment: fixed;`>
   <slot />
 </div>
