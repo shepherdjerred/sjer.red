@@ -78,6 +78,8 @@ export const links = [
   "https://gwern.net/",
   "https://www.writingruxandrabio.com/p/the-weird-nerd-comes-with-trade-offs",
   "https://www.autodidacts.io/holistic-perfectionism/",
+  "https://realmensch.org/2017/08/25/the-parable-of-the-two-programmers/",
+  "https://manuel.kiessling.net/2011/04/07/why-developing-without-tests-is-like-driving-a-car-without-brakes-2/",
 ];
 
 const file = "src/links/cache.json";

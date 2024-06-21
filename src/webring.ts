@@ -51,11 +51,17 @@ export const config: Configuration = {
       url: "https://devblogs.microsoft.com/oldnewthing/feed",
       title: "The Old New Thing",
     },
+    {
+      url: "https://ludic.mataroa.blog/rss/",
+      title: "Ludicity",
+    },
   ],
   number: 3,
-  cache_duration_minutes: 60,
   truncate: 300,
-  cache_file: "webring.json",
+  cache: {
+    cache_file: "webring.json",
+    cache_duration_minutes: 60,
+  },
 };
 
 export const result = await run(config);

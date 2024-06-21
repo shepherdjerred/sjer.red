@@ -252,5 +252,13 @@
   },
   "https://www.autodidacts.io/holistic-perfectionism/": {
     "title": "Perfectionism is optimizing at the wrong scale"
+  },
+  "https://realmensch.org/2017/08/25/the-parable-of-the-two-programmers/": {
+    "title": "The Parable of the Two Programmers · RealMensch",
+    "description": "A classic anecdote about skill vs. experience in programming."
+  },
+  "https://manuel.kiessling.net/2011/04/07/why-developing-without-tests-is-like-driving-a-car-without-brakes-2/": {
+    "title": "Why developing without tests is like driving a car without brakes • Manuel Kießling",
+    "description": "The following roots in something I heard from Jon Jagger at QCon London 2011 after his fantastic talk about Deliberate Practice. It was related to Test Driven Development. He asked “Why do cars have brakes?”. It made us think “To stop!”, but he said “No – to go faster”."
   }
 }
