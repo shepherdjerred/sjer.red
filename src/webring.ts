@@ -63,7 +63,7 @@ export const config: Configuration = {
   number: 3,
   truncate: 300,
   cache: {
-    cache_file: "webring.json",
+    cache_file: ".cache/webring.json",
     cache_duration_minutes: 60,
   },
 };
