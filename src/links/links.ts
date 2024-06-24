@@ -80,6 +80,8 @@ export const links = [
   "https://www.autodidacts.io/holistic-perfectionism/",
   "https://realmensch.org/2017/08/25/the-parable-of-the-two-programmers/",
   "https://manuel.kiessling.net/2011/04/07/why-developing-without-tests-is-like-driving-a-car-without-brakes-2/",
+  "https://experimentalhistory.substack.com/p/why-arent-smart-people-happier",
+  "https://danilafe.com/blog/blog_microfeatures/",
 ];
 
 const file = "src/links/cache.json";

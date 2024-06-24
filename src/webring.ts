@@ -1,5 +1,5 @@
 import { run } from "webring";
-import { type Configuration } from "webring";
+import { type Configuration, type Result } from "webring";
 
 export const config: Configuration = {
   sources: [
@@ -55,6 +55,10 @@ export const config: Configuration = {
       url: "https://ludic.mataroa.blog/rss/",
       title: "Ludicity",
     },
+    {
+      url: "https://fasterthanli.me/index.xml",
+      title: "fasterthanlime",
+    },
   ],
   number: 3,
   truncate: 300,
@@ -64,4 +68,4 @@ export const config: Configuration = {
   },
 };
 
-export const result = await run(config);
+export const result: Result = await run(config);
