@@ -12,7 +12,7 @@
     "test:update": "playwright test --update-snapshots",
     "lint": "eslint . --ext .js,.jsx,ts,tsx,astro && prettier --check . && markdownlint-cli2 '**/*.md' '#node_modules'",
     "lint:fix": "eslint . --ext .js,.jsx,ts,tsx,astro --fix && prettier -w . && markdownlint-cli2 --fix '**/*.md' '#node_modules'",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
