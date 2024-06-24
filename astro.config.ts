@@ -8,6 +8,8 @@ import { Resvg } from "@resvg/resvg-js";
 import parseFrontmatter from "gray-matter";
 import satori from "satori";
 import remarkToc from "remark-toc";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 
 // https://dietcode.io/p/astro-og/
 import icon from "astro-icon";
@@ -106,6 +108,15 @@ export default defineConfig({
       },
       wrap: true,
     },
+    rehypePlugins: [
+      rehypeHeadingIds,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "append",
+        },
+      ],
+    ],
     remarkPlugins: [remarkToc],
   },
   site: "https://sjer.red",

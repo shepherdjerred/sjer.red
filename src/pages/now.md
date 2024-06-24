@@ -6,7 +6,27 @@ description: What I'm up to
 
 Inspired by <https://sive.rs/now>
 
-## 2024 06 18
+### 2024 06 24
+
+## Past
+
+- Looking forward to doing some cooking & baking for friends.
+- Reading _[The Murderbot Diaries](https://en.wikipedia.org/wiki/The_Murderbot_Diaries)_.
+  - Waiting on the 4th book to come in.
+- Trying to replace running with biking.
+  - I'm writing this from [Holy Mountain Taproom](https://maps.app.goo.gl/mDssmTL6TXGLhjbG9), which I biked to
+- Officially approved to donate my kidney!
+  - It sounds like it'll be about another month before the donation actually occurs.
+- Volunteering at UWMC.
+  - I picked up my badge last week.
+- Hunting for a job.
+  - Working on LeetCode, applying for jobs, etc.
+  - I'm very thankful for my friends and former coworkers who are helping me out.
+- More gardening, planting, etc.
+- Starting season 2 of [Who's the Boss](https://en.wikipedia.org/wiki/Who%27s_the_Boss%3F).
+- Working on small side projects like this blog.
+
+### 2024 06 18
 
 - Looking forward to doing some cooking & baking for friends.
 - Reading _[The Murderbot Diaries](https://en.wikipedia.org/wiki/The_Murderbot_Diaries)_.
@@ -20,8 +40,6 @@ Inspired by <https://sive.rs/now>
 - Refinished my outdoor furniture. I got lazy towards the end, but it still looks pretty good.
 - Dredging up my [game engine](https://github.com/shepherdjerred/castle-casters). I've fixed a few old bugs an I'm wanting to make the game playable.
 - Still not sure what to do with my cilantro and lettuce. Maybe I'll let the cilantro turn into coriander seed?
-
-## Past
 
 ### 2024 06 15
 
