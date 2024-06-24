@@ -8,10 +8,7 @@ const pathname = new URL(Astro.request.url).pathname;
     <ul class="flex flex-wrap content-center place-content-center sm:justify-start gap-2 p-2">
       <a href="/"
         ><li
-          class:list={[
-            "p-1 hover:bg-white hover:text-black underline hover:no-underline",
-            pathname === "/" ? "bg-white text-black no-underline" : "",
-          ]}
+          class:list={["p-1 hover:bg-white hover:text-black underline", pathname === "/" ? "bg-white text-black" : ""]}
         >
           Home
         </li></a
@@ -19,8 +16,8 @@ const pathname = new URL(Astro.request.url).pathname;
       <a href="/blog/"
         ><li
           class:list={[
-            "p-1 hover:bg-white hover:text-black underline hover:no-underline",
-            pathname.includes("blog") ? "bg-white text-black no-underline" : "",
+            "p-1 hover:bg-white hover:text-black underline",
+            pathname.includes("blog") ? "bg-white text-black" : "",
           ]}
         >
           Blog
@@ -29,8 +26,8 @@ const pathname = new URL(Astro.request.url).pathname;
       <a href="/links/"
         ><li
           class:list={[
-            "p-1 hover:bg-white hover:text-black underline hover:no-underline",
-            pathname === "/links/" ? "bg-white text-black no-underline" : "",
+            "p-1 hover:bg-white hover:text-black underline",
+            pathname === "/links/" ? "bg-white text-black" : "",
           ]}
         >
           Links
@@ -39,8 +36,8 @@ const pathname = new URL(Astro.request.url).pathname;
       <a href="/now/"
         ><li
           class:list={[
-            "p-1 hover:bg-white hover:text-black underline hover:no-underline",
-            pathname === "/now/" ? "bg-white text-black no-underline" : "",
+            "p-1 hover:bg-white hover:text-black underline",
+            pathname === "/now/" ? "bg-white text-black" : "",
           ]}
         >
           Now
@@ -49,8 +46,8 @@ const pathname = new URL(Astro.request.url).pathname;
       <a href="/gatech/">
         <li
           class:list={[
-            "p-1 hover:bg-white hover:text-black underline hover:no-underline",
-            pathname === "/gatech/" ? "bg-white text-black no-underline" : "",
+            "p-1 hover:bg-white hover:text-black underline",
+            pathname === "/gatech/" ? "bg-white text-black" : "",
           ]}
         >
           Georgia Tech

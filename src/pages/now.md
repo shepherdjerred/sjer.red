@@ -6,9 +6,7 @@ description: What I'm up to
 
 Inspired by <https://sive.rs/now>
 
-### 2024 06 24
-
-## Past
+## 2024 06 24
 
 - Looking forward to doing some cooking & baking for friends.
 - Reading _[The Murderbot Diaries](https://en.wikipedia.org/wiki/The_Murderbot_Diaries)_.
@@ -25,6 +23,8 @@ Inspired by <https://sive.rs/now>
 - More gardening, planting, etc.
 - Starting season 2 of [Who's the Boss](https://en.wikipedia.org/wiki/Who%27s_the_Boss%3F).
 - Working on small side projects like this blog.
+
+## Past
 
 ### 2024 06 18
 

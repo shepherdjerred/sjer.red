@@ -6,11 +6,11 @@ layout: ../../../layouts/BlogLayout.astro
 starred: true
 ---
 
+This is an adaptation of my senior [seminar paper](https://github.com/shepherdjerred-homework/seminar-paper), originally written in LaTeX. You can view the original [here]().
+
 ## Table of Contents
 
 ## Introduction
-
-This is an adapatation of my senior [seminar paper](https://github.com/shepherdjerred-homework/seminar-paper), originally written in LaTeX.
 
 Computer graphics is an essential component to any consumer facing computer. Efficiently rendering computer graphics requires the use of specialized hardware in the form of graphics processing units. GPUs work differently than the CPUs which programmers are experienced with. This difference is due to the GPUs approach to parallelization. Graphics APIs have been created to help programmers write performant and portable code for GPUs. This post will introduce the core concepts of 3D graphics rendering and OpenGL, a popular and widely-supported graphics API.
 
@@ -143,21 +143,21 @@ Figure 7 shows the code needed to store the vertices of a triangle on a graphics
     glBindBuffer(GL_ARRAY_BUFFER, glVboName);
 
     float[] vertices = new float[]{
-    0.0f, 0.5f, 0.0f,
-    -0.5f, -0.5f, 0.0f,
-    0.5f, -0.5f, 0.0f
+        0.0f, 0.5f, 0.0f,
+        -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f
     };
 
     try (var stack = MemoryStack.stackPush()) {
-    // Allocate a native buffer to store the vertices
-    var vertexBuffer = stack.mallocFloat(vertices.length);
+        // Allocate a native buffer to store the vertices
+        var vertexBuffer = stack.mallocFloat(vertices.length);
 
-    // Put the previously declared vertices into the float buffer
-    vertexBuffer.put(vertices);
-    vertexBuffer.flip();
+        // Put the previously declared vertices into the float buffer
+        vertexBuffer.put(vertices);
+        vertexBuffer.flip();
 
-    // Send the vertices to the graphics hardware
-    glBufferData(GL_ARRAY_BUFFER, vertexBuffer, GL_STATIC_DRAW);
+        // Send the vertices to the graphics hardware
+        glBufferData(GL_ARRAY_BUFFER, vertexBuffer, GL_STATIC_DRAW);
     }
     ```
 
@@ -206,9 +206,9 @@ VAOs cannot bind more than 4 elements of a VBO array, making it hard to pass lar
 
     // Move the matrix to native memory, and then buffer it
     try (MemoryStack stack = MemoryStack.stackPush()) {
-    FloatBuffer fb = stack.mallocFloat(16);
-    matrix.get(fb);
-    glUniformMatrix4fv(glUniformName, false, fb);
+        FloatBuffer fb = stack.mallocFloat(16);
+        matrix.get(fb);
+        glUniformMatrix4fv(glUniformName, false, fb);
     }
     ```
 
@@ -253,8 +253,8 @@ Creating a square without indexing.
     };
 
     int[] indices = new int[] {
-    0, 1, 2, // Triangle One
-    0, 2, 3 // Triangle Two
+        0, 1, 2, // Triangle One
+        0, 2, 3 // Triangle Two
     };
     ```
 
