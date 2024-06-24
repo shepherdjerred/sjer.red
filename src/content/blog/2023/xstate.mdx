@@ -7,10 +7,10 @@ layout: ../../../layouts/BlogLayout.astro
 ---
 
 import { Image } from "astro:assets";
-import channel from "@images/blog/xstate/channel.png";
-import game from "@images/blog/xstate/game.png";
-import diagram from "@images/blog/xstate/diagram.png";
-import simulation from "@images/blog/xstate/simulation.mp4";
+import channel from "./xstate/channel.png";
+import game from "./xstate/game.png";
+import diagram from "./xstate/diagram.png";
+import simulation from "./xstate/simulation.mp4";
 
 My current side project, [Discord Plays Pokemon](https://github.com/shepherdjerred/discord-plays-pokemon), has a lot of dependencies. The application streams video with Discord, which presents a challenge. Discord does not provide APIs for streaming video, and I didn't want to have to reverse-engineer the client. I chose to automate interactions with Discord's web application using Selenium, which has yielded great results. It can programmatically stream video to a specific voice channel. This has worked very well so far -- users are able to play real-time games of Pokemon with each other just using Discord's text chat!
 
