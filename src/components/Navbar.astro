@@ -1,58 +1,17 @@
 ---
 import Container from "./Container.astro";
+import NavbarItem from "./NavbarItem.astro";
 const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <nav class="bg-black text-white">
   <Container width="wide-mobile">
     <ul class="flex flex-wrap content-center place-content-center sm:justify-start gap-2 p-2">
-      <a href="/"
-        ><li
-          class:list={["p-1 hover:bg-white hover:text-black underline", pathname === "/" ? "bg-white text-black" : ""]}
-        >
-          Home
-        </li></a
-      >
-      <a href="/blog/"
-        ><li
-          class:list={[
-            "p-1 hover:bg-white hover:text-black underline",
-            pathname.includes("blog") ? "bg-white text-black" : "",
-          ]}
-        >
-          Blog
-        </li></a
-      >
-      <a href="/links/"
-        ><li
-          class:list={[
-            "p-1 hover:bg-white hover:text-black underline",
-            pathname === "/links/" ? "bg-white text-black" : "",
-          ]}
-        >
-          Links
-        </li></a
-      >
-      <a href="/now/"
-        ><li
-          class:list={[
-            "p-1 hover:bg-white hover:text-black underline",
-            pathname === "/now/" ? "bg-white text-black" : "",
-          ]}
-        >
-          Now
-        </li></a
-      >
-      <a href="/gatech/">
-        <li
-          class:list={[
-            "p-1 hover:bg-white hover:text-black underline",
-            pathname === "/gatech/" ? "bg-white text-black" : "",
-          ]}
-        >
-          Georgia Tech
-        </li>
-      </a>
+      <NavbarItem href="/" isHighlighted={pathname === "/"}>Home</NavbarItem>
+      <NavbarItem href="/blog/" isHighlighted={pathname.includes("blog")}>Blog</NavbarItem>
+      <NavbarItem href="/links/" isHighlighted={pathname === "/links/"}>Links</NavbarItem>
+      <NavbarItem href="/now/" isHighlighted={pathname === "/now/"}>Now</NavbarItem>
+      <NavbarItem href="/gatech/" isHighlighted={pathname === "/gatech/"}>Georgia Tech</NavbarItem>
     </ul>
   </Container>
 </nav>

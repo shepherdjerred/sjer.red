@@ -6,7 +6,9 @@ layout: ../../../layouts/BlogLayout.astro
 starred: true
 ---
 
-This is an adaptation of my senior [seminar paper](https://github.com/shepherdjerred-homework/seminar-paper), originally written in LaTeX. You can view the original [here]().
+import cube from "./opengl/img/textured-cube.mp4";
+
+This is an adaptation of my senior [seminar paper](https://github.com/shepherdjerred-homework/seminar-paper), originally written in LaTeX. You can view the original [here](/public/opengl.pdf).
 
 ## Table of Contents
 
@@ -62,37 +64,18 @@ A two-dimensional object can be drawn by simply defining its x and y coordinates
 Before the matrix can be created, the aspect ratio, field of view (FOV), z-near, and z-far variables must be determined. The aspect ratio is equal to a display's width in pixels divided by its height in pixels. z-near and z-far represent the closest and furthest possible z coordinate values respectively. The FOV is the angle of the scene that will be rendered on the screen. Figure 4 illustrates of these four variables. Figure 5 shows an example of a 4x4 projection matrix used for 3D rendering. Orthogonal projection matrices exist for 2D rendering however they are outside of the scope of this paper.
 
 <figure>
-  ![Projection matrix](./opengl/img/projection-matrix.png)
+  ![Projection matrix concepts](./opengl/img/projection-matrix.png)
   <figcaption>
     Figure 4, projection matrix concepts (hernandez2019). The camera represents the position of the viewer.
   </figcaption>
 </figure>
 
 <figure>
-    ```latex
-    \begin{bmatrix}
-        \dfrac{\dfrac{1}{tan(\dfrac{\mathit{fov}}{2})}}{a} &
-        0 &
-        0 &
-        0 \\ \\
-        0 &
-        \dfrac{1}{tan(\dfrac{\mathit{fov}}{2})} &
-        0 &
-        0 \\ \\
-        0 &
-        0 &
-        \dfrac{-(z_f + z_n)}{z_f - z_n} &
-        \dfrac{-(2 * z_f * z_n)}{z_f - z_n} \\ \\
-        0 &
-        0 &
-        -1 &
-        0
-        \end{bmatrix}
-    \]
-    ```
-    <figcaption>
-      Figure 5, a projection matrix where a is the aspect ratio, `fov` is the field of view, `z_f` is z-far, and `z_n` is z-near (hernandez2019).
-    </figcaption>
+  ![Projection matrix](./opengl/img/matrix.png)
+  <figcaption>
+    Figure 5, a projection matrix where a is the aspect ratio, `fov` is the field of view, `z_f` is z-far, and `z_n` is
+    z-near (hernandez2019).
+  </figcaption>
 </figure>
 
 While a projection matrix defines how all rendered geometry appears, a model matrix can be used to transform individual elements. Like a projection matrix, a model matrix is a 4v4 matrix. It is used to translate, rotate, and scale individual objects on the screen. Model matrices are very important in 3D rendering, as they allow objects to be positioned precisely in scenes without having to manually calculate vertex locations. Like the projection matrix, the model matrix is applied by multiplying the position of each vertex by the matrix. The result is the new position of the vertex with translation, rotation, and scaling applied.
@@ -329,12 +312,11 @@ The main function is where the work is being done. gl_Position is a special vari
     uniform mat4 projectionMatrix;
 
     void main() {
-    // Transform the position of the vertex by the projection matrix
-    gl_Position = projectionMatrix \* vec4(position, 1.0);
+        // Transform the position of the vertex by the projection matrix
+        gl_Position = projectionMatrix \* vec4(position, 1.0);
 
         // Pass the color to the fragment shader
         color = inColor;
-
     }
     ```
 
@@ -354,8 +336,8 @@ The fragment shader partially determines the color of pixels. Figure 17 shows a 
     out vec4 outColor;
 
     void main() {
-    // Set the outgoing color to the incoming color
-    outColor = color;
+        // Set the outgoing color to the incoming color
+        outColor = color;
     }
     ```
 
@@ -376,14 +358,14 @@ The fragment shader uses a special kind of uniform type called a sampler. Sample
 
     // Load a texture into the bound texture buffer
     glTexImage2D(GL_TEXTURE_2D,
-    0,
-    GL_RGBA,
-    width,
-    height,
-    0,
-    GL_RGBA,
-    GL_UNSIGNED_BYTE,
-    imageData);
+        0,
+        GL_RGBA,
+        width,
+        height,
+        0,
+        GL_RGBA,
+        GL_UNSIGNED_BYTE,
+        imageData);
     ```
 
   <figcaption>Figure 18, creating a texture buffer and loading image data into it.</figcaption>
@@ -401,7 +383,7 @@ The fragment shader uses a special kind of uniform type called a sampler. Sample
     uniform sampler2D textureSampler;
 
     void main() {
-    outColor = texture(textureSampler, textureCoord);
+        outColor = texture(textureSampler, textureCoord);
     }
     ```
 
@@ -413,7 +395,9 @@ The fragment shader uses a special kind of uniform type called a sampler. Sample
 With all of these concepts a basic OpenGL program can be created. Figure 20 shows a program (Full program source available [here](https://github.com/ShepherdJerred-homework/seminar-application)) that renders a simple textured cube that rotates. It uses all of the previously covered material, and most of the code samples used above. While this program is simple, it composes many concepts and lays the foundation for more complex applications. Games can be created with only these concepts. The only further work with graphics would be to render more elements and make the objects more complex.
 
 <figure>
-  ![Cube](./opengl/img/textured-cube.png)
+  <video controls>
+    <source src={cube} type="video/mp4" />
+  </video>
   <figcaption>Figure 20, a spinning textured cube.</figcaption>
 </figure>
 
