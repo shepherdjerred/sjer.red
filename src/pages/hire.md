@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
 title: Work With Me
-description: The classes I've taken
+description: I'm looking for a job. Reach out if you'd like to hire me.
 ---
 
 I'm currently looking for a job. If you're interested in working with me, send me an email: <contact@sjer.red>.
