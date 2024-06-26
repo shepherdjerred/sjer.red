@@ -6,6 +6,9 @@ layout: ../../../layouts/BlogLayout.astro
 isDraft: true
 ---
 
+import Socratic from "../../../components/Socratic.astro";
+import Dialog from "../../../components/Dialog.astro";
+
 ## `cdk` and `cdk8s`
 
 If you've used CloudFormation, then you know how much it sucks. You use a weird dialect of YAML to define your AWS resources. Back in 2017 AWS introduced the [cdk](https://github.com/aws/aws-cdk) library. It allows you to generate your CloudFormation YAML using a _real_ language like Go, Python, Java, or TypeScript.
