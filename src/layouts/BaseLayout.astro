@@ -11,7 +11,7 @@ export interface Props {
 const { url } = Astro;
 
 const openGraphType = Astro.props.openGraphType ? Astro.props.openGraphType : "website";
-const openGraphImage = Astro.props.openGraphImage ? Astro.props.openGraphImage : `${url.toString()}openGraph.png`;
+const openGraphImage = Astro.props.openGraphImage ? Astro.props.openGraphImage : `${url.toString()}.opengraph.png`;
 const title = Astro.props.title ? Astro.props.title : "Jerred Shepherd";
 const description = Astro.props.description;
 
