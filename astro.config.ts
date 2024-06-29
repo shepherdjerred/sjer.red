@@ -6,8 +6,7 @@ import remarkToc from "remark-toc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import icon from "astro-icon";
-import satoriOpenGraph from "astro-opengraph-images";
-import { renderMainMain } from "./src/og.tsx";
+import astroOpenGraphImages, { presets } from "astro-opengraph-images";
 import * as fs from "fs";
 
 const path = new URL("./public/fonts/CommitMono/CommitMono-700-Regular.otf", import.meta.url);
@@ -41,7 +40,7 @@ export default defineConfig({
     sitemap(),
     tailwind(),
     icon(),
-    satoriOpenGraph({
+    astroOpenGraphImages({
       options: {
         width: 1200,
         height: 630,
@@ -54,7 +53,7 @@ export default defineConfig({
           },
         ],
       },
-      render: renderMainMain,
+      render: presets.blackAndWhite,
     }),
   ],
   security: {

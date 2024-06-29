@@ -112,7 +112,6 @@ const results = await Promise.all(
       try {
         const response = await fetch(link, { redirect: "follow" });
         const text = await response.text();
-        jsdom.JSDOM.fragment(text);
         const htmlDoc = new jsdom.JSDOM(text).window.document;
         const base: z.infer<typeof ItemSchema> = {
           title: htmlDoc.title,

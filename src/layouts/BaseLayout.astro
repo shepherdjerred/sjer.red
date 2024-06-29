@@ -4,14 +4,13 @@ import { ViewTransitions } from "astro:transitions";
 export interface Props {
   title?: string;
   description?: string;
-  openGraphImage?: string;
   openGraphType?: string;
 }
 
-const { url } = Astro;
+const url = Astro.url;
+const site = Astro.site;
 
 const openGraphType = Astro.props.openGraphType ? Astro.props.openGraphType : "website";
-const openGraphImage = Astro.props.openGraphImage ? Astro.props.openGraphImage : `${url.toString()}opengraph.png`;
 const title = Astro.props.title ? Astro.props.title : "Jerred Shepherd";
 const description = Astro.props.description;
 
@@ -48,7 +47,7 @@ import "@fontsource/ibm-plex-serif";
     <meta property="og:site_name" content="Jerred Shepherd" />
     <meta property="og:type" content={openGraphType} />
     <meta property="og:url" content={url} />
-    <meta property="og:image" content={openGraphImage} />
+    <meta property="og:image" content={`${site?.toString()}[[OPENGRAPH IMAGE]]`} />
 
     <!-- https://indielogin.com/ -->
     <link href="https://github.com/shepherdjerred" rel="me" />
