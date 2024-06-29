@@ -2,6 +2,15 @@ import type { APIContext } from "astro";
 import React from "react";
 import { BlogSchema } from "./content/schemas/blog";
 import { EventSchema } from "./content/schemas/event";
+import type { Page } from "astro-opengraph-images/dist/types";
+
+// TODO: rename this to something sane
+export function renderMainMain(page: Page): React.ReactNode {
+  return render({
+    title: page.pathname,
+    isBlog: false,
+  });
+}
 
 export function renderMain(context: APIContext) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- this is safe with Zod
