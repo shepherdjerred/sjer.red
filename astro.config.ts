@@ -9,9 +9,6 @@ import icon from "astro-icon";
 import astroOpenGraphImages, { presets } from "astro-opengraph-images";
 import * as fs from "fs";
 
-const path = new URL("./public/fonts/CommitMono/CommitMono-700-Regular.otf", import.meta.url);
-const font = fs.readFileSync(path);
-
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -44,7 +41,7 @@ export default defineConfig({
       options: {
         fonts: [
           {
-            data: font,
+            data: fs.readFileSync(new URL("./public/fonts/CommitMono/CommitMono-700-Regular.otf", import.meta.url)),
             name: "Commit Mono",
             weight: 400,
             style: "normal",
