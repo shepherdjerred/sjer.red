@@ -42,8 +42,6 @@ export default defineConfig({
     icon(),
     astroOpenGraphImages({
       options: {
-        width: 1200,
-        height: 630,
         fonts: [
           {
             data: font,
