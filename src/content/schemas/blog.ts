@@ -14,9 +14,11 @@ export const PostSchema = z.object({
 export const TilSchema = z
   .object({
     title: z.string().transform((val) => `TIL: ${val}`),
+    description: z.string().optional(),
     date: z.coerce.date(),
     starred: z.boolean().default(false),
+    hackerNews: z.string().optional(),
   })
-  .transform((val) => ({ ...val, description: val.title, isDraft: false, hackerNews: undefined }));
+  .transform((val) => ({ ...val, description: val.description || val.title, isDraft: false }));
 
 export const BlogSchema = z.union([PostSchema, LeetcodeSchema, TilSchema]);
