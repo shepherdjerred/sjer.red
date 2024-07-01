@@ -6,7 +6,34 @@ description: What I'm up to
 
 Inspired by <https://sive.rs/now>
 
-## 2024 06 24
+## 2024 07 01
+
+- Reading _[The Murderbot Diaries](https://en.wikipedia.org/wiki/The_Murderbot_Diaries)_.
+  - About to start the fifth book!
+- Trying to replace running with biking.
+  - Writing this from [Santo](https://maps.app.goo.gl/LWngWqLPh6jEbxCe8), which I biked to.
+- Officially approved to donate my kidney!
+  - It sounds like it'll be about another month before the donation actually occurs.
+- Volunteering at UWMC.
+  - I should have my first volunteer day this week.
+- Hunting for a job.
+  - Working on LeetCode, applying for jobs, etc.
+  - I'm very thankful for my friends and former coworkers who are helping me out.
+- More gardening, planting, etc.
+  - Things are looking great! My tomatillos are a little needy, though.
+- Started season 2 of [Who's the Boss](https://en.wikipedia.org/wiki/Who%27s_the_Boss%3F).
+  - I have no idea why I'm watching a show from the 80's.
+- Watching [House of the Dragon](https://en.wikipedia.org/wiki/House_of_the_Dragon) every week.
+  - It's so good!
+- Writing some open source libraries:
+  - [webring](https://github.com/shepherdjerred/webring)
+  - [astro-opengraph-images](https://github.com/shepherdjerred/astro-opengraph-images)
+- Getting ready for the Fourth of July
+  - I'm planning on smoking some pork & making ice cream.
+
+## Past
+
+### 2024 06 24
 
 - Looking forward to doing some cooking & baking for friends.
 - Reading _[The Murderbot Diaries](https://en.wikipedia.org/wiki/The_Murderbot_Diaries)_.
@@ -23,8 +50,6 @@ Inspired by <https://sive.rs/now>
 - More gardening, planting, etc.
 - Starting season 2 of [Who's the Boss](https://en.wikipedia.org/wiki/Who%27s_the_Boss%3F).
 - Working on small side projects like this blog.
-
-## Past
 
 ### 2024 06 18
 
