@@ -8,6 +8,7 @@ import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import icon from "astro-icon";
 import astroOpenGraphImages, { presets } from "astro-opengraph-images";
 import * as fs from "fs";
+import { rendererRich, transformerTwoslash } from "@shikijs/twoslash";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +20,11 @@ export default defineConfig({
         dark: "github-dark",
       },
       wrap: true,
+      transformers: [
+        transformerTwoslash({
+          renderer: rendererRich(),
+        }),
+      ],
     },
     rehypePlugins: [
       rehypeHeadingIds,
