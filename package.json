@@ -29,7 +29,7 @@
     "@types/jsdom": "^21.1.7",
     "astro": "^4.11.3",
     "astro-icon": "^1.1.0",
-    "astro-opengraph-images": "^1.6.2",
+    "astro-opengraph-images": "^1.6.4",
     "astro-seo": "^0.8.4",
     "jsdom": "^24.1.0",
     "markdown-it": "^14.1.0",
