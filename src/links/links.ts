@@ -82,6 +82,14 @@ export const links = [
   "https://manuel.kiessling.net/2011/04/07/why-developing-without-tests-is-like-driving-a-car-without-brakes-2/",
   "https://experimentalhistory.substack.com/p/why-arent-smart-people-happier",
   "https://danilafe.com/blog/blog_microfeatures/",
+  "https://ludic.mataroa.blog/blog/on-burnout-mental-health-and-not-being-okay/",
+  "https://ludic.mataroa.blog/blog/the-complex-problem-of-lying-for-jobs/",
+  "https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/",
+  "https://www.kalzumeus.com/2012/01/23/salary-negotiation/",
+  "https://ludic.mataroa.blog/blog/the-corporate-facade-is-more-complicated-than-i-thought/",
+  "https://staffeng.com/",
+  "https://yosefk.com/blog/advantages-of-incompetent-management.html",
+  "https://lethain.com/magnitudes-of-exploration/",
 ];
 
 const file = "src/links/cache.json";
