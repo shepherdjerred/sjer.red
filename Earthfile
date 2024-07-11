@@ -1,4 +1,5 @@
 VERSION 0.8
+PROJECT sjerred/sjerred
 
 FROM node:lts
 WORKDIR /workspace
@@ -30,7 +31,7 @@ build:
 
 lint:
   FROM +deps
-  COPY .eslintignore .eslintrc.cjs .markdownlint-cli2.jsonc .prettierignore .prettierrc.json .
+  COPY .eslintignore .eslintrc.cjs .markdownlint-cli2.jsonc .prettierignore .
   DO +SRC
   RUN --mount $NPM_CACHE npm run lint
 
@@ -49,6 +50,7 @@ deploy:
   ARG EARTHLY_GIT_SHORT_HASH
   ARG git_sha=$EARTHLY_GIT_SHORT_HASH
   ARG EARTHLY_GIT_BRANCH
+  ARG branch=$EARTHLY_GIT_BRANCH
   RUN npm install -g wrangler
   COPY +build/dist dist
-  RUN --push --secret=CLOUDFLARE_ACCOUNT_ID --secret=CLOUDFLARE_API_TOKEN wrangler pages deploy dist --project-name=shepherdjerred-com --branch=$EARTHLY_GIT_BRANCH --commit-hash=$EARTHLY_GIT_SHORT_HASH
+  RUN --push --secret=CLOUDFLARE_ACCOUNT_ID --secret=CLOUDFLARE_API_TOKEN wrangler pages deploy dist --project-name=shepherdjerred-com --branch=$branch --commit-hash=$git_sha
