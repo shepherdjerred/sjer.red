@@ -267,5 +267,31 @@
   "https://danilafe.com/blog/blog_microfeatures/": {
     "title": "Microfeatures I Love in Blogs and Personal Websites",
     "description": "Pleasant but seemingly minor features in personal sites"
+  },
+  "https://ludic.mataroa.blog/blog/on-burnout-mental-health-and-not-being-okay/": {
+    "title": "On Burnout, Mental Health, And Not Being Okay"
+  },
+  "https://ludic.mataroa.blog/blog/the-complex-problem-of-lying-for-jobs/": {
+    "title": "The Complex Problem Of Lying For Jobs"
+  },
+  "https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/": {
+    "title": "Don't Call Yourself A Programmer, And Other Career Advice"
+  },
+  "https://www.kalzumeus.com/2012/01/23/salary-negotiation/": {
+    "title": "Salary Negotiation",
+    "description": "Salary negotiation advice, mostly for engineers."
+  },
+  "https://ludic.mataroa.blog/blog/the-corporate-facade-is-more-complicated-than-i-thought/": {
+    "title": "The Corporate Facade Is More Complicated Than I Thought"
+  },
+  "https://staffeng.com/": {
+    "title": "Stories of reaching Staff-plus engineering roles."
+  },
+  "https://yosefk.com/blog/advantages-of-incompetent-management.html": {
+    "title": "Advantages of incompetent management"
+  },
+  "https://lethain.com/magnitudes-of-exploration/": {
+    "title": "Magnitudes of exploration. | Irrational Exuberance",
+    "description": "Standardizing on a given platform or technology is one of the most powerful ways to create leverage within a company."
   }
 }

@@ -75,6 +75,10 @@ export const config: Configuration = {
       url: "https://norvig.com/rss-feed.xml",
       title: "Peter Norvig",
     },
+    {
+      url: "https://simonwillison.net/atom/entries/",
+      title: "Simon Willison",
+    },
   ],
   number: 3,
   truncate: 300,
