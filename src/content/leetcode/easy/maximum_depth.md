@@ -34,6 +34,9 @@ Constraints:
 
 There is a simple recursive solution to this. Essentially, I will have a recursive function that takes a `depth` parameter and a node. It will call itself on the left and right nodes of the current node, and add one to the current depth. It will then return the value that is higher. If the node is null, it'll return the depth passed in.
 
+Time complexity: O(n)
+Space complexity: O(n)
+
 ```java
 /**
  * Definition for a binary tree node.
