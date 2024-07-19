@@ -90,6 +90,7 @@ export const links = [
   "https://staffeng.com/",
   "https://yosefk.com/blog/advantages-of-incompetent-management.html",
   "https://lethain.com/magnitudes-of-exploration/",
+  "https://cse.buffalo.edu/~rapaport/howtostudy.html",
 ];
 
 const file = "src/links/cache.json";

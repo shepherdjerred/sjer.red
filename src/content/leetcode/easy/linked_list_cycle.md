@@ -1,6 +1,6 @@
 ---
 title: "Linked List Cycle"
-date:
+date: 2024-07-18
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
@@ -47,6 +47,41 @@ Follow up: Can you solve it using O(1) (i.e. constant) memory?
 
 ## Solution
 
-```java
+I think this is a classic fast/slow pointer problem. The goal is to determine if a given linked list contains a cycle. We can do this by iterating over every node until the next node is null. We have one pointer go one node at a time, and another pointer go two nodes at a time. If the nodes ever point to the same node, then we know there is a cycle. If next is ever null, we know that there definitely isn't a cycle.
 
+```java
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        var slow = head;
+        var fast = head;
+        while (slow != null && fast != null) {
+            if (slow.next != null) {
+                slow = slow.next;
+            } else {
+                return false;
+            }
+            if (fast.next != null && fast.next.next != null) {
+                fast = fast.next.next;
+            } else {
+                return false;
+            }
+            if (fast == slow) {
+                return true;
+            }
+        }
+        // this case hits when head is null
+        return false;
+    }
+}
 ```
