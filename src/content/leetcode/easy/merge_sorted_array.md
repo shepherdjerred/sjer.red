@@ -1,6 +1,6 @@
 ---
 title: "Merge Sorted Array"
-date: 2024-07-19
+date: 2024-07-21
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
@@ -70,6 +70,14 @@ else, swap nums[p1] with nums[p2]. increment p2
 continue until p1 and p2 reach the end of the respective array
 
 no extra space, and done in O(m + n).
+
+---
+
+My approach didn't work for the example `4, 5, 6, 0, 0, 0`, `1, 2, 3`.
+
+The issue is that we would swap 4 -> 2 which breaks the sorting.
+
+We need to sort from the end rather than the beginning to avoid this issue.
 
 ```java
 

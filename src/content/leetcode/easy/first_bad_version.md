@@ -1,6 +1,6 @@
 ---
 title: "First Bad Version"
-date: 2024-07-19
+date: 2024-07-20
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
@@ -41,5 +41,24 @@ Constraints:
 This sounds similar to `git bisect`.
 
 ```java
+/* The isBadVersion API is defined in the parent class VersionControl.
+      boolean isBadVersion(int version); */
 
+public class Solution extends VersionControl {
+    public int firstBadVersion(int n) {
+        return firstBadVersion(1, n);
+    }
+
+    public int firstBadVersion(int min, int max) {
+        if (min == max) {
+            return min;
+        }
+        var middle = min + ((max - min) / 2);
+        if (isBadVersion(middle)) {
+            return firstBadVersion(min, middle);
+        } else {
+            return firstBadVersion(middle + 1, max);
+        }
+    }
+}
 ```
