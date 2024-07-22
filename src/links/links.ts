@@ -91,6 +91,7 @@ export const links = [
   "https://yosefk.com/blog/advantages-of-incompetent-management.html",
   "https://lethain.com/magnitudes-of-exploration/",
   "https://cse.buffalo.edu/~rapaport/howtostudy.html",
+  "https://www.stevenbuccini.com/8-hard-truths-on-getting-laid-off",
 ];
 
 const file = "src/links/cache.json";

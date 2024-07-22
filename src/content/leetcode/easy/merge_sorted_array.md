@@ -80,5 +80,27 @@ The issue is that we would swap 4 -> 2 which breaks the sorting.
 We need to sort from the end rather than the beginning to avoid this issue.
 
 ```java
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        var cm = m - 1;
+        var cn = n - 1;
+        var c = m + n - 1;
 
+        // we're essentially starting at the logical ends of nums1 and nums2. we make a local decision and copy the largest value into the slot at c until we've rewritten the entire nums1 array.
+        // there's a lot of trickiness with indexes, off-by-one errors, etc.
+        while (c >= 0) {
+            // check that both arrays are still valid OR that at least nums1 is valid
+            if ((cm >= 0 && cn >= 0 && nums1[cm] > nums2[cn]) || (cm >= 0 && cn < 0)) {
+                // pull from nums1
+                nums1[c] = nums1[cm];
+                cm -= 1;
+            } else {
+                // pull from nums2
+                nums1[c] = nums2[cn];
+                cn -= 1;
+            }
+            c -= 1;
+        }
+    }
+}
 ```
