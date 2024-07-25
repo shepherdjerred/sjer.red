@@ -6,7 +6,24 @@ description: What I'm up to
 
 Inspired by <https://sive.rs/now>
 
-## 2024 07 01
+## 2024 07 24
+
+- Hunting for a job.
+  - So much to do!
+    - LeetCoding
+    - Studying with Anki
+    - Interviewing
+    - Applying
+  - I'm very thankful for my friends and former coworkers who are helping me out.
+- Deferred my kidney donation.
+  - Job hunting is very time consuming (especially LeetCode/studying). I just can't risk the downtime of donating right now. I hope to donate in the winter.
+- Volunteering at UWMC.
+- Started watching [Scrubs](<https://en.wikipedia.org/wiki/Scrubs_(TV_series)>).
+- Watching [House of the Dragon](https://en.wikipedia.org/wiki/House_of_the_Dragon) every week.
+
+## Past
+
+### 2024 07 01
 
 - Reading _[The Murderbot Diaries](https://en.wikipedia.org/wiki/The_Murderbot_Diaries)_.
   - About to start the fifth book!
@@ -30,8 +47,6 @@ Inspired by <https://sive.rs/now>
   - [astro-opengraph-images](https://github.com/shepherdjerred/astro-opengraph-images)
 - Getting ready for the Fourth of July
   - I'm planning on smoking some pork & making ice cream.
-
-## Past
 
 ### 2024 06 24
 
