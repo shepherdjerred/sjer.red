@@ -1,5 +1,5 @@
 ---
-title: "Merge Sorted Array"
+title: "Climbing Staircase"
 date: 2024-07-21
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
