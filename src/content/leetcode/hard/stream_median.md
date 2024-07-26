@@ -51,6 +51,58 @@ Follow up:
 
 Two heaps!
 
-```java
+- One min heap (named top)
+- One max heap (named bottom)
+- When finding the median, look at the size of the two heaps
+  - If the sizes are equal, take the top element from each heap, sum, and divide by two
+  - If the sizes are not equal, take the top element from the largest heap
+- When inserting:
+  - If the value is > the median, add to the heap storing the top half, else add to the bottom half
+  - If the difference between the size of the heaps is > 1, move the top element from the larger heap to the smaller heap until the difference < 1
 
+```java
+class MedianFinder {
+    PriorityQueue<Integer> top;
+    PriorityQueue<Integer> btm;
+
+    public MedianFinder() {
+        // min heap
+        top = new PriorityQueue<>();
+        // max heap
+        btm = new PriorityQueue<>(Collections.reverseOrder());
+    }
+
+    public void addNum(int num) {
+        if ((top.size() == 0 && btm.size() == 0) || num <= findMedian()) {
+            btm.add(num);
+        } else {
+            top.add(num);
+        }
+
+        if (top.size() - btm.size() > 1) {
+            // top is too big
+            btm.add(top.poll());
+        } else if (btm.size() - top.size() > 1) {
+            // btm is too big
+            top.add(btm.poll());
+        }
+    }
+
+    public double findMedian() {
+        if (top.size() == btm.size()) {
+            return (top.peek() + btm.peek()) / 2.0;
+        } else if (top.size() > btm.size()) {
+            return top.peek();
+        } else {
+            return btm.peek();
+        }
+    }
+}
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * MedianFinder obj = new MedianFinder();
+ * obj.addNum(num);
+ * double param_2 = obj.findMedian();
+ */
 ```
