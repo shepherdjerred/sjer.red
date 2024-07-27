@@ -1,6 +1,6 @@
 ---
 title: "House Robber"
-date:
+date: 2024-07-21
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

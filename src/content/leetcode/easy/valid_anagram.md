@@ -5,7 +5,7 @@ leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
 
-## Question
+## Problem
 
 Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 

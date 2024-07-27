@@ -1,6 +1,6 @@
 ---
 title: "Course Schedule"
-date: 2024-06-27
+date: 2024-07-27
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Delete Node in a Linked List"
-date:
+date: 2024-06-15
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Remove Nth Node From End of List"
-date:
+date: 2024-06-19
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
