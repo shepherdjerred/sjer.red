@@ -1,6 +1,6 @@
 ---
-title: "Find Median from Data Stream"
-date: 2024-07-25
+title: "Stream Median"
+date: 2024-07-26
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

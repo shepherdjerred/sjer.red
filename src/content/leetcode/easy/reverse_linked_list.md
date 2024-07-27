@@ -1,6 +1,6 @@
 ---
 title: "Reverse Linked List"
-date:
+date: 2024-06-19
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
@@ -39,8 +39,6 @@ Follow up: A linked list can be reversed either iteratively or recursively. Coul
 
 ## Solution
 
-It's possible to do this with O(1) space.
-
 ```java
 /**
  * Definition for singly-linked list.
@@ -76,6 +74,36 @@ class Solution {
         }
 
         return newHead;
+    }
+}
+```
+
+It's possible to do this with O(1) space.
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode c = head;
+        ListNode p = null;
+
+        while (c != null) {
+            var tmp = c.next;
+            c.next = p;
+            p = c;
+            c = tmp;
+        }
+
+        return p;
     }
 }
 ```
