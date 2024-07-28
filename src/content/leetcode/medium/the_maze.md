@@ -50,3 +50,9 @@ Constraints:
 - The maze contains at least 2 empty spaces.
 
 ## Solution
+
+I started this problem but wasn't able to solve it. I'll try it again another day.
+
+```java
+
+```
