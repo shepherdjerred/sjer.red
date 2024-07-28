@@ -1,6 +1,6 @@
 ---
 title: "Merge k Sorted Lists"
-date: 2024-07-26
+date: 2024-07-27
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

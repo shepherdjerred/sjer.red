@@ -1,6 +1,6 @@
 ---
 title: "The Maze"
-date: 2024-07-27
+date:
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

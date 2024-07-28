@@ -1,6 +1,6 @@
 ---
 title: "Target Sum"
-date: 2024-07-26
+date:
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
