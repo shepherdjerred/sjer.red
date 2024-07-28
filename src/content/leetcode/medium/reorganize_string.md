@@ -1,6 +1,6 @@
 ---
 title: "Reorganize String"
-date: 2024-07-25
+date: 2024-07-25Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

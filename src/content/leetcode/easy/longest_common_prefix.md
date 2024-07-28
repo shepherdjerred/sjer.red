@@ -1,6 +1,6 @@
 ---
 title: "Longest Common Prefix"
-date: 2024-06-15
+date: 2024-06-15Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

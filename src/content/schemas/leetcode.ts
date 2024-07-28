@@ -1,6 +1,6 @@
 import { z } from "astro/zod";
 
-export const LeetcodeSchema = z
+export const LeetCodeSchema = z
   .object({
     title: z.string(),
     date: z.coerce.date(),

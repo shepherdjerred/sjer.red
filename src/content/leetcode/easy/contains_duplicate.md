@@ -1,6 +1,6 @@
 ---
 title: "Contains Duplicate"
-date: 2024-06-11
+date: 2024-06-11Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

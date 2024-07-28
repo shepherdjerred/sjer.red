@@ -1,6 +1,6 @@
 ---
 title: "Binary Tree Paths"
-date: 2024-07-28
+date: 2024-07-28Z-0700Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

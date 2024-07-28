@@ -1,7 +1,7 @@
 ---
 import Background from "@components/Background.astro";
 import Container from "@components/Container.astro";
-import FormattedDate from "@components/FormattedDate.astro";
+import LeetCodeDay from "@components/LeetCodeDay.astro";
 import NavbarLayout from "@layouts/NavbarLayout.astro";
 import type { JSX } from "astro/jsx-runtime";
 import { getCollection } from "astro:content";
@@ -9,11 +9,13 @@ import * as R from "remeda";
 
 const entries = await getCollection("leetcode");
 
-entries.sort((a, b) => {
-  const dateA = new Date(a.data.date);
-  const dateB = new Date(b.data.date);
-  return dateB.getTime() - dateA.getTime();
-});
+const groups = R.pipe(
+  entries,
+  R.groupBy((entry) => entry.data.date.toISOString()),
+  R.entries(),
+  R.sortBy(([date]) => date),
+  R.reverse()
+);
 ---
 
 <NavbarLayout title="LeetCode" description="My LeetCode solutions">
@@ -30,42 +32,8 @@ entries.sort((a, b) => {
           "So, if you're finding this question challenging, then you're doing the right thing by working on it now."
         </p>
       </div>
-      <div class="flex flex-col gap-6 mt-6 mb-6">
-        {
-          R.pipe(
-            entries,
-            R.map(
-              (entry): JSX.Element => (
-                <div class="flex flex-col bg-black p-6 rounded-md">
-                  <span>
-                    <a
-                      href={`${entry.slug}`}
-                      class="text-2xl font-bold text-white underline hover:bg-white hover:text-black p-2"
-                    >
-                      {entry.data.title}
-                    </a>
-                  </span>
-                  <div class="ml-2 mr-2">
-                    <div class="text-sm text-white">
-                      <FormattedDate date={entry.data.date} />-{" "}
-                      <span class="capitalize">{entry.slug.replace(/\/.*/, "")}</span>
-                    </div>
-                    <p class="text-white mt-2">
-                      {/* {entry.body} take the first 100 characters, strip out the leading "## problem" */}
-                      {entry.body
-                        .slice(0, 300)
-                        .replace(/## Problem/, "")
-                        // remove everything after "Example", multiline
-                        .replace(/Example[\s\S]*/, "")
-                        .trim()
-                        .concat("...")}
-                    </p>
-                  </div>
-                </div>
-              )
-            )
-          )
-        }
+      <div class="flex flex-col gap-12 mt-6 mb-6">
+        {R.map(groups, ([date, entries]): JSX.Element => <LeetCodeDay date={new Date(date)} entries={entries} />)}
       </div>
     </Container>
   </Background>

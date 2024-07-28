@@ -1,6 +1,6 @@
 ---
 title: "Sum of All Subset XOR Totals"
-date: 2024-07-28
+date: 2024-07-28Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

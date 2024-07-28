@@ -1,6 +1,6 @@
 ---
 title: "Valid Soduku"
-date: 2024-06-14
+date: 2024-06-14Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

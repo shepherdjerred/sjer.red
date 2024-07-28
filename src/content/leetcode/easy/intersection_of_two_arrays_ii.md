@@ -1,6 +1,6 @@
 ---
 title: "Intersection of Two Arrays II"
-date: 2024-06-13
+date: 2024-06-13Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

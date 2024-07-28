@@ -1,6 +1,6 @@
 ---
 title: "Best Time to Buy and Sell Stock"
-date: 2024-07-21
+date: 2024-07-21Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

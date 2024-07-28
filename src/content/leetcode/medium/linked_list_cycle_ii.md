@@ -1,6 +1,6 @@
 ---
 title: "Linked List Cycle II"
-date: 2024-07-27
+date: 2024-07-27Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

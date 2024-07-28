@@ -1,6 +1,6 @@
 ---
 title: "Shortest Path in Binary Matrix"
-date: 2024-07-27
+date: 2024-07-27Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

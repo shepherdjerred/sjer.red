@@ -1,7 +1,7 @@
 import { defineCollection } from "astro:content";
 import { BlogSchema } from "src/content/schemas/blog";
 import { EventSchema } from "src/content/schemas/event";
-import { LeetcodeSchema } from "./schemas/leetcode";
+import { LeetCodeSchema } from "./schemas/leetcode";
 
 const blogCollection = defineCollection({
   type: "content",
@@ -15,7 +15,7 @@ const eventCollection = defineCollection({
 
 const leetcodeCollection = defineCollection({
   type: "content",
-  schema: LeetcodeSchema,
+  schema: LeetCodeSchema,
 });
 
 export const collections = {

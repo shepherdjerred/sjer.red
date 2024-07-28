@@ -1,6 +1,6 @@
 ---
 title: "Is Subsequence"
-date: 2024-07-26
+date: 2024-07-26Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

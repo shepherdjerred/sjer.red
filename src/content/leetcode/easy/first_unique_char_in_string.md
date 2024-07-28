@@ -1,6 +1,6 @@
 ---
 title: "First Unique Character in a String"
-date: 2024-06-15
+date: 2024-06-15Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

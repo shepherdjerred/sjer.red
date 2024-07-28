@@ -1,6 +1,6 @@
 ---
 title: "Merge Sorted Array"
-date: 2024-07-21
+date: 2024-07-21Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

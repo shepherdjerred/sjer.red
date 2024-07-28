@@ -1,6 +1,6 @@
 ---
 title: "Merge Two Sorted Lists"
-date: 2024-06-19
+date: 2024-06-19Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Palindrome Linked List"
-date: 2024-07-18
+date: 2024-07-18Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---

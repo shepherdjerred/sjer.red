@@ -1,6 +1,6 @@
 ---
 title: "First Bad Version"
-date: 2024-07-20
+date: 2024-07-20Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
