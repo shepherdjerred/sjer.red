@@ -1,5 +1,5 @@
 ---
-title: "Find Median from Data Stream"
+title: "Count and Say"
 date: 2024-07-26
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
