@@ -38,6 +38,33 @@ Constraints:
 
 ## Solution
 
-```java
+I thought this was solvable with recursion, but it turns out it's actually a backtracking problem.
 
+Time complexity: O(n \* n!)
+
+Space complexity: O(n)
+
+```java
+class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+        var answer = new ArrayList<List<Integer>>();
+        permute(nums, List.of(), answer);
+        return answer;
+    }
+
+    public void permute(int[] nums, List<Integer> curr, List<List<Integer>> answer) {
+        if (curr.size() == nums.length) {
+            answer.add(curr);
+        }
+
+        for (var n : nums) {
+            if (curr.contains(n)) {
+                continue;
+            }
+            var l = new ArrayList<>(curr);
+            l.add(n);
+            permute(nums, l, answer);
+        }
+    }
+}
 ```
