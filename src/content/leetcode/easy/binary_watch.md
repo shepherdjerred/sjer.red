@@ -44,9 +44,9 @@ Constraints:
 ```java
 class Solution {
     public List<String> readBinaryWatch(int turnedOn) {
-        var answer = new TreeSet<String>();
-        solve(turnedOn, new BitSet(10), answer);
-        return new ArrayList<>(answer);
+        var answer = new ArrayList<String>();
+        solve(turnedOn, 0, new BitSet(10), answer);
+        return answer;
     }
 
     public String bString(BitSet b) {
@@ -75,13 +75,13 @@ class Solution {
         return value;
     }
 
-    public void solve(int turnedOn, BitSet b, Set<String> answer) {
+    public void solve(int turnedOn, int start, BitSet b, List<String> answer) {
         if (turnedOn == 0) {
             answer.add(bString(b));
             return;
         }
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = start; i < 10; i++) {
             if (b.get(i) == true) {
                 continue;
             }
@@ -91,7 +91,7 @@ class Solution {
             if (hours(copy) > 11 || minutes(copy) >= 60) {
                 continue;
             }
-            solve(turnedOn - 1, copy, answer);
+            solve(turnedOn - 1, i, copy, answer);
         }
     }
 }
