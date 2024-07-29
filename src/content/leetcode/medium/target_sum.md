@@ -1,6 +1,6 @@
 ---
 title: "Target Sum"
-date:
+date: 2024-07-28Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
@@ -44,8 +44,9 @@ Constraints:
 
 ## Solution
 
-Time: O(2^n)
+There are better solutions using dynamic programming.
 
+Time: O(2^n)
 Space: O(n)
 
 ```java
