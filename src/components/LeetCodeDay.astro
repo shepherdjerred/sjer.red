@@ -11,10 +11,32 @@ type Props = {
 };
 
 const { date, entries } = Astro.props;
+
+// create some text that's something like x easy, y medium, z hard
+
+const counts = R.pipe(
+  entries,
+  R.groupBy((entry) => {
+    return entry.slug.replace(/\/.*/, "");
+  }),
+  R.entries(),
+  R.map(([difficulty, entries]) => `${entries.length} ${difficulty}`),
+  R.sortBy((count) => {
+    const [_, difficulty] = count.split(" ");
+    if (difficulty === "easy") return 3;
+    if (difficulty === "medium") return 2;
+    if (difficulty === "hard") return 1;
+    return 0;
+  }),
+  R.join(", ")
+);
 ---
 
 <div>
-  <h2 class="text-black font-bold text-2xl mb-2 bg-white pr-8 pl-8 pt-4 pb-4"><FormattedDate date={date} /></h2>
+  <hgroup class="text-black mb-2 bg-white pr-8 pl-8 pt-4 pb-4">
+    <h2 class="text-2xl font-bold"><FormattedDate date={date} /></h2>
+    <p>{entries.length} questions | {counts}</p>
+  </hgroup>
   <div class="flex flex-col gap-6">
     {R.map(entries, (entry): JSX.Element => <LeetCodeEntry entry={entry} />)}
   </div>

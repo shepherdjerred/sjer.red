@@ -23,5 +23,17 @@ module.exports = {
       },
       rules: {},
     },
+    {
+      files: ["*.ts", "*.tsx", "*.astro"],
+      rules: {
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            argsIgnorePattern: "^_",
+            varsIgnorePattern: "^_",
+          },
+        ],
+      },
+    },
   ],
 };

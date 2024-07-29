@@ -44,8 +44,27 @@ Constraints:
 
 ## Solution
 
-TODO
+Time: O(2^n)
+
+Space: O(n)
 
 ```java
+class Solution {
+    public int findTargetSumWays(int[] nums, int target) {
+        return findTargetSumWays(nums, 0, 0, target);
+    }
 
+    public int findTargetSumWays(int[] nums, int i, int curr, int target) {
+        // base case
+        if (i == nums.length) {
+            if (curr == target) {
+                return 1;
+            }
+            return 0;
+        }
+
+        return findTargetSumWays(nums, i + 1, curr + nums[i], target)
+          + findTargetSumWays(nums, i + 1, curr - nums[i], target);
+    }
+}
 ```
