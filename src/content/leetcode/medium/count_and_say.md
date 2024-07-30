@@ -81,3 +81,59 @@ class Solution {
     }
 }
 ```
+
+### Another Approach
+
+```java
+public String countAndSay(int n) {
+    var str = "1";
+    for (var i = 2; i <= n; i++) {
+        var newStr = "";
+        // we want to overwrite the string
+        // iterate over the current string
+        var count = 1;
+        for (var x = 0; x < str.length(); x++) {
+            // there are two cases: the this char is the same as the next, or it isn't. if it isn't, it might be because we're out of bounds
+            // bounds check always first
+            if (x + 1 < str.length() && str.charAt(x + 1) == str.charAt(x)) {
+                // match!
+                count += 1;
+            } else {
+                // no match
+                newStr = newStr + count + str.charAt(x);
+                count = 1;
+            }
+        }
+        str = newStr;
+    }
+    return str;
+}
+```
+
+### Extension
+
+Reverse count and say
+
+```java
+public void reverse(String s, int index, String prev, String curr, List<String> ans) {
+    if (index == s.length()) {
+        if (curr.isEmpty()) {
+            ans.add(prev);
+        }
+        return;
+    }
+
+    // keep building the chain
+    reverse(s, index + 1, prev, curr + s.charAt(index), ans);
+
+    if (!curr.isEmpty()) {
+        var quantity = Integer.valueOf(curr);
+        var character = s.charAt(index);
+        for (int i = 0; i < quantity; i++) {
+            prev = prev + character;
+        }
+        // we can consume this
+        reverse(s, index + 1, prev, "", ans);
+    }
+}
+```
