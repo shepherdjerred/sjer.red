@@ -19,6 +19,6 @@ export const TilSchema = z
     starred: z.boolean().default(false),
     hackerNews: z.string().optional(),
   })
-  .transform((val) => ({ ...val, description: val.description || val.title, isDraft: false }));
+  .transform((val) => ({ ...val, description: val.description ?? val.title, isDraft: false }));
 
 export const BlogSchema = z.union([PostSchema, LeetCodeSchema, TilSchema]);

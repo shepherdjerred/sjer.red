@@ -3,11 +3,11 @@ import { ViewTransitions } from "astro:transitions";
 import { SEO } from "astro-seo";
 import { getImagePath } from "astro-opengraph-images";
 
-export interface Props {
+export type Props = {
   title?: string;
   description?: string;
   openGraphType?: string;
-}
+};
 
 const url = Astro.url;
 const site = Astro.site;

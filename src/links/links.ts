@@ -99,7 +99,7 @@ const file = "src/links/cache.json";
 // create cache.json if it doesn't exist
 try {
   await readFile(file, "utf-8");
-} catch (e) {
+} catch (_e) {
   await writeFile(file, "{}");
 }
 
@@ -131,7 +131,7 @@ const results = await Promise.all(
           base.description = description;
         }
         return base;
-      } catch (e) {
+      } catch (_e) {
         console.error(`Failed to fetch ${link}`);
         return {
           title: "Failed to fetch",

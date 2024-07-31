@@ -6,9 +6,9 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { EventSchema } from "src/content/schemas/event";
 
-interface Props {
+type Props = {
   entry: CollectionEntry<"events">;
-}
+};
 
 export async function getStaticPaths() {
   const eventEntries = await getCollection("events");
@@ -44,7 +44,7 @@ const { Content } = await entry.render();
       {
         cost && (
           <h2>
-            <span>Cost: {"$" + cost}</span>
+            <span>Cost: {"$" + cost.toString()}</span>
             <span class="text-sm">
               (Venmo <a href="https://account.venmo.com/u/shepherdjerred">@shepherdjerred</a>)
             </span>

@@ -6,9 +6,9 @@ import Image from "astro/components/Image.astro";
 
 export type Perspective = "student" | "teacher";
 
-interface Props {
+type Props = {
   perspective: Perspective;
-}
+};
 
 const { perspective } = Astro.props;
 const image = perspective === "student" ? student : teacher;
