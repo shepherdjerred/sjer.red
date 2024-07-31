@@ -79,6 +79,10 @@ export const config: Configuration = {
       url: "https://simonwillison.net/atom/entries/",
       title: "Simon Willison",
     },
+    {
+      url: "https://eli.thegreenplace.net/feeds/all.atom.xml",
+      title: "Eli Bendersky",
+    },
   ],
   number: 3,
   truncate: 300,
