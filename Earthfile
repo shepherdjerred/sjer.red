@@ -10,7 +10,7 @@ ENV PLAYWRIGHT_CACHE="type=cache,id=playwright,target=/root/.cache/ms-playwright
 
 SRC:
   FUNCTION
-  COPY --dir src public astro.config.ts tailwind.config.cjs tsconfig.json .
+  COPY --dir src public astro.config.ts tailwind.config.ts tsconfig.json .
 
 ci:
   # TODO: this isn't working quite yet
@@ -30,9 +30,8 @@ build:
   SAVE ARTIFACT dist AS LOCAL .
 
 lint:
-  FROM +deps
-  COPY .eslintignore .eslintrc.cjs .markdownlint-cli2.jsonc .prettierignore .
-  DO +SRC
+  FROM +build
+  COPY eslint.config.mjs .markdownlint-cli2.jsonc .prettierignore .
   RUN --mount $NPM_CACHE npm run lint
 
 test.deps:
