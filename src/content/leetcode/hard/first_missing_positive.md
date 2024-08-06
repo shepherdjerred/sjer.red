@@ -47,7 +47,7 @@ Constraints:
 ```java
 class Solution {
     public int firstMissingPositive(int[] nums) {
-        // cycle sort
+        // cyclic sort
         var i = 0;
         while (i < nums.length) {
             var dst = nums[i] - 1;

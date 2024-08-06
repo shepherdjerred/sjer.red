@@ -44,6 +44,41 @@ Follow up: Could you implement a solution using only O(1) extra space complexity
 
 ## Solution
 
+### Cyclic Sort
+
+```java
+class Solution {
+    public int missingNumber(int[] nums) {
+        var i = 0;
+        var n = nums.length;
+
+        while (i < nums.length) {
+            if (nums[i] == i || nums[i] >= nums.length) {
+                i++;
+            } else {
+                swap(nums, nums[i], i);
+            }
+        }
+
+        for (i = 0; i < nums.length; i++) {
+            if (nums[i] != i) {
+                return i;
+            }
+        }
+
+        return nums.length;
+    }
+
+    void swap(int[] a, int x, int y) {
+        a[x] ^= a[y];
+        a[y] ^= a[x];
+        a[x] ^= a[y];
+    }
+}
+```
+
+### XOR
+
 Another use for that XOR trick!
 
 ```java
