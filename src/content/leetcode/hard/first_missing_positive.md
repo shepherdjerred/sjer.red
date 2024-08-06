@@ -45,7 +45,34 @@ Constraints:
 ### Cyclic Sort
 
 ```java
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        // cycle sort
+        var i = 0;
+        while (i < nums.length) {
+            var dst = nums[i] - 1;
+            if (nums[i] > 0 && nums[i] <= nums.length && nums[i] != nums[dst]) {
+                swap(nums, i, dst);
+            } else {
+                i += 1;
+            }
+        }
 
+        for (i = 0; i < nums.length; i++) {
+            if (nums[i] != i + 1) {
+                return i + 1;
+            }
+        }
+
+        return nums.length + 1;
+    }
+
+    void swap(int[] nums, int x, int y) {
+        var tmp = nums[x];
+        nums[x] = nums[y];
+        nums[y] = tmp;
+    }
+}
 ```
 
 ### XOR
