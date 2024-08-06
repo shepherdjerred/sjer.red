@@ -50,9 +50,6 @@ class Solution {
             counts2.compute(i, (key, value) -> (value == null) ? 1 : value + 1);
         }
 
-        System.out.println(counts1);
-        System.out.println(counts2);
-
         var intersection = new ArrayList<Integer>();
         for (var entry : counts1.entrySet()) {
             var val1 = counts1.get(entry.getKey());

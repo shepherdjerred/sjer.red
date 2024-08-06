@@ -71,9 +71,6 @@ class Solution {
             }
         }
 
-        System.out.println(Arrays.toString(indegree));
-        System.out.println(q);
-
         var i = q.size();
         var semesters = 0;
         var count = 0;
@@ -95,7 +92,6 @@ class Solution {
         }
 
         if (count != n) {
-            System.out.println(count);
             return -1;
         }
 
