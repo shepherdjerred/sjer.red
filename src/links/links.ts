@@ -92,6 +92,7 @@ export const links = [
   "https://lethain.com/magnitudes-of-exploration/",
   "https://cse.buffalo.edu/~rapaport/howtostudy.html",
   "https://www.stevenbuccini.com/8-hard-truths-on-getting-laid-off",
+  "https://jepsen.io/consistency",
 ];
 
 const file = "src/links/cache.json";

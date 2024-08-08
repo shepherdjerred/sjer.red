@@ -41,6 +41,59 @@ Constraints:
 
 ## Solution
 
+### Recursive DFS
+
+```java
+class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        // using DFS
+        var m = new boolean[numCourses][numCourses];
+        var gVisited = new boolean[numCourses];
+        var lVisited = new boolean[numCourses];
+
+        for (var p : prerequisites) {
+            m[p[0]][p[1]] = true;
+        }
+
+        for (var i = 0; i < numCourses; i++) {
+            if (!dfs(i, numCourses, m, gVisited, lVisited)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean dfs(int i, int n, boolean[][] m, boolean[] gVisited, boolean[] lVisited) {
+        if (lVisited[i]) {
+            return false;
+        }
+
+        if (gVisited[i]) {
+            return true;
+        }
+
+        gVisited[i] = true;
+        lVisited[i] = true;
+
+        // loop over every course that this vertex has an edge to
+        for (var x = 0; x < n; x++) {
+            if (m[i][x]) {
+                // perform a dfs on x
+                if (!dfs(x, n, m, gVisited, lVisited)) {
+                    return false;
+                }
+            }
+        }
+
+        lVisited[i] = false;
+        return true;
+    }
+}
+```
+
+### Topological Sort
+
 If the input can be topologically sorted (and thus that the input forms a DAG), then we know that the course schedule is possible.
 
 First try!
