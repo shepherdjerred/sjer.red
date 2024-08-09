@@ -52,6 +52,115 @@ Constraints:
 
 ## Solution
 
+### Bidirectional Search
+
+Time: O(b^d/2) where b = branching factor, d = distance of shortest path
+Space: O(b^d/2)
+
+```java
+class Solution {
+    public String turnNext(String s, int pos) {
+        var i = s.charAt(pos) - '0';
+        int next;
+        if (i == 9) {
+            next = 0;
+        } else {
+            next = i + 1;
+        }
+        var sb = new StringBuilder(s);
+        sb.setCharAt(pos, (char) (next + '0'));
+        return sb.toString();
+    }
+
+    public String turnPrev(String s, int pos) {
+        var i = s.charAt(pos) - '0';
+        int prev;
+        if (i == 0) {
+            prev = 9;
+        } else {
+            prev = i - 1;
+        }
+        var sb = new StringBuilder(s);
+        sb.setCharAt(pos, (char) (prev + '0'));
+        return sb.toString();
+    }
+
+    public int openLock(String[] deadends, String target) {
+        var q1 = new LinkedList<String>();
+        var visited1 = new HashSet<String>(Arrays.asList(deadends));
+        var turns1 = 0;
+        var q2 = new LinkedList<String>();
+        var visited2 = new HashSet<String>(Arrays.asList(deadends));
+        var turns2 = 0;
+        var initial = "0000";
+
+        if (visited1.contains(initial)) {
+            return -1;
+        }
+
+        q1.add(initial);
+        visited1.add(initial);
+
+        q2.add(target);
+        visited2.add(target);
+
+        while (!q1.isEmpty() || !q2.isEmpty()) {
+            var count1 = q1.size();
+            for (var i = 0; i < count1; i++) {
+                var s = q1.poll();
+
+                if (visited2.contains(s)) {
+                    return turns1 + turns2;
+                }
+
+                // add all possible combinations
+                for (var x = 0; x < 4; x++) {
+                    var next = turnNext(s, x);
+                    if (!visited1.contains(next)) {
+                        q1.offer(next);
+                        visited1.add(next);
+                    }
+                    var prev = turnPrev(s, x);
+                    if (!visited1.contains(prev)) {
+                        q1.offer(prev);
+                        visited1.add(prev);
+                    }
+                }
+            }
+            turns1 += 1;
+
+            var count2 = q2.size();
+            for (var i = 0; i < count2; i++) {
+                var s = q2.poll();
+
+                if (visited1.contains(s)) {
+                    return turns1 + turns2;
+                }
+
+                // add all possible combinations
+                for (var x = 0; x < 4; x++) {
+                    var next = turnNext(s, x);
+                    if (!visited2.contains(next)) {
+                        q2.offer(next);
+                        visited2.add(next);
+                    }
+                    var prev = turnPrev(s, x);
+                    if (!visited2.contains(prev)) {
+                        q2.offer(prev);
+                        visited2.add(prev);
+                    }
+                }
+            }
+            turns2 += 1;
+        }
+
+        return -1;
+    }
+}
+```
+
+### BFS
+
 ```java
 class Solution {
     public String turnNext(String s, int pos) {
