@@ -1,6 +1,6 @@
 ---
 title: "Closest Binary Search Tree Value"
-date: 2024-08-03Z-0700
+date: 2024-08-08Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
