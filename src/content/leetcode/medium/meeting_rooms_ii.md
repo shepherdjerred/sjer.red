@@ -30,6 +30,43 @@ Constraints:
 
 ## Solution
 
+### Sort
+
+```java
+class Solution {
+    public int minMeetingRooms(int[][] intervals) {
+        var start = Arrays.copyOf(intervals, intervals.length);
+        var end = Arrays.copyOf(intervals, intervals.length);
+
+        Arrays.sort(start, (l, r) -> {
+            return Integer.compare(l[0], r[0]);
+        });
+
+        Arrays.sort(end, (l, r) -> {
+            return Integer.compare(l[1], r[1]);
+        });
+
+        var startP = 0;
+        var endP = 0;
+        var rooms = 0;
+
+        while (startP < start.length) {
+            if (start[startP][0] >= end[endP][1]) {
+                rooms -= 1;
+                endP += 1;
+            }
+
+            rooms += 1;
+            startP += 1;
+        }
+
+        return rooms;
+    }
+}
+```
+
+### Sort + Heap
+
 ```java
 class Solution {
     public int minMeetingRooms(int[][] intervals) {
