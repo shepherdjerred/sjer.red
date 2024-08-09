@@ -41,6 +41,8 @@ Constraints:
 
 I don't really understand this one.
 
+### Sliding Window
+
 ```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
@@ -56,6 +58,36 @@ class Solution {
             answer = Math.max(r - l + 1, answer);
         }
         return answer;
+    }
+}
+```
+
+### Another Unoptimized
+
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        // brute force
+        var max = 0;
+        for (var l = 0; l < s.length(); l++) {
+            for (var r = l; r < s.length(); r++) {
+                var freq = new boolean[128];
+                var ok = true;
+                // check if this string is valid
+                for (var i = l; i <= r; i++) {
+                    var c = (int) s.charAt(i);
+                    if (freq[c]) {
+                        ok = false;
+                        break;
+                    }
+                    freq[c] = true;
+                }
+                if (ok) {
+                    max = Math.max(max, r - l + 1);
+                }
+            }
+        }
+        return max;
     }
 }
 ```
