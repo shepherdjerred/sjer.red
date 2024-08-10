@@ -6,7 +6,22 @@ description: What I'm up to
 
 Inspired by <https://sive.rs/now>
 
-## 2024 07 24
+## 2024 08 10
+
+- Getting ready for my Pinterest onsite next week.
+  - I'm feeling fairly confident! I've been studying _hard_ for the last 3 months.
+- Figuring out if I can attend the [Recurse Center](https://www.recurse.com/).
+  - I was accepted a couple of weeks ago. I'm not able to attend Fall 1 (which starts on the 12th), but I might be able to attend Fall 2 (starts Sept 23rd) if I don't get an offer from Pinterest.
+- Excited for next semester at Georgia Tech.
+  - The semester starts on the 19th. I'll be taking [High Performance Computing Architecture](https://omscs.gatech.edu/cs-6290-high-performance-computer-architecture).
+- Doing a _lot_ of memorization with Anki.
+  - I'm trying to memorize the periodic table. There's a lot to remember, but I think it'll be mildly helpful!
+- Volunteering at UWMC.
+- Finishing up [Scrubs](<https://en.wikipedia.org/wiki/Scrubs_(TV_series)>).
+
+## Past
+
+### 2024 07 24
 
 - Hunting for a job.
   - So much to do!
@@ -20,8 +35,6 @@ Inspired by <https://sive.rs/now>
 - Volunteering at UWMC.
 - Started watching [Scrubs](<https://en.wikipedia.org/wiki/Scrubs_(TV_series)>).
 - Watching [House of the Dragon](https://en.wikipedia.org/wiki/House_of_the_Dragon) every week.
-
-## Past
 
 ### 2024 07 01
 
