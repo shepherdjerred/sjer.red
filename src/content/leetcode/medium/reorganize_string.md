@@ -32,6 +32,51 @@ Constraints:
 
 ## Solution
 
+### More Practice
+
+```java
+class Solution {
+    public String reorganizeString(String s) {
+        // build frequency table
+        var freq = new int[26];
+        for (var c : s.toCharArray()) {
+            var i = c - 'a';
+            freq[i] += 1;
+        }
+
+        // stores indexes
+        // max heap
+        var pq = new PriorityQueue<Integer>((l, r) -> {
+            return Integer.compare(freq[r], freq[l]);
+        });
+
+        for (int i = 0; i < 26; i++) {
+            pq.offer(i);
+        }
+
+        int prev = -1;
+        var sb = new StringBuilder();
+        while (freq[pq.peek()] > 0) {
+            var i = pq.poll();
+            sb.append((char) (i + 'a'));
+            freq[i] -= 1;
+            if (prev != -1) {
+                pq.offer(prev);
+            }
+            prev = i;
+        }
+
+        if (freq[prev] != 0) {
+            return "";
+        }
+
+        return sb.toString();
+    }
+}
+```
+
+### Priority Queue
+
 This can be solved with a priority queue.
 
 The basic algorithm is:
