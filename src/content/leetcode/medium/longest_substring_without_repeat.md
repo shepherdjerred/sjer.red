@@ -1,6 +1,6 @@
 ---
-title: "Group Anagrams"
-date: 2024-08-01Z-0700
+title: "Longest Substring Without Repeating Characters"
+date: 2024-08-09Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
