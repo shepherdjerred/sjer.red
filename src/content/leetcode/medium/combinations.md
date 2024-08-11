@@ -35,6 +35,41 @@ Constraints:
 
 ## Solution
 
+### Another Backtracking
+
+Time: O(n! / (n - k) \* k!)
+Space: O(k)
+
+This implementation is worse because I'm using a `contains` check to avoid duplicates. My prior approach was better since it used a separate variable. Alternatively, a set would also be okay, though it would require a set -> list conversion step.
+
+```java
+class Solution {
+    public List<List<Integer>> combine(int n, int k) {
+        var ans = new ArrayList<List<Integer>>();
+        solve(n, k, List.of(), ans);
+        return ans;
+    }
+
+    void solve(int n, int k, List<Integer> curr, List<List<Integer>> ans) {
+        if (curr.size() == k) {
+            ans.add(curr);
+            return;
+        }
+
+        for (var i = 1; i <= n; i++) {
+            if (curr.contains(i)) {
+                continue;
+            }
+            var l = new ArrayList<>(curr);
+            l.add(i);
+            solve(i, k, l, ans);
+        }
+    }
+}
+```
+
+### Backtracking
+
 Time: O(n! / (n - k)!)
 Space: O(n)
 
