@@ -39,9 +39,41 @@ Constraints:
 
 ## Solution
 
-I don't really understand this one.
+### Another Sliding Window
+
+This one makes perfect sense!
+
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        var max = 0;
+        var freq = new int[128];
+        var l = 0;
+        var r = 0;
+
+        while (r < s.length()) {
+            var c = s.charAt(r);
+            freq[c] += 1;
+
+            while (freq[c] > 1) {
+                var c2 = s.charAt(l);
+                freq[c2] -= 1;
+                l += 1;
+            }
+
+            max = Math.max(max, r - l + 1);
+
+            r += 1;
+        }
+
+        return max;
+    }
+}
+```
 
 ### Sliding Window
+
+I don't really understand this one.
 
 ```java
 class Solution {
