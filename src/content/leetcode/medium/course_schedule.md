@@ -41,6 +41,45 @@ Constraints:
 
 ## Solution
 
+### Another Topological Sort
+
+```java
+class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        var m = new boolean[numCourses][numCourses];
+        var indegree = new int[numCourses];
+        var s = new Stack<Integer>();
+
+        for (var p : prerequisites) {
+            m[p[0]][p[1]] = true;
+            indegree[p[0]] += 1;
+        }
+
+        for (var i = 0; i < numCourses; i++) {
+            if (indegree[i] == 0) {
+                s.push(i);
+            }
+        }
+
+        var complete = 0;
+        while (!s.isEmpty()) {
+            var c = s.pop();
+            complete += 1;
+            for (var i = 0; i < numCourses; i++) {
+                if (m[i][c]) {
+                    indegree[i] -= 1;
+                    if (indegree[i] == 0) {
+                        s.push(i);
+                    }
+                }
+            }
+        }
+
+        return complete == numCourses;
+    }
+}
+```
+
 ### Recursive DFS
 
 ```java
