@@ -45,6 +45,51 @@ Constraints:
 
 ## Solution
 
+### Another Union Find
+
+Disjoint set from memory.
+
+```java
+class Solution {
+    int[] root;
+    int[] rank;
+    public boolean validPath(int n, int[][] edges, int source, int destination) {
+        root = new int[n];
+        rank = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            root[i] = i;
+            rank[i] = 1;
+        }
+
+        for (var e : edges) {
+            union(e[0], e[1]);
+        }
+
+        return find(source) == find(destination);
+    }
+
+    int find(int x) {
+        if (root[x] != x) {
+            root[x] = find(root[x]);
+        }
+        return root[x];
+    }
+
+    void union(int x, int y) {
+        var rootX = find(x);
+        var rootY = find(y);
+        if (rank[rootX] > rank[rootY]) {
+            rootX ^= rootY;
+            rootY ^= rootX;
+            rootX ^= rootY;
+        }
+        root[rootX] = rootY;
+        rank[rootY] += rank[rootX];
+    }
+}
+```
+
 ### Union Find
 
 ```java
