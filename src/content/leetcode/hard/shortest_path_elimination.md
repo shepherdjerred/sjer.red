@@ -1,6 +1,6 @@
 ---
-title: ""
-date: 2024-08-09Z-0700
+title: "Shortest Path in a Grid with Obstacles Elimination"
+date: 2024-08-11Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
