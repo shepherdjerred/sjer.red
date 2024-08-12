@@ -299,5 +299,8 @@
   },
   "https://www.stevenbuccini.com/8-hard-truths-on-getting-laid-off": {
     "title": "8 Hard Truths I learned when I got laid off from my SWE job"
+  },
+  "https://jepsen.io/consistency": {
+    "title": "Consistency Models"
   }
 }
