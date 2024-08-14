@@ -46,7 +46,63 @@ Constraints:
 
 ## Solution
 
+### Sorting
+
+Unoptimized
+
+Time: O(n^2)
+
+Space: O(n)
+
+```java
+class Solution {
+    record Pair(int end, int profit){}
+
+    public int jobScheduling(int[] startTime, int[] endTime, int[] profits) {
+        // transform the input
+        var input = new int[startTime.length][3];
+
+        for (var i = 0; i < startTime.length; i++) {
+            input[i] = new int[]{startTime[i], endTime[i], profits[i]};
+        }
+
+        // sort
+        Arrays.sort(input, (l, r) -> Integer.compare(l[0], r[0]));
+
+        // at each step, we want to know if we could extend a previous choice
+        // mapping of end time -> profit
+        var m = new HashMap<Integer, Integer>();
+
+        var ans = 0;
+
+        for (var i = 0; i < input.length; i++) {
+            var start = input[i][0];
+            var end = input[i][1];
+            var profit = input[i][2];
+
+            var best = 0;
+
+            // find the best choice
+            for (var entry : m.entrySet()) {
+                if (entry.getKey() <= start) {
+                    best = Math.max(entry.getValue(), best);
+                }
+            }
+
+            var total = best + profit;
+            m.compute(end, (k, v) -> v == null ? total : Math.max(v, total));
+            ans = Math.max(total, ans);
+        }
+
+        return ans;
+    }
+}
+```
+
 ### Priority Queue
+
+Time: O(n \* log(n))
+Space: O(n)
 
 ```java
 class Solution {
