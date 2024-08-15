@@ -51,6 +51,8 @@ Constraints:
 
 ## Solution
 
+Note: this solution times out
+
 ```java
 class Solution {
     public long countSubarrays(int[] nums, long k) {
