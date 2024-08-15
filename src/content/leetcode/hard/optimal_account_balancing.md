@@ -1,6 +1,6 @@
 ---
 title: "Optimal Account Balancing"
-date: 2024-08-12Z-0700
+date: 2024-08-14Z-0700
 leetcode: true
 layout: ../../../layouts/BlogLayout.astro
 ---
@@ -45,7 +45,49 @@ Constraints:
 
 ## Solution
 
-I haven't solved this problem.
+### Backtracking
+
+```java
+class Solution {
+    public int minTransfers(int[][] transactions) {
+        var balances = new int[12];
+
+        for (var tx : transactions) {
+            balances[tx[0]] -= tx[2];
+            balances[tx[1]] += tx[2];
+        }
+
+        return backtrack(balances, 0, 0);
+    }
+
+    public int backtrack(int[] balances, int pos, int txs) {
+        if (pos >= balances.length) {
+            return txs;
+        }
+
+        // only try to balance negative accounts
+        // the total money in the system is zero-sum so if we handle the negatives we know there will be no positives
+        if (balances[pos] >= 0) {
+            return backtrack(balances, pos + 1, txs);
+        }
+
+        var results = new ArrayList<Integer>();
+
+        // see who can give us $$$
+        for (var i = 0; i < balances.length; i++) {
+            if (balances[i] > 0) {
+                // try to take their money
+                var copy = Arrays.copyOf(balances, balances.length);
+                copy[pos] += copy[i];
+                copy[i] = 0;
+                results.add(backtrack(copy, pos, txs + 1));
+            }
+        }
+
+        return results.stream().reduce(Math::min).orElse(-1);
+    }
+}
+```
 
 ### Greedy w/ Priority Queue
 
