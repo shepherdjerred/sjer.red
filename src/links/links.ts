@@ -93,6 +93,8 @@ export const links = [
   "https://cse.buffalo.edu/~rapaport/howtostudy.html",
   "https://www.stevenbuccini.com/8-hard-truths-on-getting-laid-off",
   "https://jepsen.io/consistency",
+  "https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/",
+  "https://www.alexreichert.com/blog/finishing",
 ];
 
 const file = "src/links/cache.json";
