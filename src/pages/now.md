@@ -6,7 +6,21 @@ description: What I'm up to
 
 Inspired by <https://sive.rs/now>
 
-## 2024 08 10
+### 2024 08 31
+
+- Accepted an offer at Pinterest!
+  - My first day is September 16th
+  - Super excited & looking forward to _finally_ being in office again
+  - Also excited to (hopefully) be biking to work again!
+- Painted my living room
+  - I bought the paint two years ago & figured it was about time
+- Playing Portal 2 on my Steam Deck
+- Started the fall semester at Georgia Tech
+  - I'm taking [High Performance Computer Architecture](https://omscs.gatech.edu/cs-6290-high-performance-computer-architecture)
+
+## Past
+
+### 2024 08 10
 
 - Getting ready for my Pinterest onsite next week.
   - I'm feeling fairly confident! I've been studying _hard_ for the last 3 months.
@@ -18,8 +32,6 @@ Inspired by <https://sive.rs/now>
   - I'm trying to memorize the periodic table. There's a lot to remember, but I think it'll be mildly helpful!
 - Volunteering at UWMC.
 - Finishing up [Scrubs](<https://en.wikipedia.org/wiki/Scrubs_(TV_series)>).
-
-## Past
 
 ### 2024 07 24
 
