@@ -45,6 +45,11 @@ export const links = [
   "https://sashachapin.substack.com/p/making-normal-conversations-better",
   "https://www.experimental-history.com/p/good-conversations-have-lots-of-doorknobs",
   "https://danluu.com/wat/",
+  // this one is really good so let's show it twice
+  "https://danluu.com/wat/",
+  // we greatly underestimate the complexity of even simple things
+  // which leads to false confidence when arriving to solutions to popular problems
+  "https://danluu.com/cocktail-ideas/",
   "https://gmays.com/how-im-relearning-math-as-an-adult/",
   "https://www.homeautomationguy.io/",
   "https://awesomekling.github.io/Excellence-is-a-habit-but-so-is-failure/",
@@ -95,6 +100,7 @@ export const links = [
   "https://jepsen.io/consistency",
   "https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/",
   "https://www.alexreichert.com/blog/finishing",
+  "https://yosefk.com/blog/people-can-read-their-managers-mind.html",
 ];
 
 const file = "src/links/cache.json";

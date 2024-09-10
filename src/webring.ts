@@ -2,6 +2,7 @@ import { run } from "webring";
 import { type Configuration, type Result } from "webring";
 
 export const config: Configuration = {
+  // TODO: convert this to OPML so that I can import/export this with RSS readers
   sources: [
     {
       url: "https://drewdevault.com/blog/index.xml",
@@ -48,10 +49,6 @@ export const config: Configuration = {
       title: "brr.fyi",
     },
     {
-      url: "https://devblogs.microsoft.com/oldnewthing/feed",
-      title: "The Old New Thing",
-    },
-    {
       url: "https://ludic.mataroa.blog/rss/",
       title: "Ludicity",
     },
@@ -82,6 +79,14 @@ export const config: Configuration = {
     {
       url: "https://eli.thegreenplace.net/feeds/all.atom.xml",
       title: "Eli Bendersky",
+    },
+    {
+      url: "https://yosefk.com/blog/feed",
+      title: "Yossi Kreinin",
+    },
+    {
+      url: "https://jvns.ca/atom.xml",
+      title: "Julia Evans",
     },
   ],
   number: 3,

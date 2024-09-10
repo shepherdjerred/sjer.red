@@ -1,0 +1,58 @@
+
+---
+config:
+  sankey:
+    showValues: true
+---
+sankey-beta
+
+%% Identified: I was interested in this company/position
+%% Applied: I applied for a specific position at a company
+Identified, Applied, 103
+%% Backlog: This company was on my list on where to apply next
+Identified, Backlog, 45
+%% Skipped: This company didn't have relevant positions
+%% or it didn't match my criteria, e.g. pay, location, interest, etc.
+Identified, Skipped, 38
+
+%% Rejected: I applied an received an explicit rejectino
+Applied, Rejected, 41
+%% Screener: I applied, heard back, and received at least an assessment, recruiter call, etc.
+Applied, Screener, 11
+%% Ghosted: I applied and didn't hear back
+Applied, Ghosted, 51
+
+%% Rejected: I received at least a screener interview/assessment and didn't pass or there were no relevant positinos
+%% Palantir: passed, no relevant positions
+%% Anthropic: passed, no relevant positions
+%% Google: passed, no relevant positions
+%% Efficient: not enough experience
+%% Sonic Infra: went with another candidate
+Screener, Rejected, 5
+
+%% Ghosted: interviewed in some capacity and never heard back
+%% Momentic: chatted with founder, completed technical assessment, never heard back
+%% Strac: chatted with founder, completed take home project, never heard back
+Screener, Ghosted, 2
+
+%% Interviewing: I made it past the screening interview, initial assement, recruiter call, etc.
+%% Another way to think of it: I had at least two interviews/real interactions with this company/position
+%% Pinterest
+%% Adobe
+%% TerraPower
+%% AllSpice
+Screener, Interviewing, 4
+
+%% Ghosted: I was interviewing and the company didn't get back to me about next steps
+%% AllSpice: passed interviews, asked for $215k, was then ghosted
+Interviewing, Ghosted, 1
+
+%% Offer: I received an offer, or I expected to receive one
+%% Pinterest: I received a formal offer
+%% Adobe: did well in interviews, but I received an offer from Pinterest
+%% TerraPower: interviews were going well, decided the company was too old school
+Interviewing, Offer, 3
+
+%% Accepted:
+%% Pinterest :)
+Offer, Accepted, 1

@@ -17,6 +17,7 @@ Inspired by <https://sive.rs/now>
 - Playing Portal 2 on my Steam Deck
 - Started the fall semester at Georgia Tech
   - I'm taking [High Performance Computer Architecture](https://omscs.gatech.edu/cs-6290-high-performance-computer-architecture)
+- Finished my volunteer training at UWMC
 
 ## Past
 
