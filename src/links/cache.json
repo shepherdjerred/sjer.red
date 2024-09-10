@@ -304,10 +304,15 @@
     "title": "Consistency Models"
   },
   "https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/": {
-    "title": "Kitchen Soap – On Being A Senior Engineer",
-    "description": "UPDATE: I’ve added a short section on the topic of sponsorship. I think that there’s a lot of institutional knowledge in our field, especially about what makes for a productive engineer. But while there are a good deal of books in the management field about “expert” roles and responsibilities of non-technical individual contributors, I don’t…"
+    "title": "On Being A Senior Engineer"
   },
   "https://www.alexreichert.com/blog/finishing": {
     "title": "On finishing things"
+  },
+  "https://danluu.com/cocktail-ideas/": {
+    "title": "Cocktail party ideas"
+  },
+  "https://yosefk.com/blog/people-can-read-their-managers-mind.html": {
+    "title": "People can read their manager's mind"
   }
 }
