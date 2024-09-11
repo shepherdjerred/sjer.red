@@ -16,6 +16,7 @@ export default {
         pink: colors.pink,
         orange: colors.orange,
         slate: colors.slate,
+        pinterest: "#e60023",
       },
       fontFamily: {
         serif: ["IBM Plex Serif", ...defaultTheme.fontFamily.serif],

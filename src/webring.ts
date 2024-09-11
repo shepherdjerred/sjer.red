@@ -88,6 +88,10 @@ export const config: Configuration = {
       url: "https://jvns.ca/atom.xml",
       title: "Julia Evans",
     },
+    {
+      url: "https://sinja.io/rss",
+      title: "Oleh",
+    },
   ],
   number: 3,
   truncate: 300,

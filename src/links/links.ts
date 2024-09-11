@@ -101,6 +101,9 @@ export const links = [
   "https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/",
   "https://www.alexreichert.com/blog/finishing",
   "https://yosefk.com/blog/people-can-read-their-managers-mind.html",
+  "https://www.aleksandrhovhannisyan.com/blog/62-5-percent-font-size-trick/",
+  "https://typescale.com",
+  "https://sinja.io/blog/web-typography-quick-guide",
 ];
 
 const file = "src/links/cache.json";

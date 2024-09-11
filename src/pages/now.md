@@ -6,6 +6,33 @@ description: What I'm up to
 
 Inspired by <https://sive.rs/now>
 
+## 2024 09 10
+
+- Accepted an offer at Pinterest!
+  - My first day is September 16th
+  - Super excited & looking forward to _finally_ being in office again
+  - Also excited to (hopefully) be biking to work again!
+- Trying to bike regularly (at least a couple times a week)
+- Various projects around my house
+  - Finishing up projects I started a year or two ago
+    - Painting
+    - Replacing outlets
+    - Adding new shelves
+  - Staining flower boxes
+  - Getting a ton of new plants
+  - Tracking my energy usage with [Home Assistant](https://www.home-assistant.io/docs/energy/)
+- Started the fall semester at Georgia Tech
+  - I'm taking [High Performance Computer Architecture](https://omscs.gatech.edu/cs-6290-high-performance-computer-architecture)
+- Harvested the first tomatoes from my garden
+  - Tomatillos are also starting to look great
+- Looking into improving the situation with my [club foot](https://en.wikipedia.org/wiki/Clubfoot)
+  - My goal is to return to running long distances (9+ mi)
+  - Had an MRI a week or two ago; My left knee suffers from [overuse](https://www.webmd.com/pain-management/knee-pain/runners-knee)
+  - Treatment right now is going to PT and seeing a podiatrist soon
+  - Also looking into [ExoSym](https://hangerclinic.com/blog/featured-technology/hanger-clinic-exosym/)
+
+## Past
+
 ### 2024 08 31
 
 - Accepted an offer at Pinterest!
@@ -18,8 +45,6 @@ Inspired by <https://sive.rs/now>
 - Started the fall semester at Georgia Tech
   - I'm taking [High Performance Computer Architecture](https://omscs.gatech.edu/cs-6290-high-performance-computer-architecture)
 - Finished my volunteer training at UWMC
-
-## Past
 
 ### 2024 08 10
 

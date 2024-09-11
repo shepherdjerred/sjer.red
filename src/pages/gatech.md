@@ -12,7 +12,7 @@ description: The classes I've taken
 - [OMSCS Subreddit](https://old.reddit.com/r/OMSCS/)
 - [OMSCS GitHub](https://github.gatech.edu/omscs)
 
-## Fall 2024
+## Current Courses
 
 - [CS 6290 - High Performance Computer Architecture](https://omscs.gatech.edu/cs-6290-high-performance-computer-architecture)
 
