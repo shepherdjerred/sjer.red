@@ -22,7 +22,7 @@ export default defineConfig({
       wrap: true,
       transformers: [
         transformerTwoslash({
-          renderer: rendererRich(),
+          renderer: rendererRich({}),
         }),
       ],
     },
