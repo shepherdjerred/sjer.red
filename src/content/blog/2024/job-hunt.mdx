@@ -6,41 +6,47 @@ layout: ../../../layouts/BlogLayout.astro
 isDraft: true
 ---
 
-I lost my job at [Posit](https://posit.co/) rather suddenly on June 21st. This ended up being rather convenient since had already been looking for a new job and it's significantly easier to LeetCode while you're unemployed. I found a great spot at Pinterest after about ~2 months of studying, applying, and interviewing. I'm very happy to say that today is my first day.
+import { Image } from "astro:assets";
+import todoistLight from "./job-hunt/todoist-light.png";
+import todoistDark from "./job-hunt/todoist-dark.png";
+import sankeyLight from "./job-hunt/sankey-light.svg";
+import sankeyDark from "./job-hunt/sankey-dark.svg";
 
-The main goal of this post is to share my experience and help others prepare to change their jobs. I was extremely lucky with my circumstances, so this advice won't directly map to anyone's experience, but hopefully it serves as a good starting point.
+I lost my job at [Posit](https://posit.co/) rather suddenly on June 18th. This ended up being rather convenient since I had already been looking for a new job and it's significantly easier to grind LeetCode while you're unemployed. After about ~2 months of studying, applying, and interviewing I found a great spot at Pinterest. I'm very happy to say that today is my first day.
+
+The main goal of this post is to share my experience and help others who are preparing a job search of their own. I was extremely lucky with my circumstances so this advice won't directly map to anyone's experience. Hopefully it can serve as a good starting point.
 
 ## tl;dr
 
-- Look at [Tech Interview Handbook](https://www.techinterviewhandbook.org/).
+- Look at the [Tech Interview Handbook](https://www.techinterviewhandbook.org/).
 - Start applying _now_, today, way before you're ready to interview.
 - You won't hear anything back for the first 2-4 weeks. It sucks. Be patient.
-- Track your applications using [Todoist](https://todoist.com/), a spreadsheet, anything.
+- Track your applications using [Todoist](https://todoist.com/) or a spreadsheet.
 - Pay for LeetCode Premium. The editorials are worth every penny.
-- When LeetCoding, focus on one class of problems at a time, e.g. backtracking. Master the technique and move on to the next.
+- When LeetCoding, focus on one type of problem, e.g. backtracking. Master that technique and move on to the next.
 - LeetCode is a lot of work and it isn't easy. Ideally you would sacrifice a 4-6 hours a day for a month so that you have a much better job during the next few years.
 
 ## Table of Contents
 
 ## Stats
 
-Here's an overview of the positions/companies that I applied to:
+Here's what my job search looked like:
 
-{/* TODO: dark mode image */}
-![](./job-hunt/sankey.svg)
+<Image src={sankeyLight} class="dark:hidden" alt="A sankey diagram of my job hunt stats" />
+<Image src={sankeyDark} class="hidden dark:block" alt="A sankey diagram of my job hunt stats" />
 
 Key:
 
-- **Identified**: This includes every position/company that I found interesting or was contacted about
+- **Identified**: This includes every position/company that I found interesting or who reached out to me.
 - **Backlog**: Companies that I was applying to next.
 - **Skipped**: Companies that I considered, but who didn't have any open positions that met my search criteria, e.g. location or compensation.
 - **Applied**: Specific positions that I applied to.
-- **Rejected**: Positions that I received an explicit rejection
+- **Rejected**: Positions that I received an explicit rejection.
 - **Ghosted**: Positions where the company didn't reply to me after applying, interviewing, etc.
 - **Screener**: Positions where I received at least a recruiter call, online asssement, etc.
-- **Interviewing**: Positions where I made it past a screener
-- **Offer**: Positions that I received an offer
-- **Accepted**: The only offer I said yes to (Pinterest)
+- **Interviewing**: Positions where I made it past a screener.
+- **Offer**: Positions that I received an offer.
+- **Accepted**: The only offer I said yes to (Pinterest).
 
 I applied to a _lot_ of positions. On average, it seemed to take 2-4 weeks to hear back for a given application whether it be a rejection or not. During those first four weeks I figured there must be something fundamentally wrong with my applications or résumés. Eventually, though, you start to hear back and get emails from recruiters.
 
@@ -58,51 +64,55 @@ I started applying for jobs before I did anything else, including updating my r�
 
 Applications are soul-sucking. You upload your résumé and the site happily fills in the HTML form incorrectly. some services are better than others (shout out to [Ashby](https://www.ashbyhq.com/)).
 
-I started by applying with a barely updated version of my résumé. As
-
 I ended up keeping a text document open with things I frequently copy-paste into applications, e.g. my job descriptions. I also kept track of answers I wrote for questions like "why do you want to work here", so that I could re-use answers for applications at the same company, or to tweak answers for other companies.
 
 The majority of jobs that I applied for were done online. I'd search for the company and head to their careers page. I also asked for my friends at companies to refer me.
 
 Here are some places to find companies to apply to:
 
-- My company list at the end of this post
-- https://github.com/poteto/hiring-without-whiteboards
-- https://wellfound.com/
-- https://www.workatastartup.com/
+- My [company list](#company-list) at the end of this post
+- The GitHub [Hiring Without Whiteboards](https://github.com/poteto/hiring-without-whiteboards) list
+- [Wellfound](https://wellfound.com/)
+- Hacker News
+  - The monthly HN who's hiring thread
+  - The monthly HN who wants to be hired thread
+    - I received several good leads, one of which led to an offer
+  - [hnhiring.com](https://hnhiring.com/) makes it easy to browse through the openings
+- [Work at a Startup](https://www.workatastartup.com)
   - I really can't reccommend this site. I heard responses from two companies. Both had me do an asssement or take-home project, etc. and then ghosted me. In one case, they had me record and upload a video, and then didn't even watch it (I know because Loom has a view counter).
-- The monthly HN who's hiring thread
-- The monthly HN who wants to be hired thread
-  - I received several good leads, one of which led to an offer
 
-Some people reccommend using LinkedIn to find jobs. I wasn't able to take this approach since I don't have a LinkedIn.
+Some people reccommend using LinkedIn to find and apply to jobs. I didn't take this approach since I don't have a LinkedIn.
 
 ### Tracking Applications
 
-I used [Todoist](https://todoist.com/) to track my applications. It's very useful to know at a glance what you're doing and where you want to apply next. I had columns for each status that I wanted to track.
+I used [Todoist](https://todoist.com/) to track my applications. It's very useful to know at a glance what you're doing and where you want to apply next. In a few interviews I found it useful to remember what I had applied to at a particular company. I had columns for each status that I wanted to track. I'd update the status of these notes as I received interviews, rejection emails, etc.
 
-{/* TODO: dark mode image */}
-![](./job-hunt/todoist.png)
+<Image src={todoistLight} class="dark:hidden" alt="My Todoist job search board" />
+<Image src={todoistDark} class="hidden dark:block" alt="My Todoist job search board" />
 
 I started by thinking of companies whose products I liked and added them to the backlog. Next, I would go company-by-company and apply to 3-4 open jobs, creating a new note for each job I applied to with the date of my application and a link to the opening.
 
-I'd update the status of these notes as I received interviews, rejection emails, etc.
+I don't think Todoist is necessarily the perfect tool for this, but it was easier to organize (for me) than a spreadsheet. I've also seen services like [huntr](https://huntr.co/) that help with this.
 
 ### Résumé
 
-[My résumé](https://github.com/shepherdjerred/resume/) is written using a [LaTeX template](https://github.com/sb2nov/resume).
-
-I don't have any special insight about résumés; I don't even think that my résumé is very good. All I'd suggest is that you update your résumé and ask a friend, preferably someone in software, to review it.
+I don't have any special insight about résumés; I don't even think that [my résumé](https://github.com/shepherdjerred/resume/) is very good. All I'd suggest is that you update your résumé and ask a friend, preferably someone in software, to review it.
 
 Here are some resources that I found:
 
-- https://huyenchip.com/2023/01/24/what-we-look-for-in-a-candidate.html
-- https://stackoverflow.blog/2020/11/25/how-to-write-an-effective-developer-resume-advice-from-a-hiring-manager/
-- https://www.levels.fyi/services/resume (I didn't use this, but it looks interesting)
+- [How one company evaluates résumés](https://huyenchip.com/2023/01/24/what-we-look-for-in-a-candidate.html)
+- [Résumé advice](https://stackoverflow.blog/2020/11/25/how-to-write-an-effective-developer-resume-advice-from-a-hiring-manager/)
+- [Service from levels.fyi (I didn't use this, but it looks interesting)](https://www.levels.fyi/services/resume)
 
 ## Preparing for Interviews
 
-### Data Structures/Algorithms
+There are three types of interviews to prepare for:
+
+- Data Structures and Algorithms
+- System Design
+- Behavioral
+
+### Data Structures and Algorithms
 
 #### LeetCode
 
@@ -181,48 +191,49 @@ My goal was to complete 150 questions. I only [finished ~115](https://sjer.red/l
 
 #### Anki
 
-I used Anki to memorize common algorithms, Java APIs, or other information I might need to know during an interview. I used [algodeck](https://github.com/teivah/algodeck) as a starting point while adding my own cards for anything additional that I needed to know.
+I used Anki to memorize common algorithms, Java APIs, or other information I might need to know during an interview. I used [algodeck](https://github.com/teivah/algodeck) as a starting point while adding my own cards for anything additional that I needed to know. [This repository](https://github.com/shepherdjerred/anki/blob/main/interview.md) has the extra cards that I created.
 
 #### More Resources
 
-Here are some other resources that might be helpful. There are some more structured courses/sites below that might work well if you have plenty of time to prepare.
+Here are some additional resources that might be helpful. There are some more structured courses/sites below that might work well if you have plenty of time to prepare.
 
-- https://seanprashad.com/leetcode-patterns/
-- https://www.techinterviewhandbook.org/grind75
-- https://algo.monster/flowchart
-- https://www.educative.io/
-- https://neetcode.io/
-- https://algo.monster/
+- [LeetCode patterns](https://seanprashad.com/leetcode-patterns/)
+- [Grid 75](https://www.techinterviewhandbook.org/grind75)
+- [Flowchart to determine approach](https://algo.monster/flowchart)
+- [Educative's course](https://www.educative.io/)
+- [Neetcode's course](https://neetcode.io/)
+- [AlgoMonster's course](https://algo.monster/)
 
 ### System Design
 
-- https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF/
-- https://github.com/teivah/designdeck
-- Mock interviews
+I had never done a system design interview, so I was a bit nervous. I did have a pratical understanding of distributed systems from my time at AWS and I studied the theory in my [distributed computing course](https://omscs.gatech.edu/cs-7210-distributed-computing) at Georgia Tech. I ended up not doing much prep for these interviews since I was focusing so much on LeetCode.
+
+I did read some of the [System Design Interview](https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF/) book which was useful to solve some common problems and understand what interviewers might be looking for. I also did a couple of mock interviews with a friend which was extremely useful. Lastly, I also used Anki to study the [designdeck](https://github.com/teivah/designdeck) which helped me learn new concepts and refresh on ones I'd previously learned.
 
 ### Behavioral
 
+I did even less to prep for behavioral interviews. I didn't feel the need to prepare common questions/answers. I feel like I'm a reasonable enough person, so just being myself is best. I did come up with a list of questions to ask my interviewer so that I could get more insight into the company.
+
 ## Negotiating an Offer
 
-- https://www.kalzumeus.com/2012/01/23/salary-negotiation/
-- https://github.com/jlevy/og-equity-compensation
+I'd never really negotiated an offer before, and honestly I didn't do a very good job or follow any of this advice that I read. Again, I don't think I have useful advice here, so I'll link some of the resources I found:
+
+- [Salary negotiation tips](https://www.kalzumeus.com/2012/01/23/salary-negotiation/)
+- [Understanding equity (useful for startup offers)](https://github.com/jlevy/og-equity-compensation)
 
 ## More Resources
 
-Here are some misc things that I found useful during these last couple months that aren't necessarily directly relevant to the above sections.
+Here are some interesting resources that I found useful during these last couple months that aren't necessarily directly relevant to the above sections.
 
-- https://ludic.mataroa.blog/blog/the-complex-problem-of-lying-for-jobs/
-- https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/
-  - Understanding your value in a business as an engineer
-- https://ludic.mataroa.blog/
-  - To make me feel better about the industry
-- https://cse.buffalo.edu/~rapaport/howtostudy.html
-- https://www.joelonsoftware.com/category/reading-lists/recruiter/
-  - Joel has some excellent writing around hiring
+- [The dynamics of interviews](https://ludic.mataroa.blog/blog/the-complex-problem-of-lying-for-jobs/)
+- [General studying advice](https://cse.buffalo.edu/~rapaport/howtostudy.html)
+- [Understanding your value in a business as an engineer](https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/)
+- [Advice for recruiters](https://www.joelonsoftware.com/category/reading-lists/recruiter/)
+- [A blog that makes me feel better about the industry](https://ludic.mataroa.blog/)
 
 ### Company List
 
-Here's a list of the companies that I considered. They range from startups to big tech. They might be useful for someone looking for companies to apply to.
+Here's a list of the companies that I considered, about half of which I applied to. They range from startups to big tech. They might be useful for someone looking for companies to apply to.
 
 <details class="border border-black dark:border-white p-2">
 <summary>Click to expand</summary>

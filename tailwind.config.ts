@@ -19,7 +19,7 @@ export default {
         pinterest: "#e60023",
       },
       fontFamily: {
-        serif: ["IBM Plex Serif", ...defaultTheme.fontFamily.serif],
+        serif: ["Lora Variable", "IBM Plex Serif", ...defaultTheme.fontFamily.serif],
         sans: ["Nunito", ...defaultTheme.fontFamily.sans],
         mono: ["CommitMono", ...defaultTheme.fontFamily.mono],
       },
