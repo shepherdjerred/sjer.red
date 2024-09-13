@@ -1,10 +1,18 @@
 ---
 import Container from "./Container.astro";
-import { result } from "../webring.ts";
+import { getPosts } from "../webring.ts";
 import Divider from "./Divider.astro";
 import * as R from "remeda";
 import WebringEntry from "./WebringEntry.astro";
 import type { JSX } from "astro/jsx-runtime";
+
+type Props = {
+  date: Date;
+};
+
+const { date } = Astro.props;
+
+const result = await getPosts(date);
 ---
 
 <div class="flex flex-col">

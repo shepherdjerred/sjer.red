@@ -15,5 +15,5 @@ const props = BlogSchema.parse({
   <BlogContent {...props}>
     <slot />
   </BlogContent>
-  <BlogWebring />
+  <BlogWebring date={props.date} />
 </NavbarLayout>
