@@ -93,6 +93,10 @@ export async function getPosts(_date: Date): Promise<Result> {
         url: "https://sinja.io/rss",
         title: "Oleh",
       },
+      {
+        url: "https://eclecticlight.co/feed/",
+        title: "The Eclectic Light Company",
+      },
     ],
     number: 3,
     truncate: 300,
