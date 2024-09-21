@@ -6,7 +6,27 @@ description: What I'm up to
 
 Inspired by <https://sive.rs/now>
 
-## 2024 09 10
+## 2024 09 21
+
+- Finished up my first week at Pinterest
+  - I've had such a great time & I'm really looking forward to contributing
+  - My work habits are really changing (for the better!)
+- Trying to figure out if I can still volunteer at UWMC on Fridays
+- Determining a good time for my kidney donation
+  - Maybe in November/December?
+- Really behind on lectures for HPCA
+- Not sure what to do with an abundance of food I've grown
+  - I might try to get into canning tomatoes, but I am very scared of [botulism](https://en.wikipedia.org/wiki/Botulism)
+- Looking into improving the situation with my [club foot](https://en.wikipedia.org/wiki/Clubfoot)
+  - My goal is to return to running long distances (9+ mi)
+  - Treatment right now is going to PT and ~~seeing a podiatrist soon~~
+    - I missed my podiatrist appointment (again)
+  - Had a cast of of my leg taken for [ExoSym](https://hangerclinic.com/blog/featured-technology/hanger-clinic-exosym/)
+    - I'll get to try a test device next week. I'm optimistic!
+
+## Past
+
+### 2024 09 10
 
 - Accepted an offer at Pinterest!
   - My first day is September 16th
@@ -30,8 +50,6 @@ Inspired by <https://sive.rs/now>
   - Had an MRI a week or two ago; My left knee suffers from [overuse](https://www.webmd.com/pain-management/knee-pain/runners-knee)
   - Treatment right now is going to PT and seeing a podiatrist soon
   - Also looking into [ExoSym](https://hangerclinic.com/blog/featured-technology/hanger-clinic-exosym/)
-
-## Past
 
 ### 2024 08 31
 
