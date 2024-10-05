@@ -325,5 +325,9 @@
   "https://sinja.io/blog/web-typography-quick-guide": {
     "title": "Quick guide to web typography for developers · OlegWock",
     "description": "80/20 guide on how to make your blog posts look pretty, for free."
+  },
+  "https://sohl-dickstein.github.io/2022/11/06/strong-Goodhart.html": {
+    "title": "Too much efficiency makes everything worse: overfitting and the strong version of Goodhart’s law | Jascha’s blog",
+    "description": "This blog is intended to be a place to share ideas and results that are too weird, incomplete, or off-topic to turn into an academic paper, but that I think may be important. Let me know what you think! Contact links to the left."
   }
 }
