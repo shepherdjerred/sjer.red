@@ -1,12 +1,34 @@
 ---
-layout: ../layouts/MarkdownLayout.astro
+layout: ../../layouts/MarkdownLayout.astro
 title: Now
 description: What I'm up to
 ---
 
 Inspired by <https://sive.rs/now>
 
-## 2024 09 21
+## 2024 10 05
+
+- Getting my desk at work setup
+  - Really thinking about buying an [Pro Display XDR](https://www.apple.com/pro-display-xdr/)
+    - I have the [Studio Display](https://www.apple.com/studio-display/) at home and really like it
+- Enjoying the colder weather & getting ready for the winter
+- Improving my Home Assistant automations
+- Started biking to work
+- Somehow working in UWMC on Fridays
+- Scheduled my kidney donation for 10/30
+- Studying for HPCA midterm
+- Finally harvested my garden
+  - Roughly 7.5 gallons of green tomatoes and 4 gallons of tomatillos
+    - ![My tomato harvest](./images/tomatoes.jpeg)
+  - Also lots of carrots, parsley, scallions, onions, cucumber
+  - Giving away most of the above; trying to ripen & can the tomatoes
+- Tried out a test version of [ExoSym](https://hangerclinic.com/blog/featured-technology/hanger-clinic-exosym/) and it went well. The full version of it should be ready for me on Tuesday
+- Reading [Network Effect](<https://en.wikipedia.org/wiki/Network_Effect_(novel)>)
+- Watching season 3 of [The Sopranos](https://en.wikipedia.org/wiki/The_Sopranos)
+
+## Past
+
+### 2024 09 21
 
 - Finished up my first week at Pinterest
   - I've had such a great time & I'm really looking forward to contributing
@@ -23,8 +45,6 @@ Inspired by <https://sive.rs/now>
     - I missed my podiatrist appointment (again)
   - Had a cast of of my leg taken for [ExoSym](https://hangerclinic.com/blog/featured-technology/hanger-clinic-exosym/)
     - I'll get to try a test device next week. I'm optimistic!
-
-## Past
 
 ### 2024 09 10
 

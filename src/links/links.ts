@@ -104,6 +104,7 @@ export const links = [
   "https://www.aleksandrhovhannisyan.com/blog/62-5-percent-font-size-trick/",
   "https://typescale.com",
   "https://sinja.io/blog/web-typography-quick-guide",
+  "https://sohl-dickstein.github.io/2022/11/06/strong-Goodhart.html",
 ];
 
 const file = "src/links/cache.json";
