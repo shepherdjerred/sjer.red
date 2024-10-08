@@ -12,9 +12,9 @@ description: The classes I've taken
 - [OMSCS Subreddit](https://old.reddit.com/r/OMSCS/)
 - [OMSCS GitHub](https://github.gatech.edu/omscs)
 
-## Current Courses
+## Upcoming Courses (Spring 2025)
 
--
+- TBD
 
 ## Previous Courses
 
@@ -31,7 +31,7 @@ Nowhere in this class will you write a line of code. All you'll do is understand
 I cannot recommend this class to anyone. I'd recommend the compilers course if you're interested in learned about low-level programming or watching [the lectures for this course](https://www.udacity.com/course/spacecraft-systems-engineering--ud007) online without taking the class. You might like this class if you're okay with jumping through hoops to prove some proxy of learning, but you won't work on any interesting projects or even get useful feedback by taking the course.
 
 - Difficulty: 3/5
-- Workload: 3/5
+- Workload: 2/5
 - Rating: 1/5
 
 ### Spring 2024
