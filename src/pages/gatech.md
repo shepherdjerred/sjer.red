@@ -14,9 +14,25 @@ description: The classes I've taken
 
 ## Current Courses
 
-- [CS 6290 - High Performance Computer Architecture](https://omscs.gatech.edu/cs-6290-high-performance-computer-architecture)
+-
 
 ## Previous Courses
+
+### Fall 2024
+
+#### [CS 6290 - High Performance Computer Architecture](https://omscs.gatech.edu/cs-6290-high-performance-computer-architecture)
+
+I dropped this class after taking the midterm.
+
+This is one of the worst CS classes I've taken either at Georgia Tech or my undergrad. The professor is clearly very passionate about the topic which I really do appreciate. The class consists of four projects and two exams (a midterm and final). The projects involve running commands in a VM or Docker container and filling in blanks in a Word document. The midterm was a challenge in running algorithms on paper, manipulating equations/knowing trivia, and testing your vague understanding of concepts. The lectures are very high-quality, but also extremely long and repetitive. It pains me to have such a negative opinion of the class because, again, the professor clearly cares and presented the topics in an approachable manner.
+
+Nowhere in this class will you write a line of code. All you'll do is understand concepts that are invisible to you as a programmer. This can be quite valuable if you're optimizing programs, but unfortunately this class doesn't cover how one can best exploit or debug performance issues that occur due to computer architecture.
+
+I cannot recommend this class to anyone. I'd recommend the compilers course if you're interested in learned about low-level programming or watching [the lectures for this course](https://www.udacity.com/course/spacecraft-systems-engineering--ud007) online without taking the class. You might like this class if you're okay with jumping through hoops to prove some proxy of learning, but you won't work on any interesting projects or even get useful feedback by taking the course.
+
+- Difficulty: 3/5
+- Workload: 3/5
+- Rating: 1/5
 
 ### Spring 2024
 
