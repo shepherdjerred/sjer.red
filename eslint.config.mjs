@@ -10,7 +10,6 @@ export default [
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   ...eslintPluginAstro.configs["flat/recommended"],
   // ...astro/jsx-a11y-strict
   {

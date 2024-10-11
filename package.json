@@ -14,39 +14,31 @@
     "lint:fix": "eslint --cache --fix && prettier -w . && markdownlint-cli2 --fix '**/*.md' '#node_modules'",
     "prepare": "husky"
   },
-  "overrides": {
-    "astro-icon": {
-      "@iconify/tools": "^4.0.0"
-    },
-    "truncate-html": {
-      "cheerio": "1.0.0-rc.12"
-    }
-  },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^3.1.7",
-    "@astrojs/rss": "^4.0.7",
+    "@astrojs/mdx": "^3.1.8",
+    "@astrojs/rss": "^4.0.8",
     "@astrojs/sitemap": "^3.2.0",
-    "@astrojs/tailwind": "^5.1.1",
+    "@astrojs/tailwind": "^5.1.2",
     "@fontsource-variable/lora": "^5.1.0",
     "@fontsource/nunito": "^5.1.0",
-    "@iconify-json/mdi": "^1.2.0",
-    "@shikijs/twoslash": "^1.21.0",
+    "@iconify-json/mdi": "^1.2.1",
+    "@shikijs/twoslash": "^1.22.0",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "@types/jsdom": "^21.1.7",
-    "astro": "^4.15.11",
+    "astro": "^4.16.0",
     "astro-diagram": "^0.7.0",
     "astro-icon": "^1.1.1",
-    "astro-opengraph-images": "^1.11.5",
+    "astro-opengraph-images": "^1.11.6",
     "astro-seo": "^0.8.4",
     "jsdom": "^25.0.1",
     "markdown-it": "^14.1.0",
     "react": "^18.3.1",
     "rehype-autolink-headings": "^7.1.0",
     "remark-toc": "^9.0.0",
-    "remeda": "^2.14.0",
-    "sass": "^1.79.4",
+    "remeda": "^2.15.0",
+    "sass": "^1.79.5",
     "tailwindcss": "^3.4.13",
     "ts-pattern": "^5.4.0",
     "webring": "^1.2.5"
@@ -56,13 +48,13 @@
     "@commitlint/config-conventional": "^19.5.0",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.12.0",
-    "@playwright/test": "^1.47.2",
+    "@playwright/test": "^1.48.0",
     "@types/eslint__js": "^8.42.3",
     "@types/markdown-it": "^14.1.2",
     "@types/react": "^18.3.11",
     "@types/sanitize-html": "^2.13.0",
-    "@typescript-eslint/eslint-plugin": "^8.8.0",
-    "@typescript-eslint/parser": "^8.8.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
     "eslint": "^9.12.0",
     "eslint-plugin-astro": "^1.2.4",
     "husky": "^9.1.6",
@@ -71,8 +63,8 @@
     "postcss-html": "^1.7.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.6.2",
-    "typescript-eslint": "^8.8.0"
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.8.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,astro}": "eslint --cache --fix",
