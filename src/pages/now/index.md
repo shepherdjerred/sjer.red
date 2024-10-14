@@ -6,7 +6,22 @@ description: What I'm up to
 
 Inspired by <https://sive.rs/now>
 
-## 2024 10 05
+## 2024 10 14
+
+- Getting my desk at work setup
+  - Finally got my Apple Studio Display! Going to set it up tomorrow :)
+- Enjoying the colder weather & getting ready for the winter
+- Improving my Home Assistant automations
+- Scheduled my kidney donation for 10/30
+- Dropped HPCA
+- Disposed of 7.5 gallons of moldy tomatoes
+  - I really should've done a better job making sure they weren't moist
+- Reading Fugitive Telemetry
+- Watching season 5 of [The Sopranos](https://en.wikipedia.org/wiki/The_Sopranos)
+
+## Past
+
+### 2024 10 05
 
 - Getting my desk at work setup
   - Really thinking about buying an [Pro Display XDR](https://www.apple.com/pro-display-xdr/)
@@ -25,8 +40,6 @@ Inspired by <https://sive.rs/now>
 - Tried out a test version of [ExoSym](https://hangerclinic.com/blog/featured-technology/hanger-clinic-exosym/) and it went well. The full version of it should be ready for me on Tuesday
 - Reading [Network Effect](<https://en.wikipedia.org/wiki/Network_Effect_(novel)>)
 - Watching season 3 of [The Sopranos](https://en.wikipedia.org/wiki/The_Sopranos)
-
-## Past
 
 ### 2024 09 21
 

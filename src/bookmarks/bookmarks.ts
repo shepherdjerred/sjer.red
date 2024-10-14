@@ -45,10 +45,6 @@ export const links = [
   "https://sashachapin.substack.com/p/making-normal-conversations-better",
   "https://www.experimental-history.com/p/good-conversations-have-lots-of-doorknobs",
   "https://danluu.com/wat/",
-  // this one is really good so let's show it twice
-  "https://danluu.com/wat/",
-  // we greatly underestimate the complexity of even simple things
-  // which leads to false confidence when arriving to solutions to popular problems
   "https://danluu.com/cocktail-ideas/",
   "https://gmays.com/how-im-relearning-math-as-an-adult/",
   "https://www.homeautomationguy.io/",
@@ -107,9 +103,8 @@ export const links = [
   "https://sohl-dickstein.github.io/2022/11/06/strong-Goodhart.html",
 ];
 
-const file = "src/links/cache.json";
+const file = "src/bookmarks/bookmarks.json";
 
-// create cache.json if it doesn't exist
 try {
   await readFile(file, "utf-8");
 } catch (_e) {
@@ -119,6 +114,8 @@ try {
 export const ItemSchema = z.object({
   title: z.string(),
   description: z.string().optional(),
+  added: z.coerce.date().optional(),
+  commentary: z.string().optional(),
 });
 
 export const CacheSchema = z.record(z.string().url(), ItemSchema);
@@ -136,8 +133,10 @@ const results = await Promise.all(
         const response = await fetch(link, { redirect: "follow" });
         const text = await response.text();
         const htmlDoc = new jsdom.JSDOM(text).window.document;
+        // TODO: hand this to some AI model to get a summary
         const base: z.infer<typeof ItemSchema> = {
           title: htmlDoc.title,
+          added: new Date(),
         };
         const description = htmlDoc.querySelector("meta[name=description]")?.getAttribute("content");
         if (description) {
@@ -158,5 +157,4 @@ export const newCache = CacheSchema.parse(
   Object.assign(cache, Object.fromEntries(links.map((link, i) => [link, results[i]]))),
 );
 
-// write the new cache to "cache.json"
 await writeFile(file, JSON.stringify(newCache, null, 2));

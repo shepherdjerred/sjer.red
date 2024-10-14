@@ -1,0 +1,444 @@
+{
+  "https://vitalik.eth.limo/general/2024/01/31/end.html": {
+    "title": "The end of my childhood",
+    "added": "2024-10-14T16:06:09.431Z"
+  },
+  "https://qsantos.fr/2024/01/04/dynamic-programming-is-not-black-magic/": {
+    "title": "Dynamic Programming is not Black Magic - Quentin Santos",
+    "added": "2024-10-14T16:06:10.241Z"
+  },
+  "https://www.experimental-history.com/p/so-you-wanna-de-bog-yourself": {
+    "title": "So you wanna de-bog yourself - by Adam Mastroianni",
+    "description": "What I found in the mire",
+    "added": "2024-10-14T16:06:09.155Z"
+  },
+  "https://sashachapin.substack.com/p/some-painful-questions-we-ask-ourselves": {
+    "title": "Some Painful Questions We Ask Ourselves - by Sasha Chapin",
+    "description": "discernment is good, discernment is hard",
+    "added": "2024-10-14T16:06:09.236Z"
+  },
+  "https://www.gregegan.net/FOUNDATIONS/": {
+    "title": "Foundations — Greg Egan",
+    "added": "2024-10-14T16:06:09.252Z"
+  },
+  "https://danluu.com/culture/": {
+    "title": "Culture matters",
+    "added": "2024-10-14T16:06:09.276Z"
+  },
+  "https://protohackers.com/": {
+    "title": "Protohackers",
+    "added": "2024-10-14T16:06:09.705Z"
+  },
+  "https://danluu.com/startup-tradeoffs/": {
+    "title": "Big companies v. startups",
+    "added": "2024-10-14T16:06:09.191Z"
+  },
+  "https://research.swtch.com/testing": {
+    "title": "research!rsc: Go Testing By Example",
+    "added": "2024-10-14T16:06:09.698Z"
+  },
+  "https://bbycroft.net/llm": {
+    "title": "LLM Visualization",
+    "description": "A 3D animated visualization of an LLM with a walkthrough.",
+    "added": "2024-10-14T16:06:09.294Z"
+  },
+  "https://course.fast.ai/": {
+    "title": "Practical Deep Learning for Coders - Practical Deep Learning",
+    "description": "A free course designed for people with some coding experience, who want to learn how to apply deep learning and machine learning to practical problems.",
+    "added": "2024-10-14T16:06:09.343Z"
+  },
+  "https://skip.house/blog/nix-in-practice/": {
+    "title": "An overview of Nix in practice — skip’s blog",
+    "description": "An surface-level exploration of Nix as a technology, and what I find most useful about it.",
+    "added": "2024-10-14T16:06:09.401Z"
+  },
+  "https://www.feynmanlectures.caltech.edu/": {
+    "title": "Failed to fetch"
+  },
+  "https://ocw.mit.edu/courses/18-s097-applied-category-theory-january-iap-2019/": {
+    "title": "Applied Category Theory | Mathematics | MIT OpenCourseWare",
+    "description": "Category theory is a relatively new branch of mathematics that has transformed much of pure math research. The technical advance is that category theory provides a framework in which to organize formal systems and by which to translate between them, allowing one to transfer knowledge from one field to another. But this same organizational framework also has many compelling examples outside of pure math. In this course, we will give seven sketches on real-world applications of category theory.\n",
+    "added": "2024-10-14T16:06:09.371Z"
+  },
+  "https://d3s.mff.cuni.cz/teaching/nprg077/": {
+    "title": "Write your own tiny programming system(s)! | D3S",
+    "added": "2024-10-14T16:06:09.914Z"
+  },
+  "https://martin.kleppmann.com/2011/03/07/accounting-for-computer-scientists.html": {
+    "title": "Accounting for Computer Scientists — Martin Kleppmann’s blog",
+    "added": "2024-10-14T16:06:09.752Z"
+  },
+  "https://www.encona.com/posts/debits-and-credits": {
+    "title": "Debits and Credits - Rahim Nathwani",
+    "description": "Debits and credits are easy to understand",
+    "added": "2024-10-14T16:06:10.984Z"
+  },
+  "https://www.recurse.com/": {
+    "title": "The Recurse Center",
+    "description": "The Recurse Center is a self-directed, community-driven educational retreat for programmers in New York City.",
+    "added": "2024-10-14T16:06:09.902Z"
+  },
+  "https://www.inkandswitch.com/local-first/": {
+    "title": "Local-first software: You own your data, in spite of the cloud",
+    "added": "2024-10-14T16:06:09.729Z"
+  },
+  "https://math.ucr.edu/home/baez/act_course/": {
+    "title": "Applied Category Theory Course",
+    "added": "2024-10-14T16:06:09.534Z"
+  },
+  "http://indiehackers.com": {
+    "title": "Indie Hackers: Work Together to Build Profitable Online Businesses",
+    "description": "Connect with developers sharing the strategies and revenue numbers behind their companies and side projects.",
+    "added": "2024-10-14T16:06:12.013Z"
+  },
+  "https://practicaltypography.com/": {
+    "title": "Butterick’s Practical Typography",
+    "description": "Butterick’s Practical Typography",
+    "added": "2024-10-14T16:06:09.528Z"
+  },
+  "https://www.joshwcomeau.com/react/server-components/": {
+    "title": "Making Sense of React Server Components • Josh W. Comeau",
+    "description": "This year, the React team unveiled something they've been quietly researching for years: an official way to run React components exclusively on the server. This is a significant paradigm shift, and it's caused a whole lot of confusion in the React community. In this tutorial, we'll explore this new world, and build an intuition for how it works, and how we can take advantage of it.",
+    "added": "2024-10-14T16:06:09.654Z"
+  },
+  "https://exist.io/": {
+    "title": "Exist · Understand your behaviour.",
+    "added": "2024-10-14T16:06:09.895Z"
+  },
+  "https://www.susanrigetti.com/physics": {
+    "title": "Physics — Susan Rigetti",
+    "added": "2024-10-14T16:06:10.200Z"
+  },
+  "https://www.testingjavascript.com/": {
+    "title": "Testing JavaScript | Testing JavaScript",
+    "description": "Learn the smart, efficient way to test any JavaScript application.",
+    "added": "2024-10-14T16:06:10.640Z"
+  },
+  "https://xata.io/blog/postgres-full-text-search-engine": {
+    "title": "Create an advanced search engine with PostgreSQL",
+    "description": "PostgreSQL provides the necessary building blocks for you to combine and create your own search engine for full-text search. Let's see how far we can take it.",
+    "added": "2024-10-14T16:06:10.028Z"
+  },
+  "https://weaknuclearforce.wordpress.com/": {
+    "title": "weak nuclear force | A one-day year, hunting neutrinos",
+    "description": "A one-day year, hunting neutrinos",
+    "added": "2024-10-14T16:06:09.691Z"
+  },
+  "https://notes.eatonphil.com/2023-05-25-raft.html": {
+    "title": "Implementing the Raft distributed consensus protocol in Go | notes.eatonphil.com",
+    "description": "Implementing the Raft distributed consensus protocol in Go",
+    "added": "2024-10-14T16:06:10.478Z"
+  },
+  "https://drewdevault.com/2023/05/01/2023-05-01-Burnout.html": {
+    "title": "Burnout",
+    "added": "2024-10-14T16:06:10.207Z"
+  },
+  "https://www.3blue1brown.com/": {
+    "title": "3Blue1Brown",
+    "description": "Mathematics with a distinct visual perspective. Linear algebra, calculus, neural networks, topology, and more.",
+    "added": "2024-10-14T16:06:09.858Z"
+  },
+  "https://ciechanow.ski/bicycle/": {
+    "title": "Bicycle – Bartosz Ciechanowski",
+    "added": "2024-10-14T16:06:09.798Z"
+  },
+  "https://www.cs.cornell.edu/courses/cs6120/2020fa/self-guided/": {
+    "title": "CS 6120: The Self-Guided Course",
+    "added": "2024-10-14T16:06:10.261Z"
+  },
+  "https://fly.io/dist-sys/": {
+    "title": "Fly.io Distributed Systems Challenge · Fly Docs",
+    "description": "Documentation and guides from the team at Fly.io.",
+    "added": "2024-10-14T16:06:09.813Z"
+  },
+  "https://explained-from-first-principles.com/email/": {
+    "title": "Email explained from first principles",
+    "description": "Modern email is a patchwork of protocols and extensions. Here is one article to understand them all.",
+    "added": "2024-10-14T16:06:11.919Z"
+  },
+  "https://tynan.com/letstalk/": {
+    "title": "Conversation Skills Essentials – Tynan.com",
+    "added": "2024-10-14T16:06:10.360Z"
+  },
+  "https://stevens.netmeister.org/631/": {
+    "title": "Advanced Programming in the UNIX Environment",
+    "added": "2024-10-14T16:06:10.284Z"
+  },
+  "https://www.experimental-history.com/p/the-five-tools-of-hedonic-design": {
+    "title": "The Five Tools of Hedonic Design - by Adam Mastroianni",
+    "description": "Hacking the happiness treadmill",
+    "added": "2024-10-14T16:06:10.073Z"
+  },
+  "https://diataxis.fr/": {
+    "title": "Diátaxis",
+    "description": "The Diátaxis framework solves a problem of quality in technical documentation, describing an information architecture that makes it easier to create, maintain and use.",
+    "added": "2024-10-14T16:06:10.214Z"
+  },
+  "https://sashachapin.substack.com/p/making-normal-conversations-better": {
+    "title": "Making Normal Conversations Better - by Sasha Chapin",
+    "description": "some notes on an endless skill",
+    "added": "2024-10-14T16:06:10.136Z"
+  },
+  "https://www.experimental-history.com/p/good-conversations-have-lots-of-doorknobs": {
+    "title": "Good conversations have lots of doorknobs",
+    "description": "Or \"Spiderman Is My Boyfriend\"",
+    "added": "2024-10-14T16:06:10.103Z"
+  },
+  "https://danluu.com/wat/": {
+    "title": "Normalization of deviance",
+    "added": "2024-10-14T16:06:09.874Z"
+  },
+  "https://danluu.com/cocktail-ideas/": {
+    "title": "Cocktail party ideas",
+    "added": "2024-10-14T16:06:09.884Z"
+  },
+  "https://gmays.com/how-im-relearning-math-as-an-adult/": {
+    "title": "How I’m (re)learning math as an adult",
+    "description": "I recently passed 100 days of practicing math every single day 💯 I’ve wanted to beef up my math chops for a while, but I needed a good reason that would justify…",
+    "added": "2024-10-14T16:06:10.156Z"
+  },
+  "https://www.homeautomationguy.io/": {
+    "title": "Home Automation Guy",
+    "added": "2024-10-14T16:06:10.304Z"
+  },
+  "https://awesomekling.github.io/Excellence-is-a-habit-but-so-is-failure/": {
+    "title": "Excellence is a habit, but so is failure – Andreas Kling – I like computers!",
+    "description": "We often hear that making small incremental improvements every day can lead to great things. This popular piece of advice rings true, and it’s a powerful reminder to keep pushing ourselves forward.\n\n",
+    "added": "2024-10-14T16:06:09.889Z"
+  },
+  "https://diary.geekodour.org/": {
+    "title": "home",
+    "added": "2024-10-14T16:06:10.336Z"
+  },
+  "https://www.morling.dev/blog/the-code-review-pyramid/": {
+    "title": "The Code Review Pyramid - Gunnar Morling",
+    "added": "2024-10-14T16:06:10.162Z"
+  },
+  "https://hyperboleandahalf.blogspot.com/2013/05/depression-part-two.html": {
+    "title": "Hyperbole and a Half: Depression Part Two",
+    "added": "2024-10-14T16:06:12.116Z"
+  },
+  "https://ludic.mataroa.blog/blog/your-organization-probably-doesnt-want-to-improve-things/": {
+    "title": "Your Organization Probably Doesn't Want To Improve Things — Ludicity",
+    "added": "2024-10-14T16:06:10.989Z"
+  },
+  "https://milan.cvitkovic.net/writing/things_youre_allowed_to_do/": {
+    "title": "Things you're allowed to do",
+    "added": "2024-10-14T16:06:10.255Z"
+  },
+  "https://parhelia.conorbarnes.com/p/the-placeholder-girlfriend": {
+    "title": "The Placeholder Girlfriend - by Conor Barnes - Parhelia",
+    "description": "It became real when I saw the list. When I saw the rubric.",
+    "added": "2024-10-14T16:06:10.674Z"
+  },
+  "https://usefulfictions.substack.com/p/how-to-be-more-agentic": {
+    "title": "How to be More Agentic - by Cate Hall - Useful Fictions",
+    "description": "On a supposedly difficult thing",
+    "added": "2024-10-14T16:06:10.583Z"
+  },
+  "https://sashachapin.substack.com/p/things-you-learn-dating-cate-hall": {
+    "title": "Things you learn dating Cate Hall - by Sasha Chapin",
+    "description": "an unlikely person",
+    "added": "2024-10-14T16:06:10.540Z"
+  },
+  "https://www.epicweb.dev/fully-typed-web-apps": {
+    "title": "Fully Typed Web Apps | Epic Web Dev",
+    "description": "The main thing that makes end-to-end type safety difficult is simple: boundaries. The secret to fully typed web apps is typing the boundaries.",
+    "added": "2024-10-14T16:06:11.153Z"
+  },
+  "https://vinnie.dev/using-zod-at-the-edge-of-our-typescript-type-system/": {
+    "title": "Using ZOD at the edge of our TypeScript type system",
+    "added": "2024-10-14T16:06:11.007Z"
+  },
+  "https://furia.com": {
+    "title": "furialog",
+    "added": "2024-10-14T16:06:10.765Z"
+  },
+  "https://fly.io/blog/": {
+    "title": "The Fly Blog",
+    "description": "News, tips, and tricks from the team at Fly",
+    "added": "2024-10-14T16:06:11.543Z"
+  },
+  "https://tonsky.me": {
+    "title": "Blog @ tonsky.me",
+    "added": "2024-10-14T16:06:10.687Z"
+  },
+  "https://explained-from-first-principles.com": {
+    "title": "Explained from First Principles",
+    "description": "Explained from First Principles is a technology, science, and philosophy blog for curious people.",
+    "added": "2024-10-14T16:06:10.512Z"
+  },
+  "http://wiki.c2.com": {
+    "title": "",
+    "added": "2024-10-14T16:06:10.219Z"
+  },
+  "https://samwho.dev": {
+    "title": "samwho",
+    "description": "Personal website of Sam Rose.",
+    "added": "2024-10-14T16:06:10.781Z"
+  },
+  "https://paulgraham.com/articles.html": {
+    "title": "Essays",
+    "added": "2024-10-14T16:06:10.812Z"
+  },
+  "https://www.ben-evans.com": {
+    "title": "Benedict Evans",
+    "description": "What matters in tech? Newsletter, essays and presentations by Benedict \nEvans.",
+    "added": "2024-10-14T16:06:10.866Z"
+  },
+  "https://awesomekling.github.io": {
+    "title": "Andreas Kling – I like computers!",
+    "description": "I like computers!",
+    "added": "2024-10-14T16:06:10.500Z"
+  },
+  "https://drewdevault.com": {
+    "title": "Drew DeVault's blog",
+    "added": "2024-10-14T16:06:10.948Z"
+  },
+  "https://xeiaso.net/blog/": {
+    "title": "Blog Articles - Xe Iaso",
+    "description": "Xe Iaso's personal website.",
+    "added": "2024-10-14T16:06:10.852Z"
+  },
+  "https://www.joshwcomeau.com": {
+    "title": "Josh W. Comeau",
+    "description": "Friendly tutorials for developers. Focus on React, CSS, Animation, and more!",
+    "added": "2024-10-14T16:06:10.558Z"
+  },
+  "https://sive.rs": {
+    "title": "Derek Sivers",
+    "added": "2024-10-14T16:06:10.829Z"
+  },
+  "https://jakelazaroff.com": {
+    "title": "jakelazaroff.com",
+    "description": "Just a programmer trying to make a home for myself on the WWW.",
+    "added": "2024-10-14T16:06:10.516Z"
+  },
+  "https://danluu.com/p95-skill/": {
+    "title": "95%-ile isn't that good",
+    "added": "2024-10-14T16:06:10.961Z"
+  },
+  "https://theluddite.org/": {
+    "title": "The Luddite",
+    "description": "An anticapitalist tech blog. Embrace the technology that liberates us. Smash that which does not.",
+    "added": "2024-10-14T16:06:10.698Z"
+  },
+  "https://aphyr.com/": {
+    "title": "Aphyr - Posts",
+    "added": "2024-10-14T16:06:10.735Z"
+  },
+  "https://gwern.net/": {
+    "title": "Essays · Gwern.net",
+    "description": "Personal website of Gwern Branwen (writer, self-experimenter, and programmer): topics: psychology, statistics, technology, deep learning, anime. This index page is a categorized list of Gwern.net pages.",
+    "added": "2024-10-14T16:06:11.964Z"
+  },
+  "https://www.writingruxandrabio.com/p/the-weird-nerd-comes-with-trade-offs": {
+    "title": "The Weird Nerd comes with trade-offs - by Ruxandra Teslo",
+    "description": "A metascience post of sorts that argues we should take human capital more seriously",
+    "added": "2024-10-14T16:06:11.090Z"
+  },
+  "https://www.autodidacts.io/holistic-perfectionism/": {
+    "title": "Perfectionism is optimizing at the wrong scale — The Autodidacts",
+    "added": "2024-10-14T16:06:10.903Z"
+  },
+  "https://realmensch.org/2017/08/25/the-parable-of-the-two-programmers/": {
+    "title": "The Parable of the Two Programmers · RealMensch",
+    "description": "A classic anecdote about skill vs. experience in programming.",
+    "added": "2024-10-14T16:06:10.588Z"
+  },
+  "https://manuel.kiessling.net/2011/04/07/why-developing-without-tests-is-like-driving-a-car-without-brakes-2/": {
+    "title": "Why developing without tests is like driving a car without brakes • Manuel Kießling",
+    "description": "The following roots in something I heard from Jon Jagger at QCon London 2011 after his fantastic talk about Deliberate Practice. It was related to Test Driven Development. He asked “Why do cars have brakes?”. It made us think “To stop!”, but he said “No – to go faster”.",
+    "added": "2024-10-14T16:06:11.936Z"
+  },
+  "https://experimentalhistory.substack.com/p/why-arent-smart-people-happier": {
+    "title": "Why aren't smart people happier? - by Adam Mastroianni",
+    "description": "A new way to think about brainpower.",
+    "added": "2024-10-14T16:06:11.483Z"
+  },
+  "https://danilafe.com/blog/blog_microfeatures/": {
+    "title": "Microfeatures I Love in Blogs and Personal Websites",
+    "description": "In this post, I talk about pleasant but seemingly minor features in personal sites",
+    "added": "2024-10-14T16:06:10.712Z"
+  },
+  "https://ludic.mataroa.blog/blog/on-burnout-mental-health-and-not-being-okay/": {
+    "title": "On Burnout, Mental Health, And Not Being Okay — Ludicity",
+    "added": "2024-10-14T16:06:11.447Z"
+  },
+  "https://ludic.mataroa.blog/blog/the-complex-problem-of-lying-for-jobs/": {
+    "title": "The Complex Problem Of Lying For Jobs — Ludicity",
+    "added": "2024-10-14T16:06:11.567Z"
+  },
+  "https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/": {
+    "title": "Don't Call Yourself A Programmer, And Other Career Advice | Kalzumeus Software",
+    "added": "2024-10-14T16:06:10.825Z"
+  },
+  "https://www.kalzumeus.com/2012/01/23/salary-negotiation/": {
+    "title": "Salary Negotiation: Make More Money, Be More Valued | Kalzumeus Software",
+    "description": "Salary negotiation advice, mostly for engineers. Running total of raises negotiated due to this essay: $15M+.",
+    "added": "2024-10-14T16:06:10.880Z"
+  },
+  "https://ludic.mataroa.blog/blog/the-corporate-facade-is-more-complicated-than-i-thought/": {
+    "title": "The Corporate Facade Is More Complicated Than I Thought — Ludicity",
+    "added": "2024-10-14T16:06:11.552Z"
+  },
+  "https://staffeng.com/": {
+    "title": "Stories of reaching Staff-plus engineering roles - StaffEng | StaffEng",
+    "description": "Stories of folks reaching Staff Engineer roles.",
+    "added": "2024-10-14T16:06:10.887Z"
+  },
+  "https://yosefk.com/blog/advantages-of-incompetent-management.html": {
+    "title": "Advantages of incompetent management",
+    "added": "2024-10-14T16:06:10.999Z"
+  },
+  "https://lethain.com/magnitudes-of-exploration/": {
+    "title": "Magnitudes of exploration. | Irrational Exuberance",
+    "description": "Standardizing on a given platform or technology is one of the most powerful ways to create leverage within a company: improve the tooling a bit and every engineer will get more productive. Exploration is, in the long run, an even more powerful force, with successes compounding over time. Developing an investment thesis to balance the ratios and timing of standardization and exploration is a core challenge of engineering strategy.",
+    "added": "2024-10-14T16:06:10.891Z"
+  },
+  "https://cse.buffalo.edu/~rapaport/howtostudy.html": {
+    "title": "HOW TO STUDY",
+    "added": "2024-10-14T16:06:11.037Z"
+  },
+  "https://www.stevenbuccini.com/8-hard-truths-on-getting-laid-off": {
+    "title": "8 Hard Truths I learned when I got laid off from my SWE job | Steven Buccini",
+    "description": "I got laid off from a software engineering job in April of 2020.",
+    "added": "2024-10-14T16:06:10.979Z"
+  },
+  "https://jepsen.io/consistency": {
+    "title": "Consistency Models",
+    "added": "2024-10-14T16:06:10.909Z"
+  },
+  "https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/": {
+    "title": "Kitchen Soap – On Being A Senior Engineer",
+    "description": "UPDATE: I’ve added a short section on the topic of sponsorship. I think that there’s a lot of institutional knowledge in our field, especially about what makes for a productive engineer. But while there are a good deal of books in the management field about “expert” roles and responsibilities of non-technical individual contributors, I don’t…",
+    "added": "2024-10-14T16:06:11.060Z"
+  },
+  "https://www.alexreichert.com/blog/finishing": {
+    "title": "On finishing things",
+    "added": "2024-10-14T16:06:10.724Z"
+  },
+  "https://yosefk.com/blog/people-can-read-their-managers-mind.html": {
+    "title": "People can read their manager's mind",
+    "added": "2024-10-14T16:06:10.741Z"
+  },
+  "https://www.aleksandrhovhannisyan.com/blog/62-5-percent-font-size-trick/": {
+    "title": "The 62.5% Font Size Trick | Aleksandr Hovhannisyan",
+    "description": "Once you get used to thinking in rems for font sizing, you'll find that it's easy to express familiar powers of two. But for other values, you may find it helpful to use the 62.5% font size trick.",
+    "added": "2024-10-14T16:06:10.920Z"
+  },
+  "https://typescale.com": {
+    "title": "Typescale - Create stunning typography, generate CSS, and find inspiration.",
+    "added": "2024-10-14T16:06:11.435Z"
+  },
+  "https://sinja.io/blog/web-typography-quick-guide": {
+    "title": "Quick guide to web typography for developers · OlegWock",
+    "description": "80/20 guide on how to make your blog posts look pretty, for free.",
+    "added": "2024-10-14T16:06:11.109Z"
+  },
+  "https://sohl-dickstein.github.io/2022/11/06/strong-Goodhart.html": {
+    "title": "Too much efficiency makes everything worse: overfitting and the strong version of Goodhart’s law | Jascha’s blog",
+    "description": "This blog is intended to be a place to share ideas and results that are too weird, incomplete, or off-topic to turn into an academic paper, but that I think may be important. Let me know what you think! Contact links to the left.",
+    "added": "2024-10-14T16:06:10.971Z"
+  }
+}

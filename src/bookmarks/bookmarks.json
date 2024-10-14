@@ -17,7 +17,8 @@
     "title": "Foundations"
   },
   "https://danluu.com/culture/": {
-    "title": "Culture matters"
+    "title": "Culture matters",
+    "commentary": ""
   },
   "https://protohackers.com/": {
     "title": "Protohackers"
@@ -310,7 +311,8 @@
     "title": "On finishing things"
   },
   "https://danluu.com/cocktail-ideas/": {
-    "title": "Cocktail party ideas"
+    "title": "Cocktail party ideas",
+    "commentary": "We greatly underestimate the complexity of even simple things. This leads to false confidence when arriving to solutions to popular problems."
   },
   "https://yosefk.com/blog/people-can-read-their-managers-mind.html": {
     "title": "People can read their manager's mind"

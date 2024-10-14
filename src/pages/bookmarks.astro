@@ -2,16 +2,16 @@
 import NavbarLayout from "@layouts/NavbarLayout.astro";
 import Background from "../components/Background.astro";
 import Container from "../components/Container.astro";
-import { ItemSchema, links, newCache } from "../links/links.ts";
+import { ItemSchema, links, newCache } from "../bookmarks/bookmarks.ts";
 import * as R from "remeda";
 import type { JSX } from "astro/jsx-runtime";
 ---
 
-<NavbarLayout title="Links" description="Links I like">
+<NavbarLayout title="Bookmarks" description="My bookmarks">
   <Background extraCss="bg-black">
     <Container width="narrow">
       <h1 class="text-3xl text-white mt-4 text-center md:text-left">
-        Links I like <span class="text-xs">(in no particular order)</span>
+        My Bookmarks <span class="text-xs">(in no particular order)</span>
       </h1>
       <div class="flex flex-col gap-6 mb-6 mt-6">
         {
