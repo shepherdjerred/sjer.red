@@ -1,10 +1,10 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
 title: Projects
-description: TODO
+description: Some of the things I've worked on over the years
 ---
 
-This page documents some of the projects I've worked on over the years.
+This page documents some of the things I've worked on over the years.
 
 ## Timeless
 
