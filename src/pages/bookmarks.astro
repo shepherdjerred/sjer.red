@@ -9,7 +9,7 @@ import type { JSX } from "astro/jsx-runtime";
 
 <NavbarLayout title="Bookmarks" description="My bookmarks">
   <Background extraCss="bg-black">
-    <Container width="narrow">
+    <Container width="normal">
       <h1 class="text-3xl text-white mt-4 text-center md:text-left">
         My Bookmarks <span class="text-xs">(in no particular order)</span>
       </h1>
@@ -28,6 +28,7 @@ import type { JSX } from "astro/jsx-runtime";
                   {item.title}
                 </a>
                 <p class="text-sm">{item.description}</p>
+                <p class="text-sm">{item.commentary}</p>
               </div>
             );
           })

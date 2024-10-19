@@ -3,6 +3,7 @@ import NavbarLayout from "@layouts/NavbarLayout.astro";
 import { BlogSchema } from "src/content/schemas/blog";
 import BlogContent from "@components/blog/BlogContent.astro";
 import BlogWebring from "@components/blog/BlogWebring.astro";
+import Container from "@components/Container.astro";
 
 const props = BlogSchema.parse({
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -12,8 +13,10 @@ const props = BlogSchema.parse({
 ---
 
 <NavbarLayout title={props.title} description={props.description} openGraphType="article">
-  <BlogContent {...props}>
-    <slot />
-  </BlogContent>
+  <Container width="normal">
+    <BlogContent {...props}>
+      <slot />
+    </BlogContent>
+  </Container>
   <BlogWebring date={props.date} />
 </NavbarLayout>
