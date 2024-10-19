@@ -111,22 +111,25 @@ try {
   await writeFile(file, "{}");
 }
 
-export const ItemSchema = z.object({
+export const BookmarkSchema = z.object({
   title: z.string(),
   description: z.string().optional(),
   added: z.coerce.date().optional(),
   commentary: z.string().optional(),
 });
 
-export const CacheSchema = z.record(z.string().url(), ItemSchema);
+export type Bookmark = z.infer<typeof BookmarkSchema>;
 
-// check if "cache.json" has a title for the link
-const cache = CacheSchema.parse(JSON.parse(await readFile(file, "utf-8")));
+export const BookmarksSchema = z.record(z.string().url(), BookmarkSchema);
+
+export type Bookmarks = z.infer<typeof BookmarksSchema>;
+
+const bookmarksFromFile = BookmarksSchema.parse(JSON.parse(await readFile(file, "utf-8")));
 
 const results = await Promise.all(
   links.map(async (link) => {
-    if (cache[link]) {
-      return cache[link];
+    if (bookmarksFromFile[link]) {
+      return bookmarksFromFile[link];
     } else {
       console.log(`Fetching ${link}`);
       try {
@@ -134,7 +137,7 @@ const results = await Promise.all(
         const text = await response.text();
         const htmlDoc = new jsdom.JSDOM(text).window.document;
         // TODO: hand this to some AI model to get a summary
-        const base: z.infer<typeof ItemSchema> = {
+        const base: z.infer<typeof BookmarkSchema> = {
           title: htmlDoc.title,
           added: new Date(),
         };
@@ -153,8 +156,8 @@ const results = await Promise.all(
   }),
 );
 
-export const newCache = CacheSchema.parse(
-  Object.assign(cache, Object.fromEntries(links.map((link, i) => [link, results[i]]))),
+export const bookmarks: Bookmarks = BookmarksSchema.parse(
+  Object.assign(bookmarksFromFile, Object.fromEntries(links.map((link, i) => [link, results[i]]))),
 );
 
-await writeFile(file, JSON.stringify(newCache, null, 2));
+await writeFile(file, JSON.stringify(bookmarks, null, 2));

@@ -2,9 +2,9 @@
 import NavbarLayout from "@layouts/NavbarLayout.astro";
 import Background from "../components/Background.astro";
 import Container from "../components/Container.astro";
-import { ItemSchema, links, newCache } from "../bookmarks/bookmarks.ts";
 import * as R from "remeda";
 import type { JSX } from "astro/jsx-runtime";
+import { bookmarks, BookmarkSchema, links, type Bookmark } from "src/bookmarks/bookmarks";
 ---
 
 <NavbarLayout title="Bookmarks" description="My bookmarks">
@@ -16,7 +16,8 @@ import type { JSX } from "astro/jsx-runtime";
       <div class="flex flex-col gap-6 mb-6 mt-6">
         {
           R.shuffle(links).map((link): JSX.Element => {
-            const item = ItemSchema.parse(newCache[link]);
+             
+            const bookmark: Bookmark = BookmarkSchema.parse(bookmarks[link]);
             return (
               <div class={`bg-white dark:bg-black dark:text-white text-black p-4 rounded-md text-xl`}>
                 <a
@@ -25,10 +26,10 @@ import type { JSX } from "astro/jsx-runtime";
                   rel="noopener noreferrer"
                   class={`underline font-semibold dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white`}
                 >
-                  {item.title}
+                  {bookmark.title}
                 </a>
-                <p class="text-sm">{item.description}</p>
-                <p class="text-sm">{item.commentary}</p>
+                <p class="text-sm">{bookmark.description}</p>
+                <p class="text-sm">{bookmark.commentary}</p>
               </div>
             );
           })
