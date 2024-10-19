@@ -8,6 +8,7 @@ const pathname = new URL(Astro.request.url).pathname;
   <Container width="normal">
     <ul class="flex flex-wrap content-center place-content-center sm:justify-start gap-2 pt-2 pb-2">
       <NavbarItem href="/" isHighlighted={pathname === "/"}>Home</NavbarItem>
+      <NavbarItem href="/projects/" isHighlighted={pathname.includes("projects")}>Projects</NavbarItem>
       <NavbarItem href="/blog/" isHighlighted={pathname.includes("blog")}>Blog</NavbarItem>
       <NavbarItem href="/bookmarks/" isHighlighted={pathname === "/bookmarks/"}>Bookmarks</NavbarItem>
       <NavbarItem href="/now/" isHighlighted={pathname === "/now/"}>Now</NavbarItem>
