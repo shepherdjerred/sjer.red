@@ -48,6 +48,15 @@ Implementation of Paxos for my graduate Distributed Systems class at Georgia Tec
 
 Multi-player Pokemon (or any Gameboy game) via Discord w/ video streaming & game input via chat.
 
+## 2022
+
+### EC2 Instance Control
+
+Start/stop an EC2 instance. I created this to host game servers on EC2 while allowing friends to start/stop the server as needed, so that on-demand costs could be kept down.
+
+- <https://github.com/shepherdjerred/monorepo/tree/main/ec2-instance-restart>
+- <https://github.com/shepherdjerred/monorepo/tree/main/ec2-instance-restart-frontend>
+
 ## 2020
 
 ### [Better Skill Capped](https://better-skill-capped.com/)
@@ -77,6 +86,10 @@ Synchronize Hue lights to the game Beat Saber. The latency was, surprisingly, qu
 #### [Usher](https://github.com/shepherdjerred/monorepo/tree/main/usher)
 
 Sign up for a chapel seat before selection opens.
+
+#### [Cashly](https://github.com/shepherdjerred/monorepo/tree/main/cashly)
+
+A personal finance simulator. [ProjectionLab](https://projectionlab.com/) does it better than I ever could.
 
 ### 2017/2018 (junior year)
 
@@ -121,6 +134,10 @@ Press a button and make a counter go up.
 #### [Maze Game](https://github.com/shepherdjerred/monorepo/tree/main/practice/maze-game)
 
 Pacman-esque game.
+
+#### [RSI Hackathon](https://github.com/shepherdjerred/monorepo/tree/main/rsi-hackathon-2016)
+
+I have no idea how, but my team won this.
 
 ### 2015/2016 (freshman year of college)
 
