@@ -6,7 +6,20 @@ description: What I'm up to
 
 Inspired by <https://sive.rs/now>
 
-## 2024 10 14
+## 2024 10 20
+
+- Finally finished setting up my desk
+- Lots of fun frontend work @ Pinterest
+- Loving the cold weather & rain
+- Getting ready for my kidney donation on 10/30
+  - Lots of scary things like signing medical directives & getting a will
+- Watching season 6 of [The Sopranos](https://en.wikipedia.org/wiki/The_Sopranos)
+- Finding more books to read
+- Practicing piano a little
+
+## Past
+
+### 2024 10 14
 
 - Getting my desk at work setup
   - Finally got my Apple Studio Display! Going to set it up tomorrow :)
@@ -18,8 +31,6 @@ Inspired by <https://sive.rs/now>
   - I really should've done a better job making sure they weren't moist
 - Reading Fugitive Telemetry
 - Watching season 5 of [The Sopranos](https://en.wikipedia.org/wiki/The_Sopranos)
-
-## Past
 
 ### 2024 10 05
 
