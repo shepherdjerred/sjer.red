@@ -1,14 +1,39 @@
 ---
 layout: ../../layouts/MarkdownLayout.astro
 title: Now
-description: What I'm up to
+description: What I'm doing now
 ---
 
-Inspired by <https://sive.rs/now>
+### 2024 11 05
 
-## 2024 10 20
+- Recovering from my kidney donation on 10/30
+  - Everything went super well!
+  - I'm already feeling great, but I can't do anything athletic for ~6 weeks
+    - Really looking forward to working out after this break
+- Playing an absurd amount of Factorio
+  - The [new expansion](https://store.steampowered.com/app/645390/Factorio_Space_Age/) is incredible
+- Watching [Only Murders in the Building](https://en.wikipedia.org/wiki/Only_Murders_in_the_Building)
+  - I don't think it's _that_ great of a show, but I'm enjoying the atmosphere
+- Reading [Nettle and Bone](https://en.wikipedia.org/wiki/Nettle_%26_Bone)
+- Really enjoying the new towels/blankets/bedding that I bought
+  - They're all absurdly soft & worth every penny
+- Taking the [EA intro course](https://www.effectivealtruism.org/virtual-programs/introductory-program)
+- Loving some new albums
+  - [The Great Impersonator](https://open.spotify.com/album/4C23ofFqNhsaAEkThw2yRB)
+  - [brent iii](https://open.spotify.com/album/35tILwApqYtN9fTJq2v7M3)
+  - I don't even use Spotify but what else can I link to???
+- Thinking about buying a house in the next year or so
+- Figuring out what I want to do with my car lease ending
+  - I don't _really_ need a new car, but it would be nice to have an electric car
+- Enjoying the transition to cold, the end of DST, and looking forward to winter
+
+## Past
+
+### 2024 10 20
 
 - Finally finished setting up my desk
+  - ![My desk](./images/pinterest%20desk.jpeg)
+  - Having an Apple Studio Display is _so_ nice
 - Lots of fun frontend work @ Pinterest
 - Loving the cold weather & rain
 - Getting ready for my kidney donation on 10/30
@@ -16,8 +41,6 @@ Inspired by <https://sive.rs/now>
 - Watching season 6 of [The Sopranos](https://en.wikipedia.org/wiki/The_Sopranos)
 - Finding more books to read
 - Practicing piano a little
-
-## Past
 
 ### 2024 10 14
 
