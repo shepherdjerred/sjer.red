@@ -323,5 +323,10 @@
   },
   "https://sohl-dickstein.github.io/2022/11/06/strong-Goodhart.html": {
     "title": "Too much efficiency makes everything worse"
+  },
+  "https://www.seangoedecke.com/how-to-ship/": {
+    "title": "How I ship projects at big tech companies",
+    "description": "What I think about when I'm lead engineer on a project",
+    "added": "2024-11-12T04:05:13.456Z"
   }
 }
