@@ -24,7 +24,7 @@ description: The classes I've taken
 
 I dropped this class after taking the midterm.
 
-This is one of the worst CS classes I've taken either at Georgia Tech or my undergrad. The professor is clearly very passionate about the topic which I really do appreciate. The class consists of four projects and two exams (a midterm and final). The projects involve running commands in a VM or Docker container and filling in blanks in a Word document. The midterm was a challenge in running algorithms on paper, manipulating equations/knowing trivia, and testing your vague understanding of concepts. The lectures are very high-quality, but also extremely long and repetitive. It pains me to have such a negative opinion of the class because, again, the professor clearly cares and presented the topics in an approachable manner.
+This is one of the worst CS classes I've taken either at Georgia Tech or during my undergrad. The professor is clearly very passionate about the topic which I really do appreciate. The class consists of four projects and two exams (a midterm and final). The projects involve running commands in a VM or Docker container and filling in blanks in a Word document. The midterm was a challenge in running algorithms on paper, manipulating equations/knowing trivia, and testing your vague understanding of concepts. The lectures are very high-quality, but also extremely long and repetitive. It pains me to have such a negative opinion of the class because, again, the professor clearly cares and presented the topics in an approachable manner.
 
 Nowhere in this class will you write a line of code. All you'll do is understand concepts that are invisible to you as a programmer. This can be quite valuable if you're optimizing programs, but unfortunately this class doesn't cover how one can best exploit or debug performance issues that occur due to computer architecture.
 
@@ -35,16 +35,6 @@ I cannot recommend this class to anyone. I'd recommend the compilers course if y
 - Rating: 1/5
 
 ### Spring 2024
-
-#### [CS 6240 - Software Analysis](https://omscs.gatech.edu/cs-6340-software-analysis)
-
-Software Analysis was an interesting class that described how software can be statically and dynamically analyzed to detect defects. The class went over a variety of testing techniques implemented in C++, Java, and TypeScript.
-
-Overall I thought the class was interesting, but not very challenging. A lot of the difficulty came from learning the LLVM APIs rather than the concepts themselves actually being difficult. I found the dataflow analysis section to be particularly interesting, though. I think the class paired well with compilers considering the lighter workload and the minor overlap of some concepts.
-
-- Difficulty: 2/5
-- Workload: 2/5
-- Rating: 3/5
 
 #### [CS 8803 - Compilers](https://omscs.gatech.edu/cs-8803-o08-compilers-theory-and-practice)
 
@@ -57,6 +47,16 @@ In the end I wrote about 9,000 lines of code for my compiler, but unfortunately 
 - Difficulty: 4/5
 - Workload: 5/5
 - Rating: 5/5
+
+#### [CS 6240 - Software Analysis](https://omscs.gatech.edu/cs-6340-software-analysis)
+
+Software Analysis was an interesting class that described how software can be statically and dynamically analyzed to detect defects. The class went over a variety of testing techniques implemented in C++, Java, and TypeScript.
+
+Overall I thought the class was interesting, but not very challenging. A lot of the difficulty came from learning the LLVM APIs rather than the concepts themselves actually being difficult. I found the dataflow analysis section to be particularly interesting, though. I think the class paired well with compilers considering the lighter workload and the minor overlap of some concepts.
+
+- Difficulty: 2/5
+- Workload: 2/5
+- Rating: 3/5
 
 ### Fall 2023
 
