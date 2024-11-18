@@ -20,7 +20,7 @@ k3s Kubernetes cluster for self-hosted services like Plex, file syncing, and hom
 
 ### Tiger compiler
 
-Compiler for the Tiger language for my graduate Compilers at Georgia Tech.
+Compiler for the Tiger language for [graduate compilers](https://omscs.gatech.edu/cs-8803-o08-compilers-theory-and-practice) at Georgia Tech.
 
 ### [Astro Open Graph Images](https://github.com/shepherdjerred/astro-opengraph-images)
 
@@ -42,11 +42,11 @@ A C/C++/Fortran/Rust cross-compiler targeting amd64/aarch64 macOS from a Linux h
 
 ### Paxos
 
-Implementation of Paxos for my graduate Distributed Systems class at Georgia Tech.
+Implementation of Paxos for graduate [distributed systems](https://omscs.gatech.edu/cs-7210-distributed-computing) at Georgia Tech.
 
-### [Discord Plays Pokemon](https://github.com/shepherdjerred/discord-plays-pokemon)
+### [Discord Plays Pokémon](https://github.com/shepherdjerred/discord-plays-pokemon)
 
-Multi-player Pokemon (or any Gameboy game) via Discord w/ video streaming & game input via chat.
+Multi-player Pokémon (or any Gameboy game) via Discord w/ video streaming & game input via chat.
 
 ## 2022
 

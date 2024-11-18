@@ -12,7 +12,7 @@ import game from "./xstate/game.png";
 import diagram from "./xstate/diagram.png";
 import simulation from "./xstate/simulation.mp4";
 
-My current side project, [Discord Plays Pokemon](https://github.com/shepherdjerred/discord-plays-pokemon), has a lot of dependencies. The application streams video with Discord, which presents a challenge. Discord does not provide APIs for streaming video, and I didn't want to have to reverse-engineer the client. I chose to automate interactions with Discord's web application using Selenium, which has yielded great results. It can programmatically stream video to a specific voice channel. This has worked very well so far -- users are able to play real-time games of Pokemon with each other just using Discord's text chat!
+My current side project, [Discord Plays Pokémon](https://github.com/shepherdjerred/discord-plays-pokemon), has a lot of dependencies. The application streams video with Discord, which presents a challenge. Discord does not provide APIs for streaming video, and I didn't want to have to reverse-engineer the client. I chose to automate interactions with Discord's web application using Selenium, which has yielded great results. It can programmatically stream video to a specific voice channel. This has worked very well so far -- users are able to play real-time games of Pokémon with each other just using Discord's text chat!
 
 <figure>
   <Image src={channel} alt="A screenshot of Discord text chat with two users inputting commands" height="100px" />
@@ -31,7 +31,7 @@ I brute-forced a lot of this code to get the bot working quickly. While it works
 Switching between tabs was an easy problem to fix. I created two instances of Firefox -- one for the stream and another for the video. This eliminated a whole class of errors at a slight performance cost.
 
 <figure>
-  <Image src={game} alt="A screenshot of Discord streaming Pokemon" />
+  <Image src={game} alt="A screenshot of Discord streaming Pokémon" />
   <figcaption>Video is streamed in real-time with instant feedback for the applied inputs.</figcaption>
 </figure>
 

@@ -1,6 +1,6 @@
 ---
 title: Discord Plays Pokemon
-description: How I build Discord Plays Pokemon
+description: How I build Discord Plays Pokémon
 date: 2024-10-14Z-0700
 layout: ../../../layouts/BlogLayout.astro
 ---
@@ -11,7 +11,7 @@ This is a half-baked post I decided to publish because it was clear I wasn't eve
 
 ## Idea
 
-Twitch Plays Pokemon, but for Discord
+Twitch Plays Pokémon, but for Discord
 
 <figure>
   <video controls>
@@ -40,7 +40,7 @@ Twitch Plays Pokemon, but for Discord
 
 ## Initial approach - webcam
 
-Use a headful browser (Chrome) running Pokemon with [EmulatorJS](https://emulatorjs.org/). Stream the video of headless browser to Discord. Use the stream video as a webcam input and pipe the audio as a microphone input.
+Use a headful browser (Chrome) running Pokémon with [EmulatorJS](https://emulatorjs.org/). Stream the video of headless browser to Discord. Use the stream video as a webcam input and pipe the audio as a microphone input.
 
 - Create a virtual display using `xvfb` and `xvfb-run`: https://github.com/shepherdjerred/discord-plays-pokemon/blob/b8b67522ca05e0dd37c740741d7a94569d372a69/Dockerfile#L21-L25
 - Use `ffmpeg` and `v4l2loopback` to create a virtual webcam device with v4l2: https://github.com/shepherdjerred/discord-plays-pokemon/blob/b8b67522ca05e0dd37c740741d7a94569d372a69/load.sh#L16
