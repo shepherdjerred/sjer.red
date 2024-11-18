@@ -14,7 +14,8 @@ description: The classes I've taken
 
 ## Upcoming Courses (Spring 2025)
 
-- TBD
+- [CS 8803 - GPU Hardware and Software](https://omscs.gatech.edu/cs-8803-o21-gpu-hardware-and-software)
+- [CS 6422 - Database System Implementation](https://omscs.gatech.edu/cs-6422-database-system-implementation)
 
 ## Previous Courses
 
