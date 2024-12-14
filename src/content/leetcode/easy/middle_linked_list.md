@@ -2,7 +2,6 @@
 title: "Middle of the Linked List"
 date: 2024-07-26Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

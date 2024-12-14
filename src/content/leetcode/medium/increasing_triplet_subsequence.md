@@ -2,7 +2,6 @@
 title: "Increasing Triplet Subsequence"
 date: 2024-08-03Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

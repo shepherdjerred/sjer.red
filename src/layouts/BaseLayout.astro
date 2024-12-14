@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import { SEO } from "astro-seo";
 import { getImagePath } from "astro-opengraph-images";
 
@@ -70,7 +70,7 @@ import "@fontsource-variable/lora";
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <slot />

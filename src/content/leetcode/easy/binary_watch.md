@@ -2,7 +2,6 @@
 title: "Binary Watch"
 date: 2024-07-28Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

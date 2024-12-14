@@ -2,7 +2,6 @@
 title: "The Earliest Moment When Everyone Become Friends"
 date: 2024-08-14Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

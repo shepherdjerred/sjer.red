@@ -2,7 +2,6 @@
 title: "Best Time to Buy and Sell Stock II"
 date: 2024-06-11Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

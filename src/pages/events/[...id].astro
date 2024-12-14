@@ -2,25 +2,25 @@
 import FormattedDate from "@components/FormattedDate.astro";
 import RSVP from "@components/events/RSVP.astro";
 import Base from "@layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { EventSchema } from "src/content/schemas/event";
 
 type Props = {
-  entry: CollectionEntry<"events">;
+  entry: CollectionEntry<"event">;
 };
 
 export async function getStaticPaths() {
-  const eventEntries = await getCollection("events");
+  const eventEntries = await getCollection("event");
   return eventEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { id: entry.id },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
 const { title, description, date, cost, location, rsvp } = EventSchema.parse(entry.data);
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <Base title={title} description={description ?? title} openGraphType="article">

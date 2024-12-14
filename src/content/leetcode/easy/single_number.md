@@ -2,7 +2,6 @@
 title: "Single Number"
 date: 2024-06-12Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

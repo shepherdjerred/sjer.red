@@ -2,7 +2,6 @@
 title: "Letter Combinations of a Phone Number"
 date: 2024-07-30Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

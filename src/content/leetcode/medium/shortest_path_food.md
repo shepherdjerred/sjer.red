@@ -2,7 +2,6 @@
 title: "Shortest Path to Get Food"
 date: 2024-08-10Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

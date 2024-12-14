@@ -23,8 +23,8 @@ export async function GET(context: APIContext) {
         title: post.data.title,
         pubDate: post.data.date,
         description: post.data.description,
-        link: `/blog/${post.slug}/`,
-        content: sanitizeHtml(parser.render(post.body)),
+        link: `/blog/${post.id}/`,
+        content: sanitizeHtml(parser.render(post.body ?? "")),
       })),
     stylesheet: "/rss/styles.xsl",
   });

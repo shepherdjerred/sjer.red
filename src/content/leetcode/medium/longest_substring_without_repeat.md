@@ -2,7 +2,6 @@
 title: "Longest Substring Without Repeating Characters"
 date: 2024-08-09Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 Given a string s, find the length of the longest substring without repeating characters.

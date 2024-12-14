@@ -2,7 +2,6 @@
 title: "Fizz Buzz"
 date: 2024-07-24Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

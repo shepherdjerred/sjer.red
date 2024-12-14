@@ -1,7 +1,6 @@
 ---
 title: Using Twoslash with Shiki and  Astro
 date: 2024-07-01Z-0700
-layout: ../../../layouts/BlogLayout.astro
 hackerNews: https://news.ycombinator.com/item?id=40848479
 ---
 
@@ -30,6 +29,7 @@ let a = createLabel("typescript");
 It's super easy. In your `astro.config.ts` file, add the following:
 
 ```typescript
+// @errors: 2307
 import { defineConfig } from "astro/config";
 // ---cut---
 import { rendererRich, transformerTwoslash } from "@shikijs/twoslash";
@@ -81,6 +81,7 @@ Bonus: enable an automatic light & dark mode. Add the following CSS from [Shiki'
 Add the following to your `astro.config.ts`:
 
 ```typescript
+// @errors: 2307
 import { defineConfig } from "astro/config";
 // ---cut---
 export default defineConfig({

@@ -2,7 +2,6 @@
 title: "All Paths from Source to Target"
 date: 2024-08-11Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

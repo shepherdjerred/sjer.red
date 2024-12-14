@@ -1,20 +1,21 @@
 import { defineCollection } from "astro:content";
 import { BlogSchema } from "src/content/schemas/blog";
 import { EventSchema } from "src/content/schemas/event";
-import { LeetCodeSchema } from "./schemas/leetcode";
+import { LeetCodeSchema } from "src/content/schemas/leetcode";
+import { glob } from "astro/loaders";
 
 const blogCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
   schema: BlogSchema,
 });
 
 const eventCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/events" }),
   schema: EventSchema,
 });
 
 const leetcodeCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/leetcode" }),
   schema: LeetCodeSchema,
 });
 

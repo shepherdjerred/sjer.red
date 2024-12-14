@@ -2,7 +2,6 @@
 title: "First Missing Positive"
 date: 2024-08-05Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

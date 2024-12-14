@@ -20,7 +20,7 @@ const groups = R.pipe(
 const counts = R.pipe(
   entries,
   R.groupBy((entry) => {
-    return entry.slug.replace(/\/.*/, "");
+    return entry.id.replace(/\/.*/, "");
   }),
   R.entries(),
   R.map(([difficulty, entries]) => `${entries.length.toString()} ${difficulty}`),

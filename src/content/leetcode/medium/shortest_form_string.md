@@ -2,7 +2,6 @@
 title: "Shortest Way to Form String"
 date: 2024-08-12Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

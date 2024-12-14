@@ -2,7 +2,6 @@
 title: "Make Two Arrays Equal by Reversing Subarrays"
 date: 2024-08-03Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

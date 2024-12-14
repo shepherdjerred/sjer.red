@@ -2,7 +2,6 @@
 title: "Find if Path Exists in Graph"
 date: 2024-08-08Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

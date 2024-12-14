@@ -2,7 +2,6 @@
 title: "Meeting Rooms II"
 date: 2024-08-06Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

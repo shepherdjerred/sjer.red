@@ -2,7 +2,6 @@
 title: "Two Sum II"
 date: 2024-07-31Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

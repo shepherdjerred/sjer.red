@@ -2,7 +2,6 @@
 title: "Maximum Profit in Job Scheduling"
 date: 2024-08-14Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

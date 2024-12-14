@@ -2,7 +2,6 @@
 title: "Reverse Linked List"
 date: 2024-06-19Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

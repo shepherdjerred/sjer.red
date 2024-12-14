@@ -2,7 +2,6 @@
 title: "Maximum Population Year"
 date: 2024-08-07Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

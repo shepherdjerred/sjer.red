@@ -2,7 +2,6 @@
 title: "Merge Intervals"
 date: 2024-08-05Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

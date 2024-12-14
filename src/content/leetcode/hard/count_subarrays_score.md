@@ -2,7 +2,6 @@
 title: "Count Subarrays With Score Less Than K"
 date: 2024-08-14Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem

@@ -2,7 +2,6 @@
 title: "Simplified Expression Add Operators"
 date: 2024-07-29Z-0700
 leetcode: true
-layout: ../../../layouts/BlogLayout.astro
 ---
 
 ## Problem
