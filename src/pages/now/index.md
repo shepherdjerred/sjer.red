@@ -32,7 +32,7 @@ description: What I'm doing now
 ### 2024 10 20
 
 - Finally finished setting up my desk
-  - ![My desk](./images/pinterest%20desk.jpeg)
+  - ![My desk](./_images/pinterest%20desk.jpeg)
   - Having an Apple Studio Display is _so_ nice
 - Lots of fun frontend work @ Pinterest
 - Loving the cold weather & rain
@@ -68,7 +68,7 @@ description: What I'm doing now
 - Studying for HPCA midterm
 - Finally harvested my garden
   - Roughly 7.5 gallons of green tomatoes and 4 gallons of tomatillos
-    - ![My tomato harvest](./images/tomatoes.jpeg)
+    - ![My tomato harvest](./_images/tomatoes.jpeg)
   - Also lots of carrots, parsley, scallions, onions, cucumber
   - Giving away most of the above; trying to ripen & can the tomatoes
 - Tried out a test version of [ExoSym](https://hangerclinic.com/blog/featured-technology/hanger-clinic-exosym/) and it went well. The full version of it should be ready for me on Tuesday
