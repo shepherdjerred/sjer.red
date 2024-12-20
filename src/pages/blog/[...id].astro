@@ -4,14 +4,15 @@ import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
-  return blogEntries.map((entry) => ({
+  const tilEntries = await getCollection("til");
+  return [...blogEntries, ...tilEntries].map((entry) => ({
     params: { id: entry.id },
     props: { entry },
   }));
 }
 
 type Props = {
-  entry: CollectionEntry<"blog">;
+  entry: CollectionEntry<"blog" | "til">;
 };
 
 const { entry } = Astro.props;

@@ -6,7 +6,7 @@ import type { JSX } from "astro/jsx-runtime";
 
 type Props = {
   year: string;
-  entries: CollectionEntry<"blog">[];
+  entries: CollectionEntry<"blog" | "til">[];
 };
 
 const { year, entries } = Astro.props;

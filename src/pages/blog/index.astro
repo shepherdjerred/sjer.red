@@ -8,9 +8,10 @@ import { getCollection } from "astro:content";
 import * as R from "remeda";
 
 const blogEntries = await getCollection("blog");
+const tilEntries = await getCollection("til");
 
 const groups = R.pipe(
-  blogEntries,
+  [...blogEntries, ...tilEntries],
   R.sortBy((entry) => entry.data.date),
   R.reverse(),
   R.filter((entry) => !entry.data.isDraft),
