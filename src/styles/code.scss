@@ -22,5 +22,6 @@
 }
 
 .twoslash-popup-container {
-  width: max-content;
+  // max-content is preferable, but it breaks on long type definitions
+  width: fit-content;
 }
