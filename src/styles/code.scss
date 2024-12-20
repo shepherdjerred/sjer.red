@@ -16,3 +16,11 @@
     text-decoration: var(--shiki-dark-text-decoration) !important;
   }
 }
+
+.twoslash .twoslash-error-line {
+  max-width: 100%;
+}
+
+.twoslash-popup-container {
+  width: max-content;
+}
