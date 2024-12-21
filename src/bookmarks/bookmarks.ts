@@ -117,6 +117,7 @@ export const BookmarkSchema = z.object({
   description: z.string().optional(),
   added: z.coerce.date().optional(),
   commentary: z.string().optional(),
+  tags: z.array(z.string()).optional(),
 });
 
 export type Bookmark = z.infer<typeof BookmarkSchema>;
@@ -141,6 +142,7 @@ const results = await Promise.all(
         const base: z.infer<typeof BookmarkSchema> = {
           title: htmlDoc.title,
           added: new Date(),
+          tags: [],
         };
         const description = htmlDoc.querySelector("meta[name=description]")?.getAttribute("content");
         if (description) {
