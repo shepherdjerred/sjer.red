@@ -7,6 +7,7 @@ const parser = new MarkdownIt();
 
 export async function GET(context: APIContext) {
   const blog = await getCollection("blog");
+  const til = await getCollection("til");
 
   if (context.site === undefined) {
     throw new Error("site is undefined");
@@ -16,7 +17,7 @@ export async function GET(context: APIContext) {
     title: "Jerred's Blog",
     description: "My personal blog",
     site: context.site,
-    items: blog
+    items: [...blog, ...til]
       .sort((left, right) => right.data.date.getTime() - left.data.date.getTime())
       .filter((post) => !post.data.isDraft)
       .map((post) => ({
