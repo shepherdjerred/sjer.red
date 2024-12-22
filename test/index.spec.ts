@@ -26,12 +26,12 @@ test("blog list screenshot matches", async ({ page }) => {
 });
 
 test("shiki til screenshot matches", async ({ page }) => {
-  await page.goto("/blog/til/2024-07-01/");
+  await page.goto("/blog/2024-07-01/");
   await expect(page).toHaveScreenshot();
 });
 
 test("groovy til screenshot matches", async ({ page }) => {
-  await page.goto("/blog/til/2024-05-24/");
+  await page.goto("/blog/2024-05-24/");
   await expect(page).toHaveScreenshot();
 });
 
