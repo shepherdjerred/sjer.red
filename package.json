@@ -32,7 +32,7 @@
     "astro-icon": "^1.1.5",
     "astro-opengraph-images": "^1.11.7",
     "astro-seo": "^0.8.4",
-    "jsdom": "^25.0.1",
+    "jsdom": "^26.0.0",
     "markdown-it": "^14.1.0",
     "react": "^19.0.0",
     "rehype-autolink-headings": "^7.1.0",
