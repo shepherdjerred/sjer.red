@@ -11,7 +11,6 @@ const pathname = new URL(Astro.request.url).pathname;
       <NavbarItem href="/projects/" isHighlighted={pathname.includes("projects")}>Projects</NavbarItem>
       <NavbarItem href="/blog/" isHighlighted={pathname.includes("blog")}>Blog</NavbarItem>
       <NavbarItem href="/bookmarks/" isHighlighted={pathname === "/bookmarks/"}>Bookmarks</NavbarItem>
-      <NavbarItem href="/now/" isHighlighted={pathname === "/now/"}>Now</NavbarItem>
       <NavbarItem href="/gatech/" isHighlighted={pathname === "/gatech/"}>Georgia Tech</NavbarItem>
     </ul>
   </Container>

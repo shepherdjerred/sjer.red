@@ -5,11 +5,6 @@ test("home page screenshot matches", async ({ page }) => {
   await expect(page).toHaveScreenshot();
 });
 
-test("now screenshot matches", async ({ page }) => {
-  await page.goto("/now/");
-  await expect(page).toHaveScreenshot();
-});
-
 test("links screenshot matches", async ({ page }) => {
   await page.goto("/links/");
   await expect(page).toHaveScreenshot();
