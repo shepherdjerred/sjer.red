@@ -12,12 +12,7 @@
       "commitMessageTopic": "Node.js",
       "matchDatasources": ["docker"],
       "matchDepNames": ["node"],
-      "matchPackageNames": [
-        "!calico/node",
-        "!docker.io/calico/node",
-        "!kindest/node",
-        "//node$/"
-      ]
+      "matchPackageNames": ["!calico/node", "!docker.io/calico/node", "!kindest/node", "//node$/"]
     }
   ]
 }
