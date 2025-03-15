@@ -23,6 +23,7 @@ deps:
   COPY package*.json .
   RUN --mount $NPM_CACHE npm ci
   RUN --mount $NPM_CACHE npx playwright install
+  RUN npx playwright install-deps
 
 build:
   FROM +deps
