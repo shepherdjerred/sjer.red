@@ -9,10 +9,15 @@ import icon from "astro-icon";
 import astroOpenGraphImages, { presets } from "astro-opengraph-images";
 import * as fs from "fs";
 import { rendererRich, transformerTwoslash } from "@shikijs/twoslash";
+import rehypeMermaid from "rehype-mermaid";
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
+    syntaxHighlight: {
+      type: "shiki",
+      excludeLangs: ["mermaid"],
+    },
     shikiConfig: {
       theme: "github-dark",
       themes: {
@@ -27,6 +32,13 @@ export default defineConfig({
       ],
     },
     rehypePlugins: [
+      [
+        rehypeMermaid,
+        {
+          strategy: "img-svg",
+          dark: true,
+        },
+      ],
       rehypeHeadingIds,
       [
         rehypeAutolinkHeadings,
