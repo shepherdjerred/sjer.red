@@ -21,9 +21,9 @@ ci:
 
 deps:
   COPY package*.json .
-  RUN --mount $NPM_CACHE npm ci
   RUN --mount $NPM_CACHE npx playwright install
   RUN npx playwright install-deps
+  RUN --mount $NPM_CACHE PUPPETEER_SKIP_DOWNLOAD=1 npm ci
 
 build:
   FROM +deps
