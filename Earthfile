@@ -10,7 +10,7 @@ ENV PLAYWRIGHT_CACHE="type=cache,id=playwright,target=/root/.cache/ms-playwright
 
 SRC:
   FUNCTION
-  COPY --dir src public astro.config.ts tailwind.config.ts tsconfig.json .
+  COPY --dir src public astro.config.ts tsconfig.json .
 
 ci:
   # TODO: this isn't working quite yet
