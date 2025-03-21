@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
 import remarkToc from "remark-toc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
@@ -10,6 +9,7 @@ import astroOpenGraphImages, { presets } from "astro-opengraph-images";
 import * as fs from "fs";
 import { rendererRich, transformerTwoslash } from "@shikijs/twoslash";
 import rehypeMermaid from "rehype-mermaid";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -49,11 +49,12 @@ export default defineConfig({
     ],
     remarkPlugins: [remarkToc],
   },
+
   site: "https://sjer.red",
+
   integrations: [
     mdx(),
     sitemap(),
-    tailwind(),
     icon(),
     astroOpenGraphImages({
       options: {
@@ -69,8 +70,14 @@ export default defineConfig({
       render: presets.blackAndWhite,
     }),
   ],
+
   security: {
     checkOrigin: true,
   },
+
   prefetch: true,
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
