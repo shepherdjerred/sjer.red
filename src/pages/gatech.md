@@ -12,12 +12,17 @@ description: The classes I've taken
 - [OMSCS Subreddit](https://old.reddit.com/r/OMSCS/)
 - [OMSCS GitHub](https://github.gatech.edu/omscs)
 
-## Upcoming Courses (Spring 2025)
-
-- [CS 8803 - GPU Hardware and Software](https://omscs.gatech.edu/cs-8803-o21-gpu-hardware-and-software)
-- [CS 6422 - Database System Implementation](https://omscs.gatech.edu/cs-6422-database-system-implementation)
-
 ## Previous Courses
+
+### Spring 2025
+
+#### [CS 8803 - GPU Hardware and Software](https://omscs.gatech.edu/cs-8803-o21-gpu-hardware-and-software)
+
+I dropped this class a few weeks in.
+
+I was actually enjoying this class, but I just didn't feel like I had the time. At this point I'm starting to wonder if I actually want to finish the program. To some extent, it's starting to feel like an obligation rather than something fun/interesting.
+
+I'm planning to take a class during the summer.
 
 ### Fall 2024
 
