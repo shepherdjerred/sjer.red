@@ -23,7 +23,7 @@
     "@fontsource/nunito": "^5.2.5",
     "@iconify-json/mdi": "^1.2.3",
     "@shikijs/twoslash": "^3.0.0",
-    "@tailwindcss/forms": "^0.4.0-alpha.2",
+    "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.15",
     "@types/jsdom": "^21.1.7",
