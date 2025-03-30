@@ -99,7 +99,7 @@ export async function getPosts(_date: Date): Promise<Result> {
       },
       {
         url: "https://jmw.sh/blog/index.xml",
-        title: "Jacon Woliver",
+        title: "Jacob Woliver",
       },
     ],
     number: 3,
