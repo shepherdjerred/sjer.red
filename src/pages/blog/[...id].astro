@@ -20,6 +20,6 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<BlogLayout title={entry.data.title} description={entry.data.description} date={entry.data.date}>
+<BlogLayout {...entry.data}>
   <Content />
 </BlogLayout>
