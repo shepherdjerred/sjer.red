@@ -102,6 +102,7 @@ export const links = [
   "https://sinja.io/blog/web-typography-quick-guide",
   "https://sohl-dickstein.github.io/2022/11/06/strong-Goodhart.html",
   "https://www.seangoedecke.com/how-to-ship/",
+  "https://quarter--mile.com/You-Could-Just-Choose-Optimism",
 ];
 
 const file = "src/bookmarks/bookmarks.json";
