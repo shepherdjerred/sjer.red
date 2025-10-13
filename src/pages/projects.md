@@ -6,6 +6,12 @@ description: Some of the things I've worked on over the years
 
 This page documents some of the things I've worked on over the years.
 
+## Coding Practice
+
+### [LeetCode Solutions](/leetcode/)
+
+I regularly practice coding challenges and algorithm problems on LeetCode. You can view my solutions and progress, including problems across easy, medium, and hard difficulties. This practice helps me stay sharp with data structures, algorithms, and problem-solving techniques.
+
 ## Timeless
 
 ### [sjer.red](https://github.com/shepherdjerred/sjer.red)
