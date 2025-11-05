@@ -34,13 +34,12 @@ async function withTiming<T>(
   }
 }
 
-// Get a Node.js container with the specified version
-function getNodeContainer(version: string = "lts"): Container {
+// Get a Bun container with the specified version
+function getBunContainer(version: string = "latest"): Container {
   return dag
     .container()
-    .from(`node:${version}`)
+    .from(`oven/bun:${version}`)
     .withWorkdir("/workspace")
-    .withEnvVariable("NPM_CONFIG_CACHE", "/npm-cache")
     .withEnvVariable("PUPPETEER_SKIP_DOWNLOAD", "1");
 }
 
@@ -70,13 +69,13 @@ export class SjerRed {
     source: Directory
   ): Promise<Container> {
     return await withTiming("install dependencies", async () => {
-      const container = getNodeContainer()
-        .withMountedCache("/npm-cache", dag.cacheVolume("npm-cache"))
+      const container = getBunContainer()
+        .withMountedCache("/root/.bun/install/cache", dag.cacheVolume("bun-cache"))
         .withMountedCache("/root/.cache/ms-playwright", dag.cacheVolume("playwright-cache"))
         .withDirectory("/workspace", source)
-        .withExec(["npm", "ci"])
-        .withExec(["npx", "playwright", "install"])
-        .withExec(["npx", "playwright", "install-deps"]);
+        .withExec(["bun", "install", "--frozen-lockfile"])
+        .withExec(["bunx", "playwright", "install"])
+        .withExec(["bunx", "playwright", "install-deps"]);
 
       logWithTimestamp("Dependencies installed successfully");
       return container;
@@ -112,7 +111,7 @@ export class SjerRed {
       const builtContainer = container
         .withMountedCache("/webring-cache", dag.cacheVolume("webring-cache"))
         .withEnvVariable("WEBRING_CACHE_DIR", "/webring-cache")
-        .withExec(["npm", "run", "build"]);
+        .withExec(["bun", "run", "build"]);
 
       const distDir = builtContainer.directory("/workspace/dist");
       logWithTimestamp("Website built successfully");
@@ -146,7 +145,7 @@ export class SjerRed {
     return await withTiming("lint code", async () => {
       const container = await this.deps(source);
 
-      await container.withExec(["npm", "run", "lint"]).sync();
+      await container.withExec(["bun", "run", "lint"]).sync();
 
       logWithTimestamp("Linting completed successfully");
       return "✅ Linting passed";
@@ -182,7 +181,7 @@ export class SjerRed {
 
       const testContainer = container
         .withDirectory("/workspace/dist", distDir)
-        .withExec(["npm", "run", "test"]);
+        .withExec(["bun", "run", "test"]);
 
       await testContainer.sync();
 
@@ -228,7 +227,7 @@ export class SjerRed {
 
       const deployContainer = container
         .withDirectory("/workspace/dist", distDir)
-        .withExec(["npm", "install", "-g", "wrangler"])
+        .withExec(["bun", "install", "-g", "wrangler"])
         .withSecretVariable("CLOUDFLARE_ACCOUNT_ID", accountId)
         .withSecretVariable("CLOUDFLARE_API_TOKEN", apiToken)
         .withExec([
