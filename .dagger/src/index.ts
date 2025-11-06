@@ -32,6 +32,16 @@ function getBunContainer(version = "latest"): Container {
     .withEnvVariable("PUPPETEER_SKIP_DOWNLOAD", "1");
 }
 
+// Get a base container with Playwright system dependencies pre-installed
+// This is cached independently of source code changes
+// Using Chromium since that's more commonly used and better tested in containers
+function getBaseContainer(): Container {
+  return getBunContainer()
+    .withMountedCache("/root/.cache/ms-playwright", dag.cacheVolume("playwright-cache"))
+    .withExec(["bunx", "--yes", "playwright@1.52.0", "install", "chromium"])
+    .withExec(["bunx", "--yes", "playwright@1.52.0", "install-deps"]);
+}
+
 @object()
 export class SjerRed {
   /**
@@ -58,13 +68,10 @@ export class SjerRed {
     source: Directory,
   ): Promise<Container> {
     return withTiming("install dependencies", () => {
-      const container = getBunContainer()
+      const container = getBaseContainer()
         .withMountedCache("/root/.bun/install/cache", dag.cacheVolume("bun-cache"))
-        .withMountedCache("/root/.cache/ms-playwright", dag.cacheVolume("playwright-cache"))
         .withDirectory("/workspace", source)
-        .withExec(["bun", "install", "--frozen-lockfile"])
-        .withExec(["bunx", "playwright", "install"])
-        .withExec(["bunx", "playwright", "install-deps"]);
+        .withExec(["bun", "install", "--frozen-lockfile"]);
 
       logWithTimestamp("Dependencies installed successfully");
       return Promise.resolve(container);
@@ -143,6 +150,53 @@ export class SjerRed {
   }
 
   /**
+   * Run tests with official Playwright Docker image (sanity check)
+   * Uses Node.js (already in the image) instead of Bun
+   * @param source The source directory
+   * @returns A success message
+   */
+  @func()
+  async testOfficial(
+    @argument({
+      ignore: ["node_modules", "dist", "build", ".cache", "*.log", ".env*", "!.env.example", ".dagger"],
+      defaultPath: ".",
+    })
+    source: Directory,
+  ): Promise<string> {
+    return withTiming("run tests (official image)", async () => {
+      // Use official Playwright Docker image with Bun installed
+      // This gives us proven browser support + Bun's speed
+      // Version must match package.json @playwright/test version
+      const container = dag
+        .container()
+        .from("mcr.microsoft.com/playwright:v1.52.0-noble")
+        .withWorkdir("/workspace")
+        // Install unzip (required for Bun installer)
+        .withExec(["apt-get", "update"])
+        .withExec(["apt-get", "install", "-y", "unzip"])
+        // Install Bun
+        .withExec(["sh", "-c", "curl -fsSL https://bun.sh/install | bash"])
+        .withEnvVariable("PATH", "/root/.bun/bin:$PATH", { expand: true })
+        // Mount source and install dependencies with Bun
+        .withMountedCache("/root/.bun/install/cache", dag.cacheVolume("bun-cache"))
+        .withDirectory("/workspace", source)
+        .withExec(["bun", "install", "--frozen-lockfile"]);
+
+      const distDir = await this.build(source);
+
+      // Run tests with Bun
+      const result = await container
+        .withDirectory("/workspace/dist", distDir)
+        .withEnvVariable("CI", "true")
+        .withExec(["bun", "run", "test", "--project=chromium", "--max-failures=1"])
+        .stdout();
+
+      logWithTimestamp("Tests completed successfully");
+      return result || "✅ Tests passed";
+    });
+  }
+
+  /**
    * Run tests
    * @param source The source directory
    * @returns A success message
@@ -169,7 +223,10 @@ export class SjerRed {
       const container = await this.deps(source);
       const distDir = await this.build(source);
 
-      const testContainer = container.withDirectory("/workspace/dist", distDir).withExec(["bun", "run", "test"]);
+      const testContainer = container
+        .withDirectory("/workspace/dist", distDir)
+        .withEnvVariable("CI", "true")
+        .withExec(["bun", "run", "test"]);
 
       await testContainer.sync();
 
@@ -256,7 +313,7 @@ export class SjerRed {
         ".env*",
         "!.env.example",
         ".dagger",
-        "test/index.spec.ts-snapshots",
+        // Include snapshots for visual regression testing
       ],
       defaultPath: ".",
     })
@@ -272,7 +329,7 @@ export class SjerRed {
       // Run checks in parallel
       const [_, __, ___] = await Promise.all([
         withTiming("lint", () => this.lint(source)),
-        withTiming("test", () => this.test(source)),
+        withTiming("test", () => this.testOfficial(source)),
         withTiming("build", () => this.build(source)),
       ]);
 

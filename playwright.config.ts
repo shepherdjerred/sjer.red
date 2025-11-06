@@ -71,7 +71,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run preview",
+    // Use bun for both local and CI (CI container now has Bun installed)
+    // Add --host in CI to bind to all interfaces (not just localhost)
+    command: process.env.CI ? "bun run preview -- --host" : "bun run preview",
     url: "http://localhost:4321",
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
