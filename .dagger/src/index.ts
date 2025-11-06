@@ -285,10 +285,13 @@ export class SjerRed {
           `--commit-hash=${gitSha}`,
         ]);
 
-      await deployContainer.sync();
+      const output = await deployContainer.stdout();
+
+      logWithTimestamp("Deployment output:");
+      console.log(output);
 
       logWithTimestamp("Deployment completed successfully");
-      return `✅ Deployed to Cloudflare Pages (branch: ${branch}, commit: ${gitSha})`;
+      return `✅ Deployed to Cloudflare Pages (branch: ${branch}, commit: ${gitSha})\n\n${output}`;
     });
   }
 
