@@ -16,3 +16,6 @@ dist/
 .idea/
 *.swp
 *.swo
+/**/node_modules/**
+/**/.pnpm-store/**
+/.env

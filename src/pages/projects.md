@@ -77,7 +77,7 @@ A game/game engine I wrote from scratch.
 
 #### [Seminar Paper & Presentation](https://github.com/shepherdjerred-homework/seminar-paper)
 
-I wrote a paper over 3D Graphics Rendering with OpenGL. It's also a blog post [here](/blog/2019/opengl/)
+I wrote a paper over 3D Graphics Rendering with OpenGL. I also published it as a [blog post on OpenGL rendering](/blog/2019/opengl/).
 
 #### [Hue Saber](https://github.com/shepherdjerred/monorepo/tree/main/hue-saber)
 

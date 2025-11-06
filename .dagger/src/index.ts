@@ -1,12 +1,4 @@
-import {
-  func,
-  argument,
-  Directory,
-  object,
-  Secret,
-  Container,
-  dag,
-} from "@dagger.io/dagger";
+import { func, argument, Directory, object, Secret, Container, dag } from "@dagger.io/dagger";
 
 // Helper function to log with timestamp
 function logWithTimestamp(message: string): void {
@@ -14,10 +6,7 @@ function logWithTimestamp(message: string): void {
 }
 
 // Helper function to measure execution time
-async function withTiming<T>(
-  operation: string,
-  fn: () => Promise<T>
-): Promise<T> {
+async function withTiming<T>(operation: string, fn: () => Promise<T>): Promise<T> {
   const start = Date.now();
   logWithTimestamp(`Starting ${operation}...`);
   try {
@@ -28,14 +17,14 @@ async function withTiming<T>(
   } catch (error) {
     const duration = Date.now() - start;
     logWithTimestamp(
-      `❌ ${operation} failed after ${duration.toString()}ms: ${error instanceof Error ? error.message : String(error)}`
+      `❌ ${operation} failed after ${duration.toString()}ms: ${error instanceof Error ? error.message : String(error)}`,
     );
     throw error;
   }
 }
 
 // Get a Bun container with the specified version
-function getBunContainer(version: string = "latest"): Container {
+function getBunContainer(version = "latest"): Container {
   return dag
     .container()
     .from(`oven/bun:${version}`)
@@ -66,9 +55,9 @@ export class SjerRed {
       ],
       defaultPath: ".",
     })
-    source: Directory
+    source: Directory,
   ): Promise<Container> {
-    return await withTiming("install dependencies", async () => {
+    return withTiming("install dependencies", () => {
       const container = getBunContainer()
         .withMountedCache("/root/.bun/install/cache", dag.cacheVolume("bun-cache"))
         .withMountedCache("/root/.cache/ms-playwright", dag.cacheVolume("playwright-cache"))
@@ -78,7 +67,7 @@ export class SjerRed {
         .withExec(["bunx", "playwright", "install-deps"]);
 
       logWithTimestamp("Dependencies installed successfully");
-      return container;
+      return Promise.resolve(container);
     });
   }
 
@@ -103,9 +92,9 @@ export class SjerRed {
       ],
       defaultPath: ".",
     })
-    source: Directory
+    source: Directory,
   ): Promise<Directory> {
-    return await withTiming("build website", async () => {
+    return withTiming("build website", async () => {
       const container = await this.deps(source);
 
       const builtContainer = container
@@ -140,12 +129,13 @@ export class SjerRed {
       ],
       defaultPath: ".",
     })
-    source: Directory
+    source: Directory,
   ): Promise<string> {
-    return await withTiming("lint code", async () => {
+    return withTiming("lint code", async () => {
       const container = await this.deps(source);
 
-      await container.withExec(["bun", "run", "lint"]).sync();
+      // Generate Astro types before linting
+      await container.withExec(["bunx", "astro", "sync"]).withExec(["bun", "run", "lint"]).sync();
 
       logWithTimestamp("Linting completed successfully");
       return "✅ Linting passed";
@@ -173,15 +163,13 @@ export class SjerRed {
       ],
       defaultPath: ".",
     })
-    source: Directory
+    source: Directory,
   ): Promise<string> {
-    return await withTiming("run tests", async () => {
+    return withTiming("run tests", async () => {
       const container = await this.deps(source);
       const distDir = await this.build(source);
 
-      const testContainer = container
-        .withDirectory("/workspace/dist", distDir)
-        .withExec(["bun", "run", "test"]);
+      const testContainer = container.withDirectory("/workspace/dist", distDir).withExec(["bun", "run", "test"]);
 
       await testContainer.sync();
 
@@ -219,9 +207,9 @@ export class SjerRed {
     @argument() branch: string,
     @argument() gitSha: string,
     @argument() accountId: Secret,
-    @argument() apiToken: Secret
+    @argument() apiToken: Secret,
   ): Promise<string> {
-    return await withTiming("deploy to Cloudflare Pages", async () => {
+    return withTiming("deploy to Cloudflare Pages", async () => {
       const container = await this.deps(source);
       const distDir = await this.build(source);
 
@@ -276,13 +264,13 @@ export class SjerRed {
     @argument() branch: string,
     @argument() gitSha: string,
     accountId?: Secret,
-    apiToken?: Secret
+    apiToken?: Secret,
   ): Promise<string> {
-    return await withTiming("CI pipeline", async () => {
+    return withTiming("CI pipeline", async () => {
       logWithTimestamp("🚀 Starting CI pipeline");
 
       // Run checks in parallel
-      const [lintResult, testResult, buildResult] = await Promise.all([
+      const [_, __, ___] = await Promise.all([
         withTiming("lint", () => this.lint(source)),
         withTiming("test", () => this.test(source)),
         withTiming("build", () => this.build(source)),
