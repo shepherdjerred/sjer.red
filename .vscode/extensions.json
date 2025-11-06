@@ -6,7 +6,6 @@
     "esbenp.prettier-vscode",
     "unifiedjs.vscode-mdx",
     "github.vscode-github-actions",
-    "earthly.earthfile-syntax-highlighting",
     "orta.vscode-twoslash"
   ],
   "unwantedRecommendations": []
