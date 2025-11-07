@@ -267,19 +267,21 @@ export class SjerRed {
     @argument() apiToken: Secret,
   ): Promise<string> {
     return withTiming("deploy to Cloudflare Pages", async () => {
-      const container = await this.deps(source);
       const distDir = await this.build(source);
 
-      const deployContainer = container
+      // Use a Node.js container for wrangler (more standard/tested)
+      const deployContainer = dag
+        .container()
+        .from("node:lts-slim")
         .withDirectory("/workspace/dist", distDir)
-        .withExec(["bun", "install", "-g", "wrangler"])
         .withSecretVariable("CLOUDFLARE_ACCOUNT_ID", accountId)
         .withSecretVariable("CLOUDFLARE_API_TOKEN", apiToken)
         .withExec([
-          "wrangler",
+          "npx",
+          "wrangler@latest",
           "pages",
           "deploy",
-          "dist",
+          "/workspace/dist",
           "--project-name=shepherdjerred-com",
           `--branch=${branch}`,
           `--commit-hash=${gitSha}`,
