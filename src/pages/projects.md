@@ -16,7 +16,7 @@ My personal website. You can see my site (and taste) evolve over the years on th
 
 ### [homelab](https://github.com/shepherdjerred/homelab)
 
-k3s Kubernetes cluster for self-hosted services like Plex, file syncing, and home automation. Self-updating with Renovate + ArgoCD + Chart Museum + Jenkins. Written in TypeScript with cdk8s and built with Deno.
+k3s Kubernetes cluster for self-hosted services like Plex, file syncing, and home automation. Self-updating with Renovate + ArgoCD + Chart Museum + GitHub Actions. Written in TypeScript with cdk8s and built with Bun.
 
 ### Tiger compiler
 
@@ -30,9 +30,9 @@ Generate Open Graph images using React/Tailwind.
 
 Fetch updates from lists of RSS feeds.
 
-### [League of Legends Previews](https://github.com/shepherdjerred/discord)
+### [Scout for LoL](https://github.com/shepherdjerred/scout-for-lol)
 
-Generates League of Legends match report images using React/Tailwind & posts them to Discord. Also has some leaderboard/point tracking functionality.
+A Discord bot that tracks your friends' League of Legends matches. I've learnt a lot about developing with AI effectively while building this project.
 
 ## 2023
 
