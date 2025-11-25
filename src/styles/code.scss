@@ -18,7 +18,12 @@
 }
 
 .twoslash .twoslash-error-line {
+  // override width: max-content from twoslash default styles
+  // which causes horizontal overflow on mobile with long error messages
+  width: auto;
   max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .twoslash-popup-container {
