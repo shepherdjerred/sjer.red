@@ -25,7 +25,7 @@ The correct function will be called depending on the type passed in.
 TypeScript is largely erased at runtime, so there isn't a way to determine which function implementation should be called. For example, consider this hypothetical syntax:
 
 ```ts
-// @errors: 2393 2345
+// @noErrors
 function doThing(a: number) {
   console.log("Got an number!");
 }
@@ -43,7 +43,7 @@ At runtime, do we want to call doThing(number) or doThing(string)?
 JavaScript is [weakly-typed](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures#dynamic_and_weak_typing), so it can't know if you're wanting it to type coerce or not. In this example a straightforward solution would be to call the strongest match, but it becomes more complicated when you consider more complex types. For example:
 
 ```ts
-// @errors: 2393 2353
+// @noErrors
 type Person = {
   name: string;
   age: number;
