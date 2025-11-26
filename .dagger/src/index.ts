@@ -242,7 +242,7 @@ export class SjerRed {
    * @param gitSha The git commit SHA
    * @param accountId Cloudflare account ID
    * @param apiToken Cloudflare API token
-   * @returns A success message
+   * @returns The deployment URL
    */
   @func()
   async deploy(
@@ -292,8 +292,13 @@ export class SjerRed {
       logWithTimestamp("Deployment output:");
       console.log(output);
 
-      logWithTimestamp("Deployment completed successfully");
-      return `✅ Deployed to Cloudflare Pages (branch: ${branch}, commit: ${gitSha})\n\n${output}`;
+      // Extract the deployment URL from wrangler output
+      // Wrangler outputs something like: "✨ Deployment complete! Take a peek over at https://abc123.shepherdjerred-com.pages.dev"
+      const urlMatch = output.match(/https:\/\/[^\s]+\.pages\.dev/);
+      const deployUrl = urlMatch ? urlMatch[0] : `https://${gitSha.substring(0, 8)}.shepherdjerred-com.pages.dev`;
+
+      logWithTimestamp(`Deployment completed successfully: ${deployUrl}`);
+      return deployUrl;
     });
   }
 
@@ -304,7 +309,7 @@ export class SjerRed {
    * @param gitSha The git commit SHA
    * @param accountId Cloudflare account ID (optional, for deployment)
    * @param apiToken Cloudflare API token (optional, for deployment)
-   * @returns A success message
+   * @returns A success message with deploy URL if deployed
    */
   @func()
   async ci(
@@ -340,9 +345,11 @@ export class SjerRed {
 
       logWithTimestamp("✅ All checks passed");
 
-      // Deploy if on main branch and secrets are provided
-      if (branch === "main" && accountId && apiToken) {
-        await this.deploy(source, branch, gitSha, accountId, apiToken);
+      // Deploy if secrets are provided (works for both main and preview branches)
+      if (accountId && apiToken) {
+        const deployUrl = await this.deploy(source, branch, gitSha, accountId, apiToken);
+        // Output the deploy URL in a parseable format for CI
+        return `DEPLOY_URL=${deployUrl}`;
       }
 
       return `✅ CI pipeline completed successfully (branch: ${branch}, commit: ${gitSha})`;
