@@ -303,12 +303,109 @@ export class SjerRed {
   }
 
   /**
+   * Post or update a deploy preview comment on a GitHub PR
+   * @param repo The GitHub repository (owner/repo format)
+   * @param prNumber The pull request number
+   * @param deployUrl The deployment preview URL
+   * @param gitSha The git commit SHA
+   * @param githubToken GitHub token for API access
+   */
+  @func()
+  async commentOnPr(
+    @argument() repo: string,
+    @argument() prNumber: number,
+    @argument() deployUrl: string,
+    @argument() gitSha: string,
+    @argument() githubToken: Secret,
+  ): Promise<string> {
+    return withTiming("comment on PR", async () => {
+      const commentMarker = "<!-- deploy-preview-comment -->";
+      const body = `${commentMarker}
+## Deploy Preview
+
+Your deploy preview is ready!
+
+| Name | Link |
+|------|------|
+| Preview | ${deployUrl} |
+| Commit | \`${gitSha}\` |`;
+
+      // Use a container with curl to interact with GitHub API
+      const container = dag
+        .container()
+        .from("curlimages/curl:latest")
+        .withSecretVariable("GITHUB_TOKEN", githubToken);
+
+      // First, find existing comment
+      const listCommentsResult = await container
+        .withExec([
+          "sh",
+          "-c",
+          `curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${repo}/issues/${prNumber.toString()}/comments"`,
+        ])
+        .stdout();
+
+      // Parse comments to find existing deploy preview comment
+      let existingCommentId: number | null = null;
+      try {
+        const comments = JSON.parse(listCommentsResult) as Array<{ id: number; body: string }>;
+        const existing = comments.find((c) => c.body.includes(commentMarker));
+        if (existing) {
+          existingCommentId = existing.id;
+        }
+      } catch {
+        logWithTimestamp("Could not parse existing comments, will create new comment");
+      }
+
+      // Escape the body for JSON
+      const escapedBody = body.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n");
+
+      if (existingCommentId) {
+        // Update existing comment
+        await container
+          .withExec([
+            "sh",
+            "-c",
+            `curl -s -X PATCH \
+              -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.v3+json" \
+              -d '{"body": "${escapedBody}"}' \
+              "https://api.github.com/repos/${repo}/issues/comments/${existingCommentId.toString()}"`,
+          ])
+          .sync();
+        logWithTimestamp(`Updated existing comment ${existingCommentId.toString()}`);
+      } else {
+        // Create new comment
+        await container
+          .withExec([
+            "sh",
+            "-c",
+            `curl -s -X POST \
+              -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.v3+json" \
+              -d '{"body": "${escapedBody}"}' \
+              "https://api.github.com/repos/${repo}/issues/${prNumber.toString()}/comments"`,
+          ])
+          .sync();
+        logWithTimestamp("Created new comment");
+      }
+
+      return `✅ Posted deploy preview comment on PR #${prNumber.toString()}`;
+    });
+  }
+
+  /**
    * Run the complete CI pipeline
    * @param source The source directory
    * @param branch The git branch name
    * @param gitSha The git commit SHA
    * @param accountId Cloudflare account ID (optional, for deployment)
    * @param apiToken Cloudflare API token (optional, for deployment)
+   * @param githubRepo GitHub repository (owner/repo) for PR comments
+   * @param prNumber Pull request number for posting comments
+   * @param githubToken GitHub token for PR comments
    * @returns A success message with deploy URL if deployed
    */
   @func()
@@ -332,6 +429,9 @@ export class SjerRed {
     @argument() gitSha: string,
     accountId?: Secret,
     apiToken?: Secret,
+    githubRepo?: string,
+    prNumber?: number,
+    githubToken?: Secret,
   ): Promise<string> {
     return withTiming("CI pipeline", async () => {
       logWithTimestamp("🚀 Starting CI pipeline");
@@ -345,11 +445,16 @@ export class SjerRed {
 
       logWithTimestamp("✅ All checks passed");
 
-      // Deploy if secrets are provided (works for both main and preview branches)
+      // Deploy if Cloudflare secrets are provided
       if (accountId && apiToken) {
         const deployUrl = await this.deploy(source, branch, gitSha, accountId, apiToken);
-        // Output the deploy URL in a parseable format for CI
-        return `DEPLOY_URL=${deployUrl}`;
+
+        // Post comment on PR if GitHub info is provided
+        if (githubRepo && prNumber && githubToken) {
+          await this.commentOnPr(githubRepo, prNumber, deployUrl, gitSha, githubToken);
+        }
+
+        return `✅ Deployed to ${deployUrl}`;
       }
 
       return `✅ CI pipeline completed successfully (branch: ${branch}, commit: ${gitSha})`;
