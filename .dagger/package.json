@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@shepherdjerred/dagger-utils": "^0.3.0",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
