@@ -10,14 +10,9 @@ function getBunContainer(version = "latest"): Container {
     .withEnvVariable("PUPPETEER_SKIP_DOWNLOAD", "1");
 }
 
-// Get a base container with Playwright system dependencies pre-installed
-// This is cached independently of source code changes
-// Using Chromium since that's more commonly used and better tested in containers
+// Get a base container for general operations (no Playwright needed)
 function getBaseContainer(): Container {
-  return getBunContainer()
-    .withMountedCache("/root/.cache/ms-playwright", dag.cacheVolume("playwright-cache"))
-    .withExec(["bunx", "--yes", "playwright@1.52.0", "install", "chromium"])
-    .withExec(["bunx", "--yes", "playwright@1.52.0", "install-deps"]);
+  return getBunContainer();
 }
 
 @object()
