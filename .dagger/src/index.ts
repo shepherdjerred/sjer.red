@@ -1,7 +1,7 @@
 import { func, argument, Directory, object, Secret, Container, dag } from "@dagger.io/dagger";
 import { logWithTimestamp, withTiming } from "@shepherdjerred/dagger-utils/utils";
 
-// Get a Bun container with the specified version
+// Get a Bun container with the specified version (for simple operations like lint)
 function getBunContainer(version = "latest"): Container {
   return dag
     .container()
@@ -10,15 +10,33 @@ function getBunContainer(version = "latest"): Container {
     .withEnvVariable("PUPPETEER_SKIP_DOWNLOAD", "1");
 }
 
-// Get a base container for general operations (no Playwright needed)
-function getBaseContainer(): Container {
-  return getBunContainer();
+// Get a container with Playwright + Bun for operations that need browser (build, test)
+// Uses official Playwright image with Bun installed on top
+function getPlaywrightContainer(): Container {
+  return dag
+    .container()
+    .from("mcr.microsoft.com/playwright:v1.52.0-noble")
+    .withWorkdir("/workspace")
+    // Install unzip (required for Bun installer)
+    .withExec(["apt-get", "update"])
+    .withExec(["apt-get", "install", "-y", "unzip"])
+    // Install Bun
+    .withExec(["sh", "-c", "curl -fsSL https://bun.sh/install | bash"])
+    .withEnvVariable("PATH", "/root/.bun/bin:$PATH", { expand: true });
+}
+
+// Install deps on a given base container
+function installDeps(baseContainer: Container, source: Directory): Container {
+  return baseContainer
+    .withMountedCache("/root/.bun/install/cache", dag.cacheVolume("bun-cache"))
+    .withDirectory("/workspace", source)
+    .withExec(["bun", "install", "--frozen-lockfile"]);
 }
 
 @object()
 export class SjerRed {
   /**
-   * Install dependencies
+   * Install dependencies (simple container, no Playwright)
    * @param source The source directory
    * @returns A container with dependencies installed
    */
@@ -41,18 +59,44 @@ export class SjerRed {
     source: Directory,
   ): Promise<Container> {
     return withTiming("install dependencies", () => {
-      const container = getBaseContainer()
-        .withMountedCache("/root/.bun/install/cache", dag.cacheVolume("bun-cache"))
-        .withDirectory("/workspace", source)
-        .withExec(["bun", "install", "--frozen-lockfile"]);
-
+      const container = installDeps(getBunContainer(), source);
       logWithTimestamp("Dependencies installed successfully");
       return Promise.resolve(container);
     });
   }
 
   /**
-   * Build the website
+   * Install dependencies with Playwright support (for build/test)
+   * @param source The source directory
+   * @returns A container with dependencies and Playwright installed
+   */
+  @func()
+  async depsWithPlaywright(
+    @argument({
+      ignore: [
+        "node_modules",
+        "dist",
+        "build",
+        ".cache",
+        "*.log",
+        ".env*",
+        "!.env.example",
+        ".dagger",
+        "test/index.spec.ts-snapshots",
+      ],
+      defaultPath: ".",
+    })
+    source: Directory,
+  ): Promise<Container> {
+    return withTiming("install dependencies with Playwright", () => {
+      const container = installDeps(getPlaywrightContainer(), source);
+      logWithTimestamp("Dependencies with Playwright installed successfully");
+      return Promise.resolve(container);
+    });
+  }
+
+  /**
+   * Build the website (requires Playwright for OG image generation)
    * @param source The source directory
    * @returns The built website directory
    */
@@ -75,7 +119,8 @@ export class SjerRed {
     source: Directory,
   ): Promise<Directory> {
     return withTiming("build website", async () => {
-      const container = await this.deps(source);
+      // Build requires Playwright for MDX/OG image processing
+      const container = await this.depsWithPlaywright(source);
 
       const builtContainer = container
         .withMountedCache("/webring-cache", dag.cacheVolume("webring-cache"))
@@ -123,8 +168,7 @@ export class SjerRed {
   }
 
   /**
-   * Run tests with official Playwright Docker image (sanity check)
-   * Uses Node.js (already in the image) instead of Bun
+   * Run tests with official Playwright Docker image
    * @param source The source directory
    * @returns A success message
    */
@@ -137,24 +181,7 @@ export class SjerRed {
     source: Directory,
   ): Promise<string> {
     return withTiming("run tests (official image)", async () => {
-      // Use official Playwright Docker image with Bun installed
-      // This gives us proven browser support + Bun's speed
-      // Version must match package.json @playwright/test version
-      const container = dag
-        .container()
-        .from("mcr.microsoft.com/playwright:v1.52.0-noble")
-        .withWorkdir("/workspace")
-        // Install unzip (required for Bun installer)
-        .withExec(["apt-get", "update"])
-        .withExec(["apt-get", "install", "-y", "unzip"])
-        // Install Bun
-        .withExec(["sh", "-c", "curl -fsSL https://bun.sh/install | bash"])
-        .withEnvVariable("PATH", "/root/.bun/bin:$PATH", { expand: true })
-        // Mount source and install dependencies with Bun
-        .withMountedCache("/root/.bun/install/cache", dag.cacheVolume("bun-cache"))
-        .withDirectory("/workspace", source)
-        .withExec(["bun", "install", "--frozen-lockfile"]);
-
+      const container = await this.depsWithPlaywright(source);
       const distDir = await this.build(source);
 
       // Run tests with Bun
@@ -193,7 +220,7 @@ export class SjerRed {
     source: Directory,
   ): Promise<string> {
     return withTiming("run tests", async () => {
-      const container = await this.deps(source);
+      const container = await this.depsWithPlaywright(source);
       const distDir = await this.build(source);
 
       const testContainer = container
