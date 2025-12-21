@@ -28,6 +28,7 @@ jobs:
           DAGGER_CLOUD_TOKEN: op://GitHub Actions/Secrets/add more/DAGGER_CLOUD_TOKEN
           CLOUDFLARE_ACCOUNT_ID: op://GitHub Actions/Secrets/add more/CLOUDFLARE_ACCOUNT_ID
           CLOUDFLARE_API_TOKEN: op://GitHub Actions/Secrets/add more/CLOUDFLARE_API_TOKEN
+          GH_TOKEN: op://GitHub Actions/Secrets/add more/GH_TOKEN
 
       - name: Extract kubectl version
         id: kubectl-version
@@ -83,7 +84,7 @@ jobs:
 
       - name: Run Dagger CI
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ env.GH_TOKEN }}
         run: |
           ARGS=(
             --source=.
