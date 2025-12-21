@@ -13,16 +13,18 @@ function getBunContainer(version = "latest"): Container {
 // Get a container with Playwright + Bun for operations that need browser (build, test)
 // Uses official Playwright image with Bun installed on top
 function getPlaywrightContainer(): Container {
-  return dag
-    .container()
-    .from("mcr.microsoft.com/playwright:v1.52.0-noble")
-    .withWorkdir("/workspace")
-    // Install unzip (required for Bun installer)
-    .withExec(["apt-get", "update"])
-    .withExec(["apt-get", "install", "-y", "unzip"])
-    // Install Bun
-    .withExec(["sh", "-c", "curl -fsSL https://bun.sh/install | bash"])
-    .withEnvVariable("PATH", "/root/.bun/bin:$PATH", { expand: true });
+  return (
+    dag
+      .container()
+      .from("mcr.microsoft.com/playwright:v1.57.0-noble")
+      .withWorkdir("/workspace")
+      // Install unzip (required for Bun installer)
+      .withExec(["apt-get", "update"])
+      .withExec(["apt-get", "install", "-y", "unzip"])
+      // Install Bun
+      .withExec(["sh", "-c", "curl -fsSL https://bun.sh/install | bash"])
+      .withEnvVariable("PATH", "/root/.bun/bin:$PATH", { expand: true })
+  );
 }
 
 // Install deps on a given base container
@@ -331,10 +333,7 @@ Your deploy preview is ready!
 | Commit | \`${gitSha}\` |`;
 
       // Use a container with curl to interact with GitHub API
-      const container = dag
-        .container()
-        .from("curlimages/curl:latest")
-        .withSecretVariable("GITHUB_TOKEN", githubToken);
+      const container = dag.container().from("curlimages/curl:latest").withSecretVariable("GITHUB_TOKEN", githubToken);
 
       // First, find existing comment
       const listCommentsResult = await container

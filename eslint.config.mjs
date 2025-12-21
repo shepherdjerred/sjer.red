@@ -5,7 +5,7 @@ import eslintPluginAstro from "eslint-plugin-astro";
 
 export default [
   {
-    ignores: [".astro", "dist"],
+    ignores: [".astro", "dist", ".dagger"],
   },
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
