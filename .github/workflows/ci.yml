@@ -69,30 +69,39 @@ jobs:
           DAGGER_ENGINE_POD_NAME="$(kubectl get pod --selector=name=dagger-dagger-helm-engine --namespace=dagger --output=jsonpath='{.items[0].metadata.name}')"
           echo "_EXPERIMENTAL_DAGGER_RUNNER_HOST=kube-pod://$DAGGER_ENGINE_POD_NAME?namespace=dagger" >> "$GITHUB_ENV"
 
-      - name: Run Dagger CI pipeline (main branch)
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      - name: Determine branch and PR info
+        id: context
         run: |
-          dagger call ci \
-            --source=. \
-            --branch="${{ github.ref_name }}" \
-            --git-sha="${{ github.sha }}" \
-            --account-id=env:CLOUDFLARE_ACCOUNT_ID \
-            --api-token=env:CLOUDFLARE_API_TOKEN
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "branch=${{ github.head_ref }}" >> "$GITHUB_OUTPUT"
+            echo "is_pr=true" >> "$GITHUB_OUTPUT"
+            echo "pr_number=${{ github.event.pull_request.number }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "branch=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+            echo "is_pr=false" >> "$GITHUB_OUTPUT"
+          fi
 
-      - name: Run Dagger CI pipeline (pull request)
-        if: github.event_name == 'pull_request'
+      - name: Run Dagger CI
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          dagger call ci \
-            --source=. \
-            --branch="${{ github.head_ref }}" \
-            --git-sha="${{ github.sha }}" \
-            --account-id=env:CLOUDFLARE_ACCOUNT_ID \
-            --api-token=env:CLOUDFLARE_API_TOKEN \
-            --github-repo="${{ github.repository }}" \
-            --pr-number="${{ github.event.pull_request.number }}" \
-            --github-token=env:GITHUB_TOKEN
+          ARGS=(
+            --source=.
+            --branch="${{ steps.context.outputs.branch }}"
+            --git-sha="${{ github.sha }}"
+            --account-id=env:CLOUDFLARE_ACCOUNT_ID
+            --api-token=env:CLOUDFLARE_API_TOKEN
+          )
+
+          if [[ "${{ steps.context.outputs.is_pr }}" == "true" ]]; then
+            ARGS+=(
+              --github-repo="${{ github.repository }}"
+              --pr-number="${{ steps.context.outputs.pr_number }}"
+              --github-token=env:GITHUB_TOKEN
+            )
+          fi
+
+          dagger call ci "${ARGS[@]}"
 
 permissions:
   contents: read
