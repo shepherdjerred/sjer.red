@@ -46,7 +46,7 @@ export class SjerRed {
   async deps(
     @argument({
       ignore: [
-        "node_modules",
+        "**/node_modules",
         "dist",
         "build",
         ".cache",
@@ -76,7 +76,7 @@ export class SjerRed {
   async depsWithPlaywright(
     @argument({
       ignore: [
-        "node_modules",
+        "**/node_modules",
         "dist",
         "build",
         ".cache",
@@ -106,7 +106,7 @@ export class SjerRed {
   async build(
     @argument({
       ignore: [
-        "node_modules",
+        "**/node_modules",
         "dist",
         "build",
         ".cache",
@@ -144,7 +144,7 @@ export class SjerRed {
   async lint(
     @argument({
       ignore: [
-        "node_modules",
+        "**/node_modules",
         "dist",
         "build",
         ".cache",
@@ -177,7 +177,7 @@ export class SjerRed {
   @func()
   async testOfficial(
     @argument({
-      ignore: ["node_modules", "dist", "build", ".cache", "*.log", ".env*", "!.env.example", ".dagger"],
+      ignore: ["**/node_modules", "dist", "build", ".cache", "*.log", ".env*", "!.env.example", ".dagger"],
       defaultPath: ".",
     })
     source: Directory,
@@ -207,7 +207,7 @@ export class SjerRed {
   async test(
     @argument({
       ignore: [
-        "node_modules",
+        "**/node_modules",
         "dist",
         "build",
         ".cache",
@@ -250,7 +250,7 @@ export class SjerRed {
   async deploy(
     @argument({
       ignore: [
-        "node_modules",
+        "**/node_modules",
         "dist",
         "build",
         ".cache",
@@ -411,7 +411,7 @@ Your deploy preview is ready!
   async ci(
     @argument({
       ignore: [
-        "node_modules",
+        "**/node_modules",
         "dist",
         "build",
         ".cache",
