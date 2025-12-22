@@ -91,13 +91,7 @@ jobs:
             --git-sha="${{ github.sha }}"
           )
 
-          if [[ "${{ steps.context.outputs.is_pr }}" == "true" ]]; then
-            ARGS+=(
-              --github-repo="${{ github.repository }}"
-              --pr-number="${{ steps.context.outputs.pr_number }}"
-              --github-token=env:GITHUB_TOKEN
-            )
-          else
+          if [[ "${{ steps.context.outputs.is_pr }}" != "true" ]]; then
             ARGS+=(
               --ghcr-username="${{ github.actor }}"
               --ghcr-password=env:GITHUB_TOKEN
