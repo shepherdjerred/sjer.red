@@ -83,7 +83,8 @@ jobs:
 
       - name: Run Dagger CI
         env:
-          GITHUB_TOKEN: ${{ env.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN_PAT: ${{ env.GH_TOKEN }}
         run: |
           ARGS=(
             --source=.
@@ -95,7 +96,7 @@ jobs:
             ARGS+=(
               --ghcr-username="${{ github.actor }}"
               --ghcr-password=env:GITHUB_TOKEN
-              --gh-token=env:GITHUB_TOKEN
+              --gh-token=env:GH_TOKEN_PAT
             )
           fi
 
