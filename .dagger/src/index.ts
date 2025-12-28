@@ -1,5 +1,6 @@
 import { func, argument, Directory, object, Secret, Container, dag } from "@dagger.io/dagger";
 import { logWithTimestamp, withTiming } from "@shepherdjerred/dagger-utils/utils";
+import { updateHomelabVersion } from "@shepherdjerred/dagger-utils/containers";
 
 // Get a Bun container with the specified version (for simple operations like lint)
 function getBunContainer(version = "latest"): Container {
@@ -317,12 +318,35 @@ export class SjerRed {
   }
 
   /**
+   * Deploy to homelab by creating a PR to update the image version
+   * @param version The version/tag to deploy
+   * @param ghToken GitHub token for creating the PR
+   * @returns The result of the deployment
+   */
+  @func()
+  async deploy(@argument() version: string, @argument() ghToken: Secret): Promise<string> {
+    return withTiming("deploy to homelab", async () => {
+      logWithTimestamp(`Creating PR to update sjer.red to version ${version}`);
+
+      const result = await updateHomelabVersion({
+        ghToken,
+        appName: "sjer.red",
+        version,
+      });
+
+      logWithTimestamp(`Deployment PR created: ${result}`);
+      return result;
+    });
+  }
+
+  /**
    * Run the complete CI pipeline
    * @param source The source directory
    * @param branch The git branch name
    * @param gitSha The git commit SHA
    * @param ghcrUsername GHCR username (optional, for publishing)
    * @param ghcrPassword GHCR password/token (optional, for publishing)
+   * @param ghToken GitHub token (optional, for creating deployment PR)
    * @returns A success message with image reference if published
    */
   @func()
@@ -346,6 +370,7 @@ export class SjerRed {
     @argument() gitSha: string,
     ghcrUsername?: string,
     ghcrPassword?: Secret,
+    ghToken?: Secret,
   ): Promise<string> {
     return withTiming("CI pipeline", async () => {
       logWithTimestamp("🚀 Starting CI pipeline");
@@ -367,6 +392,12 @@ export class SjerRed {
           this.publish(source, `${baseImage}:latest`, ghcrUsername, ghcrPassword),
           this.publish(source, `${baseImage}:${gitSha}`, ghcrUsername, ghcrPassword),
         ]);
+
+        // Deploy to homelab if GitHub token is provided
+        if (ghToken) {
+          await this.deploy(gitSha, ghToken);
+          return `✅ Published and deployed:\n  - ${latestRef}\n  - ${shaRef}\n  - Deployed version: ${gitSha}`;
+        }
 
         return `✅ Published images:\n  - ${latestRef}\n  - ${shaRef}`;
       }
