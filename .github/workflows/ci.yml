@@ -95,6 +95,7 @@ jobs:
             ARGS+=(
               --ghcr-username="${{ github.actor }}"
               --ghcr-password=env:GITHUB_TOKEN
+              --gh-token=env:GITHUB_TOKEN
             )
           fi
 
