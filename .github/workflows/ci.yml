@@ -89,7 +89,7 @@ jobs:
           ARGS=(
             --source=.
             --branch="${{ steps.context.outputs.branch }}"
-            --git-sha="${{ github.sha }}"
+            --version="1.0.${{ github.run_number }}"
           )
 
           if [[ "${{ steps.context.outputs.is_pr }}" != "true" ]]; then

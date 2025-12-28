@@ -343,7 +343,7 @@ export class SjerRed {
    * Run the complete CI pipeline
    * @param source The source directory
    * @param branch The git branch name
-   * @param gitSha The git commit SHA
+   * @param version The version tag (e.g., 1.0.123)
    * @param ghcrUsername GHCR username (optional, for publishing)
    * @param ghcrPassword GHCR password/token (optional, for publishing)
    * @param ghToken GitHub token (optional, for creating deployment PR)
@@ -367,7 +367,7 @@ export class SjerRed {
     })
     source: Directory,
     @argument() branch: string,
-    @argument() gitSha: string,
+    @argument() version: string,
     ghcrUsername?: string,
     ghcrPassword?: Secret,
     ghToken?: Secret,
@@ -386,23 +386,23 @@ export class SjerRed {
 
       // Publish to GHCR if credentials are provided and on main branch
       if (ghcrUsername && ghcrPassword && branch === "main") {
-        // Publish both :latest and :sha tags
+        // Publish both :latest and :version tags
         const baseImage = "ghcr.io/shepherdjerred/sjer.red";
-        const [latestRef, shaRef] = await Promise.all([
+        const [latestRef, versionRef] = await Promise.all([
           this.publish(source, `${baseImage}:latest`, ghcrUsername, ghcrPassword),
-          this.publish(source, `${baseImage}:${gitSha}`, ghcrUsername, ghcrPassword),
+          this.publish(source, `${baseImage}:${version}`, ghcrUsername, ghcrPassword),
         ]);
 
         // Deploy to homelab if GitHub token is provided
         if (ghToken) {
-          await this.deploy(gitSha, ghToken);
-          return `✅ Published and deployed:\n  - ${latestRef}\n  - ${shaRef}\n  - Deployed version: ${gitSha}`;
+          await this.deploy(version, ghToken);
+          return `✅ Published and deployed:\n  - ${latestRef}\n  - ${versionRef}\n  - Deployed version: ${version}`;
         }
 
-        return `✅ Published images:\n  - ${latestRef}\n  - ${shaRef}`;
+        return `✅ Published images:\n  - ${latestRef}\n  - ${versionRef}`;
       }
 
-      return `✅ CI pipeline completed successfully (branch: ${branch}, commit: ${gitSha})`;
+      return `✅ CI pipeline completed successfully (branch: ${branch}, version: ${version})`;
     });
   }
 }
