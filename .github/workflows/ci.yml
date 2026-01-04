@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: "0 4 * * *" # Daily at 4 AM UTC
 
 jobs:
   dagger-ci:
@@ -71,13 +73,19 @@ jobs:
 
       - name: Determine branch and PR info
         id: context
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          HEAD_REF: ${{ github.head_ref }}
+          REF_NAME: ${{ github.ref_name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            echo "branch=${{ github.head_ref }}" >> "$GITHUB_OUTPUT"
+          if [[ "$EVENT_NAME" == "pull_request" ]]; then
+            echo "branch=$HEAD_REF" >> "$GITHUB_OUTPUT"
             echo "is_pr=true" >> "$GITHUB_OUTPUT"
-            echo "pr_number=${{ github.event.pull_request.number }}" >> "$GITHUB_OUTPUT"
+            echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
           else
-            echo "branch=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+            # For push and schedule events, use ref_name (defaults to main for schedule)
+            echo "branch=$REF_NAME" >> "$GITHUB_OUTPUT"
             echo "is_pr=false" >> "$GITHUB_OUTPUT"
           fi
 
@@ -90,6 +98,7 @@ jobs:
             --source=.
             --branch="${{ steps.context.outputs.branch }}"
             --version="1.0.${{ github.run_number }}"
+            --date="$(date -u +%Y-%m-%d)"
           )
 
           if [[ "${{ steps.context.outputs.is_pr }}" != "true" ]]; then
