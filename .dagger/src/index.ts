@@ -344,6 +344,7 @@ export class SjerRed {
    * @param source The source directory
    * @param branch The git branch name
    * @param version The version tag (e.g., 1.0.123)
+   * @param date The current date (YYYY-MM-DD) for cache busting on scheduled builds
    * @param ghcrUsername GHCR username (optional, for publishing)
    * @param ghcrPassword GHCR password/token (optional, for publishing)
    * @param ghToken GitHub token (optional, for creating deployment PR)
@@ -368,12 +369,13 @@ export class SjerRed {
     source: Directory,
     @argument() branch: string,
     @argument() version: string,
+    @argument() date: string,
     ghcrUsername?: string,
     ghcrPassword?: Secret,
     ghToken?: Secret,
   ): Promise<string> {
     return withTiming("CI pipeline", async () => {
-      logWithTimestamp("🚀 Starting CI pipeline");
+      logWithTimestamp(`🚀 Starting CI pipeline (date: ${date})`);
 
       // Run checks in parallel
       const [_, __, ___] = await Promise.all([
