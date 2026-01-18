@@ -31,7 +31,7 @@
     "astro-diagram": "^0.7.0",
     "astro-icon": "^1.1.5",
     "astro-opengraph-images": "^1.12.1",
-    "astro-seo": "^0.8.4",
+    "astro-seo": "^1.0.0",
     "jsdom": "^27.0.0",
     "markdown-it": "^14.1.0",
     "react": "^19.0.0",
