@@ -29,7 +29,8 @@ jobs:
           export-env: true
         env:
           DAGGER_CLOUD_TOKEN: op://bic45kuflnwsnxnd67dzcnxjze/5p65mbzr237yyzt2sfnfao3a5a/DAGGER_CLOUD_TOKEN
-          GH_TOKEN: op://bic45kuflnwsnxnd67dzcnxjze/5p65mbzr237yyzt2sfnfao3a5a/GH_TOKEN
+          S3_ACCESS_KEY_ID: op://bic45kuflnwsnxnd67dzcnxjze/5p65mbzr237yyzt2sfnfao3a5a/S3_ACCESS_KEY_ID
+          S3_SECRET_ACCESS_KEY: op://bic45kuflnwsnxnd67dzcnxjze/5p65mbzr237yyzt2sfnfao3a5a/S3_SECRET_ACCESS_KEY
 
       - name: Extract kubectl version
         id: kubectl-version
@@ -90,9 +91,6 @@ jobs:
           fi
 
       - name: Run Dagger CI
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN_PAT: ${{ env.GH_TOKEN }}
         run: |
           ARGS=(
             --source=.
@@ -103,9 +101,8 @@ jobs:
 
           if [[ "${{ steps.context.outputs.is_pr }}" != "true" ]]; then
             ARGS+=(
-              --ghcr-username="${{ github.actor }}"
-              --ghcr-password=env:GITHUB_TOKEN
-              --gh-token=env:GH_TOKEN_PAT
+              --s3-access-key-id=env:S3_ACCESS_KEY_ID
+              --s3-secret-access-key=env:S3_SECRET_ACCESS_KEY
             )
           fi
 
@@ -113,4 +110,3 @@ jobs:
 
 permissions:
   contents: read
-  packages: write
