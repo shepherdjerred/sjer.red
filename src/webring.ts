@@ -101,6 +101,18 @@ export async function getPosts(_date: Date): Promise<Result> {
         url: "https://jmw.sh/blog/index.xml",
         title: "Jacob Woliver",
       },
+      {
+        url: "https://www.avabear.xyz/feed",
+        title: "bookbear express",
+      },
+      {
+        url: "https://krebsonsecurity.com/feed/",
+        title: "Krebs on Security",
+      },
+      {
+        url: "https://www.seangoedecke.com/rss.xml",
+        title: "Sean Goedecke",
+      },
     ],
     number: 3,
     truncate: 300,
