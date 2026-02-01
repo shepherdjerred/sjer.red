@@ -15,7 +15,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@sentry/browser": "^9.3.0",
+    "@sentry/browser": "^10.0.0",
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.2.0",
     "@astrojs/rss": "^4.0.11",
