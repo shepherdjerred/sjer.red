@@ -74,6 +74,12 @@ import "@fontsource-variable/lora";
     <ClientRouter />
 
     <script defer data-domain="sjer.red" src="https://plausible.sjer.red/js/script.js"></script>
+    <script>
+      import * as Sentry from "@sentry/browser";
+      Sentry.init({
+        dsn: "https://41fb03e17fb24ceb98a910ad7dea3572@bugsink.sjer.red/2",
+      });
+    </script>
   </head>
   <body>
     <slot />
